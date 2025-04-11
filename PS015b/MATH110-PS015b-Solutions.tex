@@ -1,0 +1,168 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage[aux]{rerunfilecheck}
+
+\input{../common.tex}
+
+\newcommand{\ds}{\displaystyle}
+
+\title{\commonPSTitleZeroOneFive b\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroOneFive}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1 EJD: check these definitions
+  The first limit statement means that $f(x)$ can be made arbitrarily close
+  to $3$ by taking $x$ close to (but less than) $2$.  The second
+  limit statement means that $f(x)$ can be made arbitrarily close to
+  $5$ by taking $x$ close to (but greater than) $2$.  It is not
+  possible for $\ds \lim_{x\to 2} f(x)$ to exist, because the two
+  one-sided limits at $2$ are not equal.
+\item %2
+  The limit statement means that $f(x)$ can be made arbitrarily large
+  negative by taking $x$ close to (but not equal to) $-1$.
+\item\label{prob:cases} %3
+  See Figure~\ref{fig:cases} for the graph.  We see from the graph
+  that almost everywhere the left hand limit is equal to the right
+  hand limit, except at $x=-2$.  So the only value of $a$ for which
+  $\ds \lim_{x\to a} f(x)$ does not exist is $a=-2$.
+  % EJD: check against argument given in textbook
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[scale=0.5]
+      \draw[very thin,lightgray] (-6,-6) grid (6,6);
+      \draw[->] (-6,0)--(6,0) node[above]{$x$};
+      \draw[->] (0,-6)--(0,6) node[left]{$y$};
+      \clip (-6,-6)--(6,-6)--(6,6)--(-6,6)--cycle;
+      \draw[red] (-6,7)--(-2,3);
+      \node[draw=red,fill=white,inner sep=1.5pt,shape=circle] at (-2,3) {};
+      \draw[red] (-2,-4)--(1,2);
+      \node[draw=red,fill=red,inner sep=1.5pt,shape=circle] at (-2,-4) {};
+      \node[draw=red,fill=white,inner sep=1.5pt,shape=circle] at (1,2)
+           {};
+      \node[draw=red,fill=red,inner sep=1.5pt,shape=circle] at (1,2) {};
+      \clip (1,-6)--(6,-6)--(6,6)--(1,6)--cycle;
+      % EJD: grumble, why can't the bend be outside of the graph
+      \draw[red] (1,2) parabola bend (0,3) (6,-33);
+    \end{tikzpicture}
+    \caption{Graph of $y=f(x)$ for question~\ref{prob:cases}}
+    \label{fig:cases}
+  \end{figure}
+\item %4 
+  The following graph is perhaps the simplest answer to the question.
+  Many others are possible.
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{ps01q3.eps}
+  \end{center}
+  The important features of the graph are the four points drawn with open
+  or solid dots at $(0,1)$, $(0,-1)$, $(2,0)$, and $(2,1)$, and the portions
+  of the curves coming out of those points.  The exact shapes of the curves
+  are not important, so the following graph is also a correct answer
+  to the question:
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{ps01q3b.eps}
+  \end{center}
+  However the following graph is not a correct answer to the question
+  because most of the curves don't approach the correct points so the
+  limits don't satisfy the conditions of the problem:
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{ps01q3c.eps}
+  \end{center}
+\item %5 EJD: table
+\item %6 EJD: table
+\item %7
+  \begin{enumerate}
+  \item %7a
+    The answer is 
+    $\ds \lim_{x\to -3^-} \frac{x+2}{x+3} =+\infty$.
+    To obtain the answer, you can draw the graph in Figure~\ref{fig:5a},
+    or you can argue as follows.
+    \begin{figure}
+      \begin{center}
+        \includegraphics{ps01q5a.eps}
+      \end{center}
+      \caption{Graph of $y=(x+2)/(x+3)$}
+      \label{fig:5a}
+    \end{figure}
+    Since $x\to -3^-$ we can assume that $x$ is close to $-3$,
+    so the numerator $x+2$ is close to $-1$, a negative number.  Furthermore,
+    we can assume that $x$ is slightly less than $-3$, so $x+3$ is a small
+    negative number.  Dividing $-1$ by a small negative number gives a
+    large positive number, so $\ds \lim_{x\to -3^-} \frac{x+2}{x+3} =+\infty$.
+  \item %7b
+    You can obtain the answer
+    $\ds \lim_{x\to 0} \frac{x-1}{x^2(x+2)} = -\infty$
+    from the graph in Figure~\ref{fig:5b}, or you can argue as follows.
+    As $x\to 0$, we can assume $x$ is close to $0$, so we 
+    have $x-1$ close to $-1$, $x+2$ close to $2$, so
+    $\ds \frac{x-1}{x+2}$ is close to $-1/2$, a negative number.
+    % EJD: this graph is wrong near $x=-2$!
+    \begin{figure}
+      \begin{center}
+        \includegraphics{ps01q5b.eps}
+      \end{center}
+      \caption{Graph of $y=(x-1)/(x^2(x+2))$}
+      \label{fig:5b}
+    \end{figure}
+    Now let's look at the one-sided limits separately.  As $x\to 0^-$ we have
+    $x^2$ a very small positive number, so 
+    $\ds \lim_{x\to 0^-} \frac{x-1}{x^2(x+2)} = -\infty$.  Similarly, as
+    $x\to 0^+$ we have $x^2$ again a very small positive number, so
+    $\ds \lim_{x\to 0^+} \frac{x-1}{x^2(x+2)} = -\infty$.  Since both one-sided
+    limits agree, the two sided limit exists and we can say
+    $\ds \lim_{x\to 0} \frac{x-1}{x^2(x+2)} = -\infty$.
+
+    The $x^2$ factor in the denominator ensures that the two-sided limit
+    exists.  What if $x^2$ were replaced by $x$, $x^3$, or $x^4$?
+  \item %7c
+    Recall that $\ds \cot x = \frac{\cos x}{\sin x}$. Since $x\to \pi^-$
+    we can assume that $x$ is close to $\pi$ so $\cos x$ is close to $-1$
+    and $\sin x$ is close to $0$.  Furthermore, we can assume that $x$ is
+    slightly less than $\pi$, so $\sin x$ is small and positive.  A negative
+    number divided by a small positive number gives a large negative number,
+    so we conclude that $\ds \lim_{x\to \pi^-} \cot x = -\infty$.
+  \item %7d
+    It is generally a good idea in these sorts of problems to factor
+    the numerator and denominator if possible.  In this case we have
+    $\ds \frac{x^2-2x}{x^2-4x+4} = \frac{x(x-2)}{(x-2)^2}$.  Since we
+    are taking the limit $x\to 2^-$ we can assume that $x\ne 2$ so we can
+    cancel a factor of $x-2$ from the numerator and denominator, giving
+    $\ds \lim_{x\to 2^-} \frac{x^2-2x}{x^2-4x+4} = \lim_{x\to 2^-}
+    \frac{x}{x-2}$.
+
+    Now we are in a situation very similar to that of part (a).  An analysis
+    similar that of part (a) tells us that the numerator 
+    $x$ is close to $2$, a positive number, the denominator $x-2$ is close
+    to $0$ and negative, so the quotient is a large negative number, i.e.
+    $\lim_{x\to 2^-} \frac{x}{x-2} = -\infty$.
+  \end{enumerate}
+\item %8
+  The function tends to a finite limit
+  everywhere except possibly where the denominator is $0$.  So our 
+  candidates for asymptotes are where $3x-2x^2=0$, i.e., $x=0$ and $x=3/2$.
+
+  Just to the left of $x=0$ the numerator 
+  is close to $1$, a positive number, and the
+  denominator $x(3-2x)$ is close to $x(3)$, a small negative number,
+  so we have $\ds \lim_{x\to 0^-} \frac{x^2+1}{3x-2x^2} = -\infty$.
+  Just to the right of $x=0$ the numerator is still close to $1$ and the
+  denominator $x(3-2x)$ is close to $x(3)$, a small positive number,
+  so $\ds\lim_{x\to 0^+} \frac{x^2+1}{3x-2x^2} = +\infty$.
+
+  Just to the left of $x=3/2$, the numerator is positive and the denominator
+  $x(3-2x)$ is small and positive, 
+  so $\ds\lim_{x\to \frac{3}{2}^-} \frac{x^2+1}{3x-2x^2}
+  = +\infty$, and just to the right of $x=3/2$, the numerator is still 
+  positive and the denominator $x(3-2x)$ is small and negative, so
+  $\ds\lim_{x\to \frac{3}{2}^+} \frac{x^2+1}{3x-2x^2} = -\infty$.
+
+  In summary, the function $\ds \frac{x^2+1}{3x-2x^2}$ has asymptotes at
+  $x=0$ and $x=3/2$.
+\item %9 EJD: graph, and trig
+\end{enumerate}
+\end{document}
+

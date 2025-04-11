@@ -1,0 +1,540 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+%\usepackage{graphicx}
+\usepackage{tikz}
+% \allowdisplaybreaks
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroTwoThree\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroTwoThree}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  We use the quotient rule first in all of the parts of this question
+  \begin{enumerate}
+  \item 
+    We have
+    \begin{equation*}
+      f'(t) = \frac{d}{dt} \frac{2t}{4+t^2}
+      = \frac{(4+t^2) \frac{d}{dt} 2t - 2t \frac{d}{dt} (4+t^2)}{(4+t^2)^2}
+      = \frac{(4+t^2)(2) - 2t (2t)}{(4+t^2)^2}
+    \end{equation*}
+    where we have used the sum, constant multiple, and power rules in the
+    last step above.  Further simplification is possible, but is not necessary
+    in this question:
+    \begin{equation*}
+      f'(t) = \frac{8 + 2t^2 - 4t^2}{(4+t^2)^2}
+      = \frac{8-2t^2}{(4+t^2)^2}
+    \end{equation*}
+  \item By the quotient rule,
+    \begin{equation*}
+      \frac{dy}{dx} = \frac{(x^3+x-3)\frac{d}{dx}(x+1) - (x+1) \frac{d}{dx} 
+        (x^3+x-3)}{(x^3+x-3)^2}
+      = \frac{(x^3-x-3)(1) - (x+1) (3x^2+1)}{(x^3+x-3)^2}
+    \end{equation*}
+    Further simplification is optional:
+    \begin{equation*}
+      \frac{dy}{dx} = \frac{x^3-x-3-3x^3-x-3x^2-1}{(x^3+x-3)^2}
+      = \frac{-2x^3-3x^2-2x-4}{(x^3+x-3)^2}
+    \end{equation*}
+    Note that I have not expanded the denominator, which is seldom a useful
+    simplification.
+  \item By the quotient rule, 
+    \begin{equation*}
+      \frac{dy}{dt} = \frac{(t-1)^2\frac{d}{dt} t - t \frac{d}{dt} (t-1)^2}{
+        ((t-1)^2)^2}
+    \end{equation*}
+    In order to take the derivative of $(t-1)^2$ in the above expression
+    we must first expand it (in the numerator, not the denominator) to
+    obtain
+    \begin{equation*}
+      \frac{dy}{dt} = \frac{(t-1)^2\frac{d}{dt} t - t \frac{d}{dt}(t^2-2t+1)}{
+        ((t-1)^2)^2}
+      = \frac{(t-1)^2(1) - t (2t-2)}{(t-1)^4}
+    \end{equation*}
+    where we have used the rules of exponents in the denominator.
+    Further simplification is optional:
+    \begin{equation*}
+      \frac{dy}{dt} = \frac{t^2-2t+1-2t^2+2t}{(t-1)^4}
+      = \frac{1-t^2}{(t-1)^4}
+    \end{equation*}
+  \item We write all the powers in exponential notation and then
+    apply the quotient rule:
+    \begin{align*}
+      g'(t) 
+      &= \frac{d}{dt} \frac{t-t^{1/2}}{t^{1/3}}
+      = \frac{t^{1/3} \frac{d}{dt} (t-t^{1/2}- (t-t^{1/2})\frac{d}{dt} t^{1/3}}{
+        (t^{1/3})^2}
+      \\
+      &= \frac{t^{1/3} (1-(1/2)t^{-1/2}) - (t-t^{1/2}) (1/3) t^{-2/3}}{t^{2/3}}
+    \end{align*}
+    Further simplification is optional but is not necessary.  First we clear
+    fractions by multiplying the numerator and denominator through by $6$:
+    \begin{equation*}
+      g'(t) = \frac{t^{1/3} (6-3t^{-1/2}) - (t-t^{1/2}) 2 t^{-2/3}}{t^{2/3}}
+      = \frac{6t^{1/3} - 3t^{-1/6} - 2t^{1/3}+2t^{-1/6}}{t^{2/3}}
+    \end{equation*}
+  \end{enumerate}
+%\item %2
+%  \begin{enumerate}
+%  \item By the product rule we have
+%    \begin{equation*}
+%      f'(x) = \left(\frac{d}{dx} x^3\right) e^x + x^3 \left(\frac{d}{dx} e^x\right)
+%      = 3x^2 e^x + x^3 e^x = (3x^2+x^3) e^x
+%    \end{equation*}
+%    The final factoring step is optional, but it makes it easier to
+%    calculate the second derivative. 
+%    We have
+%    \begin{equation*}
+%      f''(x) = \left(\frac{d}{dx} (3x^2+x^3) \right) e^x + (3x^2+x^3)
+%      \left(\frac{d}{dx} e^x \right) = (6x+3x^2) e^x + (3x^2 + x^3)
+%      e^x = (6x+6x^2+x^3) e^x
+%    \end{equation*}
+%  \item % This is not a good question, requires chain rule
+%    By the quotient rule we have
+%    \begin{equation*}
+%      \frac{d}{dx} \frac{x^2}{e^x+3} = \frac{(Dx^2) (e^x+3)-x^2
+%        D(e^x+3)}{(e^x+3)^2}
+%      = \frac{2x(e^x+3) - x^2 (e^x)}{(e^x+3)^2} 
+%      = \frac{(2x-x^2)e^x + 6x}{(e^x+3)^2}
+%    \end{equation*}
+%    Taking the second derivative,
+%    \begin{equation*}
+%      \frac{d^2}{dx^2} \frac{x^2}{e^x+3} = 
+%      \frac{d}{dx} \frac{(2x-x^2)e^x + 6x}{(e^x+3)^2}
+%      = \frac{D[(2x-x^2)e^x+6x](e^x+3)^2 -
+%        [(2x-x^2)e^x+6x]D(e^x+3)^2}{(e^x+3)^4}
+%    \end{equation*}
+%    We write $(e^x+3)^2 = (e^x+3)(e^x+3)$ so we can apply the product rule.
+%    Applying the sum rule and then the product rule in the numerator,
+  %   \begin{equation*}
+  %     \frac{d^2}{dx^2} \frac{x^2}{e^x+3} 
+  %     = \frac{[(2-2x)e^2+(2x-x^2)e^x+6](e^x+3)^2 - [(2x-x^2)e^x+6x]
+  %       [(e^x)(e^x+3) + (e^x+3)e^x]}{(e^x+3)^4}
+  %   \end{equation*}
+  %   Algebraic simplification is possible, but I recommend against it
+  %   (unless you're taking another derivative, or you need to factor
+  %   the numerator).
+  % \end{enumerate}
+% \item %3 FIXME : correction to problem set
+%   Correction: the point on the curve is actually $(0,1)$.  By the
+%   quotient rule,
+%   \begin{equation*}
+%     y' = \frac{e^x(x+1)-e^x(1)}{(x+1)^2} = \frac{xe^x + e^x -
+%       e^x}{(x+1)^2} = \frac{xe^x}{(x+1)^2}
+%   \end{equation*}
+%   The slope of the tangent line at $x=0$ is 
+%   \begin{equation*}
+%     y'(0) = \frac{0e^0}{(0+1)^2} = \frac{0}{1} = 0
+%   \end{equation*}
+%   By the point-slope form of the equation of a line, an equation of
+%   the tangent line is
+%   \begin{equation*}
+%     y-y_0 = m(x-x_0) \implies y-1 = 0(x-0) \implies y=1
+%   \end{equation*}
+%   % FIXME : maybe a problem with a non-zero derivative?
+\item %4
+  We are given a point on the tangent line, so we must find its slope in order
+  to write the equation in point-slope form.
+  \begin{enumerate}
+  \item By habit, I first do the optional check that the given point is
+    actually on the line: when $x=1$, $y=(1+2(1))^2=3^2=9$, so the point
+    $(1,9)$ actually is on the line.  To find the slope, we 
+    can use the product rule:
+    \begin{equation*}
+      y = (1+2x)^2 = (1+2x)(1+2x) \implies
+      y' = 2(1+2x)+(1+2x)(2) = 2 + 4x + 2 + 4x = 4 + 8x
+    \end{equation*}
+    so $y'(1) = 4+8(1)= 12$, i.e., the slope of the tangent line at the point
+    $(x,y)=(1,9)$ is $y'(1)=12$.  Then the equation of the tangent line in 
+    point-slope form is
+    \begin{equation*}
+      y-9 = 12 (x-1)
+    \end{equation*}
+    Further simplification is possible but is not necessary.  Finally, if the
+    slope of a line is $12$, the slope of the perpendicular line is the
+    negative reciprocal of $12$, i.e., $-1/12$, so the equation of the normal
+    line is
+    \begin{equation*}
+      y-9 = -\frac{1}{12} (x-1)
+    \end{equation*}
+  \item We have
+    \begin{equation*}
+      y(4) = \frac{\sqrt{4}}{4+1} = \frac{2}{5} = 0.4
+    \end{equation*}
+    so the point $(4,0.4)$ actually is a point on the curve.  The slope of
+    the tangent line at that point is found by taking the derivative:
+    \begin{equation*} 
+      y'(x) = \frac{(x+1) \frac{d}{dx} x^{1/2} - x^{1/2} \frac{d}{dx} (x+1)}{
+        (x+1)^2}
+      = \frac{(x+1) (1/2) x^{-1/2} - x^{1/2} (1)}{(x+1)^2}
+    \end{equation*}
+    so 
+    \begin{equation*}
+      y'(4) = \frac{5(1/2)(1/2) - 2}{25} = \frac{5-8}{100} = -\frac{3}{100}
+    \end{equation*}
+    Therefore the equation of the tangent line is
+    \begin{equation*}
+      y-\frac{2}{5} = -\frac{3}{100} (x-4)
+    \end{equation*}
+    and the equation of the normal line, which has the same point but 
+    negative reciprocal slope, is
+    \begin{equation*}
+      y-\frac{2}{5} = \frac{100}{3} (x-4)
+    \end{equation*}
+  \end{enumerate}
+\item %5
+  \begin{enumerate}
+  \item By the difference and constant multiple rules,
+    $h'(x)=3f'(x)-5g'(x)$ so $h'(1) = 3f'(1) - 5g'(1) =
+    3(-2)-5(2)=-16$ 
+  \item By the product rule, $h'(x)=f'(x)g(x)+f(x)g'(x)$.  Evaluating
+    at $x=1$ we have $h'(1)=f'(1)g(1)+f(1)g'(1) =
+    (-2)(-1)+(3)(2)=2+6=8$ 
+  \item By the quotient rule,
+    \begin{equation*}
+      h'(x) = \frac{f'(x)g(x)-f(x)g'(x)}{(g(x))^2}
+    \end{equation*}
+    Evaluating at $x=1$,
+    \begin{equation*}
+      h'(1) = \frac{f'(1)g(1)-f(1)g'(1)}{(g(1))^2} =
+      \frac{(-2)(-1)-(3)(2)}{(-1)^2} = \frac{2-6}{1} = -4
+    \end{equation*}
+  \item By the quotient rule,
+    \begin{equation*}
+      h'(x) = \frac{D(2f(x)-1)(g(x)+3) -
+        (2f(x)-1)D(g(x)+3)}{(g(x)+3)^2} 
+      = \frac{f'(x)(g(x)+3) - (2f(x)-1)g'(x)}{(g(x)+3)^2}
+    \end{equation*}
+    using the sum, difference, and constant multiple rules as well.
+    Evaluating at $x=1$,
+    \begin{equation*}
+      h'(1) = \frac{f'(1)(g(1)+3) - (2f(1)-1)g'(1)}{(g(1)+3)^2} 
+      = \frac{-2(-1+3)-(2(3)-1)(2)}{(-1+3)^2} 
+      = \frac{-4-10}{2^2} = \frac{7}{2}
+    \end{equation*}
+  \end{enumerate}
+%\item %6
+  % We keep taking derivatives and look for a pattern.  By the
+  % quotient rule we have
+  % \begin{equation*}
+  %   f'(x) = \frac{e^x-(x+1)e^x}{(e^x)^2} = \frac{-xe^x}{e^xe^x} =
+  %   \frac{-x}{e^x} 
+  % \end{equation*}
+  % Differentiating again,
+  % \begin{equation*}
+  %   f''(x) = \frac{-1e^x - (-x)e^x}{(e^x)^2} = \frac{x-1}{e^x}
+  % \end{equation*}
+  % Differentiating again,
+  % \begin{equation*}
+  %   f^{(3)}(x) = \frac{1e^x-(x-1)e^x}{(e^x)^2} = \frac{-x+2}{e^x}
+  % \end{equation*}
+  % Differentiating again,
+  % \begin{equation*}
+  %   f^{(4)}(x) = \frac{(-1)e^x-(-x+2)e^x}{(e^x)^2} = \frac{x-3}{e^x}
+  % \end{equation*}
+  % The results are slightly different depending on whether $n$ is odd
+  % or even.  For $n$ odd we have
+  % % FIXME : can I find a variation on this problem without the odd/even
+  % % thing?
+  % % x/e^{-x} maybe?
+  % \begin{equation*}
+  %   f^{(n)}(x) = \frac{-x+(n-1)}{e^x}
+  % \end{equation*}
+  % For $n$ even (including $f^{(0)}(x) = f(x)$, i.e., no derivative) we
+  % have 
+  % \begin{equation*}
+  %   f^{(n)} (x) = \frac{x-(n-1)}{e^x}
+  % \end{equation*}
+  % You can combine the odd and even cases together by writing
+  % \begin{equation*}
+  %   f^{(n)} (x) = \frac{(-1)^n(x-(n-1))}{e^x}
+  % \end{equation*}
+\item \label{prob:parallel} %7
+  Two lines are parallel if and only if they have the same slope.  The 
+  slope of the line $x-2y=2$ can be obtained by solving for $y$ and examining
+  the coefficient of $x$: $2y=x-2$, $y=(1/2)x-1$, so the slope of the given
+  line is $1/2$, hence the slope of all parallel lines is $1/2$, and we are
+  looking for tangent lines with slope $1/2$.
+
+  The slope of a tangent line to the given curve can be obtained by taking
+  the derivative:
+  \begin{equation*}
+    y' = \frac{(x+1)\frac{d}{dx} (x-1) - (x-1)\frac{d}{dx} (x+1)}{(x+1)^2}
+    = \frac{(x+1)-(x-1)}{(x+1)^2} = \frac{2}{(x+1)^2}
+  \end{equation*}
+  We are looking for $x$ values at which $y'=1/2$; in other words, we want
+  to solve the equation
+  \begin{equation*}
+    y' = 1/2 \implies \frac{2}{(x+1)^2}=1/2 \implies
+    (x+1)^2=4 \implies x+1 = \pm 2 \implies x=1,-3
+  \end{equation*}
+  The number $x=1$ gives the point on the curve $(1,y(1))=(1,0)$ and of course
+  slope $y'(1)=1/2$, so the equation of the tangent line is $y-0=(1/2)(x-1)$.
+  The other number $x=-3$ gives the point on the curve $(-3,2)$ and tangent
+  line $y-2=(1/2)(x+3)$.  See Figure~\ref{fig:parallel}.
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \draw[gray,very thin] (-4,-4) grid (4,4);
+      \draw[->] (-4,0)--(4,0);
+      \draw[->] (0,-4)--(0,4);
+      % function is y=1-2/(x+1), inverse x=-1+2/(1-y) 
+      % x=-4 -> y=5/3 ok
+      % x=4  -> y=3/5 ok
+      % y=4  -> x=-5/3
+      % y=-4 -> x=-3/5
+      \draw[color=red,domain=-4:-1.666] plot(\x,{(\x-1)/(\x+1)});
+      \draw[color=red,domain=-0.6:4] plot(\x,{(\x-1)/(\x+1)}) node[right] {$y=\frac{x-1}{x+1}$};
+      \draw[color=blue,domain=-4:4] plot(\x,{\x/2 - 1/2}) node[right] {$x-2y=1$};
+      \draw[color=blue,domain=-4:1] plot(\x,{0.5*(\x+3)+2}) node[right] {$y-2=\frac{1}{2}(x+3)$};
+    \end{tikzpicture}
+    \caption{Graph for Problem~\ref{prob:parallel}}
+    \label{fig:parallel}
+  \end{figure}
+\item %8
+  By the product rule applied twice we have
+  \begin{equation*}
+    (fgh)' = ((fg)h)' = (fg)'h + (fg)h' = (f'g+fg')h + fgh' = f'gh +
+    fg'h + fgh'
+  \end{equation*}
+  Applying that result to the expression $(f'gh)'$ we have
+  \begin{equation*}
+    (f'gh)' = f''gh + f'g'h + f'gh'
+  \end{equation*}
+  Similarly,
+  \begin{align*}
+    (fg'h)' &= f'g'h + fg''h + fg'h' \\
+    (fgh')' &= f'gh' + fg'h' + fgh''
+  \end{align*}
+  Assembling everything we know,
+  \begin{equation*}
+    (fgh)'' = (f'gh+fg'h+fgh')' 
+    = f''gh + f'g'h + f'gh' + f'g'h + fg''h + fg'h' + f'gh' + fg'h' +
+    fgh''
+  \end{equation*}
+  Some simplification may be helpful:
+  \begin{equation*}
+    (fgh)'' = f''gh + fg''h + fgh'' + 2f'g'h + 2fg'h' + 2f'gh'
+  \end{equation*}
+%% \item \label{prob:2tans} %8 FIXME : diagrams!
+%%   Let $(a,a^2+a)$ be a point on the parabola.  The slope at that point is
+%%   $2a+1$, so the equation of any tangent line to the parabola is 
+%%   $y-(a^2+a) = (2a+1)(x-a)$.
+%%   \begin{enumerate}
+%%   \item For a tangent line to pass through $(2,-3)$ we must have
+%%     $-3-(a^2+a) = (2a+1) (2-a)$ which implies
+%%     $-3-a^2-a = 4a+2-2a^2-a$ or $a^2-4a-5=0$ or $(a+1)(a-5)=0$, $a=-1,5$.
+%%     You should check that both of those values of $a$ give tangent lines
+%%     passing through the given point.
+%%   \item For a tangent line to pass through $(2,7)$ we must have
+%%     $7-(a^2+a)=(2a+1)(2-a)$ or $7-a^2-a=4a+2-2a^2-a$ or
+%%     $a^2-4a+5=0$.  That equation does not have a solution for $a$ because
+%%     its discriminant $\Delta=-(-4)-4(1)(5)=4-20=-16<0$.
+%%   \end{enumerate}
+%%   See Figure~\ref{fig:2tans}.
+%%   \begin{figure}[htbp]
+%%     \centering
+%%     $\begin{array}{c@{\hspace{0.5in}}c}
+%%     \begin{tikzpicture}[scale=0.5]
+%%       \draw[gray,very thin] (-5,-5) grid (5,5);
+%%       \draw[->] (-5,0)--(5,0);
+%%       \draw[->] (0,-5)--(0,5);
+%%       \draw[color=red,domain=-5:5] plot(\x,{(\x*\x+\x)/10}); % node[left] {$y=x^2+x$};
+%%       \draw[color=blue,domain=-5:5] plot(\x,{(-\x-1)/10});
+%%       \draw[color=blue,domain=-2.273:5] plot(\x,{1.1*(\x-5)+3});
+%%       \node[fill=blue,minimum size=3pt,inner sep=1pt] at (2,-3/10) {};
+%%       % 1.1(x-5)+3=-5 -> 1.1(x-5)=-8 -> (x-5)=-8/1.1 -> x=5-8/1.1 = -2.273
+%%     \end{tikzpicture}
+%%     &
+%%     \begin{tikzpicture}[scale=0.5]
+%%       \draw[gray,very thin] (-5,-5) grid (5,5);
+%%       \draw[->] (-5,0)--(5,0);
+%%       \draw[->] (0,-5)--(0,5);
+%%       \draw[color=red,domain=-5:5] plot(\x,{(\x*\x+\x)/10}); % node[left] {$y=x^2+x$};
+%%       \node[fill=blue,minimum size=3pt,inner sep=1pt] at (2,8/10) {};
+%%     \end{tikzpicture}
+%%     \\
+%%     \mbox{(a) Point with two tangents}
+%%     &
+%%     \mbox{(b) Point with no tangents}
+%%     \end{array}$
+%%     \caption{Graphs for Problem~\ref{prob:2tans}}
+%%     \label{fig:2tans}
+%%   \end{figure}
+%% \item \label{prob:1323} 
+%%   \begin{enumerate}
+%%   \item Write $f(x)=x^{1/3}$.  Then $f'(x)=(1/3)x^{-2/3}$.
+%%   \item By the result above, $f'(x)$ is undefined for $x=0$ because of the
+%%     negative power of $x$.
+%%   \item To show that $f(x)$ has a vertical tangent at $x=0$, we need to
+%%     perform a more careful analysis of the derivative of $f(x)$ at $x=0$
+%%     using the definition of the derivative.  We have
+%%     \begin{equation*}
+%%       f'(0) = \lim_{h\to 0} \frac{f(0+h)-f(0)}{h}
+%%       = \lim_{h\to 0} \frac{h^{1/3}-0}{h}
+%%       = \lim_{h\to 0} h^{-2/3} = +\infty
+%%     \end{equation*}
+%%     because $h^{-2/3}=1/(h^{1/3})^2$ is a large positive number when
+%%     $h$ is a small positive or negative number.  Since $f'(0)=+\infty$ we
+%%     have a vertical tangent, a tangent with slope $+\infty$.
+
+%%     Compare the above result to the result for $g(x)=x^{2/3}$, which does
+%%     not have a vertical tangent at $x=0$ but instead has a cusp.
+%%     See Figure~\ref{fig:1323}
+%%   \end{enumerate}
+%%   \begin{figure}[htbp]
+%%     \centering
+%%     $\begin{array}{c@{\hspace{0.5in}}c}
+%%     \begin{tikzpicture}[scale=0.5]
+%%       \draw[gray,very thin] (-5,-5) grid (5,5);
+%%       \draw[->] (-5,0)--(5,0);
+%%       \draw[->] (0,-5)--(0,5);
+%%       \draw[color=red,domain=-5:-0.001] plot(\x,{(-1)*(abs(\x))^(0.333)}); % node[left] {$y=x^2+x$};
+%%       \draw[color=red,domain=0.001:5] plot(\x,{(abs(\x))^(0.333)}); % node[left] {$y=x^2+x$};
+%%     \end{tikzpicture}
+%%     &
+%%     \begin{tikzpicture}[scale=0.5]
+%%       \draw[gray,very thin] (-5,-5) grid (5,5);
+%%       \draw[->] (-5,0)--(5,0);
+%%       \draw[->] (0,-5)--(0,5);
+%%       \draw[color=red,domain=-5:-0.01] plot(\x,{(abs(\x))^(0.666)}); % node[left] {$y=x^2+x$};
+%%       \draw[color=red,domain=0.01:5] plot(\x,{(abs(\x))^(0.666)}); % node[left] {$y=x^2+x$};
+%%     \end{tikzpicture}
+%%     \\
+%%     \mbox{(a) Graph of $y=x^{1/3}$}
+%%     &
+%%     \mbox{(b) Graph of $y=x^{2/3}$}
+%%     \end{array}$
+%%     \caption{Graphs for Problem~\ref{prob:1323}}
+%%     \label{fig:1323}
+%%   \end{figure}
+%% \item \label{prob:piece} %10 FIXME : diagrams!
+%%   The function $g(x)$ is piecewise defined on the pieces $x<-1$,
+%%   $-1\le x \le 1$, and $1<x$.  The function is differentiable in the 
+%%   interiors of those intervals, with derivative found by the usual
+%%   differentiation rules, so we have
+%%   \begin{equation*}
+%%     g'(x) = \begin{cases}
+%%       -2 &\mbox{if $x<-1$} \\
+%%       ?  &\mbox{if $x=-1$} \\
+%%       2x &\mbox{if $-1<x<1$} \\
+%%       ?  &\mbox{if $x=1$}    \\
+%%       1  &\mbox{if $1<x$}
+%%     \end{cases}
+%%   \end{equation*}
+%%   The only numbers in question are $x=-1$ and $x=1$, the boundaries between
+%%   the pieces.  We need to check the differentiability of $g(x)$ using the
+%%   definition of the derivative.
+
+%%   At $x=-1$ we have
+%%   \begin{equation*}
+%%     g'(-1) = \lim_{h\to 0} \frac{g(-1+h)-g(-1)}{h}
+%%     = \lim_{h\to 0} \frac{g(-1+h)-(-1)^2}{h}
+%%     = \lim_{h\to 0} \frac{g(-1+h)-1}{h}
+%%   \end{equation*}
+%%   Since $g(x)$ takes on different forms to the left and to the right of $x=-1$,
+%%   we must use one-sided limits to make progress with the above limit.  We have
+%%   \begin{equation*}
+%%     \lim_{h\to 0^-} \frac{g(-1+h)-1}{h}
+%%     = \lim_{h\to 0^-} \frac{-1-2(-1+h)-1}{h}
+%%     = \lim_{h\to 0^-} \frac{-2+2-2h}{h} = -2
+%%   \end{equation*}
+%%   where we have used the formula $g(-1+h)=-1-2(-1+h)$ because $-1+h<-1$ when
+%%   $h\to 0^-$.  On the other hand,
+%%   \begin{equation*}
+%%     \lim_{h\to 0^+} \frac{g(-1+h)-1}{h}
+%%     = \lim_{h\to 0^+} \frac{(-1+h)^2-1}{h}
+%%     = \lim_{h\to 0^+} \frac{1-2h+h^2-1}{h}
+%%     = -2
+%%   \end{equation*}
+%%   so the two one-sided limits agree, which means that the two-sided limit
+%%   exists and equals $-2$ in value.  In other words,
+%%   \begin{equation*}
+%%     g'(-1) = \lim_{h\to 0} \frac{g(-1+h)-g(-1)}{h}
+%%     = \lim_{h\to 0} \frac{g(-1+h)-(-1)^2}{h}
+%%     = \lim_{h\to 0} \frac{g(-1+h)-1}{h}
+%%     = -2
+%%   \end{equation*}
+
+%%   Similarly, at $x=1$, we have
+%%   \begin{equation*}
+%%     g'(1) = 
+%%     \lim_{h\to 0} \frac{g(1+h)-g(1)}{h}
+%%     = \lim_{h\to 0} \frac{g(1+h)-(1)^2}{h}
+%%     = \lim_{h\to 0} \frac{g(1+h)-1}{h}
+%%   \end{equation*}
+%%   Again, to evaluate the limit, we have to look at the one-sided limits 
+%%   separately.  We have
+%%   \begin{equation*}
+%%     \lim_{h\to 0^-} \frac{g(1+h)-1}{h}
+%%     = \lim_{h\to 0^-} \frac{(1+h)^2-1}{h}
+%%     = \lim_{h\to 0^-} \frac{1+2h+h^2-1}{h}
+%%     = 2
+%%   \end{equation*}
+%%   but
+%%   \begin{equation*}
+%%     \lim_{h\to 0^+} \frac{g(1+h)-1}{h}
+%%     = \lim_{h\to 0^+} \frac{(1+h)-1}{h}
+%%     = 1
+%%   \end{equation*}
+%%   so the one-sided limits don't agree, hence the two-sides limit doesn't
+%%   exist, i.e., $g'(1)$ doesn't exist.  (The point $x=1$ is an ``angle point''
+%%   for the function because the one-sided derivatives exist but are not
+%%   equal.)  So we can complete our tabulation of the derivative of $g(x)$ as
+%%   follows:
+%%   \begin{equation*}
+%%     g'(x) = \begin{cases}
+%%       -2               &\mbox{if $x<-1$}   \\
+%%       -2               &\mbox{if $x=-1$}   \\
+%%       2x               &\mbox{if $-1<x<1$} \\
+%%       \mbox{undefined} &\mbox{if $x=1$}    \\
+%%       1                &\mbox{if $1<x$}
+%%     \end{cases}
+%%   \end{equation*}
+%%   See Figures \ref{fig:pieceg}~and~\ref{fig:piecegp}.  Note that the pieces of 
+%%   $g(x)$ come together from different directions at $x=1$, so there is an
+%%   angle point at $x=1$, not differentiable.  On the other hand, the two pieces
+%%   of $g(x)$ join together in exactly the right direction at $x=-1$, and the
+%%   function is differentiable there.
+%%   \begin{figure}[htbp]
+%%     \centering
+%%     \begin{tikzpicture}
+%%       \draw[gray,very thin] (-5,-1) grid (5,5);
+%%       \draw[->] (-5,0)--(5,0);
+%%       \draw[->] (0,-1)--(0,5);
+%%       \draw[color=red,domain=-3:-1] plot(\x,{-1-2*\x}); % node[left] {$y=x^2+x$};
+%%       \draw[color=red,domain=-1:1] plot(\x,{(\x)^2}); % node[left] {$y=x^2+x$};
+%%       \draw[color=red,domain=1:5] plot(\x,{\x}); % node[left] {$y=x^2+x$};
+%%     \end{tikzpicture}
+%%     \caption{Graph of $g(x)$ for Problem~\ref{prob:piece}}
+%%     \label{fig:pieceg}
+%%   \end{figure}
+%%   \begin{figure}
+%%     \centering
+%%     \begin{tikzpicture}
+%%       \draw[gray,very thin] (-5,-2) grid (5,5);
+%%       \draw[->] (-5,0)--(5,0);
+%%       \draw[->] (0,-2)--(0,5);
+%%       \draw[color=red,thick,domain=-5:-1] plot(\x,{-2}); % node[left] {$y=x^2+x$};
+%%       \draw[color=red,thick,domain=-1:1] plot(\x,{2*\x}); % node[left] {$y=x^2+x$};
+%%       \draw[color=red,thick,domain=1:5] plot(\x,1); % node[left] {$y=x^2+x$};
+%%       \node[fill=red,minimum size=3pt, inner sep=1pt] at (-1,-2) {};
+%%       \node[draw=red,minimum size=3pt, inner sep=1pt] at (1,2) {};
+%%       \node[draw=red,minimum size=3pt, inner sep=1pt] at (1,1) {};
+%%     \end{tikzpicture}
+%%     \caption{Graph of $g'(x)$ for Problem~\ref{prob:piece}}
+%%     \label{fig:piecegp}
+%%   \end{figure}
+\end{enumerate}
+\end{document}
+
+

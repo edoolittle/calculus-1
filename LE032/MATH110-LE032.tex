@@ -1,0 +1,542 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroThreeTwo}
+\subtitle{\commonSubtitleZeroThreeTwo}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroThreeTwo}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+\section{The Mean Value Theorem}
+
+\begin{frame}
+  \frametitle{The Intermediate and Extreme Value Theorems}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Recall the Intermediate and Extreme Value Theorems.
+  \item The IVT says that a continuous function $f$ on a closed interval
+    $[a,b]$ takes on every value between $f(a)$ and $f(b)$.
+  \item The EVT says that a continuous function $f$ on a closed interval
+    $[a,b]$ takes on a maximum value $f(c)$ and a minimum value
+    $f(d)$ on $[a,b]$.
+  \item The \textit{values} in those theorems are values taken on by
+    the function $f(x)$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2>{\includegraphics[width=\textwidth]{ivt.eps}}%
+  \only<3->{\includegraphics[width=\textwidth]{evt.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Mean Value Theorem (MVT)}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item The MVT setup is similar, but different.
+  \item The MVT applies to $f$ continuous on $[a,b]$
+    \textit{and differentiable} on $(a,b)$.
+  \item The MVT says the \textit{derivative} of such an $f$
+    takes on the mean value of $f$ on $[a,b]$.
+  \item By \textit{mean value} we mean $\ds \frac{f(b)-f(a)}{b-a}$.
+  \item The mean value is the slope of the secant line connecting
+    $(a,f(a))$ and $(b,f(b))$ on the graph.
+  \item The Mean Value Theorem says that there is a tangent line through
+    $(c,f(c))$ parallel to the secant line where $c$ is between $a$ and $b$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{\includegraphics[width=\textwidth]{mvt0.eps}}%
+  \only<2-4>{\includegraphics[width=\textwidth]{mvt1.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{mvt2.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{mvt3.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The MVT for Position as a Function of Time}
+  \begin{itemize}[<+->]
+  \item The Mean Value Theorem is particularly easy to understand
+    when the independent variable is time $t$ and the dependent
+    variable is position $s$.
+  \item In that case, the mean value is $\ds \frac{s(t_1)-s(t_0)}{t_1-t_0}$,
+    which is just the average (or mean) velocity over the interval $[t_0,t_1]$.
+  \item The Mean Value Theorem then says that the average velocity over
+    an interval $[t_0,t_1]$ must be equal to the instantaneous velocity
+    at some moment $c$ between $t_0$ and $t_1$.
+  \item For example, if you drive $130$ km in $1$ h, your mean velocity
+    is $130$ km/h.  The MVT says that at some moment during your trip your
+    instantaneous velocity must have been $130$ km/h.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Overview of the Mean Value Theorem and Applications}
+  \begin{itemize}[<+->]
+  \item The Mean Value Theorem itself is not difficult to understand.
+  \item The Mean Value Theorem is also easy to prove.
+  \item We will not dwell on the details of the proof, but will look
+    at the general idea, because it uses the techniques of optimization
+    we learned in a previous lecture.
+  \item On the other hand, the MVT is difficult to apply because it
+    requires argument by contradiction.
+  \item The MVT is used to show that a function \textbf{does not} have certain
+    properties.
+  \item We will look at applications in a second lecture on the MVT.
+  \item We will only consider the concept, outline of the 
+    proofs, and simple examples in this lecture.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Rolle's Theorem}
+
+\begin{frame}
+  \frametitle{Rolle's Theorem}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item We begin by looking at the special case of $f(a)=f(b)$.
+  \item We assume $f$ continuous on $[a,b]$ and differentiable on $(a,b)$.
+  \item We want to show that $f'(c)=(f(b)-f(a))/(b-a)$, i.e., $f'(c)=0$
+    for some $c\in(a,b)$.
+  \item We know that $f$ has an extreme value at some $c\in(a,b)$ by the EVT.
+  \item Fermat's theorem says $f'(c)=0$ or $f'(c)$ does not exist.
+  \item Since $f'$ exists everywhere in $(a,b)$ we must have $f'(c)=0$,
+    and we're done.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{\includegraphics[width=\textwidth]{rolle0.eps}}%
+  \only<2>{\includegraphics[width=\textwidth]{rolle1.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{rolle2.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{rolle3.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{rolle4.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{rolle5.eps}}%
+  \end{columns}
+\end{frame}
+
+
+\subsection{The Mean Value Theorem}
+
+\begin{frame}
+  \frametitle{The Mean Value Theorem}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item The Mean Value Theorem is a generalization of Rolle's Theorem.
+  \item \textbf{Mean Value Theorem:} Let $f$ be a function that satisfies
+    \begin{enumerate}
+    \item $f$ is continuous on interval $[a,b]$
+    \item $f$ is differentiable on interval $(a,b)$.
+    \end{enumerate}
+    \uncover<+->{Then there is a number $c$ in $(a,b)$ such that
+    \begin{align*}
+      \frac{f(b)-f(a)}{b-a}
+      \uncover<+->{=f'(c)}%
+    \end{align*}}%
+    \uncover<+->{Alternatively, we can write
+    \begin{align*}
+      f(b)-f(a) = f'(c)(b-a)
+    \end{align*}}%
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1-2>{\includegraphics[width=\textwidth]{mvt0.eps}}%
+  \only<3-4>{\includegraphics[width=\textwidth]{mvt1.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{mvt2.eps}}%
+  \only<6->{\includegraphics[width=\textwidth]{mvt3.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Reduction of the MVT to Rolle's Theorem}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}
+  \uncover<1->{\item The MVT can be reduced to Rolle's Theorem.}%
+  \uncover<2->{\item Since we know that Rolle's Theorem is true, 
+    it follows that the MVT is true.}%
+  \uncover<3->{\item To reduce the MVT to Rolle's theorem, we just 
+    apply a \textit{shear transformation} to the graph of $f$.}%
+  \uncover<15->{\item In symbols, we define a new function 
+    \begin{align*}
+      h(x) = f(x)-\left(f(a) + \frac{f(b)-f(a)}{b-a} (x-a)\right)
+    \end{align*}}%
+  \uncover<16->{\item The details are in the textbook if you are interested.}%
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<3>{\includegraphics[width=\textwidth]{mvtand0.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{mvtand1.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{mvtand2.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{mvtand3.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{mvtand4.eps}}%
+  \only<8>{\includegraphics[width=\textwidth]{mvtand5.eps}}%
+  \only<9>{\includegraphics[width=\textwidth]{mvtanu5.eps}}%
+  \only<10>{\includegraphics[width=\textwidth]{mvtanu4.eps}}%
+  \only<11>{\includegraphics[width=\textwidth]{mvtanu3.eps}}%
+  \only<12>{\includegraphics[width=\textwidth]{mvtanu2.eps}}%
+  \only<13>{\includegraphics[width=\textwidth]{mvtanu1.eps}}%
+  \only<14->{\includegraphics[width=\textwidth]{mvtanu0.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Explicit Calculation of $c$ in Rolle's Theorem}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item It may be possible to explicitly find the number $c$ 
+    in Rolle's Theorem: optimize.
+  \item For example, consider the function $g(x)=-0.2x^3+2.2x^2-4.8x+1$
+    the interval $[3,8]$.  $g$ is continuous, differentiable, and
+    $g(3)=1=g(8)$, so it satisfies the hypotheses of Rolle's Theorem.
+  \item We want to find $c$ such that $g'(c)=0$.  But $g'(c)=-0.6c^2+4.4c-4.8$
+    with roots $c=4/3$ and $c=6$.
+  \item $4/3$ is not in $(3,8)$ so we throw it away.
+  \item The $c$ guaranteed by Rolle's Theorem is $c=6$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2>{\includegraphics[width=\textwidth]{rollec0.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{rollec1.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{rollec2.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{rollec3.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Explicit Calculation of $c$ in the MVT}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item It may be possible to explicitly find the number $c$ 
+    in the MVT.
+  \item Consider the function $f(x)=\sqrt[3]{x}$
+    the interval $[0,1]$.  $f$ is continuous on $[0,1]$, and differentiable
+    on $(0,1)$, so it satisfies the hypotheses of the MVT.
+  \item We want to find $c$ such that $f'(c)=(f(1)-f(0)/(1-0)=1$.
+  \item $f'(c)=c^{-2/3}/3=1$ gives $c=3^{-3/2}$.
+  \item \textbf{Note:} Finding $c$ explicitly is often not possible!
+    We use Rolle's Theorem and the MVT \textit{to avoid} finding $c$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2>{\includegraphics[width=\textwidth]{mvtc0.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{mvtc1.eps}}%
+  \only<4->{\includegraphics[width=\textwidth]{mvtc2.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Alternative Pictures for Rolle's Theorem and the MVT}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \uncover<1->{\item The extremum in Rolle's Theorem can be a 
+    minimum instead of a maximum.}%
+  \uncover<2->{\item Similarly, the tangent in the MVT can be below the 
+    secant.}%
+  \uncover<3->{\item In the case of a linear function, any number in the
+    interval $(a,b)$ can be $c$.}%
+  \uncover<5->{\item There may be more than one horizontal 
+    tangent in Rolle's Theorem.}%
+  \uncover<6->{\item Similarly, there may be more than 
+    one tangent parallel to the secant in the MVT.}%
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{\includegraphics[width=\textwidth]{alt1.eps}}%
+  \only<2>{\includegraphics[height=2.5in]{alt2.eps}}%
+  \only<3>{\includegraphics[height=2.5in]{alt3a.eps}}%
+  \only<4>{\includegraphics[height=2.5in]{alt3b.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{alt4.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{alt5.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Failure of the MVT when $f$ is not Continuous}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item There are two hypotheses in the MVT: \\
+    $f$ is continuous
+    on $[a,b]$ and $f$ is differentiable on $(a,b)$.
+  \item If either of those hypotheses fail, the conclusion of
+    the MVT may fail.
+  \item For example, consider $f(x)$ defined by
+    \begin{align*}
+      f(x)=\begin{cases}
+        \tan x, &\mbox{$x\ne \pi/2$} \\
+	1       &\mbox{$x=\pi/2$}
+      \end{cases}
+    \end{align*}
+  \item $f$ is differentiable in $(0,\pi/2)$ but is not
+    continuous on $[0,\pi/2]$.
+  \item $f$ has no horizontal tangent in $(0,\pi/2)$ so
+    the conclusion of the MVT fails.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<3->{\includegraphics[height=2in]{tan1.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Failure of the MVT when $f$ is not Differentiable}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item If $f$ is not differentiable in $(a,b)$,
+    the MVT may fail to be true.
+  \item For example, consider $f(x)$ defined by
+    $g(x)=2x-|x-2|$ on $[1,3]$.  (Recall $|z|$ is
+    the absolute value of $z$.)
+  \item $g$ is continuous in $[1,3]$ but is not
+    differentiable on $(1,3)$ because $g'(2)$
+    does not exist.
+  \item There is no tangent to the graph which is
+    parallel to the secant connecting the points
+    $(1,1)$ and $(3,5)$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2->{\includegraphics[width=\textwidth]{abs1.eps}}%
+  \end{columns}
+\end{frame}
+
+
+\section{Examples}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Verify that $f(x)=x^3-x^2-6x+2$ satisfies the hypotheses of 
+    Rolle's theorem on the interval $[0,3]$.  Then find all numbers $c$
+    that satisfy the conclusion of Rolle's theorem.
+  \item Let $f(x)=\tan x$.  Show that $f(0)=f(\pi)$ but there is no number
+    $c$ in $(-1,1)$ such that $f'(c)=0$.  Why does this not contradict 
+    Rolle's theorem?
+  \item Let $\ds f(x)=\frac{x}{x+2}$.  Show that $f$ satisfies the hypotheses
+    of the Mean Value Theorem on the interval $[1,4]$.  Then find all numbers
+    $c$ that satisfy the conclusion of the MVT.
+  \item Let $f(x)=2-|2x-1|$.  Show that there is no value of $c$ such that
+    $f(3)-f(0)=f'(c)(3-0)$.  Why does this not contradict the MVT?
+  \end{enumerate} 
+\end{frame}
+
+\section{Applications of The Mean Value Theorem}
+
+\begin{frame}
+  \frametitle{Applications of the Mean Value Theorem}
+  \begin{itemize}[<+->]
+  \item The Mean Value Theorem is used to take information about $f'$
+    and use it to conclude something about $f$.
+  \item However, its use is somewhat counter-intuitive because it is
+    used in a negative way.
+  \item For example, the MVT is used to show that a function \textbf{does not}
+    assume certain values, such as roots ($0$), in a given interval.
+  \item The MVT is used to prove inequalities, e.g.,
+    to show that $|\sin b - \sin a|$
+    cannot exceed certain limits for all real numbers $a$ and $b$.
+  \item The MVT is also used to show that if $f'$ is constant, then $f$
+    cannot be anything other than linear.
+  \item It is best to think of those applications as saying what $f$ cannot
+    be; that is what I mean when I say the MVT is applied in a negative way.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Arguing by Contradiction}
+  \begin{itemize}[<+->]
+  \item In order to apply the Mean Value Theorem correctly we generally
+    need to argue by contradiction.
+  \item To argue by contradiction you assume, for the sake of argument,
+    a claim that you want to disprove,
+    and then derive an absurd or ridiculous conclusion.
+  \item Since the conclusion is absurd, the assumption that 
+  \item For example, to prove there is no smallest positive real number,
+    we assume that there is a smallest positive number $r$.  Then we can
+    find a smaller positive number $r/2$.
+  \item Now we have both the smallest positive number $r$ and a smaller,
+    different positive number $r/2$, which is absurd.
+  \item Therefore our assumption that there is a smallest positive number
+    must be false.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Roots}
+
+\begin{frame}
+  \frametitle{Application of Rolle's Theorem to Counting Roots}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item We can apply Rolle's Theorem to the problem of counting
+    the roots of a function.
+  \item Consider $f(x)=x^3+2x+1$ on the interval $[-1,1]$.
+  \item Since $f(-1)=-2<0$ and $f(1)=4>0$, the IVT tells us there is a
+    root somewhere in $[-1,1]$.
+  \item We know there is at least one root, but there could be $1$, $2$,
+    $3$, or more roots.
+  \item From the graph, we suspect there is just one root but graphs can
+    be misleading.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2->{\includegraphics[height=2.75in]{croots.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Application of Rolle's Theorem to Counting Roots, ctd.}
+  \begin{itemize}[<+->]
+  \item To show that $f(x)=x^3+2x+1$ has only one root in $[-1,1]$
+    we argue by contradiction.
+  \item We assume that there are (at least) two roots, one at $a\in(-1,1)$ 
+    and another at $b\in(-1,1)$.  Note that $f(a)=0=f(b)$.
+  \item Furthermore, since $f$ is continuous on $[-1,1]$ and 
+    differentiable on $(-1,1)$, Rolle's Theorem applies.
+  \item Then Rolle's Theorem now tells us that $f'(c)=0$ for some $c$ 
+    between $a$ and $b$.  Since $a$ and $b$ are in $(-1,1)$, so must be $c$.
+  \item However, $f'(c)=3c^2+2>0$ for all $c$.
+  \item Therefore our assumption that $f$ has (at least)
+    two roots must be incorrect.
+  \item It follows that $f$ has exactly one root in the interval $[-1,1]$.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Inequalities}
+
+\begin{frame}
+  \frametitle{Establishing Inequalities with the Mean Value Theorem}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Suppose we have $f$ with $f(1)=7$ and
+    $2\le f'(x)\le 3$ for $x$ in $(1,4)$.
+  \item We can use the MVT and that information
+    to show $13 \le f(4) \le 16$.
+  \item First, suppose to the contrary that $f(4)<13$.  Say, for the sake
+    of argument, that $f(4)=10$.
+  \item The slope of the secant line connecting the endpoints of the
+    graph is then $(f(4)-f(1))/(4-1)=(10-7)/3=1$
+  \item MVT says that $f'(c)=1$ for a $c\in(1,4)$
+  \item That contradicts the given information that $f'(c)\ge 2$
+    for all $c$ in $(1,4)$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<3>{\includegraphics[width=\textwidth]{ineq0.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{ineq1.eps}}%
+  \only<5->{\includegraphics[width=\textwidth]{ineq2.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Establishing Inequalities with the Mean Value Theorem, ctd}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}
+  \uncover<1->{\item The same kind of 
+    argument applies whenever $f(4)$ is any value
+    less than $13$.}%
+  \uncover<7->{\item Therefore $f(4)$ cannot be less than $13$.}%
+  \uncover<8->{\item In other words, $f(4)\ge 13$.}%
+  \uncover<9->{\item An analogous argument gives $f(4)\le 16$.}%
+  \uncover<10->{\item Summary: $13\le f(4)\le 16$, as required.}%
+  \uncover<11->{\item In fact, the MVT tells us something even stronger:
+    for $x$ from $1$ to $4$,
+    the graph of $f$ is restricted to the `cone' with vertex $(1,7)$,
+    slope of lower line equal to $2$, and slope of upper line equal
+    to $3$.}%
+  \uncover<12->{\item (The top of the cone has been truncated so the scale
+    of the graph won't change.)}%
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2>{\includegraphics[width=\textwidth]{ineq2.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{ineq3.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{ineq4.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{ineq5.eps}}%
+  \only<6-10>{\includegraphics[width=\textwidth]{ineq6.eps}}%
+  \only<11->{\includegraphics[width=\textwidth]{ineq7.eps}}%
+  \end{columns}
+\end{frame}
+
+
+\subsection{Uniqueness for Differential Equations}
+
+\begin{frame}
+  \frametitle{Solving Simple Differential Equations}
+  \begin{itemize}[<+->]
+  \item A differential equation is an equation involving the 
+    derivative of some unknown function $f$.
+  \item The simplest differential equation is $f'(x)=0$.  Here
+    we don't know what $f$ is, only that $f'(x)=0$.  We need to figure
+    out what differentiable functions $f$ satisfy the equation.
+  \item From our knowledge of derivatives, we know that any constant 
+    function $f(x)=C$ satisfies the differential equation.
+  \item We want to show that there are no non-constant functions satisfying
+    the differential equation.
+  \item Suppose there is a non-constant $f$ such that $f'(x)=0$ for all $x$.
+    Then there are $a$ and $b$ such that $f(a)\ne f(b)$.
+  \item Then $(f(b)-f(a))/(b-a)\ne 0$.  
+    The MVT says $f'(c)=(f(b)-f(a)/(a-b) \ne 0$ which contradicts 
+    $f'(x)=0$.
+  \item It follows that there is no non-constant solution to $f'(x)=0$.
+  \end{itemize}
+\end{frame}
+
+
+\section{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Show that the function $\ds 3x + 2\cos x + 5 = 0$ has exactly
+    one real root.
+  \item Suppose that $f$ is continuous on $[0,4]$, $f(0)=1$, and
+    $\ds 2\le f'(x)\le 5$ for all $x$ in the interval $(0,4)$.  Show that
+    $\ds 9\le f(4)\le 21$.
+  \item By applying the Mean Value Theorem to the function $\ds f(x)=x^{1/5}$
+    on the interval $[32,33]$, show that $\ds 2<\sqrt[5]{33}<2.0125$.
+  \item Show that $\sqrt{1+x}<1+\frac{1}{2} x$ for $x>0$.
+  \item Show that $|\sin b-\sin a| \le |b-a|$ for all $a$ and $b$.
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~3.2.  After you have finished it,
+  you should try the following additional exercises from Section~3.2:
+  \begin{itemize}
+  \item[3.2] 
+    C-level: 1--20, 34; \\
+    B-level: 25--27, 29, 33, 35; \\
+    A-level: 21--22, 23--24, 28, 30--32, 36
+  \end{itemize}
+\end{frame}
+
+
+
+
+\end{document}
+

@@ -1,0 +1,214 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroTwoNine}
+\subtitle{\commonSubtitleZeroTwoNine}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroTwoNine}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+\section{Linear Approximations and Differentials}
+
+
+\subsection{Linear Approximations}
+
+\begin{frame}
+  \frametitle{Linear Approximations}
+  \begin{itemize}[<+->]
+  \item Recall that the big idea of differential calculus is that
+    the tangent line is the ``best linear approximation'' to a curve.
+  \item The equation of the tangent line in point-slope form
+    is $y-f(a)=f'(a)(x-a)$.
+  \item Solving for $y$, we have $y=f(a) + f'(a) (x-a)$.
+  \item To say that the tangent line is an approximation to the curve
+    means $f(x) \approx f(a) + f'(a) (x-a)$.
+  \item The function on the right side of the above expressions is
+    called the \textbf{linearization} of $f$ at $a$ and is sometimes
+    denoted $L(x)$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: $f(x)=\sqrt{25-x^2}$ near $3$}
+  \begin{itemize}[<+->]
+  \item Let's find the best linear approximation to $f(x)=\sqrt{25-x^2}$
+    near $x=3$.
+  \item We need to compute $f(3)$ and $f'(3)$.
+  \item $\ds f(3)=\sqrt{25-3^2} = \sqrt{16} = 4$.
+  \item $\ds f'(x) = \frac{1}{2} (25-x^2)^{-1/2} \cdot -2x$ by the chain
+    rule.
+  \item $\ds f'(3)= \frac{1}{2} \frac{1}{4} \cdot -6 = -\frac{3}{4}$.
+  \item So the linearization of $f(x)$ near $x=3$ is 
+    \begin{align*}
+      L(x)= f(3) + f'(3) (x-3) = 4 - \frac{3}{4} (x-3)
+    \end{align*}
+  \item So we can say $\ds \sqrt{25-x^2} \approx 4-\frac{3}{4} (x-3)$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Error in a Linear Approximation}
+  \begin{itemize}[<+->]
+  \item The approximation $\ds \sqrt{25-x^2} \approx 4-\frac{3}{4} (x-3)$ is
+    exact at $x=3$.
+  \item The further from $x=3$ we get, the worse the approximation.
+  \item The error is exactly $\ds 4-\frac{3}{4} (x-3)-\sqrt{25-x^2}$.
+  \item If we knew the error exactly we could figure out $\sqrt{25-x^2}$
+    exactly and we wouldn't need an approximation!
+  \item So the game now is to estimate the error.
+  \item You will study the problem of estimating the error when you study
+    Taylor series, beginning in MATH 111.
+  \item For now, we will just make some educated guesses.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Range of Applicability of a Linear Approximation}
+  \begin{itemize}[<+->]
+  \item We will actually turn the problem around.  We will not ask
+    for the error or a bound on the error.
+  \item Instead we will ask, ``For what $x$ values is the approximation
+    $f(x) \approx f(a) + f'(a)(x-a)$ within an error of $0.1$?''
+  \item We can translate that statement to an inequality to be solved
+    for $x$:
+    \begin{align*}
+      \left(f(a) + f'(a)(x-a)\right) - 0.1 
+      < f(x) 
+      < \left(f(a) + f'(a)(x-a)\right) + 0.1
+    \end{align*}
+  \item For now, the best way for us to solve that inequality is
+    graphically.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Applications of Linear Approximations}
+  \begin{itemize}[<+->]
+  \item Let's find the best linear approximations to $\sin x$ and
+    $\cos x$ near $x=0$.
+  \item We have $\sin(0)=0$, $\sin'(0)=1$, $\cos(0)=1$, $\cos'(0)=0$.
+  \item The best linear approximations are then
+    \begin{align*}
+      \sin x &\approx \sin(0) + \sin'(0) (x-0) = 0 + 1(x-0) = x \\
+      \cos x &\approx \cos(0) + \cos'(0) (x-0) = 1 + 0(x-0) = 1
+    \end{align*}
+  \item Those approximations are commonly used in physics.
+  \item For example, gravitational force on a pendulum is $-mg \sin x$,
+    but for small $x$ the approximation $-mg x$ is much easier to work
+    with.
+  \item In optics, $\sin x \approx x$
+    and $\cos x \approx 1$ are used to make lens grinding much easier.
+    Those approximations lead to lenses with spherical surfaces, 
+    which are very easy to manufacture and work reasonably well
+    near the center of the field of vision.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Differentials}
+
+\begin{frame}
+  \frametitle{Differentials}
+  \begin{itemize}[<+->]
+  \item We have the approximation $f(x) \approx f(a) + f'(a)(x-a)$.
+  \item We can re-write that as $f(x)-f(a) \approx f'(a) (x-a)$.
+  \item Writing $\Delta x = x-a$ and $\Delta y = f(x)-f(a)$ we have
+    $\Delta y \approx f'(a) \Delta x$.
+  \item Because that approximation applies at any value $a$, we often
+    write $\Delta y \approx f'(x) \Delta x$ instead.
+  \item For small values of $\Delta x$ the approximation
+    is as good as we like.
+  \item We imagine that there is a value of $\Delta x$ so small that
+    the approximation is perfect, or at least good enough that the
+    error is of no consequence.
+  \item We write $dx$ instead of $\Delta x$ for such small value of
+    the change in $x$; we also write $dy$ instead of $\Delta y$.
+  \item In that case, we write $dy = f'(x) \; dx$ exactly.
+  \item Instead of ``differences'' $\Delta x$ and $\Delta y$ we talk
+    of ``differentials'' $dx$ and $dy$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Measurement Error}
+  \begin{itemize}[<+->]
+  \item A common application of differentials is to estimating the
+    consequences of measurement error.
+  \item If we have a function $y=f(x)$ and we get $x$ from a measurement,
+    there will be a measurement error in $x$ which we can call $dx$.
+  \item Then the error in the calculated value $y$ will be approximately
+    $dy=f'(x) \; dx$.
+  \item For example, consider a circle.  We measure its radius $r$
+    and then calculate its area $A$ using the formula $A=\pi r^2$.
+  \item We have the error in the calculated value $A$ is approximately
+    $dA = A'(r) \; dr = 2\pi r \; dr$.
+  \item Suppose we have $r=3 cm$ with an error of $0.1$ cm or so.
+  \item Then we have $A=\pi r^2 = 9\pi$ with an error of
+    $dA = 2\pi r \; dr = 0.6 \pi$ or so.
+  %\item The error in the volume of a hypersphere is approximately
+  %  $r \; dr \; r \; r$.
+  \end{itemize}
+\end{frame}
+
+
+\section{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Find the linear approximation of $f(x)=\sqrt{1-x}$ near $a=0$
+    and use it to approximate $\sqrt{0.9}$ and $\sqrt{1.01}$.
+  \item For the function $y=2x-x^2$, compute $\Delta y$ and $dy$ for
+    $x=2$ and $dx=\Delta x=-0.4$.  Sketch a diagram illustrating $dx$,
+    $dy$, and $\Delta y$.
+  \item The radius of a circular disk is given as $24$ cm with a maximum
+    error in measurement of $0.2$ cm
+    \begin{enumerate}
+    \item Use differentials to estimate the maximum error in the calculated
+      area of the disk.
+    \item What is the relative error?  What is the percentage error?
+    \end{enumerate}
+  \item Use differentials to estimate the amount of paint needed to
+    apply a coat of paint $0.05$ cm thick to a hemispherical dome with
+    diameter $50$ m.
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~2.9.  After you have finished it,
+  you should try the following additional exercises from Section~2.9:
+  \begin{itemize}
+  \item[2.9] C-level: 1--30; \\
+    B-level: 31--34; \\
+    A-level: 35--42
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

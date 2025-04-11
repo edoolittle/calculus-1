@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage{mathptmx}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\reversemarginpar
+
+\title{MATH 110-004 200730 Quiz 2 Solutions}
+\author{Edward Doolittle}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item The function under the limit can be rewritten as
+  \begin{displaymath}
+    \frac{(5+h)^{-1}-5^{-1}}{h}
+    = \frac{1}{h} \left(\frac{1}{5+h}-\frac{1}{5}\right)
+    = \frac{1}{h} \frac{5-(5+h)}{(5+h)(5)}
+    = \frac{1}{h} \frac{-h}{5(5+h)}
+  \end{displaymath}
+  (5 marks).  Therefore the limit can be evaluated as follows:
+  \begin{displaymath}
+    \lim_{h\to 0} \frac{(5+h)^{-1}-5^{-1}}{h}
+    = \lim_{h\to 0} \frac{1}{h} \frac{-h}{5(5+h)} 
+    = \lim_{h\to 0} \frac{-1}{5(5+h)}
+    = -\frac{1}{25}
+  \end{displaymath}
+  (5 marks)
+\item The $x$ values of interest are the points where the denominator
+  of $\ds \frac{x-3}{2x^2-5x-3}$ is zero, and the points where the definition
+  of the function changes.  At all other points the function is guaranteed
+  to be continuous by the theorem on the continuity of rational functions.
+
+  The denominator can be factored as $2x^2-5x-3=(2x+1)(x-3)$, so the values
+  of interest are $x=-1/2$ and $x=3$ (the latter for two reasons).  To
+  determine whether $f$ is continuous at those values we have to take limits
+  and. if necessary, compare with the values of the function.
+  (2 marks)
+
+  For $x=-1/2$, we have
+  \begin{displaymath}
+    \lim_{x\to -1/2^-} f(x)
+    = \lim_{x\to -1/2^-} \frac{x-3}{(2x+1)(x-3)}
+    = \lim_{x\to -1/2^-} \frac{1}{2x+1}
+    = -\infty
+  \end{displaymath}
+  since the denominator is a negative number close to zero.  Therefore
+  $\ds\lim_{x\to -1/2} f(x)$ does not exist and $f$ is not continuous
+  at $x=-1/2$.  The type of discontinuity is infinite.  (We don't have
+  to check the limit $x\to -1/2^+$, but you can if you want; you should
+  get $+\infty$.) (4 marks)
+
+  For $x=3$ we have 
+  \begin{displaymath}
+    \lim_{x\to 3} f(x)
+    = \lim_{x\to 3} \frac{x-3}{(2x+1)(x-3)}
+    = \lim_{x\to 3} \frac{1}{2x+1}
+    = \frac{1}{7}
+  \end{displaymath}
+  and $f(3) = 1/7$ by the definition of the function.  Since the value
+  of the function agrees with the limit at $3$, $f$ is continuous at $3$.
+  (4 marks)
+
+  In summary, the only discontinuity of $f$ is at $-1/2$, and the type of
+  that discontinuity is infinite.
+\end{enumerate}
+
+\end{document}
+
+

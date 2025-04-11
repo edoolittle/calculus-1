@@ -1,0 +1,580 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{mathptmx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{fillbetween}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroFiveOne\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroFiveOne}
+
+% EJD: draw rectangles for area elements
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item See Figure~\ref{fig:ps051:1abcd} on
+  page~\pageref{fig:ps051:1abcd} for the graphs.
+  \begin{enumerate}
+  \item From the graph, we see that $g(x)=x+4$ is above $f(x)=x^2-2x$
+    throughout the region we are integrating.  We need to find the
+    intersections of the two curves to determine the bounds of
+    integration.  We have
+    \begin{equation*}
+      x^2-2x=x+4 \implies x^2-3x-4 = 0 \implies (x+1)(x-4) = 0
+    \end{equation*}
+    so the intersections are at $x=-1$ and $x=4$.  Then the area is
+    \begin{multline*}
+      \int_{-1}^4 (g(x)-f(x)) \; dx
+      = \int_{-1}^4 (x+4-x^2+2x) \; dx
+      = \int_{-1}^4 (-x^2+3x+4) \; dx
+      = \left. \vphantom{\int} -\frac{1}{3} x^3 - \frac{3}{2} x^2 - 4x
+      \right|_{-1}^4
+      \\
+      = -\frac{64}{3} + \frac{48}{2} + 16 - \frac{1}{3} - \frac{3}{2}
+      + 4
+      = \frac{125}{6}
+    \end{multline*}
+  \item From the graph, $f(x)=1+\sqrt{x}$ is above $g(x)=(3+x)/3$ in
+    the area between the curves.  To find the intersection we need to
+    solve the equation
+    \begin{equation*}
+      1+\sqrt{x} = \frac{3+x}{3} \implies 3 + 3\sqrt{x} = 3 + x
+      \implies x - 3\sqrt{x} = 0 \implies \sqrt{x}(\sqrt{x} - 3) =0
+    \end{equation*}
+    with solutions $\sqrt{x}=0$ and $\sqrt{x}=3$, or in other words,
+    $x=0$ and $x=9$.  Then the area is
+    \begin{equation*}
+      \int_0^9 (f(x)-g(x)) \; dx
+      = \int_0^9 \left(1+\sqrt{x} - 1 - \frac{x}{3}\right) \; dx
+      = \left. \vphantom{\int} \frac{2}{3} x^{3/2} - \frac{1}{6} x^2
+      \right|_0^9
+      = \frac{2}{3} 9^{3/2} - \frac{1}{6} 9^2
+      = \frac{9}{2}
+    \end{equation*}
+  \item From the graph, $g(x)=4x-x^2$ is above $f(x)=x^2$ in the
+    region of interest to us.  The curves intersect when
+    \begin{equation*}
+      x^2 = 4x - x^2 \implies 2x^2 - 4x = 0 \implies 2x(x-2) = 0
+    \end{equation*}
+    so the curves intersect when $x=0$ and $x=2$.  The area is
+    \begin{equation*}
+      \int_0^2 (4x-x^2-x^2) \; dx
+      = \int_0^2 (4x-2x^2) \; dx
+      = \left. \vphantom{\int} 2x^2 - \frac{2}{3} x^3 \right|_0^2
+      = 8 - \frac{16}{3} = \frac{8}{3}
+    \end{equation*}
+  \item From the graph, $g(x)=2-\cos x$ is above $f(x)=\cos x$.  The
+    graphs intersect when
+    \begin{equation*}
+      2-\cos x = \cos x \implies 2\cos x = 2 \implies \cos x = 1
+    \end{equation*}
+    which happens when $x=0, 2\pi, 4\pi, \ldots$.  Because the domain
+    $0\le x \le 2\pi$ is given in the question, we ignore what happens
+    outside of that domain, and the only intersections of interest are
+    $x=0$ and $x=2\pi$.  The area is
+    \begin{equation*}
+      \int_0^{2\pi} (2-\cos x - \cos x) \; dx = \int_0^{2\pi} (2 -
+      2\cos x) \; dx = \left. \vphantom{\int} 2x - 2\sin x
+      \right|_0^{2\pi}
+      = 4\pi - 0 = 4\pi
+    \end{equation*}
+  \end{enumerate}
+  \begin{figure}[p]
+    \centering
+    $\begin{array}{c@{\hspace{0.25in}}c@{\hspace{0.25in}}c}
+       \begin{tikzpicture}
+         \begin{axis}[axis lines=middle,
+           xlabel=$x$,
+           ylabel=$y$,
+           enlargelimits,
+           ytick=\empty,
+           xtick={-1,4},
+           xticklabels={$-1$,$4$}]
+           \addplot[name path=F,blue,domain={-1.5:4.5}] {x^2-2*x}
+           node[pos=0, above]{$f$};
+           
+           \addplot[name path=G,red,domain={-1.5:4.5}] {x+4}
+           node[pos=0, below]{$g$};
+           
+           \addplot[pattern=north west lines, pattern color=brown!50]fill between[of=F and G, soft clip={domain=-1:4}]
+           ;
+           \path (1.25,2.5) node{$A$};
+         \end{axis}
+       \end{tikzpicture}
+       &
+         \begin{tikzpicture}
+           \begin{axis}[axis lines=middle,
+             samples=200,
+             xlabel=$x$,
+             ylabel=$y$,
+             enlargelimits,
+             ytick=\empty,
+             xtick={0,9},
+             xticklabels={$0$,$9$}]
+             \addplot[name path=F,blue,domain={0:9.5},smooth] {1+sqrt(x)}
+             node[pos=0.5, above]{$f$};
+             
+             \addplot[name path=G,red,domain={0:9.5}] {(3+x)/3}
+             node[pos=0.5, below]{$g$};
+             
+             \addplot[pattern=north west lines, pattern color=brown!50]fill between[of=F and G, soft clip={domain=0:9}]
+             ;
+             \path (3.25,2.5) node{$A$};            
+           \end{axis}
+         \end{tikzpicture}
+       \\
+       \mbox{(a) $y=f(x) = x^2-2x$, $y=g(x)=x+4$}
+       &
+         \mbox{(b) $y=f(x)=1+\sqrt{x}$, $y=g(x)=(3+x)/3$}
+       \\
+       \\
+       \\
+       \begin{tikzpicture}
+         \begin{axis}[axis lines=middle,
+           xlabel=$x$,
+           ylabel=$y$,
+           enlargelimits,
+           ytick=\empty,
+           xtick={0,2},
+           xticklabels={$0$,$2$}]
+           \addplot[name path=F,blue,domain={-0.5:2.5}] {x^2}
+           node[pos=0, above]{$f$};
+           
+           \addplot[name path=G,red,domain={-0.5:2.5}] {4*x-x^2}
+           node[pos=0, below]{$g$};
+           
+           \addplot[pattern=north west lines, pattern color=brown!50]fill between[of=F and G, soft clip={domain=0:2}]
+           ;
+           % \node[coordinate,pin=60:{$A$}] at (axis cs:0.5,2.6){};
+           \path (1,2) node {$A$};
+         \end{axis}
+       \end{tikzpicture}
+       &
+         \begin{tikzpicture}
+           \begin{axis}[axis lines=middle,
+             samples=100,
+             xlabel=$x$,
+             ylabel=$y$,
+             enlargelimits,
+             ytick=\empty,
+             xtick={0,6.283},
+             xticklabels={$0$,$2\pi$}]
+             \addplot[name path=F,blue,domain={-0.5:6.783},smooth] {cos(deg(x))}
+             node[pos=0.5, below]{$f$};
+             
+             \addplot[name path=G,red,domain={-0.5:6.783},smooth] {2-cos(deg(x))}
+             node[pos=0.5, above]{$g$};
+             
+             \addplot[pattern=north west lines, pattern color=brown!50]fill between[of=F and G, soft clip={domain=0:6.283}]
+             ;
+             % \node[coordinate,pin=60:{$A$}] at (axis cs:0.5,2.6){};
+             \path (3.1415,1) node{$A$};
+           \end{axis}
+         \end{tikzpicture}
+       \\
+       \mbox{(c) $y=f(x)=x^2$, $y=g(x)=4x-x^2$}
+       &
+         \mbox{(d) $y=f(x)=\cos x$, $y=g(x)=2-\cos x$}
+     \end{array}$
+     \caption{Graphs for Question 1}
+     \label{fig:ps051:1abcd}
+  \end{figure}
+\item These problems are harder than the previous, for various
+  different reasons.  See Figure~\ref{fig:ps051:2abcd} on
+  page~\pageref{fig:ps051:2abcd} for the graphs.
+  \begin{enumerate}
+  \item In this case, it's better to think of the curves as functions
+    of $y$ instead of $x$.  For one thing, when we write
+    $4x+y^2=12$ as a function of
+    $y$, it is a polynomial, but if we write it at as a function of
+    $x$, it uses a square root, which may be harder to integrate.  For
+    another, $y^2 = 12-4x$ has two branches,
+    $y=\sqrt{12-4x}$ and
+    $y=-\sqrt{12-4x}$, both of which are involved in this question,
+    complicating the analysis.  Note that $x=f(y) =
+    3-y^2/4$ is greater than $x=g(y) =
+    y$ in the region of interest.  The intersections are when
+    \begin{equation*}
+      3-y^2/4 = y \implies y^2 + 4y - 12 = 0 \implies (y+6)(y-2)=0
+    \end{equation*}
+    i.e., when $y=-6$ and $y=2$, so the area is
+    \begin{equation*}
+      \int_{-6}^2 (f(y)-g(y)) \; dy
+      = \int_{-6}^2 \left(3 - \frac{y^2}{4} - y\right) \; dy
+      = \left. \vphantom{\int} 3y - \frac{y^3}{12} - \frac{y^2}{2}
+      \right|_{-6}^2
+      = 6 - \frac{2}{3} - 2 + 18 - 18 + 18 = \frac{64}{3}
+    \end{equation*}
+  \item From the graph we see $y=f(x)=\sin(\pi x/2)$ is above
+    $y=g(x)=x$ in the region of interest.  The curves intersect when
+    \begin{equation*}
+      \sin (\frac{\pi x}{2}) = x
+    \end{equation*}
+    which is an equation we don't know how to solve.  Instead, we try
+    to guess the solutions.  When $x=0$, $\sin(\pi 0/2) = \sin 0 = 0$,
+    so $x=0$ is a solution.  When $x=1$, $\sin(\pi 1/2) = \sin \pi/2 =
+    1$, so $x=1$ another solution.  There is yet another solution when
+    $x=-1$ (check it).  For now, let's just concentrate on the
+    interval $[0,1]$.  We'll deal with $[-1,0]$ later.  We have
+    \begin{equation*}
+      A_1 = \int_0^1 (f(x)-g(x)) \; dx
+      = \int_0^1 \left( \sin(\frac{\pi x}{2}) - x \right) \; dx
+      = \left. \vphantom{\int} -\frac{2}{\pi} \cos(\frac{\pi x}{2}) -
+        \frac{x^2}{2} \right|_0^1
+      = 0 - \frac{1}{2} + \frac{2}{\pi} - 0
+      = \frac{2}{\pi}-\frac{1}{2}
+    \end{equation*}
+    Now, by symmetry, we can conclude that $A_2=A_1$, so altogether
+    the area between the two curves is
+    \begin{equation*}
+      2A_1 = 2\left(\frac{2}{\pi}-\frac{1}{2}\right) = \frac{4}{\pi} - 1
+    \end{equation*}
+  \item The two curves coincide when
+    \begin{equation*}
+      \cos x = 1 - \cos x \implies 2\cos x = 1 \implies \cos x =
+      \frac{1}{2}
+      \implies x = \frac{\pi}{3}
+    \end{equation*}
+    There are other solutions to the equation, but they are outside of
+    the interval $[0,\pi]$.  The area is in two parts; for $A_1$,
+    $y=f(x)$ is above $y=g(x)$ so the area is
+    \begin{equation*}
+      A_1 = \int_0^{\pi/3} (f(x)-g(x)) \; dx
+      = \int_0^{\pi/3} (2\cos x - 1) \; dx
+      = \left. \vphantom{\int} 2\sin x -x \right|_0^{\pi/3}
+      = \sqrt{3} - \frac{\pi}{3}
+    \end{equation*}
+    On the other hand, for $A_2$, the area is
+    \begin{equation*}
+      A_2 = \int_{\pi/3}^\pi (g(x)-f(x)) \; dx
+      = \int_{\pi/3}^\pi (1-2\cos x) \; dx
+      = \left. \vphantom{\int} x - 2\sin x \right|_{\pi/3}^\pi
+      = \pi - \frac{\pi}{3} + \sqrt{3}
+      = \frac{2\pi}{3} + \sqrt{3}
+    \end{equation*}
+    Altogether the area between the two curves in the domain $[0,\pi]$
+    is
+    \begin{equation*}
+      A = A_1 + A_2 = \sqrt{3} - \frac{\pi}{3} + \frac{2\pi}{3} +
+      \sqrt{3}
+      = 2\sqrt{3} + \frac{\pi}{3}
+    \end{equation*}
+  \item We should write the absolute value function $|x|$ in terms of
+    cases:
+    \begin{equation*}
+      |x| = \begin{cases} -x & \mbox{if $x\le 0$} \\ x & \mbox{if
+          $x\ge 0$} \end{cases}
+    \end{equation*}
+    Next we find the intersections between $y=f(x)=|x|$ and
+    $y=g(x)=x^2-2$ by solving two equations.  First, when $x\le 0$,
+    $f(x)=-x$ so we have
+    \begin{equation*}
+      -x = x^2 - 2 \implies x^2 + x - 2 = 0 \implies (x+2)(x-1) = 0
+    \end{equation*}
+    We keep the solution $x=-2$ and drop the solution
+    $x=1$ because it is outside the domain $x\le
+    0$.  Similarly, when $x\ge 0$, $f(x)=x$ so we have
+    \begin{equation*}
+      x = x^2 - 2 \implies x^2 - x - 2 = 0 \implies (x+1)(x-2) = 0
+    \end{equation*}
+    We keep the solution $x=2$ and drop the solution $x=-1$ because it
+    is outside the domain $x \ge 0$.  Now we are ready to find the
+    area.  First we find the area
+    \begin{equation*}
+      A_1 = \int_{-2}^0 (f(x)-g(x)) \; dx
+      = \int_{-2}^0 (-x - x^2 + 2) \; dx
+      = \left. \vphantom{\int} -\frac{x^3}{3} - \frac{x^2}{2} + 2x
+      \right|_{-2}^0
+      = -\frac{8}{3} + \frac{4}{2} - 2(-2) = \frac{10}{3}
+    \end{equation*}
+    By symmetry, $A_2=10/3$ also.  (Or you can evaluate the relevant
+    integral.)  Altogether, the area between the curves is
+    \begin{equation*}
+      A = A_1 + A_2 = \frac{20}{3}
+    \end{equation*}
+  \end{enumerate}
+  \begin{figure}[p]
+    \centering
+    $\begin{array}{c@{\hspace{0.25in}}c@{\hspace{0.25in}}c}
+       \begin{tikzpicture}
+          \begin{axis}[axis lines=middle,
+            samples=150,
+            xlabel=$x$,
+            ylabel=$y$,
+            enlargelimits,
+            ytick={-6,2},
+            yticklabels={$-6$,$2$},
+            xtick=\empty]
+            %xticklabels={$-6$,$2$}]
+            \addplot[name path=F,blue,domain={1.5:3}] {sqrt(12-4*x)};
+            
+            \addplot[name path=H,blue,domain={-6.5:3}] {-sqrt(12-4*x)}
+            node[pos=0.75, below]{$f$};
+            
+            \addplot[name path=G,red,domain={-6.5:3}] {x}
+            node[pos=1, right]{$g$};
+            
+            \addplot[pattern=north west lines, pattern color=brown!50]fill between[of=H and G, soft clip={domain=-6:2}]
+            ;
+            \addplot[pattern=north west lines, pattern color=brown!50]fill between[of=F and H, soft clip={domain=2:3}];
+            \path (-1.5,-3) node{$A$};
+          \end{axis}
+        \end{tikzpicture}
+        &
+          \begin{tikzpicture}
+            \begin{axis}[axis lines=middle,
+              samples=100,
+              xlabel=$x$,
+              ylabel=$y$,
+              enlargelimits,
+              ytick=\empty,
+              xtick={-1,0,1},
+              xticklabels={$-1$,$0$,$1$}]
+              \addplot[name path=F,blue,domain={-1.25:1.25},smooth] {sin(deg((3.1415*x/2))}
+              node[pos=1, right]{$f$};
+              
+              \addplot[name path=G,red,domain={-1.25:1.25}] {x}
+              node[pos=1, right]{$g$};
+              
+              \addplot[pattern=north west lines, pattern color=brown!50]fill between[of=F and G, soft clip={domain=-1:1}]
+              ;
+              % \path (0.5,0.25) node{$A$};
+              \node[coordinate,pin=300:{$A_2$}] at (axis cs:-0.5,-0.6){};
+              \node[coordinate,pin=120:{$A_1$}] at (axis cs:0.5,0.6){};
+            \end{axis}
+          \end{tikzpicture}
+        \\
+        \mbox{(a) $4x+y^2=12$, $x=y$}
+        &
+          \mbox{(b) $y=\sin(\pi x/2)$, $y=x$}
+        \\
+        \\
+        \\
+        \begin{tikzpicture}
+          \begin{axis}[axis lines=middle,
+            xlabel=$x$,
+            ylabel=$y$,
+            enlargelimits,
+            ytick=\empty,
+            xtick={0,60,180},
+            xticklabels={$0$,$\frac{\pi}{3}$,$\pi$}]
+            \addplot[name path=F,blue,domain={-30:210}] {cos(x)}
+            node[pos=0, left]{$f$};
+            
+            \addplot[name path=G,red,domain={-30:210}] {1-cos(x)}
+            node[pos=0, left]{$g$};
+            
+            \addplot[pattern=north west lines, pattern color=brown!50]fill between[of=F and G, soft clip={domain=0:180}]
+            ;
+            % \node[coordinate,pin=60:{$A$}] at (axis cs:0.5,2.6){};
+            \path (25,0.5) node{$A_1$};
+            \path (135,0.5) node{$A_2$};
+          \end{axis}
+        \end{tikzpicture}
+        &
+          \begin{tikzpicture}
+            \begin{axis}[axis lines=middle,
+              xlabel=$x$,
+              ylabel=$y$,
+              enlargelimits,
+              ytick=\empty,
+              xtick={-2,2},
+              xticklabels={$-2$,$2$}]
+              \addplot[name path=F,blue,domain={-2.5:2.5}] {abs(x)}
+              node[pos=0, left]{$f$};
+              
+              \addplot[name path=G,red,domain={-2.5:2.5}] {x^2-2}
+              node[pos=0, above]{$g$};
+              
+              \addplot[pattern=north west lines, pattern color=brown!50]fill between[of=F and G, soft clip={domain=-2:2}]
+              ;
+              % \node[coordinate,pin=60:{$A$}] at (axis cs:0.5,2.6){};
+              \path(-0.5,-0.75) node{$A_1$};
+              \path(0.5,-0.75) node{$A_2$};
+            \end{axis}
+          \end{tikzpicture}
+        \\
+        \mbox{(c) $y=\cos x$, $y=1-\cos x$}
+        &
+          \mbox{(d) $y=|x|$, $y=x^2-2$}
+    \end{array}$
+    \caption{Graphs for Question 2}
+    \label{fig:ps051:2abcd}
+  \end{figure}
+\item See Figure~\ref{fig:ps051:3} on page~\pageref{fig:ps051:3} for
+    the graph.  The integral can be interpreted as the positive area
+    between the two curves $y=f(x)=\sqrt{x+2}$ and $y=g(x)=x$.  We
+    find the intersection points between the curves by solving
+    \begin{equation*}
+      \sqrt{x+2} = x \implies x+2 = x^2 \implies x^2 - x - 2 = 0
+      \implies (x+1)(x-2) = 0
+    \end{equation*}
+    with solutions $x=2$, which we keep, and $x=-1$, which we discard
+    because it is outside the domain $[0,4]$.  (It is also a
+    ``spurious'' solution of the original equation.  If you substitute
+    it back into the original equation, you'll find that it doesn't
+    work.  Operations like squaring an equation may introduce such
+    spurious solutions.)  The area can be found
+    as the sum of two parts:
+    \begin{equation*}
+      A_1 = \int_0^2 (f(x)-g(x)) \; dx
+      = \int_0^2 (\sqrt{x+2}-x) \; dx
+      = \left. \vphantom{\int} \frac{2}{3} (x+2)^{3/2} - \frac{x^2}{2}
+      \right|_0^2
+      = \frac{16}{3} - 2 - \frac{2}{3} 2^{3/2}
+      = \frac{10}{3} - \frac{4}{3} \sqrt{2}
+    \end{equation*}
+    and
+    \begin{equation*}
+      A_2 = \int_2^4 (g(x)-f(x)) \; dx
+      = \int_2^4 (x-\sqrt{x+2}) \; dx
+      = \left. \vphantom{\int} \frac{x^2}{2} - \frac{2}{3}(x+2)^{3/2}
+      \right|_2^4
+      = 8 - \frac{2}{3} 6^{3/2} - 2 + \frac{16}{3}
+      = \frac{34}{3} - 4\sqrt{6}
+    \end{equation*}
+    Altogether the area between the curves is
+    \begin{equation*}
+      A = A_1 + A_2 = \frac{10}{3} - \frac{4}{3}\sqrt{2} +
+      \frac{34}{3} - 4\sqrt{6}
+      = \frac{44}{3} - \frac{4}{3}\sqrt{2} - 4\sqrt{6}
+    \end{equation*}
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[axis lines=middle,
+        samples=200,
+        xlabel=$x$,
+        ylabel=$y$,
+        enlargelimits,
+        ytick=\empty,
+        xtick={0,4},
+        xticklabels={$0$,$4$}]
+        \addplot[name path=F,blue,domain={-2:4.5},smooth] {sqrt(x+2)}
+        node[pos=0, left]{$f$};
+        
+        \addplot[name path=G,red,domain={-2:4.5}] {x}
+        node[pos=0, left]{$g$};
+        
+        \addplot[pattern=north west lines, pattern color=brown!50]fill between[of=F and G, soft clip={domain=0:4}]
+        ;
+        \path (0.5,1) node{$A_1$};
+        \path (3.25,2.75) node{$A_2$};            
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Graph for Question 3}
+    \label{fig:ps051:3}
+  \end{figure}
+\item See Figure~\ref{fig:ps051:4} on page~\pageref{fig:ps051:4} for
+  the graph.  The area of the region between the birth rate and death
+  rate curves is the net change in population over the 10 year period,
+  by the Net Change Theorem.  It is
+  \begin{multline*}
+    \int_0^{10} (2200+52.3t+0.74t^2-1460-28.8t) \; dt
+    = \int_0^{10} (0.74 t^2 + 23.5 t + 740) \; dt
+    = \left. \vphantom{\int} 0.247 t^3 + 11.75 t^2 + 740 t
+    \right|_0^{10}
+    \\
+    = 247 + 1175 + 7400
+    = 8822
+  \end{multline*}
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[axis lines=middle,
+        xlabel=$x$,
+        ylabel=$y$,
+        enlargelimits,
+        ytick=\empty,
+        xtick={0,10},
+        xticklabels={$0$,$10$}]
+        \addplot[name path=F,blue,domain={-0.5:10.5},smooth] {2200+52.3*x+0.74*x^2}
+        node[pos=0, left]{$f$};
+        
+        \addplot[name path=G,red,domain={-0.5:10.5}] {1460+28.8*x}
+        node[pos=0, left]{$g$};
+        
+        \addplot[pattern=north west lines, pattern color=brown!50]fill between[of=F and G, soft clip={domain=0:10}]
+        ;
+        % \path (0.5,1) node{$A_1$};
+        % \path (3.25,2.75) node{$A_2$};
+        \path (5,2000) node{$A$};
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Graph for Question 4}
+    \label{fig:ps051:4}
+  \end{figure}
+\item See Figure~\ref{fig:ps051:5} on page~\pageref{fig:ps051:5} for
+  the graph.  First, we have to find the tangent line.  The slope of
+  the tangent line is $(d/dx)\; x^2 = 2x$; the slope when $x=1$ is $m=2$.
+  The point-slope equation for the tangent line is
+  \begin{equation*}
+    y - 1 = 2(x-1) \implies y-1 = 2x - 2 \implies y = 2x-1
+  \end{equation*}
+  The tangent line only intersects the curve when $x=1$ because
+  \begin{equation*}
+    2x-1 = x^2 \implies x^2 - 2x + 1 = 0 \implies (x-1)^2 = 0
+  \end{equation*}
+  which has only one solution, $x=1$.  Since the $x$-axis is also a
+  boundary of the region in question, we need to find the intersection
+  of the $x$-axis $y=0$ with the other two curves:
+  \begin{equation*}
+    x^2 = 0 \implies x=0
+  \end{equation*}
+  is the only intersection between the parabola and the $x$-axis, and
+  \begin{equation*}
+    2x-1 = 0 \implies x= \frac{1}{2}
+  \end{equation*}
+  is the only intersection between the $x$-axis and the tangent line.
+  From the graph we can see that the area is
+  \begin{equation*}
+    \int_0^{1/2} (x^2 - 0) \; dx
+    + \int_{1/2}^1 (x^2 - (2x-1)) \; dx
+    = \left. \vphantom{\int} \frac{x^3}{3} \right|_0^{1/2}
+    + \left. \vphantom{\int} \frac{x^3}{3} - x^2 + x \right|_{1/2}^1
+    = \frac{1}{24} + \frac{1}{3} - 1 + 1 - \frac{1}{24} + \frac{1}{4}
+    - \frac{1}{2}
+    = \frac{1}{12}
+  \end{equation*}
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[axis lines=middle,
+        xlabel=$x$,
+        ylabel=$y$,
+        enlargelimits,
+        ytick=\empty,
+        xtick={0,0.5,1},
+        xticklabels={$0$,$\frac{1}{2}$,$1$}]
+        \addplot[name path=F,blue,domain={0:1.25}] {x^2}
+        node[pos=0, left]{$f$};
+        
+        \addplot[name path=G,red,domain={0:1.25}] {2*x-1}
+        node[pos=0, left]{$g$};
+        
+        \addplot[name path=H,draw=none,domain={0:0.5}] {0};
+        
+        \addplot[pattern=north west lines, pattern color=brown!50]fill between[of=F and G, soft clip={domain=0.5:1}];
+        
+        \addplot[pattern=north west lines, pattern color=brown!50]fill between[of=F and H, soft clip={domain=0:0.5}];
+        % \path (0.5,1) node{$A_1$};
+        % \path (3.25,2.75) node{$A_2$};
+        \node[coordinate,pin=100:{$A$}] at (axis cs:0.5,0.125){};
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Graph for Question 5}
+    \label{fig:ps051:5}
+  \end{figure}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{mathptmx}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroOneEight}
+\author{\commonAuthor}
+\date{\commonDateZeroOneEight}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+The following problems based on Section~1.8 of the textbook will help
+you study.  \emph{You do not need to hand in solutions to these
+  problems.}
+\begin{enumerate} % FIXME : fill in missing problems
+\item (Based on 1.8.25--32) %1
+  Find the domain of the following, and explain why each is continuous
+  on its domain.
+  \begin{multicols}{4}
+  \begin{enumerate}
+  \item $\ds G(x) = \sqrt[3]{x} (1+x^2)$
+  \item $\ds (\sin x)/(x+1)$ % FIXME : move trig later
+  %\item $\ds h(x) = e^{2x}$
+  \item $\ds \sin(\cos(\sin x))$ % FIXME : move trig later
+  \end{enumerate}
+  \end{multicols}
+\item (Based on 1.8.22,42) %2
+  For each of the following functions, find any discontinuities of the
+  function and identify the type of any discontinuities found.
+  \begin{multicols}{2}
+  \begin{enumerate}
+  \item $\ds
+      f(x) = \begin{cases} 
+        \ds \frac{2x^2-5x-3}{x-3} &\mbox{if $x\ne 3$} \\
+        6                         &\mbox{if $x=3$}
+      \end{cases}
+      \vphantom{\begin{cases} a \\ b \\ c \end{cases}}
+    $
+  \item $\ds
+      g(x) = \begin{cases}
+        x+1        & \mbox{$-\infty <   x \le 1     $} \\
+        1/x        & \mbox{$1       <   x <   3     $} \\
+        \sqrt{x-3} & \mbox{$3       \le x <   \infty$}
+      \end{cases}
+    $
+  \end{enumerate}
+  \end{multicols}
+\item (Based on 1.8.53--56) %3
+  Use the Intermediate Value Theorem to show that there is a solution
+  of the given equation on the given intervals $I$, and find a
+  solution to one decimal point of accuracy.
+  \begin{multicols}{3}
+  \begin{enumerate}
+  \item $\sqrt[3]{x}=1-x$, $I=(0,1)$
+  \item $\tan x = 2x$, $I=(0,1.4)$
+  \item $x^5+2x+3=x^2$, $I=(-\infty,\infty)$
+  \end{enumerate}
+  \end{multicols}
+\item (Based on 1.8.45--46) %4
+  Find the values of $a$ and $b$ which make the following function
+  continuous everywhere.
+  \begin{displaymath}
+    f(x) = \begin{cases}
+      (x^2-4)/(x-2), & \mbox{$-\infty < x < 2$} \\
+      ax^2-bx+3,     & \mbox{$2       \le x < 3$} \\
+      2x-a+b,        & \mbox{$3       \le x < \infty$}
+    \end{cases}
+  \end{displaymath}
+\end{enumerate}
+
+\noindent
+You may find the following additional exercises from Section~1.8 helpful.
+\begin{itemize}
+\item[1.8] C-level: 1--2, 3--4, 5--6, 7--8, 9--10, 11--14, 15--16, 17--20,
+    22, 23--24, 35--38, 39--40, 41--43, 49, 53--56;  \\
+    B-level: 21, 19, 25--32, 33--34, 44--45, 47, 48, 50--52, 57--58, 59--60,
+    61--62; \\
+    A-level: 46, 63--73
+\end{itemize}
+
+\end{document}
+

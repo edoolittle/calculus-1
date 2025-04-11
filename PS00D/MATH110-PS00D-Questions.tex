@@ -1,0 +1,181 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{mathptmx}
+\usepackage{tikz}
+\usepackage[aux]{rerunfilecheck}
+
+\input{../common.tex}
+
+\newcommand{\ds}{\displaystyle}
+
+\title{\commonPSTitleZeroZeroD}
+\author{\commonAuthor}
+\date{\commonDateZeroZeroD}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+The following problems based on Appendix~D of the textbook will help
+you review.  \emph{You do not need to hand in solutions to these
+  problems.}
+\begin{enumerate}
+\item (Based on D.1--6) Convert from degrees to radians.
+  \begin{multicols}{4}
+  \begin{enumerate}
+  \item $\ds 60^{\circ}$
+  \item $\ds 330^{\circ}$
+  \item $\ds -20^{\circ}$
+  \item $\ds 780^{\circ}$
+  \end{enumerate}
+  \end{multicols}
+\item (Based on D.7--12) Convert from radians to degrees.
+  \begin{multicols}{4}
+  \begin{enumerate}
+  \item $\ds\vphantom{\frac{9}{9}}3\pi$
+  \item $\ds \frac{7\pi}{3}$
+  \item $\ds -\frac{5\pi}{6}$
+  \item $\ds 6$
+  \end{enumerate}
+  \end{multicols}
+\item (Based on D.17--22) Draw, in standard position, the angle the measure
+  of which is given.
+  \begin{multicols}{4}
+  \begin{enumerate}
+  \item $\ds\vphantom{\frac{9\pi}{9}}75^{\circ}$
+  \item $\ds\vphantom{\frac{9\pi}{9}} -720^{\circ}$
+  \item $\ds \frac{2\pi}{3}$ rad
+  \item $\ds -\frac{7\pi}{4}$ rad
+  \end{enumerate}
+  \end{multicols}
+\item (Based on D.23--28) Find the exact trigonometric ratios for the angle
+  the radian measure of which is given.
+  \begin{multicols}{4}
+  \begin{enumerate}
+  \item $\ds \frac{2\pi}{3}$
+  \item $\ds \frac{9\pi}{4}$
+  \item $\ds -\frac{5\pi}{6}$
+  \item $\ds -\frac{11\pi}{2}$
+  \end{enumerate}
+  \end{multicols}
+\item (Based on D.29--34) Find the remaining trigonometric ratios.
+  \begin{multicols}{2}
+  \begin{enumerate}
+  \item $\ds \sin\theta = \frac{5}{13}$, $0<\theta<\frac{\pi}{2}$
+  \item $\ds \tan\theta = 3$, $0<\theta<\frac{\pi}{2}$
+  \item $\ds \sec\theta = -2.25$, $\frac{\pi}{2}<\theta<\pi$
+  \item $\ds \vphantom{\frac{\pi}{2}} \cot\alpha = 3.5$, $\pi<\alpha<2\pi$
+  \end{enumerate}
+  \end{multicols}
+\item (Based on D.35--38) Find, correct to five decimal places, the 
+  length of the side labeled $x$.  (Note: diagrams are not to scale!)
+  %EJD: diagrams
+  \begin{multicols}{4}
+  \begin{enumerate}
+  \item % EJD: fix baseline, angle indicators, font size, right angle
+    \begin{tikzpicture}
+      \draw (0,0) node[above left]{$\frac{2\pi}{5}$} -- node[above]{$x$} %
+      (1,0) -- node[right]{6 cm} (1,2) -- cycle;
+    \end{tikzpicture}
+  \item % EJD: baseline, angles, fontsize, right angle
+    \begin{tikzpicture}
+      \draw  (1.5,0) -- node[right]{1 in} (1.5,2) -- %
+      node[above left]{$x$} (0,0) node[above]{$\frac{\pi}{3}$} -- cycle;
+    \end{tikzpicture}
+  \item % EJD: baseline, angles, fontsize, right angle
+    \begin{tikzpicture}[baseline]
+      \draw (0,2) -- node[below]{$x$} (1,2) %
+      node[below right]{$40^{\circ}$} -- node[below right]{35 m} (0,0) -- cycle;
+    \end{tikzpicture}
+  \item % EJD: baseline, angles, fontsize, right angle
+    \begin{tikzpicture}
+      \draw (0,0) node[below left]{$30^{\circ}$} -- node[left]{2 km} (0,-2) -- %
+      node[above]{$x$} (1.5,-2) -- cycle;
+    \end{tikzpicture}
+  \end{enumerate}
+  \end{multicols}
+\item (Based on D.65--72) Find all values of $x$ in the interval $[0,2\pi]$
+  that satisfy the given equation.
+  \begin{multicols}{4}
+  \begin{enumerate}
+  \item $\ds 2\sin x-1=0$
+  \item $\ds 3\tan^2 x=1$
+  \item $\ds 4\cos^2 x = 3$
+  \item $\ds \cos 2x+\cos x=0$
+  \end{enumerate}
+  \end{multicols}
+\item (Based on D.73--76) Find all values of $\theta$ in the interval $[0,2\pi]$
+  that satisfy the given inequality.
+  \begin{multicols}{2}
+  \begin{enumerate}
+  \item $\ds \cos \theta \le \frac{1}{2}$
+  \item $\ds -2\sin \theta +1 \ge 0$
+  \item $\ds -\frac{1}{\sqrt{3}} < \tan \theta < \sqrt{3}$
+  \item $\ds \vphantom{\frac{1}{2}}\sin \theta < \cos \theta$
+  \end{enumerate}
+  \end{multicols}
+% forward reference to Section~1.3
+%\item (Based on D.77--82)
+%  \begin{multicols}{4}
+%  \begin{enumerate}
+%  \item $\ds $
+%  \item $\ds $
+%  \item $\ds $
+%  \item $\ds $
+%  \end{enumerate}
+%  \end{multicols}
+\item (Based on D.14) If a circle has radius 18 m, find the length of an arc
+  subtended by a central angle of $60^{\circ}$ degrees.
+\item (Based on D.15) A circle has radius 30 cm.  What angle is subtended at
+  the center of the circle by an arc 10 cm long?
+\item (Based on D.42--58) Prove the following identities.
+  %\begin{multicols}{1}
+  \begin{enumerate}
+  \item $\ds \sin(2\pi - x) = -\sin x$
+  \item $\ds (\sin x - \cos x)^2 = 1-\sin 2x$
+  \item $\ds (\sin x + \sin y)(\sin x-\sin y) = \sin(x+y)\sin(x-y)$
+  \item $\ds \sin 3\theta = 3\sin x - 4\sin^3 x $
+  \end{enumerate}
+  %\end{multicols}
+\item (Based on D.59--64) If $\cos x=8/17$ and $\csc y = 2$, where $x$ and $y$
+  lie in the interval $[0,\pi/2]$, evaluate the following expressions.
+  \begin{multicols}{4}
+  \begin{enumerate}
+  \item $\ds \sin(x+y)$
+  \item $\ds \cos(x-y)$
+  \item $\ds \cos 2x$
+  \item $\ds \tan(x+y)$
+  \end{enumerate}
+  \end{multicols}
+\item (Based on D.39--41) Prove the following identities from the textbook.
+  \begin{multicols}{2}
+  \begin{enumerate}
+  \item $\ds \vphantom{\frac{2}{2}}\sin 2x = 2\sin x \cos x$
+  \item $\ds \cos^2 x = \frac{1+\cos 2x}{2}$
+  \end{enumerate}
+  \end{multicols}
+\item (Based on D.86) Use the subtraction formula for the sine function, namely
+  \begin{equation*}
+    \sin(x-y) = \sin x \cos y - \cos x \sin y
+  \end{equation*}
+  to prove the addition formula for the sine function, namely
+  \begin{equation*}
+    \sin(x+y) = \sin x \cos y + \cos x \sin y
+  \end{equation*}
+\end{enumerate}
+
+\noindent
+You may find the following additional exercises from Appendix~D helpful.
+\begin{itemize}
+\item[Appendix~D] 
+  C-level: 1--6, 7--12, 17--22, 23--28, 29--34, 35--38, 65--72, 73--76; \\
+  %77--82; % forward reference to Section~1.3
+  B-level: 13--16, 42--58, 59--64; \\
+  A-level: 39--41, 83--89
+\end{itemize}
+
+\end{document}
+

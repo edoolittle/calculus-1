@@ -1,0 +1,873 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+\usepackage{tikz}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+\setbeamercolor{postit}{fg=black,bg=yellow}
+
+\title{\commonTitleZeroOneEight}
+\subtitle{\commonSubtitleZeroOneEight}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroOneEight}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+\section{Continuity (I)}
+
+\subsection{The Definition of Continuity}
+
+\begin{frame}
+  \frametitle{Examples of Continuous and Discontinuous Functions}
+  Recall the following three graphs from Lecture 2.
+  \uncover<2->{One of these graphs is not like the others.}%
+  \begin{columns}
+    \column{.3\textwidth}
+    \includegraphics[height=5cm]{graph5.eps}
+    \column{.3\textwidth}
+    \includegraphics[height=5cm]{graph6.eps}
+    \column{.3\textwidth}
+    \includegraphics[height=5cm]{graph7.eps}
+  \end{columns}
+  \uncover<3->{\begin{center}The middle graph is special.\end{center}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Idea of Continuity}
+  \begin{columns}
+  \column{0.6\textwidth}
+  \begin{itemize}
+  \uncover<1->{\item In the middle graph 
+    on the previous slide, there were `no surprises.'}%
+  \uncover<2->{\item The limits of the function and 
+    its values are consistent.}%
+  \uncover<3->{\item In the other two graphs, 
+    the limits of the function are inconsistent with its values.}%
+  \uncover<4->{\item In the first case, $\lim_{x\to 1} f(x) = 2$ but
+    $f(1)$ is undefined.}%
+  \uncover<5->{\item In the second case, $\lim_{x\to 1} f(x) = 2$ 
+    and $f(1)$ is defined, but $f(1)\ne 2$.}
+  \end{itemize}
+  \column{0.4\textwidth}
+  \only<1-2>{\includegraphics[height=5cm]{graph6.eps}}%
+  \only<3-4>{\includegraphics[height=5cm]{graph5.eps}}%
+  \only<5>{\includegraphics[height=5cm]{graph7.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Definition of Continuity}
+  We can make the special property of the middle graph
+  precise by introducing a definition: \\
+  \uncover<2->{
+    \begin{beamercolorbox}{postit}
+
+    \textbf{Definition:} We say a function $f$ is
+    \textbf{continuous at $a$} if the following statement is true:
+    \begin{displaymath}
+      \lim_{x\to a} f(x) = f(a)
+    \end{displaymath}
+    \end{beamercolorbox}
+  }%
+  \uncover<3->{The definition really says three things:
+  \begin{enumerate}
+  \item $\lim_{x\to a} f(x)$ exists.
+  \item $f(a)$ exists.
+  \item The above two values are equal.
+  \end{enumerate}
+  }%
+  \uncover<4->{If any of those conditions is violated, we say
+    $f$ is \textbf{discontinuous at $a$}.}%
+\end{frame}
+
+\begin{frame}
+  \frametitle{Types of Discontinuities}
+  \begin{columns}
+  \column{0.65\textwidth}
+  The discontinuities of a function can be classified into four
+  categories.
+  \begin{enumerate}
+  \uncover<1->{\item \textbf{Removable discontinuities}: where the limit 
+    $\ds\lim_{x\to a}$ exists but is not equal to $f(a)$.}%
+  \uncover<3->{\item \textbf{Jump discontinuities}: where the one-sided limits
+    exist but are not equal.}%
+  \uncover<4->{\item \textbf{Infinite discontinuities}: 
+    where either or both of the one-sided limits are infinite.}%
+  \uncover<5->{\item All other cases: where either of the one-sided limits
+    doesn't exist (i.e., the function oscillates rapidly).}%
+  \end{enumerate}
+  \column{0.35\textwidth}
+  \only<1>{\includegraphics[width=\textwidth]{disc1.eps}}%
+  \only<2>{\includegraphics[width=\textwidth]{disc2.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{disc3.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{disc4.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{disc5.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{One-sided Continuity}
+  \begin{columns}
+  \column{0.65\textwidth}
+  We can define the concept of one-sided continuity using one-sided limits.
+
+  \uncover<2->{
+      \begin{beamercolorbox}{postit}
+
+        \textbf{Definition:} We say a function $f$ is
+	\textbf{continuous from the right at $a$} 
+	if the following statement is true:
+	\begin{displaymath}
+	  \lim_{x\to a^+} f(x) = f(a)
+	\end{displaymath}
+      \end{beamercolorbox}
+  }%
+				  
+  \uncover<3->{
+    \begin{beamercolorbox}{postit}
+
+      \textbf{Definition:} We say a function $f$ is
+      \textbf{continuous from the left 
+        at $a$} if the following statement is true:
+      \begin{displaymath}
+        \lim_{x\to a^-} f(x) = f(a)
+      \end{displaymath}
+    \end{beamercolorbox}
+				  }%
+  \column{0.35\textwidth}
+  \only<1-2>{\includegraphics[width=\textwidth]{disc3.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{disc3a.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Continuity on an Interval}
+  \begin{columns}
+  \column{0.65\textwidth}
+  We are often interested in functions which are nice \textbf{everywhere}
+  in some domain.  So we introduce a new definition:
+
+  \uncover<2->{
+    \begin{beamercolorbox}{postit}
+
+      \textbf{Definition:} A function is called \textbf{continuous
+      on an interval} if it is continuous at each point $a$
+      in the interval.
+    \end{beamercolorbox}
+  }%
+  \uncover<3->{E.g., continuous on $(-\infty,\infty)$,}
+  \uncover<4->{continuous on $(0,\infty)$.}
+
+  \uncover<5->{If the interval has an endpoint or endpoints, we understand
+    \textit{continuous} at the endpoint to mean \textit{continuous from the
+    right} or \textit{continuous from the left} as appropriate.
+  }%
+  \uncover<6->{E.g., continuous on $[-1,1]$,}
+  \uncover<7->{not continuous on $[0,\infty)$.}
+  \column{0.35\textwidth}
+  \only<3>{\includegraphics[width=\textwidth]{int1.eps}}%
+  \only<4-5>{\includegraphics[width=\textwidth]{int2.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{int3.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{int4.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Continuity and Graphs}
+  % EJD : diagrams
+  \begin{enumerate}
+  \uncover<1->{\item The discontinuities of a function can be easily located by
+    visual inspection of its graph.}%
+  \uncover<2->{\item The discontinuities 
+    are where the graph of the function is broken.}%
+  \uncover<3->{\item A function which is continuous 
+    on an interval can be drawn without
+    lifting the pencil from the paper.}%
+  \end{enumerate}
+\end{frame}
+
+
+\subsection{Continuity Theorems}
+
+\begin{frame}
+  \frametitle{Combining Continuous Functions}
+  The limit laws for combining functions give rules for combining
+  continuous functions.
+  \uncover<2->{Suppose $f$ and $g$ are continuous at $a$.}
+  \begin{enumerate}
+  \uncover<3->{\item The sum $f+g$ is continuous at $a$.}%
+  \uncover<4->{\item The difference $f-g$ is continuous at $a$.}%
+  \uncover<5->{\item The constant multiple $cf$ is continuous at $a$.}%
+  \uncover<6->{\item The product $fg$ is continuous at $a$.}%
+  \uncover<7->{\item The quotient $f/g$ is continuous at $a$ \textbf{under
+    the condition that $g(a)\ne 0$.}}%
+  \end{enumerate}
+  \uncover<8->{In summary, any algebraic combination of continuous functions
+    is continuous, provided we don't divide by zero.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Continuity of Polynomial and Rational Functions}
+  \begin{itemize}
+  \item Again, from the properties of limits,
+    the constant function $\ds f(x)=c$ is continuous.
+  \pause
+  \item Also, the `identity' function $\ds g(x)=x$ is continuous.
+  \pause
+  \item From the above results, it follows that polynomials 
+    like $\ds h(x)=x^3-5x^2+2x-1$ are continuous on the whole real line.
+  \pause
+  \item It also follows that rational functions like 
+    $\ds q(x)= \frac{x^4-3x^2+5}{x^2-1}$ are continuous everywhere 
+    except where their denominators are $0$.
+  \pause
+  \item We can summarize those statements by saying that polynomials
+    and rational functions are continuous on their domains.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: $f(x)=1/x$}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \uncover<1->{Consider the function $f(x)=1/x$.}
+  \begin{itemize}
+  \uncover<2->{\item The theorem on the previous
+    slide tells us that $f(x)=1/x$ is continuous on its domain.}%
+  \uncover<3->{\item But the graph of $f(x)$ doesn't look continuous.}%
+  \uncover<4->{\item The domain of $f$ is }%
+  \uncover<5->{$\{x\in \mathbb{R}: x\ne 0\}$.}%
+  \uncover<6->{\item The function is continuous on its domain because there
+    is no point in the domain at which it is discontinuous.}%
+  \uncover<7->{\item But the function is not continuous on $(-\infty,\infty)$.}
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<3->{\includegraphics[width=\textwidth]{recip.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Continuity of Root Functions}
+  Recall the theorem for limits of root functions:
+  \pause
+  \begin{displaymath}
+    \lim_{x\to a} \sqrt[n]{x} = \sqrt[n]{a}
+  \end{displaymath}
+  for $a> 0$.  
+  \pause
+  We also have the result
+  \begin{displaymath}
+    \lim_{x\to 0^+} \sqrt[n]{x} = 0 = \sqrt[n]{0}
+  \end{displaymath}
+  \pause
+  From those results, it follows that any root function
+  is continunous on the interval $[0,\infty)$.
+  \pause
+  When $n$ is odd, we can also take $n$th roots of negative
+  numbers, and we get the result
+  \pause
+  any odd root function is continuous on the interval $(-\infty,\infty)$.
+  % EJD : diagrams of even/odd roots
+\end{frame}
+
+\begin{frame}
+  \frametitle{Continuity of Trig Functions}
+  % EJD : diagrams
+  We have the basic trig limits
+  \begin{displaymath}
+  \begin{array}{l@{\hspace{1cm}}r}
+  \uncover<2->{\includegraphics[width=0.5\textwidth]{sin.eps}}
+  &
+  \uncover<1->{
+  \mbox{$\begin{aligned} \lim_{x\to 0} \sin x &= 0 \\ 
+    \lim_{x\to 0} \cos x &= 1 \end{aligned}$ }
+  }%
+  \end{array}
+  \end{displaymath}%
+  \uncover<2->{which are obvious 
+    from the graphs of $\sin$ and $\cos$ or from basic
+    trigonometry.}
+  \uncover<3->{From those limits and the identities
+  \begin{align*}
+    \sin(x+h) &= \sin x \cos h + \cos x \sin h \\
+    \cos(x+h) &= \cos x \cos h - \sin x \sin h 
+  \end{align*}%
+  it follows that $\sin$ and $\cos$ are continuous on the whole real line.
+  }%
+\end{frame}
+
+\begin{frame}
+  \frametitle{Use of Continuity to Evaluate Limits}
+  % EJD : steps
+  If we know that a function is continuous at $a$, it requires no
+  effort to evaluate its limit at $a$:
+  \pause
+  \begin{displaymath}
+    \lim_{x\to a} f(x) = f(a)
+  \end{displaymath}
+  \pause
+  For example, from the previous results we know that 
+  $\ds f(x)=\frac{\sin x+1}{x^2-4}$ is continuous at $x=3$ (because
+  $\sin x + 1$ and $x^2-4$ are continuous and $x^2-4\ne 0$ at $x=3$), so
+  \pause
+  \begin{displaymath}
+    \lim_{x\to 3} \frac{\sin x+1}{x^2-4} = \frac{\sin 3+1}{3^2-4} 
+    \approx 0.2282
+  \end{displaymath}
+\end{frame}
+
+
+\section{Continuity (II)}
+
+\subsection{Composition of Functions}
+
+\begin{frame}
+  \frametitle{Composition of Functions}
+  There is one way of combining functions we haven't talked about yet.
+  We can chain together functions by using the output from one function
+  as the input to the next, like this
+  \begin{displaymath}
+    x \stackrel{g}{\mapsto} g(x) \stackrel{f}{\mapsto} f(g(x))
+  \end{displaymath}
+  \pause
+  Note that in our poor system of notation, $g$ acts first but is
+  written after $f$.
+
+  \pause
+  E.g., if $f(x)=\sqrt{x}$ and $g(x)=x^2+1$, we can construct
+  a new function
+  \begin{displaymath}
+    h(x) = f(g(x)) = \sqrt{g(x)} = \sqrt{x^2+1}
+  \end{displaymath}
+  \pause
+  \begin{beamercolorbox}{postit}
+  The resulting 
+  function $h(x)$ is called the 
+  \textbf{composition of $f$ and $g$} and is sometimes
+  written as $h=f \circ g$ when we don't want to put the $x$s in.
+  \end{beamercolorbox}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Composition of Functions: Order Matters}
+  Note that $f\circ g \ne g\circ f$ in general.  In the above case we have
+  \begin{displaymath}
+    (f\circ g)(x) = \sqrt{x^2+1} \quad\mbox{and}\quad
+    (g\circ f)(x) = (f(x))^2+1 = (\sqrt{x})^2+1
+  \end{displaymath}
+  \begin{displaymath}
+    \begin{array}{c@{\hspace{0.5cm}}c}
+      \uncover<2->{\includegraphics[width=0.35\textwidth]{graph0.eps}}
+      &
+      \uncover<3->{\includegraphics[width=0.35\textwidth]{graph2.eps}}
+      \\
+      \uncover<2->{y=\sqrt{x^2+1}}
+      &
+      \uncover<3->{y=(\sqrt{x})^2+1}
+    \end{array}
+  \end{displaymath}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Aside: A Rant on Nonlinearity}
+  Also note: we cannot replace $\sqrt{x^2+1}$ with $\sqrt{x^2}+\sqrt{1}$!
+  \pause
+  We say that the square root function is not linear.
+  \pause
+  \begin{beamercolorbox}{postit}
+
+  Most of the functions we know are not linear.
+  \begin{align*}
+    \sqrt{a+b} &\mbox{ \textbf{cannot be replaced with} } \sqrt{a} + \sqrt{b} \\
+    (a+b)^2    &\mbox{ \textbf{cannot be replaced with} } a^2 + b^2           \\
+    \sin(a+b)  &\mbox{ \textbf{cannot be replaced with} } \sin(a) + \sin(b)   \\
+    f(a+b)     &\mbox{ \textbf{cannot be replaced with} } f(a) + f(b)
+  \end{align*}
+  \pause
+  Sometimes the left sides are equal to the right sides \textbf{but not in
+  general}.
+  \end{beamercolorbox}
+  \pause
+
+  Functions for which $f(a+b)=f(a)+f(b)$ are not typical.  You study them
+  in linear algebra, but calculus was invented because most useful functions
+  are not like that.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Another Aside: $x+1$ vs. $(\sqrt{x})^2+1$ vs. $\sqrt{x^2}+1$}
+  We can't even say $x+1$ is the same thing
+  as $(\sqrt{x})^2+1$ if we are being completely correct; the domains
+  are different.  Also, $\sqrt{x^2}+1$ is different yet again:
+  \begin{displaymath}
+    \begin{array}{c@{\hspace{0.5cm}}c@{\hspace{0.5cm}}c}
+      \uncover<2->{\includegraphics[width=0.25\textwidth]{graph1.eps}}%
+      &
+      \uncover<3->{\includegraphics[width=0.25\textwidth]{graph2.eps}}%
+      &
+      \uncover<4->{\includegraphics[width=0.25\textwidth]{graph0a.eps}}%
+      \\
+      \uncover<2->{y=x+1}%
+      &
+      \uncover<3->{y=(\sqrt{x})^2+1}%
+      &
+      \uncover<4->{y=\sqrt{x^2}+1}%
+    \end{array}
+  \end{displaymath}
+  \uncover<4->{Moral of this
+  story: keep track of not on the formulas describing functions,
+  but also their domains.}%
+\end{frame}
+
+\begin{frame}
+  \frametitle{Limits and Compositions of Functions}
+  \begin{itemize}
+  \item Next, we need to figure out how compositions of functions behave
+    under limits.  
+    \pause
+  \item Unfortunately, ``the limit of a composition is the composition
+    of the limits'', but that doesn't make any sense: limits are numbers
+    and we can't compose numbers, only functions.
+    \pause
+  \item However, we can say ``the limit of a function of a function
+    is the function of the limit of the function'' under certain conditions.
+  \end{itemize}
+  \pause
+  \begin{beamercolorbox}{postit} 
+
+  \textbf{Theorem:} If $f$ is continuous at $b$ and 
+  $\ds \lim_{x\to a} g(x) = b$, then
+  \begin{displaymath}
+    \lim_{x\to a} f(g(x)) = f(\lim_{x\to a} g(x))
+  \end{displaymath}
+
+  \end{beamercolorbox}
+  \pause
+  The idea is that we can exchange the $\lim$ symbol with any
+  continuous function $f$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: Breaking a Function into a Composition}
+  % EJD : overlay highlight of subexpressions
+  Consider the rather complicated looking function
+  \begin{displaymath}
+    \only<1-2>{
+      h(x) = \frac{
+        \tikz[baseline=(t1.base)]{
+          \node[fill=white!50] (t1)
+          {$(x-1)^2\sin(1/(x-1))$};
+        } + 3
+      }%
+      {
+        \tikz[baseline=(t2.base)]{
+          \node[fill=white!50] (t2)
+	  {$(x-1)^2\sin(1/(x-1))$};
+        } - 3
+      }
+    } % only
+    \only<3->{
+    h(x) = \frac{
+      \tikz[baseline=(t3.base)]{
+        \node[fill=yellow!50] (t3)
+        {$(x-1)^2\sin(1/(x-1))$};
+      } + 3
+    }%
+    {
+      \tikz[baseline=(t4.base)]{
+        \node[fill=yellow!50] (t4)
+	{$(x-1)^2\sin(1/(x-1))$};
+      } - 3
+    }
+    } % only
+  \end{displaymath}
+  \uncover<2->{
+  We try to express $h$ as a composition by identifying common components.  
+  }%
+  \uncover<4->{
+  We now have a good candidate for an `inner function':
+  \begin{displaymath}
+    g(x) = (x-1)^2\sin(1/(x-1))
+  \end{displaymath}
+  }%
+  \uncover<5->{
+  Now we can write
+  \begin{displaymath}
+    h(x) = \frac{g(x)+3}{g(x)-3}
+  \end{displaymath}
+  }%
+  \uncover<6->{
+  which tells us that $f(u)$ should be as follows.
+  \uncover<7->{Check $h(x)=f(g(x))$.}%
+  \begin{displaymath}
+    f(u)=\frac{u+3}{u-3}.
+  \end{displaymath}
+  }%
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: The Limit of a Composition}
+  Now that we have broken $h$ into a composition of functions,
+  we can use our new limit theorem to find the limit
+  $\ds\lim_{x\to 1} h(x)$.
+  \only<1>{%
+  \begin{displaymath}
+    \phantom{\lim_{x\to 1} h(x)
+    = \lim_{x\to 1} f(g(x))
+    \stackrel{?}{=} f(\lim_{x\to 1}g(x))
+    =f(0) = \frac{0+3}{0-3} = -1 = -1}
+  \end{displaymath}
+  }%
+  \only<2-8>{%
+  \begin{displaymath}
+    \lim_{x\to 1} h(x)
+    = \lim_{x\to 1} f(g(x))
+    \stackrel{?}{=} f(\lim_{x\to 1}g(x))
+    \phantom{=f(0) = \frac{0+3}{0-3} = -1 = -1}
+  \end{displaymath}
+  }%
+  \only<9>{%
+  \begin{displaymath}
+    \lim_{x\to 1} h(x)
+    = \lim_{x\to 1} f(g(x))
+    = f(\lim_{x\to 1}g(x))
+    \phantom{=f(0) = \frac{0+3}{0-3} = -1 = -1}
+  \end{displaymath}
+  }%
+  \only<10>{%
+  \begin{displaymath}
+    \lim_{x\to 1} h(x)
+    = \lim_{x\to 1} f(g(x))
+    = f(\lim_{x\to 1}g(x))
+    = f(0)
+    \phantom{= \frac{0+3}{0-3} = -1 = -1}
+  \end{displaymath}
+  }%
+  \only<11>{%
+  \begin{displaymath}
+    \lim_{x\to 1} h(x)
+    = \lim_{x\to 1} f(g(x))
+    = f(\lim_{x\to 1}g(x))
+    = f(0)
+    = \frac{0+3}{0-3} = -1 \phantom{= -1}
+  \end{displaymath}
+  }%
+  \uncover<3->{%
+  In order to remove the question mark,
+  we need to check whether the hypotheses of the theorem hold.
+  }%
+  \uncover<4->{
+  First, we need to evaluate
+  }%
+  \only<1-3>{%
+  \begin{displaymath}
+    \phantom{\lim_{x\to 1} g(x) = \lim_{x\to 1} (x-1)^2 \sin(1/(x-1)) = 0 = 0}
+  \end{displaymath}
+  }%
+  \only<4-5>{%
+  \begin{displaymath}
+    \lim_{x\to 1} g(x) = \lim_{x\to 1} (x-1)^2 \sin(1/(x-1)) \phantom{=0=0}
+  \end{displaymath}
+  }%
+  \only<6->{%
+  \begin{displaymath}
+    \lim_{x\to 1} g(x) = \lim_{x\to 1} (x-1)^2 \sin(1/(x-1)) = 0 \phantom{=0}
+  \end{displaymath}
+  }%
+  \uncover<5->{%
+  which we can do using the squeeze theorem.
+  }%
+  \uncover<7->{%
+  Then $b=0$, and now we need to check whether $f(x)=(x+3)/(x-3)$
+  is continuous at $b=0$.  Since $0$ is in the domain of the function,
+  we know that $f$ is continuous at $b$.
+  }%
+  \uncover<8->{%
+  Therefore the hypotheses are satisfied and we can complete 
+  the calculation.
+  }%
+\end{frame}
+
+\begin{frame}
+  \frametitle{Composition of Continuous Functions}
+  From the previous results and the definition of
+  continuity, we have the following theorem.
+
+  \begin{itemize}
+  \item[]
+  \begin{beamercolorbox}{postit}
+
+    \textbf{Theorem:} If $g$ is continuous at $a$ and if $f$ is continuous
+    at $g(a)$, then the function
+    $(f\circ g)(x) = f(g(x))$ is continuous at $a$.
+
+  \end{beamercolorbox}
+  \end{itemize}
+
+  \pause
+
+  We also have a result about the continuity of a composition of functions on
+  an interval.
+
+  \begin{itemize}
+  \item[]
+  \begin{beamercolorbox}{postit}
+    
+    \textbf{Theorem:} If $g$ and $f$ are continuous on their domains,
+    then the composition $(f\circ g)(x)=f(g(x))$ is continuous on its
+    domain.
+
+  \end{beamercolorbox}
+  \end{itemize}
+
+  \pause
+
+  We say that `the composition of continuous functions is continuous'.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Using Continuity to Evaluate Limits of Compositions}
+  Consider the function 
+  \begin{displaymath}
+    h(x) = \sqrt{\frac{x^2-1}{x+3}}
+  \end{displaymath}
+  \pause
+  We can write $h$ as the composition of two functions
+  \begin{displaymath}
+    f(u) = \sqrt{u} \quad\mbox{and}\quad g(x)=\frac{x^2-1}{x+3}
+  \end{displaymath}
+  \pause
+  Both those functions are continuous on their domains,
+  so $h(x)$ is continuous on its domain.  
+  \pause
+  Therefore limits of $h$ can be simply evaluated, for example
+  \begin{displaymath}
+    \lim_{x\to 4} \sqrt{\frac{x^2-1}{x+3}} = \sqrt{\frac{4^2-1}{4+3}}
+  \end{displaymath}
+  provided the latter expression makes sense.
+\end{frame}
+
+
+\subsection{Applications of Continuity}
+
+\begin{frame}
+  % EJD
+  \frametitle{The Intermediate Value Theorem (IVT)}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}
+  \uncover<1->{\item Another major application of continuity is the 
+    \textbf{Intermediate Value Theorem}.}%
+  \uncover<2->{\item The idea:
+    no matter how I connect the points $(-1,-1)$ and $(1,1)$,
+    the graph of a continuous function must intersect the $x$-axis at some
+    number $c$; at that point $f(c)=0$ and we say $c$ is a root of $f$.}
+  \uncover<5->{\item $f$ might have multiple roots, but the IVT guarantees
+    there is at least one.}
+  \uncover<6->{\item Functions which are not continuous on $[-1,1]$ may
+    have a root, }
+  \uncover<7->{but there is no guarantee.}
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2>{\includegraphics[width=\textwidth]{ivt0.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{ivt1.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{ivt2.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{ivt3.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{ivt4.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{ivt5.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Formal Statement of the IVT}
+  \begin{itemize}
+  \item The Intermediate Value Theorem may be stated as follows:
+  \begin{beamercolorbox}{postit}
+
+    \textbf{Theorem:} Suppose that $f$ is continuous on the closed
+    interval $[a,b]$ and let $N$ be any number satisfying $f(a)\le N\le f(b)$.
+    Then there exists a number $c$ in the interval $(a,b)$ such that $f(c)=N$.
+
+  \end{beamercolorbox}
+  \pause
+  \item In practice, we usually have $f(a)$ any negative number,
+    $f(b)$ any positive number, and $N=0$;
+  \pause
+  \item or $f(a)$ any postive number, $f(b)$ any negative number, and $N=0$.
+  \pause
+  \item In simpler words, we can say: 
+    \begin{beamercolorbox}{postit}
+
+      If a continuous function changes sign from
+      $x=a$ to $x=b$, it must have a root between $a$ and $b$.
+
+
+    \end{beamercolorbox}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Existence of Roots Using the IVT}
+  The intermediate value theorem can be used to establish the existence
+  of roots of equations that we cannot solve exactly.
+  \pause
+  For example, let $f(x)=x^3-3x+1$ and consider the equation $f(x)=0$, i.e.,
+  \begin{displaymath}
+    x^3-3x+1 = 0
+  \end{displaymath}
+  \pause
+  You probably don't know a method for solving this equation exactly.
+  However, we can use the IVT to establish the existence of a solution.
+  \pause
+  Note that $f(1)=(1)^3-3(1)+1=-1$ and $f(2)=2^3-3(2)+1=1$.  Since $f$
+  is continuous and we have
+  \begin{displaymath}
+    f(1) < 0 < f(2)
+  \end{displaymath}
+  it follows from the IVT that there is some number $c$ in the interval
+  $(1,2)$ such that $f(c)=0$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Location of Roots Using the IVT}
+  Once we know a root exists in some interval, we can 
+  use the IVT to estimate the root by \textbf{successive
+  approximations}.
+  \pause
+
+  Suppose, for example, that we know $f$ is continuous,
+  $f(0)<0$ and $f(1)>0$.  
+  \pause
+  Then
+  the IVT tells us that $f$ has a root somewhere
+  in the interval $[0,1]$.  
+  \pause
+  We subdivide the interval at the midway point
+  $0.5$.  There are three cases:
+  \begin{enumerate}
+  \pause
+  \item $f(0.5)=0$: we have found the root, and we can stop.
+  \pause
+  \item $f(0.5)<0$: the IVT tells us that there is a root in the interval
+    $(0.5,1)$.  
+  \pause
+  \item $f(0.5)>0$: the IVT tells us that there is a root in the interval
+    $(0,0.5)$.
+  \end{enumerate}
+  \pause
+  We can then continue to subdivide the interval to get better and better
+  approximations.
+\end{frame}
+
+
+\subsection{Examples}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Consider the function
+    \begin{displaymath}
+      f(x) = \frac{\sin x}{x+1}
+    \end{displaymath}
+    \begin{enumerate}
+    \item Find the domain of $f$.
+    \item Show that $f$ is continuous in its domain.
+    \item Evaluate $\ds \lim_{x\to \pi} f(x)$.
+    \item Evaluate $\ds \lim_{x\to -1^+} f(x)$.
+    \end{enumerate}
+  \item Show that the function
+    \begin{displaymath}
+      g(x) = \begin{cases}
+        \sin x & \mbox{if $-\pi    \le x \le \pi/4$} \\
+	\cos x & \mbox{if $\pi/4   <   x \le \pi$}
+      \end{cases}
+    \end{displaymath}
+    is continuous on the interval $[-\pi,\pi]$.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{More Examples}
+  \begin{enumerate}
+  \item Let
+    \begin{displaymath}
+      f(x) = \begin{cases}
+        2x-x^2 & \mbox{if $0\le x \le 2$} \\
+	2-x    & \mbox{if $2<   x \le 3$} \\
+	x-4    & \mbox{if $3<   x <   4$} \\
+	\pi    & \mbox{if $4\le x$}
+      \end{cases}
+    \end{displaymath}
+    Determine whether $f$ is continuous, continuous from the left, and/or
+    continuous from the right
+    at each point in its domain, and sketch the graph of $f$.
+  \item Let $g(x)=\lfloor x \rfloor$, the greatest integer less than or equal
+    to $x$, and let $h(x) = \lfloor x \rfloor + \lfloor -x \rfloor$.
+    \begin{enumerate}
+    \item For what values of $a$ does $\lim_{x\to a} g(x)$ exist?
+    \item For what values of $a$ is $g(x)$ continuous at $a$?
+    \item For what values of $a$ does $\lim_{x\to a} h(x)$ exist?
+    \item For what values of $a$ is $h(x)$ continuous at $a$?
+    \end{enumerate}
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Yet More Examples}
+  \begin{enumerate}
+  \item 
+    \begin{enumerate}
+    \item Find the domain of $\ds f(x)=\frac{\sqrt{x^2-9}}{x^2-2}$.
+    \item Show that $f$ is continuous on its domain.
+    \item Find $\ds \lim_{x\to 5} f(x)$.
+    \end{enumerate}
+  \item Use the Intermediate Value Theorem to show that the equation
+    $2\sin x = 3-2x$ has a solution on the interval $(0,1)$.
+  \item 
+    \begin{enumerate}
+    \item Show that
+      there is a root of the equation $\ds 2x^3+x^2+2=0$ in the interval
+      $(-2,-1)$.
+    \item Find the root to an accuracy of two decimal points.
+    \end{enumerate}
+  \end{enumerate} 
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~1.8.  After you have finished it,
+  you should try the following additional exercises from Section~1.8:
+  \begin{itemize}
+  \item[1.8] C-level: 1--2, 3--4, 5--6, 7--8, 9--10, 11--14, 15--16, 17--20,
+    22, 23--24, 35--38, 39--40, 41--43, 49, 53--56;  \\
+    B-level: 21, 19, 25--32, 33--34, 44--45, 47, 48, 50--52, 57--58, 59--60,
+    61--62; \\
+    A-level: 46, 63--73
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

@@ -1,0 +1,150 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{mathptmx}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{tikz}
+%\usepackage{wrapfig}
+\usetikzlibrary{arrows}
+\newcommand{\midarrow}{\tikz \draw[-triangle 90] (0,0) -- +(0.5pt,0);}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroThreeSeven}
+\author{\commonAuthor}
+\date{\commonDateZeroThreeSeven}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+The following problems based on Section~3.7 of the textbook will help
+you study.  \emph{You do not need to hand in solutions to these
+  problems.}
+\begin{enumerate}
+\item (Based on 3.7.12)
+  A box with a square base and open top must have a volume of 
+  $32,000$ cm$^3$.  Find the dimensions of the box that minimize
+  the amount of material used.  See Figure~\ref{fig:box}.
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[every edge quotes/.append style={auto, text=blue}]
+      \pgfmathsetmacro{\cubex}{2}
+      \pgfmathsetmacro{\cubey}{1}
+      \pgfmathsetmacro{\cubez}{2}
+      \draw [draw=blue, every edge/.append style={draw=blue, densely dashed, opacity=.5}, fill=white!75!blue]
+      (0,0,0) coordinate (o) -- ++(-\cubex,0,0) coordinate (a) -- ++(0,-\cubey,0) coordinate (b) edge coordinate [pos=1] (g) ++(0,0,-\cubez)  -- ++(\cubex,0,0) coordinate (c) -- cycle
+      (o) -- ++(0,0,-\cubez) coordinate (d) -- ++(0,-\cubey,0) coordinate (e) edge (g) -- (c) -- cycle
+      (o) -- (a) -- ++(0,0,-\cubez) coordinate (f) edge (g) -- (d) -- cycle;
+      \draw [draw=blue] (f) -- (intersection of f--g and a--o); % open lid
+      %\path [every edge/.append style={draw=blue, |-|}]
+      %(b) +(0,-5pt) coordinate (b1) edge node [midway,below] {$x$} (b1 -| c)
+      %(b) +(-5pt,0) coordinate (b2) edge node [midway,left] {$h$} (b2 |- a)
+      %(c) +(3.5pt,-3.5pt) coordinate (c2) edge node [midway,below right] {$x$} ([xshift=3.5pt,yshift=-3.5pt]e)
+      %;
+    \end{tikzpicture}
+    \caption{Box with Square Base and Open Top}
+    \label{fig:box}
+  \end{figure}
+\item (Based on 3.7.34) A Norman window has the shape of a rectangle
+  surmounted by a semicircle.  (See Figure~\ref{fig:norman}.)  If the
+  perimeter of the window is $30$ ft, find the dimensions of the
+  window so that the greatest possible amount of light is admitted.
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \draw (0,0) -- (2,0) -- (2,3) arc (0:180:1) -- cycle;
+    \end{tikzpicture}
+    \caption{A Norman Window}
+    \label{fig:norman}
+  \end{figure}
+\item (Based on 3.7.50) %3
+  A woman at a point $A$ on the shore of a circular lake with radius
+  $2$ mi wants to arrive at a point $C$ diametrically opposite $A$ on
+  the other side of the lake in the shortest possible time.  (See
+  Figure~\ref{fig:lake}.)  She can walk at the rate of $4$ mi/h and
+  row a boat at $2$ mi/h.  How should she proceed?
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \draw (0,0) circle (2);
+      \coordinate[label=right:$A$] (A) at (0:2);
+      \coordinate[label=above right:$B$] (B) at (45:2);
+      \coordinate[label=left:$C$] (C) at (180:2);
+      \draw[red,thick] (A) arc (0:45:2) (B) -- (C);
+      \foreach \point in {A,B,C} \fill [red] (\point) circle (2pt);
+    \end{tikzpicture}
+    \caption{Path on a Circular Lake}
+    \label{fig:lake}
+  \end{figure}
+\item (Based on 3.7.61--54) %4
+  A manager of a $100$-unit apartment complex knows from experience
+  that all units will be occupied if the rent is \$800 per month.  A
+  market survey suggests that, on average, one additional unit will
+  remain vacant for each \$10 increase in rent.  What rent should the
+  manager charge to maximize revenue?
+\item (Based on 3.7.76) %5
+  A rain gutter is to be constructed from a metal sheet of width $30$
+  cm by bending up one-third of the sheet on each side through an
+  angle of $\theta$.  (See Figure~\ref{fig:gutter}.)  How should
+  $\theta$ be chosen so that the gutter will carry the maximum amount
+  of water?
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \draw[dashed] (-2.5,0)--(5.5,0);
+      \draw (135:3) -- (0,0) node [midway,above right] {$10$ cm}
+      -- node [midway, above] {$10$ cm} (3,0)
+      -- node [midway, above left] {$10$ cm} +(45:3);
+      \draw (3.5,0) arc (0:45:0.5) node [midway,right] {$\theta$};
+      \draw (-0.5,0) arc (180:135:0.5) node [midway,left] {$\theta$};
+    \end{tikzpicture}
+    \caption{Cross Section of a Rain Gutter}
+    \label{fig:gutter}
+  \end{figure}
+\item (Based on 3.7.71)
+  Let $v_1$ be the velocity of light in air and $v_2$ the velocity of
+  light in water.  A ray of light will travel from a point $A$ in the
+  air to a point $B$ in the water by a path $ACB$ that minimizes the
+  time taken.  Show that
+  \begin{align*}
+    \frac{\sin\theta_1}{\sin\theta_2} = \frac{v_1}{v_2}
+  \end{align*}
+  where $\theta_1$ (the angle of incidence) and $\theta_2$ (the angle
+  of refraction) are as shown in Figure~\ref{fig:snell}.  This
+  equation is known as Snell's Law.
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \fill[white!75!blue] (-3,0)--(3,0)--(3,-2)--(-3,-2)--cycle;
+      \draw[blue] (-3,0)--(3,0);
+      \draw[thick,>-] (135:2) coordinate[label=left:$A$] (A)
+      -- (0,0) coordinate[label=above right:$C$] (C);
+      \draw[thick,->] (C)
+      -- (302.8:2) coordinate[label=right:$B$] (B);
+      % \foreach \point in {A,B,C} \fill [black] (\point) circle (1pt);
+      \draw[dashed] (0,-2)--(0,2);
+      \draw (0,0.5) arc (90:135:0.5) node[above] {$\theta_1$};
+      \draw (0,-0.5) arc (270:302:0.5) node[below] {$\theta_2$};
+    \end{tikzpicture}
+    \caption{Ray of Light Passing from Air into Water}
+    \label{fig:snell}
+  \end{figure}
+\end{enumerate}
+
+\noindent
+You may find the following additional exercises from Section~3.7
+helpful.
+\begin{itemize}
+\item[3.7]
+  C-level: 1--64; \\
+  B-level: 65--67, 69--70; \\
+  A-level: 71--80
+\end{itemize}
+
+\end{document}
+

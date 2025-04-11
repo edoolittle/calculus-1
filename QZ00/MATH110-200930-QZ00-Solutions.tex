@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage{mathptmx}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\reversemarginpar
+
+\title{MATH110-S01-S02 200930 Quiz 0 Solutions}
+\author{Edward Doolittle}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item We can work this out in stages.  We have
+  \begin{align*}
+    f(a) &= 2a^2-3 \\
+    f(a+h) &= 2(a+h)^2-3 = 2(a^2+2ah+h^2) - 3 = 2a^2 + 4ah + 2h^2-3 \\
+    f(a+h) - f(a) &= 2a^2+4ah + 2h^2- 3 - (2a^2-3) = 2a^2+4ah + 2h^2 - 3
+    - 2a^2+3 = 4ah + 2h^2
+  \end{align*}
+  so 
+  \begin{equation*}
+    \frac{f(a+h)-f(a)}{a+h-a} 
+    = \frac{4ah+2h^2}{h}
+  \end{equation*}
+  You can cancel a common factor of $h$ from \textit{every} term in the
+  above expression to obtain a final answer of $4a+2h$, 
+  but that cancellation isn't really one hundred percent 
+  correct unless you know that $h\ne 0$.
+\item 
+  \begin{enumerate}
+  \item We write $g(F)$ in standard form by expanding the bracket:
+    \begin{equation*}
+      g(F) = \frac{5}{9} F - \frac{160}{9}
+    \end{equation*}
+    The slope is the coefficient of $F$, which is $5/9$.  It represents
+    the change in the Celsius temperature for each one degree change in
+    the Fahrenheit temperature.
+  \item Based on the above standard form, the $C$ intercept is $-160/9
+    \approx -17.78$.  That represents the temperature in Celsius corresponding
+    to the temperature of $0$ degrees Fahrenheit.
+  \item We have
+    \begin{equation*}
+      h\circ g(F) = h(g(F)) = \frac{9}{5} (g(F)) + 32
+      = \frac{9}{5} \left(\frac{5}{9} (F-32) \right) + 32
+      = F-32 + 32 = F
+    \end{equation*}
+    We can say that $h\circ g$ is the identity function.  That makes sense
+    because $g$ takes a temperature in Fahrenheit and converts it to 
+    Celsius, while $h$ converts the Celsius temperature back to Fahrenheit,
+    so the composition should bring us back where we started.
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}
+
+

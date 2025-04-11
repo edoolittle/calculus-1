@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{mathptmx}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\reversemarginpar
+
+\title{MATH 110-004 200730 Quiz 9 Solutions}
+\author{Edward Doolittle}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item By the Fundamental Theorem of Calculus we have
+  \begin{align*}
+    \int_0^1 (1+x^3)^2 \; dx
+    = \left. \int (1+x^3)^2 \; dx \right|_0^1
+  \end{align*}
+  Evaluating the indefinite integral,
+  \begin{align*}
+    \int (1+x^3)^2 \; dx
+    = \int (1+2x^3+x^6) \; dx
+    = x + 2\frac{x^4}{4} + \frac{x^7}{7} + C
+    = x + \frac{x^4}{2} + \frac{x^7}{7} + C
+  \end{align*}
+  Evaluating the definite integral,
+  \begin{align*}
+    \int_0^1 (1+x^3)^2 \; dx
+    = \left. x + \frac{x^4}{2} + \frac{x^7}{7} \right|_0^1
+    = \left(1 + \frac{1}{2} + \frac{1}{7}\right) 
+    - \left(0 + \frac{0}{2} + \frac{0}{7}\right)
+    = 1 + \frac{1}{2} + \frac{1}{7}
+  \end{align*}
+\item We break the integral into two parts and evaluate each separately:
+  \begin{align*}
+    \int_{-1}^3 f(x) \; dx 
+    = \int_{-1}^1 f(x) \; dx + \int_1^3 f(x) \; dx
+  \end{align*}
+  The first part is 
+  \begin{align*}
+    \int_{-1}^1 f(x) \; dx
+    = \int_{-1}^1 (2-x) \; dx
+    = \left. 2x-\frac{x^2}{2} \right|_{-1}^1
+    = \left( 2(1)-\frac{1^2}{2}\right)
+    - \left( 2(-1)-\frac{(-1)^2}{2}\right)
+    = 4
+  \end{align*}
+  and the second part is
+  \begin{align*}
+    \int_1^3 f(x) \; dx
+    = \int_1^3 2x^2-1 \; dx
+    = \left. 2\frac{x^3}{3} - x \right|_1^3
+    = \left( 2\frac{3^3}{3} - 3 \right)
+    - \left( 2\frac{1^3}{3} - 1 \right)
+    = 18 - 3 - \frac{2}{3} + 1
+    = 15 \frac{1}{3}
+  \end{align*}
+\end{enumerate}
+
+\end{document}
+
+

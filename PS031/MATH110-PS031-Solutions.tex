@@ -1,0 +1,394 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{pgfmath}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{tikz}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroThreeOne\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroThreeOne}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  % EJD: graphs
+  Recall that the critical numbers of a function $f(x)$ are the values $x$ at
+  which $f'(x)$ does not exist or $f'(x)=0$.
+  \begin{enumerate}
+  \item The derivative $f'(x)$ exists for
+    all values of $x$ by our theorems for derivatives, and we have
+    $f'(x)=3x^2+2x+1$.  The only possible critical numbers are where
+    $f'(x)=3x^2+2x+1=0$.  By the quadratic formula,
+    \begin{equation*}
+      x= \frac{-2\pm \sqrt{(2)^2-4(3)(1)}}{6}
+    \end{equation*}
+    which is not possible since $(2)^2-4(3)(1)=4-12=-8$ does not have a square
+    root.  So $f$ has no critical numbers.
+  \item We can write
+    \begin{equation*}
+      g(t)= \begin{cases}
+        -(3t-4) & \mbox{$3t-4<0$} \\
+	0       & \mbox{$3t-4=0$} \\
+	3t-4    & \mbox{$3t-4>0$}
+      \end{cases}
+      = \begin{cases}
+        -3t+4 & \mbox{$t<4/3$} \\
+	0     & \mbox{$t=4/3$} \\
+	3t-4  & \mbox{$t>4/3$}
+      \end{cases}
+    \end{equation*}
+    From the above, you can see that $g'(t)$ exists and equals
+    $-3$ for $t<4/3$; $g'(t)$ exists and equals $3$ for $t>4/3$;
+    and a careful investigation using the definition of derivative
+    % EJD: cross reference to another problem
+    shows that $g'(t)$ does not exist for $t=4/3$, so $t=4/3$ is the only
+    critical number of $g(t)$.
+  \item The derivative of $h$ is 
+    \begin{equation*}
+      h'(p) = \frac{(p^2+4)(1)-(p-1)(2p)}{(p^2+4)^2}
+      = \frac{-p^2+2p+4}{(p^2+4)^2}
+    \end{equation*}
+    which exists for all numbers $p$ because the denominator is never $0$.
+    So all critical points are where the value of $h'(p)=0$, i.e.,
+    \begin{equation*}
+      \frac{-p^2+2p+4}{(p^2+4)^2} = 0
+      \implies
+      -p^2+2p+4 = 0
+    \end{equation*}
+    giving the roots
+    \begin{equation*}
+      p = \frac{-2\pm \sqrt{(2)^2-4(-1)(4)}}{2(-1)}
+      = \frac{-2\pm \sqrt{4+16}}{-2}
+      = 1 \mp \sqrt{5}
+    \end{equation*}
+    which are the critical numbers of $h(p)$.
+  \item The domain of $g(x)$ is wherever $1-x^2 \ge 0$, i.e.,
+    on the interval $[-1,1]$.  The derivative is
+    \begin{equation*}
+      g'(x) = \frac{1}{2} (1-x^2)^{-1/2} (-2x) = -\frac{x}{\sqrt{1-x^2}}
+    \end{equation*}
+    which exists for $x$ in the open interval $(-1,1)$.
+    So the critical numbers are where $g'(x)$ does not exist, i.e., $-1$ and
+    $1$, and the numbers where $g'(x)=0$, i.e., $x=0$.
+  \end{enumerate}
+\item %2
+  \begin{enumerate}
+  \item We assemble a list of numbers of interest including the endpoints and
+    the critical numbers of the function $f(x)=x^3-6x^2+9x+2$.  We have
+    $f'(x)=3x^2-12x+9=3(x^2-4x+3)=3(x-1)(x-3)$ so $f$ has critical numbers
+    $1$ and $3$, both of which are inside the given interval.  So the list
+    of numbers of interest is $-1$, $1$, $3$, $4$.  Evaluating $f$ at each of
+    those numbers we have
+    \begin{align*}
+      f(-1)&=(-1)^3-6(-1)^2+9(-1)+2
+      = -1 -6 -9 + 2=-14 
+      \\
+      f(1) &= 1^3-6(1)^2+9(1)+2
+      = 1 -6 +9 + 2=6
+      \\
+      f(3) &= 3^3-6(3)^2+9(3)+2
+      = 27-54+27+2
+      = 2
+      \\
+      f(4) &= 4^3 -6(4)^2+9(4) +2
+      = 64-96+36+2
+      = 6
+    \end{align*}
+    The smallest of those numbers is $-14$, attained when $x=-1$, and the
+    largest of those numbers is $6$, attained when $x=4$. So the absolute
+    minumum and absolute maximum values of $f$ on the given interval are $-14$
+    and $6$, respectively.
+  \item We have the critical numbers of $f$ are where
+    $f'(x)=3(x^2-1)^2(2x)=0$, i.e., where $x^2-1=0$ or $2x=0$, i.e., $-1$, 
+    $0$, and $1$.  All of those numbers are inside the given interval.
+    The endpoints are $-1$ and $2$.  Evaluating $f(x)$ at that list of
+    numbers, we have
+    \begin{align*}
+      f(-1)&=((-1)^2-1)^3=0
+      \\
+      f(0) &= ((0)^2-1)^3=-1
+      \\
+      f(1) &= ((1)^2-1)^3=0
+      \\
+      f(2) &= ((2)^2-1)^3=27
+    \end{align*}
+    Therefore the absolute minumum value of $f$ on the given interval is $-1$
+    and the absolute maximum value of $f$ on the given interval is $27$.
+  \item We have
+    \begin{equation*}
+      f'(x) = \frac{(x^2+4)(2x)-(x^2-4)(2x)}{(x^2+4)^2}
+      = \frac{16x}{(x^2+4)^2}
+    \end{equation*}
+    which exists for all values of $x$ and is zero for $x=0$.  We have
+    \begin{align*}
+      f(-4) &= \frac{(-4)^2-4}{(-4)^2+4} = \frac{12}{20} = 0.6
+      \\
+      f(0) &= \frac{(0)^2-4}{(0)^2+4}=\frac{-4}{4} = -1.0
+      \\
+      f(4) &= \frac{(4)^2-4}{(4)^2+4}=\frac{12}{20} = 0.6
+    \end{align*}
+    so the absolute minimum value of $f$ on the interval is $-1.0$ and
+    the absolute maximum value is $0.6$.
+  \item By the product rule,
+    \begin{align*}
+      f'(t) = \frac{1}{3} t^{-2/3} (8-t) + t^{1/3} (-1)
+      = \frac{1}{3} t^{-2/3}  ( (8-t) -3 t^{3/3} )
+      = \frac{1}{3} t^{-2/3} (8-4t)
+    \end{align*}
+    which exists for $t\ne 0$ and equals $0$ at $t=2$.  Checking $f(t)$ at
+    those points and the endpoints of the domain we have
+    \begin{align*}
+      f(0) &= \sqrt[3]{0} (8-0) = 0
+      \\
+      f(2) &= \sqrt[3]{2} (8-2) = 6\sqrt[3]{2}
+      \\
+      f(8) &= \sqrt[3]{8} (8-8) = 0
+    \end{align*}
+    so the absolute minimum value of $f(t)$ on the interval is $0$,
+    and the absolute maximum value is $6\sqrt[3]{2}\approx 7.5595$
+  \end{enumerate}
+\item %5
+  \begin{enumerate}
+  \item\label{prob:quartic} %5a
+    First, note that $f$ is a continuous function (because it is a polynomial)
+    defined on a closed interval, so the theorems of section 4.1 apply.
+    To find the critical numbers, we find the values of $x$ for which
+    $f'(x)$ does not exist (nowhere) and the values of $x$ for which $f'(x)=0$.
+    The derivative of $f$ is
+    \begin{equation*}
+      f'(x)=4x^3-9x^2+6x-1
+    \end{equation*}
+    so we must solve the equation $4x^3-9x^2+6x-1=0$.  Normally we would have
+    difficulty solving a cubic equation, but in this case (and most cases
+    you'll see in this course) you can look for roots which are integer
+    factors of the constant term (here $-1$).  So we look for roots of the
+    form $x=\pm 1$.  We get lucky right away with the root $x=1$, so by the
+    factor theorem from algebra we can write
+    \begin{equation*}
+      4x^3-9x^2+6x-1=(x-1)(Ax^2+Bx+C)
+    \end{equation*}
+    where we have to figure out what $A$, $B$, and $C$ are by polynomial
+    division or otherwise.  We obtain
+    \begin{equation*}
+      4x^3-9x^2+6x-1 = (x-1) (4x^2-5x+1)
+    \end{equation*}
+    which further factors to
+    \begin{equation*}
+      4x^3-9x^2+6x-1 = (x-1)(4x-1)(x-1)
+    \end{equation*}
+    So the solutions to $f'(x)=0$ are $x=1$ and $x=1/4$, both of which are
+    in the interval $[0,2]$.  The complete set of numbers which we need to
+    investigate is $0$ (end number), $1/4=0.25$ (critical number), $1$ (critical
+    number), and $2$ (end number).  We evaluate $f(x)$ at each of those
+    numbers, see Table~\ref{tab:quartic}, and determine that the minimum
+    value of $f$ on the interval $[0,2]$ is $f(x)\approx-0.1044$, attained
+    at $x=0.25$, and the maximum value of $f$ on the interval $[0,2]$ is
+    $f(x)=2$ attained at $x=2$.
+    \begin{table}[htbp]
+      \centering
+      \begin{tabular}{|l|l|l|}
+        \hline 
+        $x$  & $f(x)$                      & comment \\ \hline\hline
+        0    & $f(0.00)=\phantom{-}0.0000$ &         \\ \hline
+        0.25 & $f(0.25)=          -0.1055$ & min     \\ \hline
+        1    & $f(1.00)=\phantom{-}0.0000$ &         \\ \hline 
+        2    & $f(2.00)=\phantom{-}2.0000$ & max     \\ \hline
+      \end{tabular}
+      \caption{Table of important values for $f(x)=x^4-3x^3+3x^2-x$ for problem~\ref{prob:quartic}}
+      \label{tab:quartic}
+    \end{table}  
+    See Figure~\ref{fig:quartic} for verification.  Note that the critical
+    point at $(1,0)$ is neither a local minimum nor a local maximum, but it
+    is still a critical point because the tangent line at that point is
+    horizontal.
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}[scale=4]
+        \draw[very thin,lightgray,xstep=0.25,ystep=0.10] (0,-0.25) grid (2.125,2.125);
+        \draw[->] (0,0)--(2.125,0) node[right]{$x$};
+        \draw[->] (0,-0.25)--(0,2.125) node[above]{$y$};
+        \draw[color=red,domain=0:2] plot (\x,{(\x)^4-3*(\x)^3+3*(\x)^2-(\x)});
+        \node[fill=red,minimum size=4pt,inner sep=1pt,shape=circle] at (0,0) {};
+        \node[fill=red,minimum size=4pt,inner sep=1pt,shape=circle] at (0.25,-0.1055) {};
+        \node[fill=red,minimum size=4pt,inner sep=1pt,shape=circle] at (1,0) {};
+        \node[fill=red,minimum size=4pt,inner sep=1pt,shape=circle] at (2,2) {};
+      \end{tikzpicture}
+      \caption{Graph of $f(x)=x^4-3x^3+3x^2-x$ for problem~\ref{prob:quartic}}
+      \label{fig:quartic}
+    \end{figure}
+  \item\label{prob:algetrig} %5b
+    The function $2\cos x$ is continuous everywhere because it is a 
+    constant multiple of a continuous function, so the function 
+    $f(x)=x-2\cos x$ is continuous everywhere because it is the 
+    difference of two continuous functions.  Since the interval 
+    $-2\le x\le 0$ is a closed interval (containing its endpoints), the
+    situation is of the type for which our optimization process works.
+    Calculating the derivative of $f$,
+    \begin{equation*}
+      f'(x) = 1 + 2\sin x
+    \end{equation*}
+    The critical numbers are where $f'(c)$ does not exist (nowhere) and
+    where $f'(c)=0$, i.e.,
+    \begin{equation*}
+      f'(c)=0 \implies 1+2\sin c = 0 \implies \sin c = -\frac{1}{2}
+    \end{equation*}
+    Using your knowledge of trigonometry or your calculator, you can
+    determine the principal solution to the above equation to be $-\pi/6$
+    radians.  From the graph of the sine function, we have a whole series
+    of critical numbers $-\pi/6+2k\pi$, $k=0,\pm 1, \pm 2,\ldots$, and also
+    another whole series $-5\pi/6+2k\pi$, $k=0,\pm 1, \pm 2, \ldots$.
+    However, we can throw away all those roots except $-\pi/6$ because all
+    the others lie outside the interval $[-2,0]$.  (The only other feasible
+    contender is $-5\pi/6$, and a short calculation shows it to be $-2.6180$,
+    definitely outside the interval $[-2,0]$.  See Figure~\ref{fig:sine} for
+    an illustration of the positions of the solutions of $\sin c=-1/2$.
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}[yscale=2]
+        \draw[very thin,lightgray] (-8,-1.5) grid (8,1.5);
+        \draw[->] (-8,0)--(8,0) node[right]{$x$};
+        \draw[->] (0,-1.5)--(0,1.5) node[above]{$y$};
+        \draw[very thick] (-2,0)--(0,0);
+        \node[shape=circle,fill=black,inner sep=1pt,minimum size=4pt] at (-2,0) {};
+        \node[shape=circle,fill=black,inner sep=1pt,minimum size=4pt] at (0,0) {};
+        \draw[domain=-8:8,color=red] plot[smooth] (\x,{sin(\x r)});
+        \draw (-8,-0.5)--(8,-0.5);
+        \node[shape=circle,fill=red,inner sep=1pt,minimum size=4pt] at (-6.8068,-0.5) {};
+        \node[shape=circle,fill=red,inner sep=1pt,minimum size=4pt] at (-2.6180,-0.5) {};
+        \node[shape=circle,fill=red,inner sep=1pt,minimum size=4pt] at (-0.5236,-0.5) {};
+        \node[shape=circle,fill=red,inner sep=1pt,minimum size=4pt] at (3.6652,-0.5) {};
+        \node[shape=circle,fill=red,inner sep=1pt,minimum size=4pt] at (5.7596,-0.5) {};
+        %\draw (-2,0)--(-2,4pt) node[above]{$-2$};
+        \draw (-0.5236,0)--(-0.5236,4pt) node[above]{$-\frac{\pi}{6}$};
+      \end{tikzpicture}
+      \caption{Graph of $y=\sin x$ for problem~\ref{prob:algetrig}}
+      \label{fig:sine}
+    \end{figure}
+    It follows that $f(x)=x-2\cos x$ has only one critical number in $[-2,0]$,
+    namely $-\pi/6\approx -0.5236$.  Tabulating the values of $f$ at the
+    critical number and the end numbers we have
+    \begin{table}[htbp]
+      \centering
+      \begin{tabular}{|l|l|l|}
+        \hline 
+        $x$               & $f(x)$    & comment \\ \hline\hline
+        $-2$              & $-1.1677$ & max     \\ \hline
+        $-\frac{\pi}{6}$  & $-2.2556$ & min     \\ \hline
+        $\phantom{-}0$    & $-2.0000$ &         \\ \hline 
+      \end{tabular}
+      \caption{Table of important values for $f(x)=x-2\cos x$ for problem~\ref{prob:algetrig}}
+      \label{tab:algetrig}
+    \end{table}  
+    See Figure~\ref{fig:algetrig} for verification.
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}[scale=1]
+        \draw[very thin,lightgray] (-2.25,-3.25) grid (0.25,0.25);
+        \draw[->] (-2.25,0)--(0.25,0) node[right]{$x$};
+        \draw[->] (0,-3.25)--(0,0.25) node[above]{$y$};
+        \draw[color=red,domain=-2:0] plot (\x,{\x-2*cos(\x r)});
+        \node[fill=red,minimum size=3pt,inner sep=1pt,shape=circle] at (-2,-1.1677) {};
+        \node[fill=red,minimum size=3pt,inner sep=1pt,shape=circle] at (-0.5236,-2.2556) {};
+        \node[fill=red,minimum size=3pt,inner sep=1pt,shape=circle] at (0,-2.0000) {};
+      \end{tikzpicture}
+      \caption{Graph of $f(x)=x-2\cos x$ for problem~\ref{prob:algetrig}}
+      \label{fig:algetrig}
+    \end{figure}
+  \end{enumerate}
+\item %8
+  Note that $\mu$ and $W$ are constants in this problem, so we can write
+  $F$ as a function of $\theta$:
+  \begin{equation*}
+    F(\theta) = \frac{\mu W}{\mu\sin\theta + \cos\theta}
+  \end{equation*}
+  In order for our optimization process to work, we need to check that
+  $F(\theta)$ is continuous on the interval $[0,\pi/2]$.  $F$ is a quotient
+  of continuous functions, so is continuous unless the denominator is $0$.
+  So $F$ is not continous at points where
+  \begin{equation*}
+    \mu\sin\theta + \cos\theta = 0
+    \implies \mu\sin\theta = -\cos\theta
+  \end{equation*}
+  Rewriting expressions involving $\sin$ and $\cos$ in terms of $\tan$ is
+  a useful trick for solving equations involving trigonometric functions:
+  \begin{equation*}
+    \implies \frac{\sin\theta}{\cos\theta} = -\frac{1}{\mu}
+    \implies \tan\theta =-\frac{1}{\mu}
+  \end{equation*}
+  However (since $\mu>0$)
+  the equation $\tan\theta=-1/\mu$ has no solutions in the interval
+  $[0,\pi/2]$ because $\tan\theta\ge 0$ for $\theta\in[0,\pi/2]$.  So
+  $F(\theta)$ is continuous on that interval.  So our optimization process
+  applies to $F$.
+
+  Differentiating $F$ by the quotient rule, we have
+  \begin{equation*}
+    F'(\theta) = \frac{\left(\frac{d}{d\theta} \mu W\right)
+      (\mu\sin\theta + \cos\theta) 
+      - \mu W\left(\frac{d}{d\theta} (\mu\sin\theta + \cos\theta)\right)}{
+      (\mu\sin\theta+\cos\theta)^2}
+    = -\frac{\mu W (\mu\cos\theta - \sin\theta)}{(\mu\sin\theta+\cos\theta)^2}
+  \end{equation*}
+  We have already established that the expression in the denominator is never
+  $0$ on the interval $[0,\pi/2]$, so $F'(\theta)$ is defined on $[0,\pi/2]$.
+  So the only critical numbers are where $F'(\theta)=0$, which is only possible
+  if the numerator of $F'(\theta)$ is $0$:
+  \begin{equation*}
+    \mu W(\mu\cos\theta-\sin\theta)=0
+    \implies \mu\cos\theta=\sin\theta
+    \implies \tan\theta = \mu
+  \end{equation*}
+  So to optimize $F$, we should consider three numbers: the end numbers
+  $\theta=0$ and $\theta=\pi/2$ and the critical number $\theta$ which 
+  satisfies $\tan\theta = \mu$.  (That number can be found with your calculator
+  using the $\tan^{-1}$ button: $c=\tan^{-1}\mu$ is the critical number.)  
+  We have
+  \begin{align*}
+    F(0) &= \frac{\mu W}{\mu\sin 0 + \cos 0} = \mu W \\
+    F(\pi/2) &= \frac{\mu W}{\mu \sin(\pi/2) + \cos(\pi/2)} = W \\
+    F(c) &= \frac{\mu W}{\mu\sin(c)+\cos(c)}
+  \end{align*}
+  We can't evaluate $F(c)$ exactly unless we know $\mu$ and $W$,
+  but we can get some estimates.  
+  Dividing numerator and denominator by $\cos\theta$ we have
+  \begin{equation*}
+    F(\theta) = \frac{\mu W\sec\theta}{\mu\tan\theta+1}
+  \end{equation*}
+  At $\theta=c$ we have $\tan\theta=\mu$ and we also have (by the Pythagorean
+  identity)
+  \begin{equation*}
+    \sec^2 c = 1 + \tan^2 c = 1 +\mu^2 \implies \sec\theta = \sqrt{1+\mu^2}
+  \end{equation*}
+  Filling in those values we get
+  \begin{equation*}
+    F(c) = \frac{\mu W\sqrt{1+\mu^2}}{1+\mu^2} = \frac{\mu W}{\sqrt{1+\mu^2}}
+  \end{equation*}
+  No matter what the value of $\mu$, we have 
+  \begin{equation*}
+    1+\mu^2>1 \implies \sqrt{1+\mu^2}>1 
+    \implies F(c) = \frac{\mu W}{\sqrt{1+\mu^2}} < \mu W = F(0)
+  \end{equation*}
+  On the other hand, dividing through by $\mu$, we get
+  \begin{equation*}
+    F(c) = \frac{W}{\sqrt{(1/\mu^2)+1}}
+  \end{equation*}
+  Similar to the above, we have, no matter what $\mu$ is,
+  \begin{equation*}
+    \left(\frac{1}{\mu}\right)^2+1 > 1
+    \implies 
+    \sqrt{\left(\frac{1}{\mu}\right)^2+1} > 1
+    \implies
+    F(c) = \frac{W}{\sqrt{(1/\mu^2)+1}} < W = F(\pi/2)
+  \end{equation*}
+  So even though we could not get numerical values for $F(0)$, $F(c)$, and
+  $F(\pi/2)$, we can still see that $F(c)$ is the smallest of the three.  We
+  conclude that $F(\theta)$ is minimized when $\tan\theta=\mu$.
+\end{enumerate}
+\end{document}

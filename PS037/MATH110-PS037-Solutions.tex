@@ -1,0 +1,275 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+% \usepackage{graphicx}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+%\usepackage{pgfmath}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroThreeSeven\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroThreeSeven}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  See Figure~\ref{fig:boxSoln}.  The constraint is the volume of the
+  box, which is $x^2h=32000$.  The objective is the amount of material
+  in the box, which is four sides of size $x\times h$ and one base of
+  size $x \times x$.  So we must minimize $f(x,h)=4xh + x^2$, subject
+  to $0<x,h$.  It is easier to solve the constraint for $h$:
+  $h=32000/x^2$.  Substituting the constraint into the objective, we
+  must minimize
+  \begin{displaymath}
+    f(x) = 4x\cdot \frac{32000}{x^2} + x^2
+    = \frac{128000}{x} + x^2
+  \end{displaymath}
+  on the domain $0<x$.  Taking the first derivative,
+  \begin{displaymath}
+    f'(x) = -\frac{128000}{x^2} + 2x = 2\frac{x^3-64000}{x^2}
+    = 2 \frac{(x-40)(x^2+40x+1600)}{x^2}
+  \end{displaymath}
+  On the interval $0<x<40$, we have $f'(x)<0$ so $f(x)$ is decreasing.
+  On the interval $40<x$, we have $f'(x)>0$ so $f(x)$ is increasing.
+  It follows that $x=40$ is the global minimum of the function.  When
+  $x=40$, $h=32000/1600=20$, so the dimensions of the box which
+  minimize the amount of material used are $x=40$ cm for the square
+  base and $20$ cm for the height.
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[every edge quotes/.append style={auto, text=blue}]
+      \pgfmathsetmacro{\cubex}{2}
+      \pgfmathsetmacro{\cubey}{1}
+      \pgfmathsetmacro{\cubez}{2}
+      \draw [draw=blue, every edge/.append style={draw=blue, densely dashed, opacity=.5}, fill=white!75!blue]
+      (0,0,0) coordinate (o) -- ++(-\cubex,0,0) coordinate (a) -- ++(0,-\cubey,0) coordinate (b) edge coordinate [pos=1] (g) ++(0,0,-\cubez)  -- ++(\cubex,0,0) coordinate (c) -- cycle
+      (o) -- ++(0,0,-\cubez) coordinate (d) -- ++(0,-\cubey,0) coordinate (e) edge (g) -- (c) -- cycle
+      (o) -- (a) -- ++(0,0,-\cubez) coordinate (f) edge (g) -- (d) -- cycle;
+      \draw [draw=blue] (f) -- (intersection of f--g and a--o); % open lid
+      \path [every edge/.append style={draw=blue, |-|}]
+      (b) +(0,-5pt) coordinate (b1) edge node [midway,below] {$x$} (b1 -| c)
+      (b) +(-5pt,0) coordinate (b2) edge node [midway,left] {$h$} (b2 |- a)
+      (c) +(3.5pt,-3.5pt) coordinate (c2) edge node [midway,below right] {$x$} ([xshift=3.5pt,yshift=-3.5pt]e)
+      ;
+    \end{tikzpicture}
+    \caption{Box with Square Base and Open Top}
+    \label{fig:boxSoln}
+  \end{figure}
+\item %2
+  See Figure~\ref{fig:normanSoln}.  (It is convenient to make the
+  width of the window $2x$ instead of $x$, so that you have to deal
+  with fewer fractions.)  The constraint on the perimeter of the
+  window is $2h+2x+\pi x = 30$.  The objective function is
+  $f(x,h)=2xh + \pi x^2/2$ where $0<x,h$.  Solving the constraint for
+  $h$, $h=15 - x - \pi x/2$.  Substituting into the objective function
+  we have
+  \begin{displaymath}
+    f(x) = 2x(15-x-\pi x/2) + \pi x^2/2
+    = 30 x - 2x^2 - \pi x^2 + \pi x^2/2 = 30 x - 2x^2 - \pi x^2/2
+  \end{displaymath}
+  on the domain $0\le x$.  The derivative is
+  $f'(x)=30-4x-\pi x$, so $f(x)$ is increasing on $0\le x<30/(\pi+4)$ and
+  decreasing on $30/(\pi+4)<x$.  The function has an absolute maximum
+  at $x=30/(\pi+4)$.  The dimensions of the window admitting the greatest
+  possible amount of light are width of $2x=60/(\pi+4)$ ft and height of
+  \begin{displaymath}
+    h=15-\frac{30}{\pi+4} - \frac{15\pi}{\pi+4}
+    = \frac{15\pi+60 - 30 - 15\pi}{\pi+4}
+    = \frac{30}{\pi+4}
+  \end{displaymath}
+  feet.  For the optimal window, the width of the rectangular portion
+  is twice its height.
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \draw (0,0) -- node[above] {$2x$} (2,0)
+      -- node[left] {$h$} (2,3) arc (0:180:1) -- cycle;
+      \draw[dashed] (2,3) -- (0,3);
+      \draw[dashed] (1,3) -- node[above left] {$x$} +(45:1);
+    \end{tikzpicture}
+    \caption{A Norman Window}
+    \label{fig:normanSoln}
+  \end{figure}
+\item %3
+  See Figure~\ref{fig:lakeSoln}.  The length of the circular arc from
+  $A$ to $B$ is $r\theta$ where $r$ is the radius of the lake and
+  $\theta$ is the angle in radians.  The time spent on the circular
+  arc is distance divided by speed or $r\theta/4$.
+
+  The length of the chord from $B$ to $C$ is
+  $2 r \sin((\pi-\theta)/2) = 2 r \cos(\theta/2)$.  The time spent on
+  the chord is distance divided by speed or
+  $2r\cos(\theta/2)/2 = r\cos(\theta/2)$.
+
+  Using $r=2$, the total time of the path is
+  \begin{displaymath}
+    f(\theta) = \theta/2 + 2\cos(\theta/2)
+  \end{displaymath}
+  on the domain $0\le \theta \le \pi$.  The derivative is
+  \begin{displaymath}
+    f'(\theta) = \frac{1}{2} - 2\sin(\theta/2) \cdot \frac{1}{2}
+    = \frac{1}{2} - \sin(\theta/2)
+  \end{displaymath}
+  The derivative is $0$ when $\sin(\theta/2)=1/2$ which occurs when
+  $\theta/2=\pi/3$, $\theta= 2\pi/3$.  The derivative is positive on
+  $0< \theta< 2\pi/3$ and negative on $2\pi/3 < x < \pi$, so
+  $\theta=2\pi/3$ is a local maximum.  The local minimum occurs at one
+  or the other of the endpoints.  $f(0)=0/2+2\cos(0/2)=2$ hours, and
+  $f(\pi)=\pi/2 + 2\cos(\pi/2)=\pi/2\approx 1.5708$ hours, so the
+  absolute minimum is $\pi/2$ hours which occurs when the woman walks
+  all the way around the lake and doesn't use the boat at all.
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \draw (0,0) circle (2);
+      \coordinate[label=right:$A$] (A) at (0:2);
+      \coordinate[label=above right:$B$] (B) at (45:2);
+      \coordinate[label=left:$C$] (C) at (180:2);
+      \coordinate[label=below:$O$] (O) at (0,0);
+      \draw[dashed] (A) -- (C);
+      \draw[dashed] (O) -- (B);
+      \draw (0:0.5) arc (0:45:0.5) node[midway,right] {$\theta$};
+      \draw[red,thick] (A) arc (0:45:2) (B) -- (C);
+      \foreach \point in {A,B,C} \fill [red] (\point) circle (2pt);
+    \end{tikzpicture}
+    \caption{Path on a Circular Lake}
+    \label{fig:lakeSoln}
+  \end{figure}
+\item %4
+  Let $x$ be the rent charged.  We need to write a formula for the
+  demand function, the number of units rented at price $x$.  We are
+  told that for every $10$ increase in price, one fewer unit is
+  rented, so the demand function is linear with slope $-1/10$.  We
+  also know that $(800,100)$ is a point on the line (when rent is
+  \$800, all 100 units can be rented).  So the demand line is
+  \begin{displaymath}
+    y-100 = -\frac{1}{10} (x-800) \implies
+    y = p(x) = -\frac{1}{10} x + 180
+  \end{displaymath}
+  The revenue is the rent charged times the number of units rented, or
+  \begin{displaymath}
+    R(x) = x \cdot p(x) = -\frac{1}{10} x^2 + 180 x
+  \end{displaymath}
+  The derivative of the revenue is
+  \begin{displaymath}
+    R'(x) = -\frac{1}{5} x + 180
+  \end{displaymath}
+  which is positive for $0\le x < 900$ and negative for $900<x$, so
+  $R(x)$ is maximized when $x=900$.
+\item %5
+  See Figure~\ref{fig:gutterSoln}.  The height of the dashed triangle
+  is $10\sin\theta$, and the width of the dashed triangle is
+  $10\cos\theta$.  The area of the two dashed triangles together is
+  $100\sin\theta\cos\theta$, and the area of the dashed rectangle is
+  $100\sin\theta$.  The area of the rain gutter cross section is
+  \begin{displaymath}
+    A(\theta) = 100 \sin\theta(1+\cos\theta)
+  \end{displaymath}
+  on the domain $0\le \theta\le \pi/2$.  Its derivative is
+  \begin{displaymath}
+    A'(\theta) = 100 \cos\theta(1+\cos\theta) + 100\sin\theta(-\sin\theta)
+    = 100 (\cos\theta + \cos^2\theta - \sin^2\theta)
+  \end{displaymath}
+  We want to solve the equation $A'(\theta)=0$, but that is difficult
+  in its current form.  It will be easier if we eliminate
+  $\sin^2\theta$ using the Pythagorean identity
+  $-\sin^2\theta=\cos^2\theta-1$:
+  \begin{displaymath}
+    A'(\theta) = 100 (2\cos^2\theta + \cos\theta - 1)
+    = 100 (2\cos\theta -1)(\cos\theta+1)
+  \end{displaymath}
+  where we have factored the trigonometric polynomial.  The factor
+  $\cos\theta+1$ is always positive on the domain, so the sign of
+  $A'(\theta)$ is the same as the sign of $2\cos\theta-1$.  The latter
+  is $0$ when $\cos\theta=1/2$ at $\theta=\pi/3$, is positive for
+  $0\le \theta < \pi/3$, and is negative for
+  $\pi/3 < \theta \le \pi/2$.  The function has a global maximum at
+  $\theta=\pi/3$ radians ($60$ degrees).
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \draw[dashed] (-2.5,0)--(5.5,0);
+      \draw (135:3) coordinate (A)
+      -- (0,0) coordinate (B) node [midway, below left] {$10$ cm}
+      -- node [midway, above] {$10$ cm} (3,0) coordinate (C)
+      -- node [midway, below right] {$10$ cm} +(45:3) coordinate (D);
+      \coordinate (E) at (45:3);
+      \draw (3.5,0) arc (0:45:0.5) node [midway,right] {$\theta$};
+      \draw (-0.5,0) arc (180:135:0.5) node [midway,left] {$\theta$};
+      \draw[dashed] (135:3) -- (intersection of A--E and C--D);
+      \coordinate (F) at (0,1);
+      \coordinate (G) at (3,1);
+      \draw[dashed] (B)--(intersection of B--F and A--E);
+      \draw[dashed] (C)--(intersection of C--G and A--E);
+    \end{tikzpicture}
+    \caption{Cross Section of a Rain Gutter}
+    \label{fig:gutterSoln}
+  \end{figure}
+\item %6
+  See Figure~\ref{fig:snellSoln}.  Let the coordinates of $A$ be
+  $(x_1,y_1)$, the coordinates of $B$ be $(x_2,y_2)$, and the
+  coordinates of $C$ be $(x,0)$.  The distance from $A$ to $C$ is
+  $\sqrt{(x-x_1)^2 + y_1^2}$, and the time for the ray of light to
+  travel that segment is $\sqrt{(x-x_1)^2+y_1^2}/v_1$.  Similarly, the
+  time from $C$ to $B$ is $\sqrt{(x-x_2)^2+y_2^2}/v_2$.  The total
+  time of the path is
+  \begin{displaymath}
+    T(x) = \frac{1}{v_1} ( (x-x_1)^2 + y_1^2)^{1/2}
+    + \frac{1}{v_2} ( (x-x_2)^2 + y_2^2)^{1/2}
+  \end{displaymath}
+  Note that the function is differentiable for all real $x$, and tends
+  to $+\infty$ as $x$ tends to $\pm\infty$.  That means that $T(x)$
+  must have a global minimum at which its derivative is $0$.  The
+  derivative is
+  \begin{displaymath}
+    T'(x) = \frac{1}{2v_1} ( (x-x_1)^2 + y_1^2)^{-1/2} \cdot 2(x-x_1)
+    + \frac{1}{2v_2} ( (x-x_2)^2 + y_2^2 )^{-1/2} \cdot 2(x-x_2)
+  \end{displaymath}
+  which is defined for all real $x$.  To search for critical numbers
+  we set $T'(x)=0$ to obtain
+  \begin{displaymath}
+    0 = \frac{1}{v_1} \cdot \frac{x-x_1}{\sqrt{(x-x_1)^2+y_1^2}}
+    - \frac{1}{v_2} \cdot \frac{x_2-x}{\sqrt{(x-x_2)^2+y_2^2}}
+  \end{displaymath}
+  By basic trigonometry (opposite over hypoteneuse),
+  \begin{displaymath}
+    \frac{x-x_1}{\sqrt{(x-x_1)^2+y_1^2}} = \sin\theta_1
+    \quad\mbox{and}\quad
+    \frac{x_2-x}{\sqrt{(x-x_2)^2+y_2^2}} = \sin\theta_2
+  \end{displaymath}
+  so at any critical point (in particular, at the global minimum) we
+  have
+  \begin{displaymath}
+    0 = \frac{\sin\theta_1}{v_1} - \frac{\sin\theta_2}{v_2}
+  \end{displaymath}
+  which can be rearranged to give Snell's law.
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \fill[white!75!blue] (-3,0)--(3,0)--(3,-2)--(-3,-2)--cycle;
+      \draw[blue] (-3,0)--(3,0);
+      \draw[thick] (135:2) coordinate[label=left:$A$] (A)
+      -- (0,0) coordinate[label=above right:$C$] (C);
+      \draw[thick] (C) -- (302.8:2) coordinate[label=right:$B$] (B);
+      % \foreach \point in {A,B,C} \fill [black] (\point) circle (1pt);
+      \draw[dashed] (0,-2) coordinate (D) --(0,2) coordinate (E);
+      \draw (0,0.5) arc (90:135:0.5) node[above] {$\theta_1$};
+      \draw (0,-0.5) arc (270:302.8:0.5) node[below] {$\theta_2$};
+      \coordinate (F) at (45:2);
+      \coordinate (G) at (237.2:2);
+      \draw[dashed] (A) -- (intersection of A--F and D--E);
+      \draw[dashed] (B) -- (intersection of B--G and D--E);
+    \end{tikzpicture}
+    \caption{Ray of Light Passing from Air into Water}
+    \label{fig:snellSoln}
+  \end{figure}
+\end{enumerate}
+\end{document}
+
+

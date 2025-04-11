@@ -1,0 +1,223 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{mathptmx}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroFourFour\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroFourFour}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item
+  \begin{enumerate}
+  \item Note that
+    \begin{equation*}
+      v(v^2+2)^2 = v(v^4 + 4v^2 + 4) = v^5 + 4v^3 + 4v
+    \end{equation*}
+    so
+    \begin{equation*}
+      \int v(v^2+2)^2 \; dv = \int (v^5 +4v^3 + 4v) \; dv
+      = \frac{1}{6} v^6 + v^4 + 2v^2 + C
+    \end{equation*}
+  \item We have
+    \begin{equation*}
+      \int \sec t (\sec t + \tan t) \; dt
+      = \int (\sec^2 t + \sec t \tan t) \; dt
+      = \tan t + \sec t + C
+    \end{equation*}
+  \item Recall the double angle trig identity
+    \begin{equation*}
+      \sin 2x = 2 \sin x \cos x
+    \end{equation*}
+    so
+    \begin{equation*}
+      \int \frac{\sin 2x}{\sin x} \; dx
+      = \int \frac{2 \sin x \cos x}{\sin x} \; dx
+      = 2 \int \cos x \; dx
+      = 2 \sin x + C
+    \end{equation*}
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item Let's work on the integrand a bit before we try to evaluate
+    the integral.  We have
+    \begin{equation*}
+      \frac{\sin\theta + \sin\theta\tan^2\theta}{\sec^2\theta}
+      = \frac{\sin\theta + \sin\theta
+        \frac{\sin^2\theta}{\cos^2\theta}}{\frac{1}{\cos^2\theta}}
+      = \frac{\sin\theta\cos^2\theta + \sin\theta\sin^2\theta}{1}
+    \end{equation*}
+    where we have multiplied through by $\cos^2\theta$.  Factoring
+    and using the Pythagorean identity,
+    \begin{equation*}
+      \sin\theta\cos^2\theta + \sin\theta\sin^2\theta
+      = \sin\theta (\cos^2\theta + \sin^2\theta) = \sin\theta
+    \end{equation*}
+    So the integral is
+    \begin{equation*}
+      \int_0^{\pi/3} \frac{\sin\theta +
+        \sin\theta\tan^2\theta}{\sec^2\theta} \; d\theta
+      = \int_0^{\pi/3} \sin \theta \; d\theta
+      = \left. \vphantom{\int} -\cos\theta \right|_0^{\pi/3}
+      = -\cos(\pi/3) + \cos(0)
+      = \frac{1}{2}
+    \end{equation*}
+  \item We expand the integrand using the binomial theorem:
+    \begin{equation*}
+      (1+x^2)^3 = 1^3 + 3\cdot 1^2 \cdot x^2 + 3 \cdot 1 \cdot
+      (x^2)^2 + (x^2)^3 = 1 + 3x^2 + 3x^4 + x^6
+    \end{equation*}
+    Then the integral is
+    \begin{equation*}
+      \int_0^1 (1+x^2)^3 \; dx
+      = \left. \int (1 + 3x^2 + 3x^4 + x^6) \; dx \right|_0^1
+      = \left. x + x^3 + \frac{3}{5} x^5 + \frac{1}{7} x^7
+      \right|_0^1
+      = 1 + 1 + \frac{3}{5} + \frac{1}{7}
+      = \frac{96}{35}
+    \end{equation*}
+  \item Again, we simplify the integrand:
+    \begin{equation*}
+      \frac{x-1}{\sqrt[3]{x^2}} = \frac{x-1}{x^{2/3}} =
+      \frac{x}{x^{2/3}} - \frac{1}{x^{2/3}} = x^{1/3} - x^{-2/3}
+    \end{equation*}
+    Therefore
+    \begin{equation*}
+      \int_1^8 \frac{x-1}{\sqrt[3]{x^2}} \; dx
+      = \left. \int x^{1/3} - x^{-2/3} \; dx \right|_1^8
+      = \left. \vphantom{\int} \frac{3}{4} x^{4/3} - 3 x^{1/3}
+      \right|_1^8
+      = \frac{3}{4} \cdot 8^{4/3} - 3 \cdot 8^{1/3} - \frac{3}{4} \cdot
+      1^{4/3} + 3 \cdot 1^{1/3}
+      = 12 - 6 - \frac{3}{4} + 3 = \frac{33}{4}
+    \end{equation*}
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item The displacement is
+    \begin{equation*}
+      \int_1^6 v(t) \; dt = \int_1^6 (t^2 - 2t - 8) \; dt
+      = \left. \frac{1}{3} t^3 - t^2 - 8t \right|_1^6
+      = 72 - 36 - 48 - \frac{1}{3} + 1 + 8
+      = -\frac{10}{3}
+    \end{equation*}
+    meters.  The distance traveled is
+    \begin{equation*}
+      \int_1^6 |v(t)| \; dt
+    \end{equation*}
+    In order to evaluate that integral we have to break it into pieces
+    depending on whether $v(t)\ge 0$ or $v(t)<0$.  In order to do that,
+    we need to find the times when $v(t)=0$:
+    \begin{equation*}
+      v(t)=0 \implies t^2 - 2t - 8 = 0 \implies (t+2)(t-4) = 0
+    \end{equation*}
+    So $v(t)$ is positive up to $t=-2$, then switches to negative
+    between $t=-2$ and $t=4$, then becomes positive again after $t=4$.
+    Our integral becomes
+    % EJD: graph
+    \begin{equation*}
+      \int_1^6 |v(t)| \; dt = \int_1^4 -v(t) \; dt + \int_4^6 v(t) \; dt
+    \end{equation*}
+    Evaluating the first integral on the right above,
+    \begin{equation*}
+      \int_1^4 (-t^2 + 2t +8) \; dt
+      = \left. \vphantom{\int} -\frac{1}{3} t^3 + t^2 + 8t \right|_1^4
+      = -\frac{64}{3} + 16 + 32 + \frac{1}{3} - 1 - 8
+      = 18
+    \end{equation*}
+    The distance traveled in any interval should be a non-negative
+    number.  If we had gotten $-18$, we would know that we had made a
+    mistake.
+    
+    Evaluating the second integral on the right above,
+    \begin{equation*}
+      \int_4^6 (t^2 - 2t - 8) \; dt
+      = \left. \vphantom{\int} \frac{1}{3} t^3 - t^2 - 8t \right|_4^6
+      = 72 - 36 - 48 - \frac{64}{3} + 16 + 32 = \frac{44}{3}
+    \end{equation*}
+    which is again a non-negative number.  Putting the results together,
+    \begin{equation*}
+      \int_1^6 |v(t)| \; dt = \int_1^4 -v(t) \; dt + \int_4^6 v(t) \; dt
+      = 18 + \frac{44}{3} = \frac{98}{3}
+    \end{equation*}
+    which is the distance traveled in meters.
+  \item Let's work through this situation carefully.  Let $s(t)$ be
+    the position of the particle at time $t$.  Then $s'(t)=v(t)$ is
+    the velocity at time $t$ and $v'(t)= a(t)$ is the acceleration at
+    time $t$.  We are going to solve this problem in two steps: we are
+    first going to find $v(t)$ integrating $a(t)$.  Then we
+    are going to find the distance traveled by integrating $|v(t)|$.
+
+    To find $v(t)$ we use the Net Change Theorem:
+    \begin{equation*}
+      \int_0^t v'(u) \; du = v(t)-v(0)
+    \end{equation*}
+    where we have used the dummy variable $u$ in the integral because
+    $t$ is busy.  We are given $v'(u)=a(u)=2u+3$ and $v(0)=-4$:
+    \begin{equation*}
+      \int_0^t (2u+3) \; dt = v(t)-(-4)
+      \implies
+      \left. \vphantom{\int} u^2 + 3u \right|_0^t = v(t)+4
+      \implies
+      t^2 + 3t - 4 = v(t)
+    \end{equation*}
+    which solves the first half of our problem.
+
+    For the second half of the problem we find the distance traveled
+    between $t=0$ and $t=3$ by evaluating the integral
+    \begin{equation*}
+      \int_0^3 |v(t)| \; dt
+    \end{equation*}
+    Note that $v(t) = (t+4)(t-1)$ so $v(t)<0$ on the interval $[0,1]$
+    and $v(t)>0$ on the interval $[1,3]$.  Therefore
+    \begin{equation*}
+      \int_0^3 |v(t)| \; dt
+      = \int_0^1 -v(t) \; dt + \int_1^3 v(t) \; dt
+    \end{equation*}
+    For the first integral,
+    \begin{equation*}
+      \int_0^1 (-t^2 - 3t + 4) \; dt
+      = \left. \vphantom{\int} -\frac{1}{3} t^3 - \frac{3}{2} t^2 + 4t
+      \right|_0^1
+      = -\frac{1}{3} - \frac{3}{2} + 4 = \frac{13}{6}
+    \end{equation*}
+    a positive number.  The second integral is
+    \begin{equation*}
+      \int_1^3 (t^2 + 3t-4) \; dt
+      = \left. \vphantom{\int} \frac{1}{3} t^3 + \frac{3}{2} t^2 - 4t
+      \right|_1^3
+      = 9 + \frac{27}{2} - 12 - \frac{1}{3} - \frac{3}{2} + 4
+      = \frac{38}{3}
+    \end{equation*}
+    Altogether, the distance traveled is
+    \begin{equation*}
+      \int_0^3 |v(t)| \; dt
+      = \int_0^1 -v(t) \; dt + \int_1^3 v(t) \; dt
+      = \frac{13}{6} + \frac{38}{3} = \frac{89}{3}
+    \end{equation*}
+    meters.
+  \end{enumerate}
+\item Let $V(t)$ be the volume of water that has flowed out of the
+  tank at time $t$.  We have $V'(t)= r(t) = 200- 4t$, so by the Net
+  Change Theorem
+  \begin{equation*}
+    \int_0^{10} V'(t) \; dt = V(10) - V(0)
+  \end{equation*}
+  Implicit in the problem is that no water has flowed out of the tank
+  at time $t=0$, so $V(0)=0$.  Then
+  \begin{equation*}
+    V(10) = \int_0^{10} (200-4t) \; dt
+    = \left. \vphantom{\int} 200t - 2t^2 \right|_0^{10}
+    = 2000 - 200 = 1800
+  \end{equation*}
+  So $1800$ liters flow out of the tank in the first 10 minutes.
+\end{enumerate}
+\end{document}

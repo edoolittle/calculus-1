@@ -1,0 +1,709 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroOneFive}
+\subtitle{\commonSubtitleZeroOneFive}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroOneFive}
+
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+\section{The Limit of a Function}
+
+\subsection{Functions with Holes}
+
+\begin{frame}
+  \frametitle{Functions with Holes}
+  Consider the graph of the function 
+  \begin{displaymath}
+    f(x)=1
+  \end{displaymath}
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{graph1.eps}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{$f(x)=1$}
+  Every time I give an input to $f$, the function answers back
+  with the number $1$.  So
+  \begin{itemize}
+  \item $f(7)=1$
+  \item $f(0.5)=1$
+  \item $f(1)=1$
+  \item $f(-\sqrt{2})=1$
+  \end{itemize}
+  and so on.  Simple.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Undefined values}
+  Now consider the similar graph of the function
+  \begin{displaymath}
+    g(x)=\begin{cases} 
+      1,               & x\ne 2 \\ 
+      \mbox{undefined} & x=2
+    \end{cases}
+  \end{displaymath}
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{graph2.eps}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{$g(x)$}
+  Most of the time, when I give an input to $g$, the function replies with
+  the output $1$. So,
+  \begin{itemize}
+  \item $g(7)=1$
+  \item $g(0.5)=1$
+  \item $g(1)=1$
+  \item $g(-\sqrt{2})=1$
+  \end{itemize}
+  as with $f$.  However, if I give the input $2$ to $g$, it doesn't respond
+  at all.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Domain of a Function}
+  We say that the domain of $g$ doesn't include $2$; more precisely, the
+  domain of $g$ is the set
+  {\setbeamercolor{math text displayed}{fg=blue}
+  \begin{displaymath}
+    \{ x\in \mathbb{R}: x\ne 2\}
+  \end{displaymath}
+  }
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{graph3.eps}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Defining an Undefined Value}
+  If someone were to insist on us assigning a value to $g(2)$,
+  we can say two things:
+  \begin{itemize}
+  \item Strictly speaking, $g(2)$ is undefined!
+  \item However, if you \textbf{insist}, the only value that makes
+    sense for $g(2)$ is $g(2)=1$.
+  \end{itemize}
+\end{frame}
+
+\subsection{Limits}
+
+\begin{frame}
+  \frametitle{The Concept of a Limit}
+  The two statements on the previous slide are inconsistent.  We can't
+  have that in mathematics, so we work around it by saying
+  \begin{itemize}
+  \item $g(2)$ is undefined, but
+  \item $\displaystyle\lim_{x\to 2} g(x) = 1$
+  \end{itemize}
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{graph2.eps}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Another Example of Limits}
+  \begin{columns}
+  \column{.5\textwidth}
+  Consider the function
+  \begin{displaymath}
+    h(x) = \frac{x(x-3)}{x-3}
+  \end{displaymath}
+  The domain of the function is $\{x\in\mathbb{R}:x\ne 3\}$.  So the answer
+  to the question ``What is $h(3)$?'' is, ``It's undefined''.  But now, 
+  we can say more.
+  \uncover<2->{From the graph,}
+  \uncover<3->{
+  \begin{displaymath}
+    \lim_{x\to 3} h(x)=3
+  \end{displaymath}
+  }%
+  \column{.5\textwidth}
+  \only<2->{\includegraphics[height=5cm]{graph4.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Three More Examples of Limits}
+  \begin{columns}
+  \column{.7\textwidth}
+  \only<1-2>{Consider the function $f(x)$ 
+    represented by the graph on the right.
+
+    For this function, we say that
+  \uncover<2>{
+    \begin{displaymath}
+      \lim_{x\to 1} f(x) = 2
+    \end{displaymath}
+  }}%
+  \only<3-5>{But what about this function?
+
+    \uncover<4-5>{We can say that $f(1)=2$, 
+       but can we say anything about limits?
+       
+    }%
+    \uncover<5>{Yes, in this case, we can still say
+      \begin{displaymath}
+        \lim_{x\to 1} f(x) = 2
+      \end{displaymath}
+  }}%
+  \only<6-8>{And what about this function?
+
+    \uncover<7-8>{In this case, we say that $f(1)=1$,
+      but can we say anything about limits?
+      
+      }%
+    \uncover<8>{Yes, in this case, we still say
+      \begin{displaymath}
+        \lim_{x\to 1} f(x)=2
+      \end{displaymath}
+  }}%
+  \column{.3\textwidth}
+  \only<1-2>{\includegraphics[height=5cm]{graph5.eps}}%
+  \only<3-5>{\includegraphics[height=5cm]{graph6.eps}}%
+  \only<6-8>{\includegraphics[height=5cm]{graph7.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Three Situations in which Limits Exist}
+  The following three graphs illustrate the three situations in which
+  we can talk about limits.
+  \begin{columns}
+  \column{.3\textwidth}
+  \includegraphics[height=5cm]{graph5.eps}
+  \column{.3\textwidth}
+  \includegraphics[height=5cm]{graph6.eps}
+  \column{.3\textwidth}
+  \includegraphics[height=5cm]{graph7.eps}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Applications of Limits}
+  \begin{itemize}
+  \item You may be wondering whether this idea of limits is really
+    very useful.  
+    \pause
+  \item But we have already seen an example where limits can help us:
+    \pause
+  \item the tangent problem.
+    \pause
+  \item Limits can also help us solve the area problem, as we will
+    see in chapter 5.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Limits and the Tangent Problem}
+  \begin{columns}
+  \column{.6\textwidth}
+  \begin{itemize}
+  \uncover<1->{\item To see how limits can help us solve the tangent problem,
+    consider the graph of $f(x)=x^2$ at the right.}%
+  \uncover<2->{\item We want to find the slope of the tangent line at 
+    the base point $Q=(1,1)$.}%
+  \uncover<3->{\item To find it, we find the 
+    slopes of the secant lines $PQ$, where $P\ne Q$.}%
+  \uncover<4->{\item Let's graph the slope of the secant line as a function of
+    the $x$-value of the second point $P$.}%
+  \end{itemize}
+  \column{.4\textwidth}
+  \includegraphics[height=5cm]{tan1.eps}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Tangent Problem for $f(x)=x^2$}
+  \begin{columns}
+  \column{.45\textwidth}
+  \begin{center}
+    \only<1-13>{Secants as $x_1$ varies}%
+    \only<1>{\includegraphics[width=4cm]{tan2-1.eps}}%
+    \only<2>{\includegraphics[width=4cm]{tan2-2.eps}}%
+    \only<3>{\includegraphics[width=4cm]{tan2-3.eps}}%
+    \only<4>{\includegraphics[width=4cm]{tan2-4.eps}}%
+    \only<5>{\includegraphics[width=4cm]{tan2-5.eps}}%
+    \only<6>{\includegraphics[width=4cm]{tan2-6.eps}}%
+    \only<7>{\includegraphics[width=4cm]{tan2-7.eps}}%
+    \only<8>{\includegraphics[width=4cm]{tan2-8.eps}}%
+    \only<9>{\includegraphics[width=4cm]{tan2-9.eps}}%
+    \only<10>{\includegraphics[width=4cm]{tan2-10.eps}}%
+    \only<11>{\includegraphics[width=4cm]{tan2-11.eps}}%
+    \only<12-13>{\includegraphics[width=4cm]{tan2-12.eps}}%
+    \only<14>{\begin{itemize}
+      \item The slope of the secant line appears to
+        be a nice linear function of the $x$-value of $P$.
+      \item However, there is one $x$-value of $P$ which is not
+        allowed: $x=1$, where $P=Q$.
+      \item But that is the most interesting $x$-value!
+      \item We need to use limits to find slopes of tangents.
+      \end{itemize}
+    }%
+  \end{center}
+  \column{.55\textwidth}
+  \begin{center}
+    Slope as a function of $x_1$
+    \only<1>{\includegraphics[width=5cm]{sec2-1.eps}}%
+    \only<2>{\includegraphics[width=5cm]{sec2-2.eps}}%
+    \only<3>{\includegraphics[width=5cm]{sec2-3.eps}}%
+    \only<4>{\includegraphics[width=5cm]{sec2-4.eps}}%
+    \only<5>{\includegraphics[width=5cm]{sec2-5.eps}}%
+    \only<6>{\includegraphics[width=5cm]{sec2-6.eps}}%
+    \only<7>{\includegraphics[width=5cm]{sec2-7.eps}}%
+    \only<8>{\includegraphics[width=5cm]{sec2-8.eps}}%
+    \only<9>{\includegraphics[width=5cm]{sec2-9.eps}}%
+    \only<10>{\includegraphics[width=5cm]{sec2-10.eps}}%
+    \only<11>{\includegraphics[width=5cm]{sec2-11.eps}}%
+    \only<12>{\includegraphics[width=5cm]{sec2-12.eps}}%
+    \only<13-14>{\includegraphics[width=5cm]{sec2-13.eps}}%
+  \end{center}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Guessing Limits from Tabular Data}
+  \begin{itemize}
+  \item We can see that calculating limits is a useful thing.
+    \pause
+  \item However, for the time being, we will just guess limits
+    based on the graphs of functions and/or tabular data.
+    \pause
+  \item See examples 1--5 in the textbook.
+    \pause
+  \item Note, however, that those methods are not 100\% reliable.
+    We need reliable ways of calculating limits.
+    \pause
+  \item We will learn more reliable methods for calculating limits
+    in section 1.6.
+  \end{itemize}
+\end{frame}
+
+\subsection{One-sided Limits}
+
+\begin{frame}
+  \frametitle{The Heaviside Step Function}
+  Consider the function
+  \begin{displaymath}
+    H(x) = \begin{cases}
+      0, & x<0 \\
+      1, & x\ge 0
+    \end{cases}
+  \end{displaymath}
+  This function was studied by electrical engineer Oliver Heaviside as 
+  a model for throwing a switch in an electric circuit.
+  \pause
+  \begin{center}
+    \includegraphics[height=2cm]{heav1.eps}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Limits for the Heaviside Step Function}
+  \begin{itemize}
+  \uncover<1->{\item It is easy to see that $\displaystyle\lim_{x\to 3} H(x)=1$,
+    $\displaystyle\lim_{x\to -2} H(x) = 0$, etc.}%
+  \uncover<2->{\item In general, we can say that 
+    $\displaystyle\lim_{x\to a} H(x) =1$
+    for $a>0$, and $\displaystyle\lim_{x\to a} H(x) =0$ for $a<0$.}%
+  \uncover<3->{\item But what about $\displaystyle\lim_{x\to 0} H(x)$?}%
+  \uncover<4->{\item Since there is no sensible value we could give $H(0)$,
+    we must say $\displaystyle\lim_{x\to 0} H(x)$ is \textbf{undefined}.}%
+  \end{itemize}
+  \begin{center}
+    \includegraphics[height=2cm]{heav1.eps}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{One-sided Limits for $H(x)$}
+  \begin{itemize}
+  \only<1-4>{
+  \uncover<1-4>{\item However, we can do better than that.}%
+  \uncover<2-4>{\item If we ignore everything to the left of $0$ on the 
+    $x$-axis, there is a sensible value for $H(0)$, namely $1$.}%
+  \uncover<3-4>{\item We say that 
+    \begin{center} the limit of $H(x)$ as $x$ approaches
+      $0$ \textbf{from the right} is $1$
+    \end{center}}%
+  \uncover<4>{\item In symbols, we write $\displaystyle\lim_{x\to 0^+} H(x)
+    = 1$.}%
+  }%
+  \only<5->{
+  \uncover<5-8>{\item We can do the same thing on the other side.}%
+  \uncover<6-8>{\item If we ignore everything to the right of $0$ on the 
+    $x$-axis, there is a sensible value for $H(0)$, namely $0$.}%
+  \uncover<7-8>{\item We say that 
+    \begin{center} the limit of $H(x)$ as $x$ approaches
+      $0$ \textbf{from the left} is $0$
+    \end{center}}%
+  \uncover<8>{\item In symbols, we write $\displaystyle\lim_{x\to 0^-} H(x)
+    = 0$.}%
+  }%
+  \end{itemize}
+  \begin{center}
+    \only<1>{\includegraphics[height=2cm]{heav1.eps}}%
+    \only<2-4>{\includegraphics[height=2cm]{heav2.eps}}%
+    \only<5>{\includegraphics[height=2cm]{heav1.eps}}%
+    \only<6-8>{\includegraphics[height=2cm]{heav3.eps}}%
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{One-sided Limits and Two-sided Limits}
+  \begin{itemize}
+  \item If a function has an ordinary limit at $a$ (sometimes called
+    a \textbf{two-sided} limit at $a$), then it has both one-sided limits
+    at $a$.
+  \pause
+  \item Conversely, if a function has both one-sided limits at
+    a point $a$, \textbf{and
+    those one-sided limits are equal,} it has a two-sided limit
+    at $a$.
+  \pause
+  \item To be precise, we have 
+    \begin{displaymath}
+      \lim_{x\to a} f(x) = L
+    \end{displaymath}
+    if and only if
+    \begin{displaymath}
+      \lim_{x\to a^-} f(x) = L \mbox{ and } \lim_{x\to a^+} f(x) = L.
+    \end{displaymath}
+    \pause
+  \item So one way to show that a (two-sided) limit does not exist is
+    to show that the corresponding one-sided limits are not equal.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Infinite Limits}
+
+\begin{frame}
+  \frametitle{Ways in which Limits Fail to Exist}
+  \begin{columns}
+  \column{.6\textwidth}
+    \begin{itemize}
+      \uncover<1->{\item A limit can fail to exist for several
+        reasons.}%
+      \uncover<2->{\item One way, which we've seen already, is for a
+        function to behave differently on the left and on the right of
+        our point of interest.}%
+      \uncover<3->{\item In other words, the left-hand limit differs
+        from the right-hand limit.}%
+      \uncover<4->{\item Another way for a limit to fail to exist is
+        where $f$ gets really large as $x$ approaches some value.}%
+    \end{itemize}
+  \column{.4\textwidth}
+    \only<2-3>{\includegraphics[width=4cm]{inf1.eps}}%
+    \only<4>{\includegraphics[width=4cm]{inf2.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Infinite Limits}
+  \begin{itemize}
+    \uncover<1->{\item In this kind of a situation, we write
+      \begin{displaymath}
+        \lim_{x\to 0} f(x) = \infty
+      \end{displaymath}
+      and say ``the limit as $x$ approaches $0$ of $f(x)$ is
+      infinity''.}%
+    \only<1>{\begin{center}\includegraphics[width=4.5cm]{inf2.eps}\end{center}}%
+    \uncover<2->{\item That expression is just an idiom; $\infty$ is
+      not a number.}%
+    \uncover<3->{\item Despite the notation saying that the limit
+      equals something, the limit does not exist.}%
+    \uncover<5->{\item Writing this as a limit expression just means
+      that the limit fails to exist in a particular way.}%
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Negative and One-sided Infinite Limits}
+  There are six variations on infinite limits.
+  \only<1>{
+    \begin{center}
+      \begin{tabular}{c}
+        \includegraphics[width=4.5cm]{inf2.eps} \\
+	$\displaystyle\lim_{x\to 0} f(x) = \infty$
+      \end{tabular}
+    \end{center}
+  }%
+  \only<2>{
+    \begin{center}
+      \begin{tabular}{c}
+        \includegraphics[width=4.5cm]{inf3.eps} \\
+	$\displaystyle\lim_{x\to 0^-} f(x) = \infty$
+      \end{tabular}
+    \end{center}
+  }%
+  \only<3>{
+    \begin{center}
+      \begin{tabular}{c}
+        \includegraphics[width=4.5cm]{inf4.eps} \\
+	$\displaystyle\lim_{x\to 0^+} f(x) = \infty$
+      \end{tabular}
+    \end{center}
+  }%
+  \only<4>{
+    \begin{center}
+      \begin{tabular}{c}
+        \includegraphics[width=4.5cm]{inf5.eps} \\
+	$\displaystyle\lim_{x\to 0} f(x) = -\infty$
+      \end{tabular}
+    \end{center}
+  }%
+  \only<5>{
+    \begin{center}
+      \begin{tabular}{c}
+        \includegraphics[width=4.5cm]{inf6.eps} \\
+	$\displaystyle\lim_{x\to 0^-} f(x) = -\infty$
+      \end{tabular}
+    \end{center}
+  }%
+  \only<6>{
+    \begin{center}
+      \begin{tabular}{c}
+        \includegraphics[width=4.5cm]{inf7.eps} \\
+	$\displaystyle\lim_{x\to 0^+} f(x) = -\infty$
+      \end{tabular}
+    \end{center}
+  }%
+\end{frame}
+
+\begin{frame}
+  \frametitle{Identifying Infinite Limits}
+  \begin{itemize}
+  \item It will generally be easy to identify locations where a limit
+    could be infinite.
+    
+    \pause
+  \item Infinite limits typically occur for functions $f$ which are of
+    the form
+    \begin{displaymath}
+      f(x) = \frac{g(x)}{h(x)},
+    \end{displaymath}
+    in other words, quotients of two other functions.
+    
+    \pause
+  \item Infinite limits may occur at the values $a$ where $h(a)=0$.
+    Notice that these values $a$ are not in the domain of $f$.
+    
+    \pause
+  \item We determine which type of limit occurs at $a$ by
+    investigating the size and sign of $f$ on each side of $a$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vertical Asymptotes}
+  The line $x=a$ is called a \textbf{vertical asymptote} of the curve
+  $y=f(x)$ if at least one of the following statements is true:
+  \begin{displaymath}
+    \lim_{x\to a} f(x) = \infty
+    \quad
+    \lim_{x\to a^-} f(x) = \infty
+    \quad
+    \lim_{x\to a^+} f(x) = \infty
+  \end{displaymath}
+  \begin{displaymath}
+    \lim_{x\to a} f(x) = -\infty
+    \quad
+    \lim_{x\to a^-} f(x) = -\infty
+    \quad
+    \lim_{x\to a^+} f(x) = -\infty
+  \end{displaymath}
+  In other words, if any of the limits as $x$ approaches $a$ from the
+  left or the right is $\pm\infty$, we say that $y=f(x)$ has a
+  vertical asymptote at $a$.
+\end{frame}
+
+
+\subsection{The Definition of a Limit}
+
+\begin{frame}
+  \frametitle{The Definition of a Limit}
+  \begin{itemize}
+  \item We have been using an intuitive concept of what limits mean.
+    
+    \pause
+  \item However, the definition is not good enough for serious
+    mathematics.
+  
+    \pause
+  \item A more rigourous approach to limits was formulated by Cauchy.
+    
+    \pause
+  \item Cauchy's definition is based on the idea of controlling the
+    range of values a function can take by limiting the domain.
+    
+    \pause
+  \item Cauchy's definition is still somewhat vague.  A completely
+    satisfactory definition is Weirstrass's epsilon-delta definition,
+    which can be found in section~1.7.  We will not be studying the
+    epsilon-delta definition in this course.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Definition of an Ordinary Limit}
+  \begin{itemize}
+  \item We write
+    \begin{displaymath}
+      \lim_{x\to a} f(x) = L
+    \end{displaymath}
+    and say 
+    \begin{center}
+      the limit as $x$ approaches $a$ of $f(x)$ is $L$
+    \end{center}
+    if we can make the values of $f(x)$ as close to $L$ as we like by
+    taking $x$ to be sufficiently close to \textbf{(but not equal to)}
+    $a$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Definition of a One-sided Limit}
+  \begin{itemize}
+  \item We write
+    \begin{displaymath}
+      \lim_{x\to a^-} f(x) = L
+    \end{displaymath}
+    and say
+    \begin{center}
+      the limit as $x$ approaches $a$ from the left of $f(x)$ is $L$
+    \end{center}
+    if we can make the values of $f(x)$ as close to $L$ as we like by
+    taking $x$ to be sufficiently close to \textbf{(but less than)}
+    $a$.
+
+    \pause
+  \item There is a similar definition for the right-hand limit
+    $\displaystyle\lim_{x\to a^+} f(x)=L$.  (Try writing out the
+    definition yourself.)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Definition of an Infinite Limit}
+  \begin{itemize}
+  \item Let $f$ be a function defined on both sides of $a$, except
+    possibly at $a$ itself.  Then we can write
+    \begin{displaymath}
+      \lim_{x\to a} f(x) = \infty
+    \end{displaymath}
+    and say
+    \begin{center}
+      the limit as $x$ approaches $a$ of $f(x)$ is infinity
+    \end{center}
+    or 
+    \begin{center}
+      $f(x)$ increases without bound as $x$ approaches $a$
+    \end{center}
+    if $f(x)$ can be made as large as we like by taking $x$
+    sufficiently close to \textbf{(but not equal to)} $a$.
+    
+    \pause
+  \item There are similar definitions for
+    $\displaystyle\lim_{x\to a} f(x)=-\infty$ and for the
+    corresponding one-sided limits.  (Try writing out the definitions
+    yourself.)
+  \end{itemize}
+\end{frame}
+
+\subsection{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Sketch the graph of the following function and use it
+    to determine the values of $a$ for which $\lim_{x\to a} f(x)$
+    exists:
+    \begin{displaymath}
+      f(x) = \begin{cases}
+        2-x & \mbox{if $x<-1$} \\
+	x   & \mbox{if $-1\le x<1$} \\
+	(x-1)^2 & \mbox {if $1\le x$}
+      \end{cases}
+    \end{displaymath}
+  \item Use a table of values to estimate the value of the following
+    limits.
+    \begin{enumerate}
+    \item $\displaystyle\lim_{x\to 0} \frac{\sqrt{x+4}-2}{x}$
+    \item $\displaystyle\lim_{x\to 0} \frac{\tan 3x}{\tan 5x}$
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+    \setcounter{enumi}{2}
+  \item Let
+    \begin{displaymath}
+      f(x) = \begin{cases}
+        \sqrt{-x} & \mbox{if $x<0$} \\
+	3-x       & \mbox{if $0\le x<3$} \\
+	(x-3)^2   & \mbox{if $3\le x$}
+      \end{cases}
+    \end{displaymath}
+    Determine whether the limits $\displaystyle\lim_{x\to 0} f(x)$ and
+    $\displaystyle\lim_{x\to 3} f(x)$ exist.  If so, find the values
+    of those limits.
+  \item Find the vertical asymptotes of the function 
+    \begin{displaymath}
+      y = \frac{x}{x^2+x-2}
+    \end{displaymath}
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises} Now you should work on Problem Set~1.5a and
+  Problem Set~1.15b.  After you have finished them, you should try the
+  following additional exercises from Section~1.5 for two-sided limits:
+  \begin{itemize}
+  \item[1.5] 
+    C-level: 1, 19--22, 23, 26, 35; \\
+    B-level: 32--44; \\
+    A-level: 49
+  \end{itemize}
+  and the following additional exercises from Section~1.5 for
+  one-sided and infinite limits:
+  \begin{itemize}
+  \item[1.5] C-level: 2--3, 4--5, 7, 8--9, 10, 11--12, 15--18, 24--25,
+    29--34, 38--39, 40; \\
+    B-level: 6, 11, 13--14, 35--37, 41, 46; \\
+    A-level: 47--48
+  \end{itemize}
+\end{frame}
+
+
+
+\end{document}
+

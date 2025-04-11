@@ -1,0 +1,225 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroTwoSix}
+\subtitle{\commonSubtitleZeroTwoSix}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroTwoSix}
+
+
+\begin{document}
+
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+
+\section{Implicit Differentiation}
+
+\subsection{Implicit Functions}
+
+\begin{frame}
+  \frametitle{Implicit and Explicit Functions}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Consider the curve defined by $x^2+y^2=1$.
+  \item That expression can be solved for $y$ to get
+    two different continuous functions.
+  \item $y=\sqrt{1-x^2}$
+  \item $y=-\sqrt{1-x^2}$
+  \item We say that $y=\sqrt{1-x^2}$ and $y=-\sqrt{1-x^2}$
+    are \textbf{explicit} functions.
+  \item The formula $x^2+y^2=1$ is an \textbf{implicit}
+    definition of those functions.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1-2>{\includegraphics[width=\textwidth]{cont0.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{cont0a.eps}}%
+  \only<4-5>{\includegraphics[width=\textwidth]{cont0b.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{cont0.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Explicit Functions are Hard to Find}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Consider the curve defined by $x^3+y^3=6xy$.
+  \item That expression can be solved for $y$ only with
+    considerable difficulty.
+  \item For example, the simplest explicit function
+    determine by $x^3+y^3=6xy$ is
+    \begin{align*}
+      y =& \sqrt[3]{-\frac{1}{2}x^3+\sqrt{\frac{1}{4}x^6-8x^3}} \\
+         &+ \sqrt[3]{-\frac{1}{2}x^3-\sqrt{\frac{1}{4}x^6-8x^3}}
+    \end{align*}
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1-2>{\includegraphics[width=\textwidth]{cont1.eps}}%
+  \only<3->{\includegraphics[width=\textwidth]{cont1a.eps}}%
+  \end{columns}
+\end{frame}
+
+\subsection{Implicit Differentiation}
+
+\begin{frame}
+  \frametitle{Implicit Differentiation}
+  \begin{itemize}[<+->]
+  \item Some implicit functions can't be solved explicitly at all.
+  \item But we may need to differentiate them anyway.
+  \item We use the process of implicit differentiation.
+  \item We differentiate an expression as if it were a function,
+    where we use the chain rule every time we see a $y$.
+  \item For example, for $\ds x^2+y^2 = 1$ we have
+    \begin{align*}
+      \uncover<+->{\frac{d}{dx} (x^2+y^2) = \frac{d}{dx} 1}%
+      \uncover<+->{&\implies \frac{d}{dx} x^2 + \frac{d}{dx} y^2 = 0 \\}%
+      \uncover<+->{&\implies 2x + 2y \frac{dy}{dx} = 0 \\}%
+      \uncover<+->{&\implies \frac{dy}{dx} = -\frac{x}{y}}%
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Comparing Implicit and Explicit Differentiation}
+  \begin{itemize}[<+->]
+  \item Note that in the result of implicit differentiation we have a $y$.
+  \item We usually can't get rid of the $y$ unless the function can be
+    expressed in explicit form $y=f(x)$.
+  \item The two ways of calculating the derivative should agree.  
+    Recall the example $x^2+y^2=1$.
+  \item Differentiating implicitly then substituting 
+    $y=\sqrt{1-x^2}$, we have 
+    $\ds\frac{dy}{dx} = -\frac{x}{y} = -\frac{x}{\sqrt{1-x^2}}$.
+  \item On the other hand, starting with $y=\sqrt{1-x^2}$ 
+    we have 
+    \begin{align*}
+      \frac{dy}{dx} 
+      \uncover{&= \frac{d}{dx} (1-x^2)^{1/2} \\}%
+      \uncover{&= \frac{1}{2} (1-x^2)^{-1/2} \frac{d}{dx} (1-x^2) }%
+      \uncover{= -\frac{x}{\sqrt{1-x^2}}}%
+    \end{align*}
+  \item The two methods agree.  (What happens if $y=-\sqrt{1-x^2}$?)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Implicit Differentiation is the Better Option}
+  \begin{itemize}[<+->]
+  \item In most cases, it is difficult or impossible to put an implicit
+    function in explicit form.  Consider $x^3+y^3=6xy$.
+  \item The explicit form for $y$ is too difficult for us to remember.
+  \item The only good option is implicit differentiation:
+    \begin{align*}
+      \uncover<+->{\frac{d}{dx} (x^3+y^3)= \frac{d}{dx} (6xy) }%
+      \uncover<+->{&\implies \frac{d}{dx} x^3 + \frac{d}{dx} y^3 
+      = 6\left(\frac{d}{dx} x\right) y + 6 x \frac{d}{dx} y \\}%
+      \uncover<+->{&\implies 3x^2 + 3y^2 \frac{dy}{dx} 
+      = 6y + 6x \frac{dy}{dx} \\}%
+      \uncover<+->{&\implies (3y^2-6x) \frac{dy}{dx} = 6y-3x^2 \\}%
+      \uncover<+->{&\implies \frac{dy}{dx} = \frac{6y-3x^2}{3y^2-6x}}%
+    \end{align*}
+  \item Note that to complete the calculation I had to solve for $dy/dx$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{When Implicit Differentiation is Necessary}
+  \begin{itemize}[<+->]
+  \item Sometimes it is impossible to put an implicit function in
+    explicit form.  Consider $\sin(xy)=x^2+y$.
+    I can't solve for $y$ explicitly.
+  \item We have no choice but to use implicit differentiation.
+    \begin{align*}
+      \uncover<+->{\frac{d}{dx} \sin (xy) = \frac{d}{dx} (x^2 + y)}%
+      \uncover<+->{&\implies \cos(xy) \frac{d}{dx} (xy) 
+        = \frac{d}{dx} x^2 + \frac{d}{dx}y \\}%
+      \uncover<+->{&\implies \cos(xy) (y+xy') = 2x + y' \\}%
+      \uncover<+->{&\implies (x\cos(xy) - 1) y' = 2x - y\cos(xy) \\}%
+      \uncover<+->{&\implies y' = \frac{2x-y\cos(xy)}{x\cos(xy)-1}}%
+    \end{align*}
+  \item We can now construct tangents on the curve, \emph{if we know a point
+    on the curve}.  Points on the curve will be given, or special $x$ values
+    where $y$ can be solved explicitly will be chosen, or points on the curve
+    can be approximated by numerical methods.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Second Derivatives by Implicit Differentiation}
+  \begin{itemize}[<+->]
+  \item We can also find second derivatives by implicit differentiation.
+    Again consider $x^2+y^2=1$.
+  \item By implicit differentiation we have the first derivative is
+    $\ds y' = -\frac{x}{y}$.
+  \item Differentiating a second time by the quotient rule we have
+    \begin{align*}
+      y'' = \frac{-y+xy'}{y^2}
+    \end{align*}
+  \item Substituting $y'=-x/y$ we have
+    \begin{align*}
+      y'' = \frac{-y+x(-x/y)}{y^2} 
+      \uncover<+->{= -\frac{y^2+x^2}{y^3}}%
+      \uncover<+->{= -\frac{1}{y^3}}%
+    \end{align*}
+  \item Compare that with finding the second derivative of the explicit
+    function.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Find $y'$ where $x\tan y = y-1$.
+  \item Find $y''$ if $x^6+y^6=1$.
+  \item Find the equations of the tangent line and normal line
+    to the curve $x^2+4xy+y^2=13$ at the point $(2,1)$.
+  \item Find the points on the ellipse $x^2+2y^2=1$ where the
+    tangent line has slope $1$.
+  \item Show that the length of the portion of any tangent
+    line to the astroid $x^{2/3} + y^{2/3} = a^{2/3}$ cut off by
+    the coordinate axes is constant.
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~2.6.  After you have finished it,
+  you should try the following additional exercises from Section~2.6:
+  \begin{itemize}
+  \item[2.6] 
+    C-level: 1--4, 5--20, 25--30, 31--32, 33--34, 35--38, 39--40; \\ 
+    B-level: 43, 44--45, 46--47; \\
+    A-level: 48, 49--52, 53--54, 55, 57--62
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

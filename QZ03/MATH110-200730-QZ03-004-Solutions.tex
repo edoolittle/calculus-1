@@ -1,0 +1,46 @@
+\documentclass[12pt]{article}
+\usepackage{mathptmx}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\reversemarginpar
+
+\title{MATH 110-004 200730 Quiz 3 Solutions}
+\author{Edward Doolittle}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item By the product rule and the chain rule,
+  \begin{align*}
+    f'(a) = 2a \cos \frac{1}{a} 
+      + a^2 \cdot -\sin \frac{1}{a} \frac{d}{da} a^{-1}
+      = 2a \cos \frac{1}{a} - a^2 \sin \frac{1}{a} \cdot -a^{-2}
+      = 2a \cos \frac{1}{a} + \sin \frac{1}{a}
+  \end{align*}
+  The answer applies for all values of $a$ in the domain of $f$ where it
+  makes sense, i.e., for all $a\ne 0$.
+\item The tangent is horizontal where $y'=0$, so we calculate the
+  derivative and set it equal to $0$:
+  \begin{align*}
+    y' = \frac{(2+\cos x)\cos x - \sin x \cdot -\sin x}{(2+\cos x)^2}
+    = \frac{2\cos x + \cos^2 x + \sin^2 x}{(2+\cos x)^2}
+    = \frac{2\cos x + 1}{(2+\cos x)^2}
+  \end{align*}
+  where the Pythagorean identity $\cos^2 x + \sin^2 x = 1$ was used to
+  simplify the result.  Then $y'=0$ implies
+  \begin{align*}
+    \frac{2\cos x + 1}{(2+\cos x)^2} = 0
+    \implies 2\cos x + 1 = 0
+    \implies x = \pm \frac{2\pi}{3} + 2k\pi, k=0, \pm 1, \pm 2, \ldots
+  \end{align*}
+\end{enumerate}
+
+\end{document}
+
+

@@ -1,0 +1,378 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[aux]{rerunfilecheck}
+
+\input{../common.tex}
+
+\newcommand{\ds}{\displaystyle}
+
+\title{\commonPSTitleZeroOneSix\ Solutions}
+\author{\commonAuthor}
+\date{\commonPSTitleZeroOneSix}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  \begin{enumerate}
+  \item %a
+    The following is an example of a completely rigorous argument for
+    evaluating limits.  For an example of an argument which is not completely
+    rigorous but would be acceptable, see the solution for part (b).
+    
+    By the quotient rule,
+    \begin{equation*}
+      \lim_{x\to 2} \frac{2x^2+1}{x^2+6x-4}
+      = \frac{\lim_{x\to 2} (2x^2+1)}{\lim_{x\to 2}(x^2+6x-4)}
+    \end{equation*}
+    \emph{provided} both limits exist \emph{and provided} the limit
+    in the quotient is not equal to zero.  Since we don't (officially)
+    know whether those conditions hold, the equality in the above line
+    is provisional for the time being.  We won't know whether those conditions
+    hold until we reach the end of the calculation.
+
+    % EJD: two many 2s
+    To evaluate the numerator in the above calculation, we use the sum rule
+    \begin{equation*}
+      \lim_{x\to 2} (2x^2+1) = \lim_{x\to 2} 2x^2 + \lim_{x\to 2} 1
+    \end{equation*}
+    Again, we don't know whether the equality above holds until we finish
+    calculating the limit.  We now use the constant multiple rule:
+    \begin{equation*}
+      \lim_{x\to 2} 2x^2 = 2\lim_{x\to 2} x^2
+    \end{equation*}
+    and the power rule
+    \begin{equation*}
+      \lim_{x\to 2} x^2 = (\lim_{x\to 2} x)^2
+    \end{equation*}
+    and finally the limit of $x$
+    \begin{equation*}
+      \lim_{x\to 2} x = 2
+    \end{equation*}
+    to obtain
+    \begin{equation*}
+      \lim_{x\to 2} (2x^2+1) = \lim_{x\to 2} 2x^2 + \lim_{x\to 2} 1
+      = 2\left(\lim_{x\to 2} x\right)^2 + \lim_{x\to 2} 1
+      = 2(2)^2 + 1 = 9
+    \end{equation*}
+    
+    Similarly, to evaluate the denominator, we use the sum rule, the 
+    constant multiple rule, the power rule, and the ``bottom level rules'' 
+    for $\ds \lim_{x\to 2} x$ and $\lim_{x\to 2} c$ to obtain
+    \begin{equation*}
+      \lim_{x\to 2} (x^2+6x-4) = \lim_{x\to 2} x^2 + \lim_{x\to 2} 6x
+      - \lim_{x\to 2} 4
+      = \left(\lim_{x\to 2} x\right)^2 + 6 \lim_{x\to 2} x - \lim_{x\to 2} 4
+      = 2^2 + 6(2) - 4 = 12
+    \end{equation*}
+    Note that the above limit is not $0$, so we can apply the quotient rule
+    \begin{equation*}
+      \lim_{x\to 2} \frac{2x^2+1}{x^2+6x-4}
+      = \frac{\lim_{x\to 2} (2x^2+1)}{\lim_{x\to 2}(x^2+6x-4)}
+      = \frac{9}{12} = \frac{3}{4}
+    \end{equation*}
+  \item %b
+    % EJD: check numbers: different from text?
+    We can express the same type of argument as in part (a)
+    in a single line (provided we understand that every step
+     is provisional until the whole argument is complete):
+    \begin{align*}
+      \lim_{t\to -1} (t^2+1)^3(t+3)^5
+      &= \lim_{t\to -1} (t^2+1)^3 \times \lim_{t\to -1} (t+3)^5
+      \\
+      &= (\lim_{t\to -1} t^2+1)^3 \times (\lim_{t\to -1} (t+3))^5
+      \\
+      &= (\lim_{t\to -1} t^2 + \lim_{t\to -1} 1)^3 
+      \times (\lim_{t\to -1} t+3)^5
+      \\
+      &= ((\lim_{t\to -1} t)^2 + \lim_{t\to -1} 1)^3
+      \times (\lim_{t\to -1} t + 3 )^5
+      \\
+      &= ((-1)^2+1)^3 \times (-1+3)^5 = (1+1)^3 \times (2)^5 = 8\times 32
+      = 256
+    \end{align*}
+  \end{enumerate}
+\item %2
+  \begin{enumerate}
+  \item %a EJD: make different from textbook
+    First, we should substitute $x=-4$ into the denominator; if the result
+    is non-zero, we can find the answer to the question just with a straight
+    substitution.  If the result is zero, we will probably have to factor.
+    We have
+    \begin{equation*}
+      \left. x^2+3x-4 \right|_{x=-4}
+      = (-4)^2 + 3(-4) - 4 = 16-12-4 = 0
+    \end{equation*}
+    so we will have to factor.  Note that
+    \begin{align*}
+      x^2+5x+4 &= (x+4)(x+1) \\
+      x^2+3x-4 &= (x+4)(x-1)
+    \end{align*}
+    so we have
+    \begin{equation*}
+      \lim_{x\to -4} \frac{x^2+5x+4}{x^2+3x-4}
+      = \lim_{x\to -4} \frac{(x+4)(x+1)}{(x+4)(x-1)}
+      = \lim_{x\to -4} \frac{x+1}{x-1} 
+      = \frac{-4+1}{-4-1}
+      = \frac{-3}{-5} = \frac{3}{5}
+    \end{equation*}
+  \item %b EJD: make different from textbook
+    As above, we check the value of the function
+    when $x=1$: 
+    \begin{equation*}
+      \left. \frac{x^3-1}{x^2-1} \right|_{x=1}
+      = \frac{1^3-1}{1^2-1} = \frac{0}{0}
+    \end{equation*}
+    so we have to do more work.  In this case we have to factor.
+    The problem factor is $x-1$, so we try to pull a factor of that type 
+    from both the numerator and the denominator.  In the numerator, we have
+    \begin{equation*}
+      x^3-1=(x-1)(x^2+x+1)
+    \end{equation*}
+    which you can memorize as a common, useful factorization, or you can obtain
+    by polynomial division.  In the denominator we have
+    \begin{equation*}
+      x^2-1 = (x-1)(x+1)
+    \end{equation*}
+    by the standard difference of squares factorization.  Evaluating the limit
+    we have
+    \begin{equation*}
+      \lim_{x\to 1} \frac{x^3-1}{x^2-1} 
+      = \lim_{x\to 1} \frac{(x-1)(x^2+x+1)}{(x-1)(x+1)}
+      = \lim_{x\to 1} \frac{x^2+x+1}{x+1}
+      = \frac{1^2+1+1}{1+1} = \frac{3}{2}
+    \end{equation*}
+  \item %c EJD: make different from text
+    Again, we first check what happens when we substitute $h=0$ into the
+    expression.  We have
+    \begin{equation*}
+      \left. \frac{\sqrt{1+h}-1}{h} \right|_{h=0}
+      = \frac{\sqrt{1+0}-1}{0} = \frac{0}{0}
+    \end{equation*}
+    so we have to do more work.
+    To evaluate limits involving square roots, we often find it helpful to 
+    multiply by the ``conjugate radical'', in this case $\sqrt{1+h} + 1$:
+    \begin{multline*}
+      \lim_{h\to 0} \frac{\sqrt{1+h}-1}{h}
+      = \lim_{h\to 0} \frac{\sqrt{1+h}-1}{h} \cdot 
+      \frac{\sqrt{1+h}+1}{\sqrt{1+h}+1}
+      = \lim_{h\to 0} \frac{1+h - 1}{h(\sqrt{1+h}+1)}
+      \\
+      = \lim_{h\to 0} \frac{h}{h(\sqrt{1+h}+1)}
+      = \lim_{h\to 0} \frac{1}{\sqrt{1+h}+1} 
+      = \frac{1}{\sqrt{1+0}+1} = \frac{1}{2}
+    \end{multline*}
+  \item %d
+    Again, substituting $h=0$ gives an expression of the form $0/0$, so we
+    have to do more work.  We rewrite the negative power as a fraction, and
+    then clear fractions:
+    \begin{multline*}
+      \lim_{h\to 0} \frac{(3+h)^{-1} - 3^{-1}}{h}
+      = \lim_{h\to 0}\frac{\frac{1}{3+h}-\frac{1}{3}}{h}
+      = \lim_{h\to 0} \left(\frac{3}{3(3+h)}-\frac{3+h}{3(3+h)}\right) 
+      \frac{1}{h}
+      \\
+      = \lim_{h\to 0} \left(\frac{3-(3+h)}{3(3+h)}\right) \frac{1}{h}
+      = \lim_{h\to 0} \frac{-h}{3(3+h)} \frac{1}{h}
+      = \lim_{h\to 0} \frac{-1}{3(3+h)}
+      = -\frac{1}{3(3+0)} = -\frac{1}{9}
+    \end{multline*}
+  \end{enumerate}
+%% \item %3 FIXME : from 2.5
+%%   \begin{enumerate}
+%%   \item %a
+%%     Each of the multiplicands $\sqrt[3]{x}$ and $1+x^2$ is defined and 
+%%     continuous for all real numbers $x$, the former because it is a root
+%%     function with an odd index $3$, the latter because it is a polynomial,
+%%     so the product function $G$ is also defined and continuous for all real
+%%     numbers.
+%%   \item %b
+%%     The sine function is defined and continuous for all real numbers (that
+%%     is just a fact you should memorize), and the function $x+1$ is defined
+%%     for all real numbers, but we have to be careful about when the denominator
+%%     $x+1$ is $0$.  Solving the equation $x+1=0$ we get $x=-1$ as a value for
+%%     which the quotient $\sin x/(x+1)$ is undefined, and hence not continuous.
+%%     However, $x=-1$ is outside of the domain of the function, so we can still
+%%     say that the function is continuous for all values of $x$ on the domain.
+%%   \item %c
+%%     We can break the given function down as the composition of the tangent
+%%     function $\tan u$ and the ``doubling'' function $d(x)=2x$: 
+%%     \begin{equation*}
+%%       h(x) = \tan (2x) = \tan (d(x)) \implies h = \tan \circ d
+%%     \end{equation*}
+%%     The $\tan$ function is continuous wherever it is defined, and the doubling
+%%     function is a polynomial so it is continuous everywhere.  Finally,
+%%     the composition of two continuous functions is continuous where it is
+%%     defined, namely wherever $2x\ne (2k+1)\pi/2$ or $x\ne (2k+1)\pi/4$.
+%%   \item %d
+%%     The sine and cosine functions are defined and continuous everywhere, so
+%%     the composition 
+%%     \begin{equation*}
+%%       \sin\circ \cos \circ \sin
+%%     \end{equation*}
+%%     is also defined and continuous everywhere.
+%%   \end{enumerate}
+%% \item %4 FIXME : from 2.5
+%%   \begin{enumerate}
+%%   \item %a
+%%     When $x\ne 3$, the function $f(x)$ is the same as 
+%%     \begin{equation*}
+%%       \frac{2x^2-5x-3}{x-3}
+%%     \end{equation*}
+%%     which is continuous for $x\ne 3$, so it follows that $f(x)$ is continuous
+%%     for $x\ne 3$.  So the only number in question is $x=3$.  Calculating the
+%%     limit by factoring,
+%%     \begin{equation*}
+%%       \lim_{x\to 3} f(x) = \lim_{x\to 3} \frac{2x^2-5x-3}{x-3}
+%%       = \lim_{x\to 3} \frac{(x-3)(2x+1)}{x-3}
+%%       = \lim_{x\to 3} (2x+1) = 7
+%%     \end{equation*}
+%%     while on the other hand $f(3)=6$.  Since $\ds \lim_{x\to 3} f(x)\ne f(3)$,
+%%     $f$ is not continuous at $x=3$.  (You should be able to graph $f$ easily.
+%%     How could you change the definition of $f$ to make it continuous?)
+%%   \item %b
+%%     The function $x+1$ is continuous everywhere, so it is continuous on the
+%%     interval $-\infty< x< 1$.  Similarly, $1/x$ is continuous everywhere
+%%     except $x=0$, so it is continuous on the interval $1<x<3$.  Finally,
+%%     $\sqrt{x-3}$ is continuous wherever it is defined, so it is continuous
+%%     on the interval $3< x<\infty$.  So the only places where $g$ might
+%%     not be continuous are $x=1$ and $x=3$.  At $x=1$ we have
+%%     \begin{align*}
+%%       \lim_{x\to 1^-} g(x) &= \lim_{x\to 1^-} (x+1) = 2 \\
+%%       g(1) &= \left. x+1 \right|_{x=1} = 1+1 = 2 \\
+%%       \lim_{x\to 1^+} g(x) &= \lim_{x\to 1^+} \frac{1}{x} = \frac{1}{1} = 1
+%%     \end{align*}
+%%     Since not all of the above results agree, the function $g(x)$ is not
+%%     continuous at $x=1$.  At $x=3$ we have
+%%     \begin{align*}
+%%       \lim_{x\to 3^-} g(x) &= \lim_{x\to 3^-} \frac{1}{x} = \frac{1}{3} \\
+%%       g(3) &= \sqrt{3-3} = \sqrt{0} = 0 \\
+%%       \lim_{x\to 3^+} g(x) &= \lim_{x\to 3^+} \sqrt{x-3} = \sqrt{3-3} = 0
+%%     \end{align*}
+%%     Again, not all of the above results agree, so the function $g(x)$ is not
+%%     continuous at $x=3$.
+%%   \end{enumerate}
+%% \item %5 FIXME : from 2.5
+%%   \begin{enumerate}
+%%   \item %a
+%%     We convert the problem to one of showing the existence of a zero
+%%     of the function by rewriting the equation as $\sqrt[3]{x} +x - 1 = 0$.
+%%     Then we have to show that the function $f(x)=\sqrt[3]{x}+x-1$ has a 
+%%     zero on the interval $(0,1)$.  
+
+%%     The Intermediate Value Theorem does not apply directly to the above
+%%     situation because the interval $(0,1)$ is not a closed interval, but
+%%     an open interval.  However, in this case we can 
+%%     widen the interval slightly to $[0,1]$ because we can't add any roots
+%%     of the function because 
+%%     \begin{align*}
+%%       f(0) &= \sqrt[3]{0} + 0 - 1 = 0 + 0 - 1 = -1 \ne 0 \\
+%%       f(1) &= \sqrt[3]{1} + 1 - 1 = 1 + 1 - 1 = 1 \ne 0
+%%     \end{align*}
+%%     So if $f$ has a root on $[0,1]$ it must have a root on $(0,1)$.
+
+%%     Note that $f$ is continuous (why?) and $f(0)<0$, $f(1)>1$, so by the 
+%%     IVT $f$ has a root in the interval $(0,1)$.
+%%   \item %b
+%%     This was done in the lecture.
+%%   \item %c
+%%     We must show that the function $f(x)=x^5-x^2+2x+3$ has a root on the
+%%     interval $(-\infty,\infty)$.  In this case we can't widen the interval
+%%     by including $-\infty$ and $\infty$ because those are not numbers.
+%%     So we must consider a smaller closed interval inside $(-\infty,\infty)$.
+%%     We just try to guess appropriate bounds for the interval, and if they
+%%     don't work, we guess again.  Note that $f(0)=0^5-0^2+2(0)+3>0$ so if
+%%     we can find a value $a$ at which $f(a)<0$ then we can apply the IVT.
+%%     Try $f(-1)=(-1)^5-(-1)^2+2(-1)+3=-1-1-2+3=-1<0$ so we're in luck.  The
+%%     function $f(x)$ changes sign on the closed interval $[-1,0]$, and it
+%%     is continuous because it's a polynomial, so the IVT applies and $f(x)$
+%%     has a root in the interval $(-1,0)$ so it has a root in the bigger
+%%     interval $(-\infty,\infty)$.
+%%   \end{enumerate}
+%% \item %6 FIXME : from 2.5
+%%   As in a previous question, $f(x)$ is continuous in the open intervals
+%%   $(-\infty,2)$, $(2,3)$, and $(3,\infty)$ because the functions 
+%%   $(x^2-4)/(x-2)$, $ax^2-bx+3$, and $2x-a+b$ are continuous on those
+%%   intervals, respectively.  So we just have to pay attention to what happens
+%%   near $x=2$ and $x=3$.  Near $x=2$ we have
+%%   \begin{align*}
+%%     \lim_{x\to 2^-} f(x) &= \lim_{x\to 2^-} \frac{x^2-4}{x-2}
+%%     = \lim_{x\to 2^-} \frac{(x-2)(x+2)}{x-2} = \lim_{x\to 2^-} (x+2) = 4 \\
+%%     f(2) &= a(2)^2-b(2)+3 = 4a-2b+3 \\
+%%     \lim_{x\to 2^+} f(x) &= \lim_{x\to 2^+} (ax^2-bx+3) = a(2)^2-b(2)+3
+%%     = 4a-2b+3
+%%   \end{align*}
+%%   so the condition for $f$ to be continuous at $x=2$ is $4a-2b+3=4$ or
+%%   $4a-2b=1$.  Similarly, near $x=3$ we have
+%%   \begin{align*}
+%%     \lim_{x\to 3^-} f(x) &= \lim_{x\to 3^-} (ax^2-bx+3) = a(3)^2-b(3)+3 = 
+%%     9 a -3 b + 3 \\
+%%     f(3) &= 2(3)-a+b = 6-a+b \\
+%%     \lim_{x\to 3^+} f(x) &= \lim_{x\to 3^+} (2x-a+b) = 2(3)-a+b = 6-a+b
+%%   \end{align*}
+%%   so the condition for $f$ to be continuous at $x=3$ is $9a-3b+3=6-a+b$ or
+%%   $10a-4b=3$.  In summary our conditions are
+%%   \begin{align*}
+%%     4a-2b&=1 \\
+%%     10a-4b&=3
+%%   \end{align*}
+%%   which is a linear system in the two variables $a$ and $b$.  Multiplying the
+%%   first equation by $-2$ and adding, $2a=1$ so $a=1/2$, which implies $b=1/2$.
+% EJD: add more questions?
+\item %3 EJD: check numbers vs. textbook
+  This question calls for the squeeze theorem.  We need to separate the 
+  function into two parts, one of which is bounded and the other of which
+  tends to $0$ (``vanishes'')
+  as $x\to 0^+$.  We have $\sin^2(2\pi/x)\ge 0$ because squares
+  are always nonnegative, and $\sin^2(2\pi x)\le 1$ because the sine of 
+  anything is between $-1$ and $1$, so we can write
+  \begin{equation*}
+    0\le \sin^2(2\pi/x) \le 1 \implies 1 \le 1+\sin^2(2\pi/x) \le 2
+  \end{equation*}
+  which gives our bounded part.  On the other hand, $\sqrt{x}\to 0$ as
+  $x\to 0^+$ which gives our ``vanishing'' part, and multiplying the 
+  above inequality by $\sqrt{x}$ we can write
+  \begin{equation*}
+    1\sqrt{x} \le \sqrt{x}(1+\sin^2(2\pi/x)) \le 2\sqrt{x}
+  \end{equation*}
+  Note that $\sqrt{x}\ge 0$ for $x>0$ so the above inequality does not 
+  ever reverse.  Now since $\sqrt{x}\to 0$ as $x\to 0^+$, and similarly
+  $2\sqrt{x}\to 0$ as $x\to 0^+$, the squeeze theorem tells us that the
+  part squeezed in the middle of the above inequality 
+  also $\to 0$ as $x\to 0^+$, so we conclude
+  \begin{equation*}
+    \lim_{x\to 0^+} \sqrt{x}(1+\sin^2(2\pi/x)) = 0
+  \end{equation*}
+\item %4 EJD: check numbers against textbook
+  Just substituting $x=2$ into the function gives the expression $0/0$ so
+  we must do some more work before we can get an answer.  In expressions
+  involving radicals (square roots) we often find it helpful to multiply
+  by the conjugate radical.  In this case there are two radicals so we 
+  multiply by them both, one at a time.  We have
+  \begin{equation*}
+    \frac{\sqrt{6-x}-2}{\sqrt{3-x}-1}
+    = \frac{\sqrt{6-x}-2}{\sqrt{3-x}-1} \cdot \frac{\sqrt{6-x}+2}{\sqrt{6-x}+2}
+    = \frac{6-x-4}{(\sqrt{3-x}-1)(\sqrt{6-x}+2)}
+    = \frac{2-x}{(\sqrt{3-x}-1)(\sqrt{6-x}+2)}
+  \end{equation*}
+  Repeating the procedure with the second conjugate radical,
+  \begin{multline*}
+    \frac{2-x}{(\sqrt{3-x}-1)(\sqrt{6-x}+2)}
+    = \frac{2-x}{(\sqrt{3-x}-1)(\sqrt{6-x}+2)} \cdot 
+    \frac{\sqrt{3-x}+1}{\sqrt{3-x}+1}
+    \\
+    = \frac{(2-x)(\sqrt{3-x}+1)}{(3-x-1)(\sqrt{6-x}+2)}
+    = \frac{(2-x)(\sqrt{3-x}+1)}{(2-x)(\sqrt{6-x}+2)}
+    = \frac{\sqrt{3-x}+1}{\sqrt{6-x}+2}
+  \end{multline*}
+  Taking the limit we have
+  \begin{equation*}
+    \lim_{x\to 2} \frac{\sqrt{6-x}-2}{\sqrt{3-x}-1}
+    = \lim_{x\to 2} \frac{\sqrt{3-x}+1}{\sqrt{6-x}+2}
+    = \frac{\sqrt{3-2}+1}{\sqrt{6-2}+2} = \frac{2}{4} = \frac{1}{2}
+  \end{equation*}
+\end{enumerate}
+\end{document}
+

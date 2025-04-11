@@ -1,0 +1,135 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroFourTwo}
+\subtitle{\commonSubtitleZeroFourTwo}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroFourTwo}
+
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{The Definite Integral}
+
+\subsection{Definite Integrals}
+
+\begin{frame}
+  \frametitle{Definition of a Definite Integral}
+  \begin{itemize}[<+->]
+  % analogy with differentiation
+  \item We have seen expressions like $\ds \lim_{n\to\infty} \sum_{i=1}^n
+    f(x_i^*) \Delta x$ for areas.
+  \item Such expressions show up in other contexts, e.g., calculating
+    work done.
+    They are so common that they have a special notation.
+  \item \textbf{Definition:}  Let $f$ be a function on an interval
+    $[a,b]$.  Divide
+    the interval into equal subintervals of length $\Delta x=(b-a)/n$
+    and let $x_0=a$, $x_1=a+(1/n)(b-a)$, \ldots, $x_n=a+(n/n)(b-a)/n=b$
+    be the endpoints of those intervals.  Let $x_i^*$ be any \textbf{sample
+    points} in those intervals.  Then the \textbf{definite integral of $f$
+    from $a$ to $b$ is}
+    \begin{align*}
+      \int_a^b f(x) \; dx = \lim_{n\to\infty} \sum_{i=1}^n f(x_i^*) \Delta x
+    \end{align*}
+    provided that the limit exists.  If it does exist, we say $f$ is
+    integrable.
+  \end{itemize}
+\end{frame}
+
+% EJD: use Tikz to colourize the important parts.
+\begin{frame}
+  \frame{Notation}
+  \begin{itemize}[<+->]
+  \item The symbol $\int$ is called an integral sign.
+  \item It's an elongated $S$ and stands for the Latin word ``summa'' for
+    sum.
+  \item In the notation $\int_a^b f(x) \; dx$, $f(x)$ is called the
+    \textbf{integrand}.
+  \item $a$ and $b$ are called the \textbf{limits of integration}; $a$
+    is the \textbf{lower limit} and $b$ is the \textbf{upper limit}.
+  \end{itemize}
+\end{frame}
+
+% EJD: augment this slide show
+
+\subsection{Evaluating Integrals}
+
+\begin{frame}
+  \frametitle{Evaluating Integrals}
+  \begin{itemize}[<+->]
+  \item EJD
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Properties of Integrals}
+
+\begin{frame}
+  \frametitle{Properties of Integrals}
+  \begin{itemize}[<+->]
+  \item EJD
+  \end{itemize}
+\end{frame}
+
+\section{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item 
+    \begin{enumerate}
+    \item Evaluate the Riemann sum for $f(x)=x^2-x$, $0\le x\le 2$ with
+      four subintervals, taking the sample points to be right endpoints.
+      Explain, with the aid of a diagram, what the Riemann sum represents.
+    \item Use the definition of a definite integral (with right enpoints)
+      to calculate the value of the integral
+      $\ds \int_0^2 (x^2-x) \; dx$.
+    \end{enumerate}
+  \item Evaluate
+    $\ds \int_0^1 \left( x+\sqrt{1-x^2}\right) \; dx$
+    by interpreting it in terms of areas.
+  \item If $\ds \int_0^6 f(x) \; dx = 10$ and
+    $\ds \int_0^4 f(x) \; dx = 7$, find $\ds \int_4^6 f(x) \; dx$.
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~4.2.  After you have finished it,
+  you should try the following additional exercises from Section~4.2:
+  \begin{itemize}
+  \item[4.2]
+    C-level: 1--8, 17--30, 33--51; \\
+    B-level: 52--64; \\
+    A-level: 65--75
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

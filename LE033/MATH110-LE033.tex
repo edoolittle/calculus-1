@@ -1,0 +1,455 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroThreeThree}
+\subtitle{\commonSubtitleZeroThreeThree}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroThreeThree}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+%\section{Announcements}
+%\begin{frame}
+%  \frametitle{Announcements}
+%  
+%\end{frame}
+
+
+\section{How Derivatives Affect the Shape of a Graph}
+
+\begin{frame}
+  \frametitle{Obtaining Information about $f$ from $f'$}
+  \begin{itemize}[<+->]
+  \item We continue our effort to obtain information about $f$ from $f'$.
+  \item The only really useful 
+    tool we have at our disposal is the Mean Value Theorem.
+  \item Unfortunately, the MVT is awkward to apply because it requires
+    arguing by contradiction.
+  \item In this section we package the MVT by applying it in some very 
+    common general situations.
+  \item That leads to simple rules for interpreting $f'$ to obtain
+    information about $f$.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Increasing/Decreasing}
+
+\begin{frame}
+  \frametitle{Functions $f$ with $f'$ Positive on an Interval}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Consider a continuous function $f$ with $f'$
+    positive on the interval $(a,b)$.
+  \item We can conclude $f$ is increasing.  Why?  The MVT.
+  \item Suppose $f$ is not
+    increasing.  Then there are $a_1$, $b_1$ in $[a,b]$ with $a_1<b_1$ but
+    $f(a_1)>f(b_1)$.
+  \item Then the slope of the secant connecting $(a_1,f(a_1))$ and
+    $(b_1,f(b_1))$ is negative.
+  \item The MVT then says that $f'(c)<0$ for some $c$ in $(a_1,b_1)$,
+    contradiction.
+  \item Our assumption that $f$ is not increasing is false.  Therefore
+    $f$ is increasing.
+  \end{itemize}
+  \column{0.35\textwidth}
+  % EJD : diagrams
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Increasing/Decreasing Test}
+  \begin{itemize}[<+->]
+  \item Similar reasoning applies if $f'$ is negative on an interval.
+  \item In summary, we have the following result, called The 
+    Increasing/Decreasing Test.
+  \item \textbf{Theorem:}
+    \begin{enumerate}
+    \item If $f'(x)>0$ on an interval, then $f$ is increasing on that
+      interval.
+    \item If $f'(x)<0$ on an interval, then $f$ is decreasing on that
+      interval.
+    \end{enumerate}
+  \item In practice, we split the $x$-axis into open intervals on which
+    $f'(x)$ is either positive or negative.
+  \item We then apply the Increasing/Decreasing test on each of those
+    intervals.
+  \item If $f'$ is continuous,
+    the locations at which we split the $x$-axis are the
+    critical numbers for $f$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: $f(x)=x^4-2x^2-3$ Increase/Decrease}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Consider $f(x)=x^4-2x^2-3$.
+  \item Its first derivative is $f'(x)=4x^3-4x$.
+  \item Factoring, $f'(x)=4(x+1)x(x-1)$.
+  \item Critical numbers $c=-1$, $0$, $1$.
+  \item $I=(-\infty,-1)$, $(-1,0)$, $(0,1)$,
+    $(1,\infty)$.
+  \item We have
+    \begin{center}
+    \begin{tabular}{lcccc}
+      $I$                         & $x+1$ & $x$ & $x-1$ & $f'$ \\
+      \uncover<+->{$(-\infty,-1)$ & -     & -   & -     & -    \\}%
+      \uncover<+->{$(-1,0)$       & +     & -   & -     & +    \\}%
+      \uncover<+->{$(0,1)$        & +     & +   & -     & -    \\}%
+      \uncover<+->{$(1,\infty)$   & +     & +   & +     & +      }%
+    \end{tabular}
+    \end{center}
+  \item So $f$ decreases on $(-\infty,-1)$ and $(0,1)$ and
+    increases on $(-1,0)$ and $(1,\infty)$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<4-10>{\includegraphics[width=\textwidth]{poly00.eps}}%
+  \only<11->{\includegraphics[width=\textwidth]{poly01.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Critical Points: First Derivative Test}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item We now turn our attention to the critical points
+    at which we split the $x$-axis.
+  \item For each critical point, is it
+    a maximum, minimum, or neither?
+  \item \textbf{First Derivative Test:}
+    \begin{enumerate}
+    \item If $f'$ changes from positive to negative
+      at $c$, then $f$ has a local maximum at $c$.
+    \item If $f'$ changes from negative to positive
+      at $c$, then $f$ has a local minimum at $c$.
+    \item If $f'$ does not change sign at $c$, then
+      $f$ has neither a local max nor local min at $c$.
+    \end{enumerate}
+  \item We conclude $f$ has a local min at $-1$, a local
+    max at $0$, and a local min at $1$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  % EJD : diagrams
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: $f(x)=x^4-2x^2-3$ Maximum/Minimum?}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Again consider the function $f(x)=x^4-2x^2-3$.
+  \item The critical points are $c=-1,0,1$.
+  \item We know that $f$ is decreasing on $(-\infty,-1)$
+    and increasing on $(-1,0)$, so the critical point
+    at $-1$ is a local min.
+  \item We know that $f$ is increasing on $(-1,0)$ and
+    decreasing on $(0,1)$, so the critical point at
+    $0$ is a local max.
+  \item We know that $f$ is decreasing on $(0,1)$ and
+    increasing on $(1,\infty)$, so the critical point
+    at $1$ is a local min.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1-2>{\includegraphics[width=\textwidth]{poly00.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{poly01.eps}}%
+  \only<4->{\includegraphics[width=\textwidth]{poly02.eps}}%
+  \end{columns}
+\end{frame}
+
+
+\subsection{Concave Up/Concave Down}
+
+\begin{frame}
+  \frametitle{Concave Upward and Concave Downward}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Another important geometric property of a part of
+    a graph is whether it is concave upward or concave downward.
+  \item Concave upward means it is shaped something like a bowl.
+  \item Concave downward is like an upside-down bowl.
+  \item \textbf{Definition:} If the graph of $f$ lies above all
+    of its tangents on an interval $I$, then it is called 
+    \textbf{concave upward} on $I$.  If the graph lies below
+    all of its tangents on $I$, it is called concave downward on $I$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  % EJD : diagrams
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Concavity Test}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item It turns out that if a function is concave up, the slope
+    of its tangents is increasing.
+  \item Similarly, if a function is concave down, the slope of its
+    tangents is decreasing.
+  \item Proving the following theorem
+    is another application of the Mean Value Theorem,
+    See Appendix F of the textbook if you are interested.
+  \item \textbf{Concavity Test:} 
+    \begin{enumerate}
+    \item If $f''(x)>0$ for all $x$ in $I$, then the graph of $f$ is
+      concave upward on $I$.
+    \item If $f''(x)<0$ for all $x$ in $I$, then the graph of $f$ is
+      concave downward on $I$.
+    \end{enumerate}
+  \end{itemize}
+  \column{0.35\textwidth}
+  % EJD : diagrams
+  \begin{tabular}{c}
+  \\
+  \end{tabular}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: $f(x)=x^4-2x^2-3$ Concave Up/Down}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item We would like to determine where
+    $f(x)=x^4-2x^2-3$ is concave up/down.
+  \item The second derivative: 
+    $f''(x)=12x^2-4=12(x+1/\sqrt{3})(x-1/\sqrt{3})$.
+  \item We have
+    \begin{center}
+    \begin{tabular}{lccc}
+      $I$ & $x+\frac{1}{\sqrt{3}}$ & $x-\frac{1}{\sqrt{3}}$ & $f''$ \\
+      \uncover<+->{$(-\infty,-\frac{1}{\sqrt{3}})$    & - & -              & +     \\}%
+      \uncover<+->{$(-\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}})$ & + & -              & -     \\}%
+      \uncover<+->{$(\frac{1}{\sqrt{3}},\infty)$      & + & +              & +       }%
+    \end{tabular}
+    \end{center}
+  \item So $f$ is concave up on $(-\infty,-1/\sqrt{3})$ and 
+    $(1/\sqrt{3},\infty)$, and concave down on $(-1/\sqrt{3},1/\sqrt{3})$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2-6>{\includegraphics[width=\textwidth]{poly03.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{poly04.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Inflection Points}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Recall that a local extremum of $f$
+    is where $f'$ changes sign.
+  \item The analogue for concavity is called an 
+    \textbf{inflection point}.
+  \item \textbf{Definition:} A point $P$ on
+    $y=f(x)$ is called an \textbf{inflection point}
+    if $f$ is continuous there and the curve changes
+    from concave up to concave down, or from concave
+    down to concave up, at $P$.
+  \item Finding inflection points is 
+    similar to finding extrema
+    Split the $x$-axis
+    where $f''(x)=0$ or D.N.E.
+    The points at which $f''$ changes sign 
+    are inflection points.
+  \end{itemize}
+  \column{0.35\textwidth}
+  % EJD : diagrams
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: $f(x)=x^4-2x^2-3$ Inflection Points}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Back to our example.
+  \item The potential inflection points are where $f''(x)=0$ or
+    does not exist.
+  \item Those points are $-1/\sqrt{3}$ and $1/\sqrt{3}$.
+  \item We have determined the concavity on the intervals obtained
+    by splitting the $x$-axis at those points.
+  \item The concavity changes across each of $-1/\sqrt{3}$ and 
+    $1/\sqrt{3}$, so they both give inflection points.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<3>{\includegraphics[width=\textwidth]{poly03.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{poly04.eps}}%
+  \only<5->{\includegraphics[width=\textwidth]{poly05.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Second Derivative Test}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item The concept of concavity can also help
+    identify whether certain critical points
+    are maxima or minima.
+  \item The idea is that $f$ is generally
+    concave up at a minimum, and $f$ is generally
+    concave down at a maximum.
+  \item \textbf{The Second Derivative Test:}
+    Suppose $f''$ is continuous near $c$.
+    \begin{enumerate}
+    \item If $f'(c)=0$ and $f''(c)>0$, then $f$
+      has a local minimum at $c$. (Concave up at $c$.)
+    \item If $f'(c)=0$ and $f''(c)<0$, then $f$
+      has a local maximum at $c$.  (Concave down at $c$.)
+    \item If $f'(c)=0$ and $f''(c)=0$, the test is
+      inconclusive.
+    \end{enumerate}
+  \end{itemize}
+  \column{0.35\textwidth}
+  % EJD : diagrams
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: $f(x)=x^4-2x^2-3$ Minimum/Maximum}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Again consider $f(x)=x^4-2x^2-3$.
+  \item We have $f'(x)=4x^3-4x$, with roots $-1,0,1$.
+  \item The potential local extrema of $f$ are at
+    those critical points.
+  \item We have $f''(x)=12x^2-4$.
+  \item Note that $f''(-1)=8>0$, so the critical point
+    $c=-1$ must be a local min.
+  \item Similarly $f''(1)=8>0$, so the critical point
+    $c=1$ must also be a local min.
+  \item Finally, $f''(0)=-4<0$, so the $c=0$ must be a local
+    max.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1->{\includegraphics[width=\textwidth]{poly02.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{When not to Use the Second Derivative Test}
+  \begin{itemize}[<+->]
+  \item The second derivative test is generally not helpful.
+  \item The only time you will find the second derivative test
+    helpful is if
+    \begin{enumerate}[<+->]
+    \item The second derivative can be calculated easily.
+    \item The second derivative is continuous near $c$.
+    \item The value of the second derivative is not $0$ or undefined.
+    \item The intervals of increasing/decreasing have not already been
+      found.
+    \end{enumerate}
+  \item The second derivative test is useful for polynomials and some
+    other simple functions but not for most other interesting functions.
+  \item The first derivative test is more reliable and in many cases
+    is easier to apply.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Graphing}
+
+\begin{frame}
+  \frametitle{Putting it All Together: Graphing}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item We now display the information we have
+    gathered in a graphical format.
+  \item The purpose of such graphs is not to make a
+    completely accurate drawing.
+  \item The purpose is to illustrate the information we
+    have gathered in a way that communicates the information
+    effectively.
+  \item We identify the intervals of increase/decrease;
+    \uncover<+->{intervals on which $f$ is concave up/down;}%
+    \uncover<+->{local maxima, minima, and critical points;}%
+    \uncover<+->{inflection points;}%
+    \uncover<+->{and connect the dots with appropriately shaped arcs.}%
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<3>{\includegraphics[width=\textwidth]{poly06.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{poly07.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{poly08.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{poly09.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{poly10.eps}}%
+  \only<8>{\includegraphics[width=\textwidth]{poly11.eps}}%
+  \only<9>{\includegraphics[width=\textwidth]{poly12.eps}}%
+  \only<10>{\includegraphics[width=\textwidth]{poly13.eps}}%
+  \only<11>{\includegraphics[width=\textwidth]{poly14.eps}}%
+  \only<12>{\includegraphics[width=\textwidth]{poly15.eps}}%
+  \only<13>{\includegraphics[width=\textwidth]{poly16.eps}}%
+  % EJD : x-intercepts should get a slide of their own
+  \only<14>{\includegraphics[width=\textwidth]{poly17.eps}}%
+  \end{columns}
+\end{frame}
+
+
+\section{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Sketch the graph of a function that satisfies all of the
+    conditions $f'(0)=f'(2)=f'(4)=0$, $f'(x)>0$ if $x<0$ or $2<x<4$,
+    $f'(x)<0$ if $0<x<2$ or $x>4$, $f''(x)>0$ if $1<x<3$,
+    $f''(x)<0$ if $x<1$ or $x>3$.
+  \item For the function $f(x)=x^4-6x^2-8x+15$
+    \begin{enumerate}
+    \item Find the intervals of increase or decrease.
+    \item Find the local maximum and minimum values.
+    \item Find the intervals of concavity and the inflection points.
+    \item Use the above information to sketch the graph.
+    \end{enumerate}
+  \item The same for the function $f(\theta)=2\cos\theta+\cos^2\theta$,
+    $0\le\theta\le 2\pi$.
+  \item The same for the function $f(x)=x^{2/3}(6-x)^{1/3}$
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~3.3.  After you have finished it,
+  you should try the following additional exercises from Section~3.3:
+  \begin{itemize}
+  \item[3.3] 
+    C-level: 1--44, 53; \\
+    B-level: 45--46, 54--57, 59--62, 67--68, 72--73; \\
+    A-level: 58, 63--66, 69--71, 74--77
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

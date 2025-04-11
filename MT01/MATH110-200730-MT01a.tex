@@ -1,0 +1,151 @@
+\documentclass[12pt]{article}
+%\documentclass[12pt,legalpaper]{article}
+\usepackage{fullpage}
+\usepackage{amsmath,amssymb}
+\usepackage{mathptmx}
+%\usepackage{fancyheadings}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[aux]{rerunfilecheck}
+
+%\setlength{\textheight}{11.5in}
+
+\reversemarginpar
+
+\newcommand{\myimp}{\Rightarrow}
+\newcommand{\myiff}{\Leftrightarrow}
+\newcommand{\mynot}{\neg}
+\newcommand{\myor}{\vee}
+\newcommand{\myand}{\wedge}
+\newcommand{\ds}{\displaystyle}
+
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}
+
+\pagestyle{fancy}
+\lhead{MATH 110--003--004 200730                    \\ 
+       Midterm Test 1A \hspace{1.25in} Page\ \thepage\ of \pageref{LastPage} \\ 
+       Time: 50 minutes                             \\
+       \quad}
+%\chead{\quad \\ Page\ \thepage\ of \pageref{LastPage} \\ \quad}
+\chead{}
+\rhead{Name: \underline{\hspace{2in}}        \\ 
+       Student \#: \underline{\hspace{2in}}  \\ 
+       Section: \underline{\hspace{2in}}     \\
+       \quad}
+\cfoot{}
+\addtolength{\headheight}{\baselineskip}
+\addtolength{\headheight}{\baselineskip}
+\addtolength{\headheight}{\baselineskip}
+\addtolength{\headheight}{\baselineskip}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \lhead{}
+  \chead{UNIVERSITY OF REGINA                \\
+    DEPARTMENT OF MATHEMATICS AND STATISTICS \\
+    MATH 110--003--004 200730
+  }
+  \rhead{}
+  \cfoot{Page\ \thepage\ of \pageref{LastPage}}
+}
+
+\title{Midterm Test 1 (A version)}
+\author{Edward Doolittle}
+
+\begin{document}
+\thispagestyle{plain}
+%\maketitle
+
+\begin{center}
+  \quad\\
+  \LARGE{Midterm Test 1 (A version)}
+\end{center}
+
+\begin{flushleft}
+\quad\\
+Time: 50 minutes                \hfill       Name: \underline{\hspace{2in}}  \\
+Instructors:                    \hfill Student \#: \underline{\hspace{2in}}  \\
+\quad Dr. Edward Doolittle      \hfill    Section: \underline{\hspace{2in}}  \\
+\end{flushleft}
+
+
+\noindent
+You have 50 minutes to do each of the following questions.
+The test is worth a total of 40 marks.
+Please\marginpar{\small(marks)} justify your conclusions and
+show all your work.
+A non-programmable calculator of approved type is permitted.  No other aids
+are permitted.
+Use the backs of the pages for rough work.
+
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 1 %%%
+\item Find the following derivatives.
+  \begin{enumerate}
+  \item $u'(1)$ where $\ds u=\sqrt[5]{t} + 4\sqrt{t^5}$\marginpar{\small(4)}
+\vfill
+  \item $y'$ where $\ds y=\frac{r^2}{1+\sqrt{r}}$\marginpar{\small(4)}
+\vfill
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 2 %%%
+  \item $\ds \frac{d^2f}{dx^2}$\marginpar{\small(4)}
+    where $\ds f(x)=\frac{1}{3-x}$
+\vfill
+  \end{enumerate}
+\vfill
+\item Find\marginpar{\small(4)} 
+  the limit $\ds \lim_{x\to 7} \frac{\sqrt{x+2} - 3}{x-7}$
+\vfill
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 3 %%%
+\item Calculate\marginpar{\small(6)}
+  the derivative $f'(a)$ of the function 
+  \begin{displaymath}
+    f(x) = \frac{3+x}{1-3x}
+  \end{displaymath}
+  from first principles (i.e., using
+  the definition of the derivative rather than differentiation formulas).
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 4 %%%
+\item Find\marginpar{\small(6)}
+  equations of the tangent and normal lines to the curve
+  \begin{displaymath}
+    y = \frac{3x+1}{x^2+1}
+  \end{displaymath}
+  at the point $P(1,2)$ on the curve.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 5 %%%
+\item Consider the function
+  \begin{displaymath}
+    f(x) = \begin{cases}
+      cx^2 + 2x & \mbox{if $-\infty<x<2$} \\
+      x^3 - cx  & \mbox{if $2\le x < \infty$}
+    \end{cases}
+  \end{displaymath}
+  \begin{enumerate}
+  \item For\marginpar{\small(4)}
+    what value(s) (if any) of the constant $c$ is 
+    $f(x)$ continuous on the entire
+    real line $(-\infty,\infty)$?
+  \vfill
+  \item For\marginpar{\small(4)}
+    what value(s) (if any) of the constant $c$ is 
+    $f(x)$ differentiable on the entire
+    real line $(-\infty,\infty)$?
+  \vfill
+  \end{enumerate}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 6 %%%
+\item Is\marginpar{\small(4)} there a number $a$ such that
+  \begin{displaymath}
+    \lim_{x\to -2} \frac{3x^2+ax+a+3}{x^2+x-2}
+  \end{displaymath}
+  exists?  If so, find the value of $a$ and the value of the limit.
+\end{enumerate}
+
+\end{document}

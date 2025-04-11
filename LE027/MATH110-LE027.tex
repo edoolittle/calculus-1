@@ -1,0 +1,270 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroTwoSeven}
+\subtitle{\commonSubtitleZeroTwoSeven}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroTwoSeven}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Rates of Change in the Natural and Social Sciences}
+
+\begin{frame}
+  \frametitle{Rates of Change}
+  \begin{itemize}[<+->]
+  \item Recall the concept of average rate of change.
+  \item If a variable $y$ depends on a variable $x$, then as $x$ goes
+    from $x_1$ to $x_2$, $y$ will go from $y_1$ to $y_2$.
+  \item The change in $x$ is $\Delta x = x_2-x_1$.  The corresponding
+    change in $y$ is $\Delta y = y_2-y_1$.
+  \item The average rate of change is $\ds \frac{\Delta y}{\Delta x}$.
+  \item However, it turns out that in many applications an easier concept to 
+    work with is the instantaneous rate of change
+    $\ds \frac{dy}{dx} = \lim_{\Delta x\to 0} \frac{\Delta y}{\Delta x}$.
+  \item We will explore applications of these ideas in physics, chemistry,
+    biology, and (micro-)economics.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Physics}
+
+\begin{frame}
+  \frametitle{Rates of Change in Physics}
+  \begin{itemize}[<+->]
+  \item The derivative concept is common in many physical applications.
+  \item There are often different names associated with derivatives of
+    different quantities in physics.
+  \item For example, the derivative of position with respect to time
+    is velocity; the derivative of velocity with respect to time
+    is acceleration.
+  \item The derivative of charge with respect to time is 
+    called \textbf{current}.
+  \item The derivative of charge with respect to position is \textbf{charge
+    gradient}.
+  \item The derivative of work with respect to time is \textbf{power}.
+  \item The derivative of the amount of radioactive substance is called
+    item the \textbf{rate of decay}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Velocity and Acceleration}
+  \begin{itemize}[<+->]
+  \item We have already encountered a common application of the rate-of-change
+    concept to physics: velocity and acceleration.
+  \item Time is the independent variable, usually represented by $t$.
+    Position along some line is the dependent variable, usually represented
+    by $s(t)$ or $x(t)$.
+  \item Velocity means instantaneous velocity, the derivative of the position
+    function.  Acceleration means instantaneous acceleration, the derivative
+    of the velocity function.
+  \item We can interpret the velocity and make conclusions
+    about the motion.  When the velocity is positive, the position is
+    increasing; when the velocity is negative, the position is decreasing,
+    and when the velocity is zero, the position is stationary.
+  \item We can make similar interpretations for the acceleration.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Velocity and Acceleration}
+  \begin{itemize}[<+->]
+  \item Suppose, for example, a prticle moves on a line according to a law
+    of motion given by $s(t)=t^3-12t^2+36t$.
+  \item The velocity of the particle at time $t$ is $s'(t)=3t^2-24t+36$.
+  \item The acceleration of the particle at time $t$ is $s''(t)=6t-24$.
+  \item The particle is at rest when $s'(t)=0$, i.e., when $3t^2-24t+36=0$.
+    \uncover<+->{Solving the quadratic equation we have $t^2-8t+12=0$ which
+    implies $t=2$ and $t=6$.}
+  \item The particle is moving in the positive direction when $s'(t)>0$, i.e.,
+    when $3t^2-24t+36 > 0$.
+    \uncover<+->{Solving that inequality, we have $3(t-2)(t-6)>0$, which is
+    the case when both factors have the same sign, i.e., when $t<2$ or $t>6$.}
+  \item Similarly, we can figure out when the particle is speeding up by
+    solving the inequality $s''(t)>0$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Linear Density}
+  \begin{itemize}[<+->]
+  \item In the previous example, we differentiated with respect to time
+    to get a \textit{rate}.
+  \item We can also differentiate with respect to a space variable.
+  \item Consider a metal rod manufactured in such a way that the 
+    cumulative mass at a given location $x$ on the rod
+    is $m(x)=\sqrt{x}$, where $m$ is measured in kg and $x$ is measured
+    in meters from the end of the rod.
+  \item The mass of material between locations $x_1$ and $x_2$ 
+    is $\Delta m = m(x_2)-m(x_1)$.
+  \item The density of material between locations $x_1$ and $x_2$ is
+    $[m(x_2)-m(x_1)]/(x_2-x_1)=\Delta m/\Delta x$.
+  \item The \textit{linear density} of material is the limit as 
+    $\Delta x\to 0$, namely $dm/dx$.
+  \item In the above example, the linear density is $d\sqrt{x}/dx
+    = 1/(2\sqrt{x})$.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Chemistry}
+
+\begin{frame}
+  \frametitle{The Rate of a Reaction}
+  \begin{itemize}[<+->]
+  \item Consider a chemical reation like NaOH + HCl $\to$ NaCl + H$_2$O.
+  \item NaOH and HCl are \textit{reactants}, 
+    and NaCl and water H$_2$O are \textit{products}.
+  \item We measure the amount of NaCl, say, by its
+    \textit{concentration} in moles per liter,
+    represented by [NaCl].
+  \item Chemists are interested in the rate of change of concentration.
+  \item Mass conservation tells us that
+    \begin{align*}
+      \frac{d[\mbox{NaCl}]}{dt} 
+      \uncover<+->{= \frac{d[\mbox{H$_2$O}]}{dt} }%
+      \uncover<+->{= -\frac{d[\mbox{NaOH}]}{dt} }%
+      \uncover<+->{= -\frac{d[\mbox{HCl}]}{dt} }%
+    \end{align*}
+  \item That derivative is called the \textit{rate of the reaction}.
+  \item In a reaction like 2H$_2$ + O$_2$ $\to$ 2H$_2$O, we write
+    \begin{align*}
+      \frac{1}{2} \frac{d[\mbox{H$_2$O}]}{dt} 
+      \uncover{= -\frac{d[\mbox{O$_2$}]}{dt} }%
+      \uncover{= -\frac{1}{2} \frac{d[\mbox{H$_2$}]}{dt} }%
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Biology}
+
+\begin{frame}
+  \frametitle{Population Dynamics}
+  \begin{itemize}[<+->]
+  \item A standard application of calculus to biology is in the study
+    of population changes over time, i.e., population dynamics.
+  \item We measure the size of a population by counting individuals,
+    so the number is really \textit{discrete}.  However, it is
+    convenient to use a continuous
+    variable for the size of large populations.
+  \item The simplest model of population growth is exponential, $P(t)
+    = P_0 2^t$.  You will learn about exponential functions in MATH 111.
+  \item Typically, we have some relationship between $dP/dt$ and $P$,
+    e.g., 
+    \begin{align*}
+      \frac{dP}{dt} = r_0 \left(1-\frac{P(t)}{P_c}\right) P(t)-\beta P(t)
+    \end{align*}
+    and we have to determine something about $P(t)$, e.g., when is $P(t)$
+    constant.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Economics}
+
+\begin{frame}
+  \frametitle{Marginal Cost}
+  \begin{itemize}[<+->]
+  \item Suppose we need to produce a widget.  
+  \item Producing one widget is very expensive because we have to retool
+    our factory.
+  \item However, producing \textbf{one more} widget after producing 100
+    widgets is probably much less expensive.
+  \item The cost of producing one more widget after producing $x$ units
+    is called \textbf{the marginal cost at production level $x$.}
+  \item The formula for marginal cost is $C(x+1)-C(x)$, where $x$ is the
+    production level and $C(x)$ is the cost for an entire production run
+    of $x$ units.  For example, the marginal cost of producing one more 
+    unit after you have produced 100 units is $C(101)-C(100)$.
+  \item The word \textit{marginal} comes from the practice of keeping track
+    of the differences $C(x+1)-C(x)$ in the margin of an account.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Marginal Cost and Derivatives}
+  \begin{itemize}[<+->]
+  \item Marginal cost can be approximated well using derivatives.
+  \item Recall that $\ds C'(x) = \lim_{h\to 0} \frac{C(x+h)-C(x)}{h}$.
+  \item Since $h=1$ is close to $0$ in a typical economics 
+    application, we have
+    $\ds C'(x) \approx \frac{C(x+1)-C(x)}{1} = C(x+1)-C(x)$.
+  \item In other words, the marginal cost at production level $x$ 
+    is usually close enough to $C'(x)$ for the latter to be a useful
+    approximation.
+  \item Suppose, for example, that the cost of producing $x$ cases 
+    of cigars is $C(x)=1000+30x-0.1x^2$.  The $1000$ is the fixed
+    start-up cost; the 30 in $20x$ is the cost of materials per unit,
+    and the term $-0.1x^2$ is a correction factor for economy of scale.
+  \item The marginal cost at production level $50$ is approximately
+    $C'(50)=30-0.2(50)=20$.
+  \end{itemize}
+\end{frame}
+
+
+\section{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item A particle moves along a horizontal line so that its coordinate
+    at time $t$ is $x=\sqrt{b^2+c^2t^2}$, $t \ge 0$, where $b$ and $c$
+    are positive constants.
+    \begin{enumerate}
+    \item Find the velocity and acceleration functions.
+    \item Show that the particle always moves in a positive direction.
+    \end{enumerate}
+  \item The mass of part of a wire is $x(1+\sqrt{x})$ kilograms, where
+    $x$ is measured in meters from one end of the wire.  Find the linear
+    density of the wire when $x=4$ m.
+  \item The cost, in dollars, of producing $x$ units of a certain commodity
+    is $\ds C(x)=920+2x-0.02x^2 + 0.00007x^3$.
+    \begin{enumerate}
+    \item Find the marginal cost function.
+    \item Find $C'(100)$ and explain its meaning.
+    \item Compare $C'(100)$ with the cost of producing the 101st item.
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~2.7.  After you have finished it,
+  you should try the following additional exercises from Section~2.7:
+  \begin{itemize}
+  \item[2.7] C-level: 1--4, 6--10, 17--18, 22, 27--30; \\
+    B-level: 11--16, 19--21, 23--24, 25--26; \\
+    A-level: 31--36
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

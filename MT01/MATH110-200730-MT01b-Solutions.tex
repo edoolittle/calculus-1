@@ -1,0 +1,173 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{MATH 110 Midterm 1B Solutions}
+\author{\commonAuthor}
+\date{\commonDateMTOne}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  \begin{enumerate}
+  \item %a
+    Write $\ds u(t)=t^{1/2} - t^{-1/2}$.  Then $\ds u'(t)=\frac{1}{2} t^{-1/2}
+    - -\frac{1}{2} t^{-3/2} = \frac{1}{2} t^{-1/2} + \frac{1}{2} t^{-3/2}$
+    and $\ds u'(1)=\frac{1}{2} 1^{-1/2} + \frac{1}{2} 1^{-3/2} = 
+    \frac{1}{2} + \frac{1}{2} = 1$.
+  \item %b
+    Easiest is to write $\ds g(t) = \frac{t}{t^{1/3}} - \frac{t^{1/2}}{t^{1/3}}
+    = t^{1-1/3} - t^{1/2-1/3} = t^{2/3} - t^{1/6}$.  Then
+    $\ds g'(t) = \frac{2}{3} t^{-1/3} - \frac{1}{6} t^{-5/6}$.
+
+    Alternatively, you can use the quotient rule:
+    \begin{align*}
+      g'(t) = \frac{t^{1/3}(t-t^{1/2})' - (t-t^{1/2})(t^{1/3})'}{(t^{1/3})^2}
+      = \frac{t^{1/3}(1-(1/2)t^{-1/2}) - (t-t^{1/2}) ((1/3) t^{-2/3})} {t^{2/3}}
+    \end{align*}
+    It is not necessary to simplify.  However, if you want to check by comparing
+    the latter method with the former, we can do a little algebra:
+    \begin{align*}
+      g'(t) = \frac{t^{1/3}-(1/2)t^{-1/6}-(1/3)t^{1/3}+(1/3)t^{-1/6}}{t^{2/3}}
+      = \frac{2}{3} t^{1/3}t^{-2/3} -\frac{1}{6} t^{-1/6}t^{-2/3}
+      = \frac{2}{3} t^{-1/3} -\frac{1}{6} t^{-5/6}
+    \end{align*}
+    That is how you can use extra time on a test: checking by solving 
+    a problem in a different way and comparing.
+  \item %c
+    By the quotient rule,
+    \begin{align*}
+      \frac{d}{dx} \frac{x^2}{1+2x} = \frac{(1+2x)2x - x^2(2)}{(1+2x)^2}
+    \end{align*}
+    Normally I recommend doing as little algebra as possible, but since we
+    have to differentiate a second time, we should simplify somewhat.
+    Furthermore, normally one wants to keep the denominator in factored form,
+    but since the chain rule was not on the material covered by the test,
+    it is convenient to expand the denominator.  So we have
+    \begin{align*}
+      \frac{d}{dx} \frac{x^2}{1+2x} = \frac{2x+2x^2}{1+4x+4x^2}
+    \end{align*}
+    Differentiating again
+    \begin{align*}
+      \frac{d^2}{dx^2} \frac{x^2}{1+2x}
+      = \frac{d}{dx} \frac{2x+2x^2}{1+4x+4x^2}
+      = \frac{(1+4x+4x^2)(2+4x) - (2x+2x^2)(4+8x)}{(1+4x+4x^2)^2}
+    \end{align*}
+    I recommend you leave it alone now.  However, if you want to check,
+    you might want to simplify and compare with the second derivative of
+    $x^2(1+2x)^{-1}$ calculated by the product rule and the chain rule.
+  \end{enumerate}
+\item Checking $x=7$ gives a result of $\ds \frac{\sqrt{7^2+9}-5}{7+4}$
+  which makes sense, so $7$ is in the domain of the function.  Since 
+  the function can be formed from simple continuous functions
+  using compositions, products, quotients, sums, and differences, it is
+  continuous on its domain, therefore
+  \begin{align*}
+    \lim_{x\to 7} \frac{\sqrt{x^2+9}-5}{7+4}
+    = \frac{\sqrt{7^2+9}-5}{7+4}
+  \end{align*}
+  You can evaluate the function numerically, but that is not necessary.
+\item We can break this function into steps as follows:
+  \begin{align*}
+    f(a) &= \frac{2a+1}{a+3} \\
+    f(a+h) &= \frac{2(a+h)+1}{(a+h)+3} \\
+    f(a+h)-f(a) &= \frac{2a+2h+1}{a+h+3} - \frac{2a+1}{a+3}
+    \\
+    &= \frac{(2a+2h+1)(a+3)-(a+h+3)(2a+1)}{(a+h+3)(a+3)}
+    \\
+    &= \frac{2a^2+6a+2ah+6h+a+3-2a^2-a-2ah-h-6a-3}{(a+h+3)(a+3)}
+    \\
+    &= \frac{5h}{(a+h+3)(a+3)}
+    \\
+    f'(a) &= \lim_{h\to 0} \frac{f(a+h)-f(a)}{h}
+    \\
+    &= \lim_{h\to 0} \frac{5h}{(a+h+3)(a+3)} \cdot \frac{1}{h}
+    \\
+    &= \lim_{h\to 0} \frac{5}{(a+h+3)(a+3)}
+    \\
+    &= \frac{10}{(a+3)^2}
+  \end{align*}
+  Avoid the urge to take bad shortcuts by cancelling incorrectly in the 
+  fourth line of the calculation.
+
+  You can check by differentiating using the quotient rule.
+\item It is a good idea, but not necessary, to check that $y(4)=0.4$.  Now
+  to get an equation of the tangent line we need a point on the line, which
+  we have (namely $(4,0.4)$) and the slope of the line, which comes from
+  the derivative.  By the quotient rule,
+  \begin{align*}
+    y' = \frac{(x+1)(1/2)x^{-1/2} - x^{1/2}(1)}{(x+1)^2}
+  \end{align*}
+  Algebraic simplifications are possible at this point
+  but are counter-productive.  Substituting $x=4$ gives
+  \begin{align*}
+    y'(4) = \frac{(4+1)(1/2)(1/2) - 2(1)}{(4+1)^2}
+    = \frac{5/4-8/4}{5^2} = -\frac{3}{100}
+  \end{align*}
+  An equation of the tangent line is $\ds y-0.4=-\frac{3}{100} (x-4)$.
+  The normal line passes through the same point $(1,2)$ but has negative
+  reciprocal slope $m=100/3$, so the equation of the normal line is
+  $y-0.4=\frac{100}{3}(x-4)$.
+
+  Note that if you use the point-slope form of the equations of the lines
+  instead of the slope-intercept form $y=mx+b$, you don't have to solve 
+  for $b$.
+\item 
+  \begin{enumerate}
+  \item The function is continuous on $(-\infty,2)$ because it is given by
+    the formula $cx^2+2x$ on that domain; similarly it is continuous on 
+    $(2,\infty)$, so the only point in question is $x=2$.  The condition for
+    continuity at that point is $\ds \lim_{x\to 2} f(x) = f(2)$.  We have
+    \begin{align*}
+      \lim_{x\to 2^-} f(x) &= \lim_{x\to 2^-} cx^2 + 2x = 4c+4 \\
+      \lim_{x\to 2^+} f(x) &= \lim_{x\to 2^+} x^3 - cx = 8-2c \\
+      f(2) &= 2^3-c(2) = 8-2c
+    \end{align*}
+    Note that we use the $x^3-cx$ definition when we evaluate $f(2)$ 
+    because that definition applies on $2\le x < \infty$, an interval which
+    includes $2$.
+    For $\lim_{x\to 2} f(x)$ to exist, the above two limits must be equal, so
+    $4c+4=8-2c$ which implies $6c=4$ or $c=2/3$, in which case the limit
+    is $20/3$.  Since we also have $f(2)=20/3$ for that value of $c$, it follows
+    that $f(x)$ is continuous if and only if $c=2/3$.
+  \item A function can be differentiable only if it is continuous, so the
+    only possible value of $c$ for $f(x)$ to be differentiable is $c=2/3$.
+    When $c=2/3$ we have the left and right sided derivatives
+    \begin{align*}
+      \lim_{h\to 0^-} \frac{f(2+h)-f(2)}{h}
+      &= \lim_{h\to 0^-} \frac{(8/3)+(8/3)h+(2/3)h^2+4+2h-20/3}{h}
+      \\
+      &= \lim_{h\to 0^-} \frac{(14/3)h + (2/3)h^2}{h} = \frac{14}{3}
+      \\
+      \lim_{h\to 0^+} \frac{f(2+h)-f(2)}{h}
+      &= \lim_{h\to 0^+} \frac{8+12h+6h^2+h^3-(4/3)-(2/3)h-20/3}{h}
+      \\
+      &= \lim_{h\to 0^+} \frac{(32/3)h + 6h^2+h^3}{h} = \frac{32}{3}
+    \end{align*}
+    Since the left and right derivatives disagree at $x=2$ we have a corner
+    point there and the function is not differentiable for $c=2/3$, so it
+    is never differentiable.
+  \end{enumerate}
+\item Substituting $x=-2$ into the expression gives $\ds \frac{15-a}{0}$.
+  That gives an infinite limit (which doesn't exist, of course) for all values
+  of $a$ except possibly when $15-a=0$, 
+  so the only possible value of $a$ which can give us a limit which exists
+  is $a=15$.  Checking,
+  \begin{align*}
+    \lim_{x\to -2} \frac{3x^2+15x+18}{x^2+x-2}
+    = \lim_{x\to -2} \frac{(3x+9)(x+2)}{(x+2)(x-1)}
+    = \lim_{x\to -2} \frac{3x+9}{x-1}
+    = \frac{3}{-3} = -1
+  \end{align*}
+  In conclusion, the limit exists if and only if $a=15$, in which case the
+  limit is $-1$.
+\end{enumerate}
+\end{document}
+

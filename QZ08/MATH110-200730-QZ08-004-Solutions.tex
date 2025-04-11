@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+\usepackage{mathptmx}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\reversemarginpar
+
+\title{MATH 110-004 200730 Quiz 8 Solutions}
+\author{Edward Doolittle}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item The translation is straightforward: in the limit $\Delta x$ becomes $dx$;
+  the rest of the summand, $2-5(x_i^*)^2+\cos(x_i^*)$,
+  becomes the integrand $2-5x^2+\cos x$; the summation symbol becomes the
+  integration sign; and the bounds of integration are supplied by the interval
+  over which you integrate.  So an answer is
+  \begin{align*}
+    \int_0^\pi (2-5x^2+\cos x) \; dx
+  \end{align*}
+  You can check the answer by forming a Riemann sum for the above definite
+  integral and comparing with the question.
+\item The definition of a definite integral says
+  \begin{align*}
+    \int_0^1 (x^2+3) \; dx
+    = \lim_{n\to\infty} \sum_{i=1}^n \left( (x_i^*)^2 + 3 \right) \Delta x
+  \end{align*}
+  If we divide the interval $[0,1]$ into $n$ equal subdivisions we have
+  $\Delta x=(1-0)/n=1/n$ and enpoints of the intervals given by
+  $x_i=0+(i/n)(1-0) = i/n$.  If we choose as sample points the right-hand
+  endpoints of the intervals we have $x_i^* = x_i$.  (Other choices are
+  possible, but unless another choice is specifically requested, the 
+  right-hand endpoints are easiest to work with.)  Putting all of that 
+  information in to the above formula, we have
+  \begin{align*}
+    \int_0^1 (x^2+3) \; dx
+    = \lim_{n\to\infty}\sum_{i=1}^n\left(\left(\frac{i}{n}\right)^2+3\right)
+    \frac{1}{n}
+    = \lim_{n\to\infty}\sum_{i=1}^n \left(\frac{i^2}{n^3} + \frac{3}{n}\right)
+  \end{align*}
+  Using rules for evaluating summations, and the supplied formulas, we have
+  \begin{align*}
+    \int_0^1 (x^2+3) \; dx
+    = \lim_{n\to\infty} \left( \frac{1}{n^3} \sum_{i=1}^n i^2
+    + \frac{1}{n} \sum_{i=1}^n 3 \right)
+    = \lim_{n\to\infty} \left( \frac{1}{n^3} \frac{n(n+1)(2n+1)}{6}
+    + \frac{1}{n} 3n \right)
+    = \frac{2}{6} + 3 = \frac{10}{3}
+  \end{align*}
+\end{enumerate}
+
+\end{document}
+
+

@@ -1,0 +1,176 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroFiveOne}
+\subtitle{\commonSubtitleZeroFiveOne}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroFiveOne}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Areas Between Curves}
+
+\begin{frame}
+  \frametitle{Applications of Integration}
+  \begin{itemize}[<+->]
+  \item In this final chapter of the course, we look at applications
+    of integration.
+    % EJD this needs to be completed
+  \item The idea of integration originated with the area problem,
+    so that is the the first application we are going to look at.
+  \item Now we look at a more sophisticated version of the area
+    problem: the area between two curves.
+  \item Next section we will look at a non-geometric application
+    of integration.
+  \end{itemize}
+\end{frame}
+
+\subsection{The Area Between Curves with Two Intersections}
+
+\begin{frame}
+  \frametitle{The Area Between Curves}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}
+  \item<1-> Let us consider the two curves pictured at right, $f$ in
+    orange and $g$ in blue.
+  \item<2-> We want to find the area of the \textit{bounded} region between
+    the curves.
+  \item<3-> As usual, we do that by covering the region with rectangles
+    and letting the number of rectangles tend to infinity.
+  \item<4-> Here the width of the rectangles are equal, and their heights
+    are given by the height of the region at the right-hand side of the
+    rectangles.
+  \item<10-> We would like to be able to express the area of the region
+    as an integral.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{\includegraphics[width=\textwidth]{twoint0.eps}}%
+  \only<2>{\includegraphics[width=\textwidth]{twoint1.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{twoint2.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{twoint3.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{twoint4.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{twoint5.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{twoint6.eps}}%
+  \only<8>{\includegraphics[width=\textwidth]{twoint7.eps}}%
+  \only<9>{\includegraphics[width=\textwidth]{twoint8.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Area Between Two Curves as an Integral}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item In order to construct an integral for the area between
+    two curves, we first find the area of one of the ``area
+    elements''.
+  \item The width of such a rectangle is $\Delta x$ which is $1/n$
+    times the width of the region.
+  \item The height of such a rectangle is the difference of $f$ and
+    $g$ at the right-hand endpoint, i.e., $f(x_i)-g(x_i)$.
+  \item The area of an area element is $(f(x_i)-g(x_i))\Delta x$.
+  \item The total area of all the area elements is
+    $\ds \sum_{i=1}^n (f(x_i)-g(x_i)) \Delta x$.
+  \item So the area of the region should be $\ds \lim_{n\to\infty}
+    \sum_{i=1}^n (f(x_i)-g(x_i))\Delta x = \int_a^b (f(x)-g(x)) \; dx$
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1->{\includegraphics[width=\textwidth]{twoint9.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Evaluating The Area Between Two Curves as an Integral}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item In the previous slide we concluded that the area of the region
+    bounded by $f$ and $g$ is $\ds \int_a^b (f(x)-g(x)) \; dx$.
+  \item In order to evaluate the integral, we need to find the points
+    where the two curves intersect.
+  \item We do this by solving the equation $f(x)=g(x)$.
+  \item In this case, $f(x)=-x^2+6x-3$ and $g(x)=x^2-4x+5$, so
+    $f(x)=g(x)$ becomes $-x^2+6x-3=x^2-4x+5$ or
+    $x^2-5x+4=0$ with solutions $x=1$ and $x=4$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1->{\includegraphics[width=\textwidth]{twoint9.eps}}%
+  \end{columns}
+\end{frame}
+
+
+\subsection{Areas Between Curves with Several Intersections}
+
+\begin{frame}
+  \frametitle{Areas Between Curves with Several Intersections}
+  EJD
+\end{frame}
+
+
+\subsection{Integrating Against \(y\)}
+
+\begin{frame}
+  \frametitle{Integrating Against \(y\)}
+  EJD
+\end{frame}
+
+
+\subsection{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Find the area of the region bounded by the given curves.
+    \begin{enumerate}
+    \item $y=20-x^2$, $y=x^2-12$
+    \item $x+y=0$, $x=y^2+3y$
+    \item $y=\sqrt{x}$, $y=x^2$, $x=2$
+    \item $y=\sin(\pi x/2)$, $y=x^2-2x$
+    \end{enumerate}
+  \item Find the area of the region in the first quadrant bounded by the
+    curves $y=x^3$ and $y=2x-x^2$.
+  \item Approximate the area of the region bounded by the curves $y=\tan(x^2)$,
+    $x=1$, and $y=0$.
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~5.1.  After you have finished it,
+  you should try the following additional exercises from Section~5.1:
+  \begin{itemize}
+  \item[5.1]
+    C-level: 1--28, 29, 30--32; \\
+    B-level: 33--38, 46--50; \\
+    A-level: 53--60.
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage{mathptmx}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\reversemarginpar
+
+\usepackage{lastpage,fancyhdr}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{MATH 110 200710 Quiz 7 (004)     \\
+  Time: 20 minutes                        \\ \quad }
+\chead{Page\ \thepage\ of \pageref{LastPage}   \\ \quad \\ \quad}
+\rhead{Name: \underline{\hspace{1.5in}}        \\
+  Student \#: \underline{\hspace{1.5in}}  \\ \quad }
+\cfoot{}
+\addtolength{\headheight}{\baselineskip}
+\addtolength{\headheight}{\baselineskip}
+\addtolength{\headheight}{\baselineskip}
+\addtolength{\headheight}{\baselineskip}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \lhead{}
+  \chead{UNIVERSITY OF REGINA                \\
+    DEPARTMENT OF MATHEMATICS AND STATISTICS \\
+    MATH 110 200730 Quiz 7 (Section 004)     \\
+    \quad                                      }
+  \rhead{}
+  \cfoot{Page\ \thepage\ of \pageref{LastPage}}
+}
+
+\begin{document}
+\thispagestyle{plain}
+
+\begin{flushleft}
+Time:  20 minutes                \hfill       Name: \underline{\hspace{2in}} \\
+Instructor: Dr. Edward Doolittle \hfill Student \#: \underline{\hspace{2in}}
+\end{flushleft}
+
+\noindent
+Please\marginpar{\centering (marks)} do questions 1 and 2.  You have 10 minutes
+to do each question, for a total of 20
+minutes for the quiz.  A non-programmable
+calculator of the type mentioned in the course outline is allowed.
+%but is not necessary.  
+%You may leave early if you can
+%do so without disturbing any of your colleagues.
+If you finish early, I suggest you check your work thoroughly.
+\textbf{Please do not disturb your colleagues by climbing over them while
+they are trying to write the quiz.}
+
+\begin{enumerate}
+\item Find\marginpar{\centering (10)} 
+  $\ds f(x)$ given that $\ds f''(x)=8-12x+60x^3$, $\ds f(0)=-1$, $\ds f'(0)=5$.
+\vfill
+\newpage
+\item 
+  \begin{enumerate}
+  \item Apply\marginpar{\centering (10)} Newton's method to the 
+    equation $\ds \frac{1}{x}-9=0$ to derive the following algorithm
+    for calculating $\ds \frac{1}{9}$.
+    \begin{align*}
+      x_{n+1} = 2x_n-9x_n^2
+    \end{align*}
+\vfill
+\vfill
+\vfill
+\vfill
+  \item Starting with the initial approximation $\ds x_1=0.1$, find $\ds x_2$.
+\vfill
+\vfill
+\vfill
+  \item Bonus: what is the pattern for $\ds x_n$ in the above case?
+\vfill
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}
+

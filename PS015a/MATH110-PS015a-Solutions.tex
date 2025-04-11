@@ -1,0 +1,164 @@
+\documentclass{article}
+\usepackage{fullpage}
+%\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[aux]{rerunfilecheck}
+
+\input{../common.tex}
+
+\newcommand{\ds}{\displaystyle}
+
+\title{\commonPSTitleZeroOneFive a\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroOneFive}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  Applying the definition, the given equation means ``$f(x)$ can be
+  made arbitrarily close to $7$ by making $x$ close to (but not equal
+  to) $3$.''  It is possible for
+  \begin{equation*}
+    \lim_{x\to 3} f(x)=7
+  \end{equation*}
+  but for $f(3)=4$; for example the function
+  \begin{equation*}
+    f(x) = \begin{cases}
+      x+4 & \mbox{if $x\ne 3$} \\
+      4   & \mbox{if $x=3$}
+    \end{cases}
+  \end{equation*}
+  has those properties.
+\item %2
+  \begin{enumerate}
+  \item %2a EJD   
+  \item %2b
+    We have the following table of values, where $\ds f(x)=\frac{10^x-2^x}{x}$:
+    \begin{center}
+      \begin{tabular}{|l|r|r|r|}
+        \hline
+        \multicolumn{1}{|c|}{$x$}   
+        & \multicolumn{1}{|c|}{$10^x$}    
+	& \multicolumn{1}{|c|}{$2^x$}    
+	& \multicolumn{1}{|c|}{$f(x)$}   \\
+        \hline\hline
+        +1.00   & $10.0000$ & $2.0000$ & $8.0000$ \\
+        \hline
+        +0.50   &  $3.1623$ & $1.4142$ & $3.4961$ \\
+        \hline
+        +0.10   &  $1.2589$ & $1.1072$ & $1.8715$ \\
+        \hline
+        +0.05   &  $1.1220$ & $1.0353$ & $1.7350$ \\
+        \hline
+        +0.01   &  $1.0233$ & $1.0070$ & $1.6337$ \\
+        \hline
+        +0.005  &  $1.0116$ & $1.0035$ & $1.6215$ \\
+        \hline
+        +0.001  &  $1.0023$ & $1.0007$ & $1.6119$ \\
+        \hline
+        $\pm 0$ &           &          &          \\
+        \hline
+        -0.001  &  $0.9977$ & $0.9993$ & $1.6070$ \\
+        \hline
+        -0.005  &  $0.9886$ & $0.9965$ & $1.5974$ \\
+        \hline
+        -0.01   &  $0.9772$ & $0.9930$ & $1.5855$ \\
+        \hline
+        -0.05   &  $0.8913$ & $0.9659$ & $1.4937$ \\
+      \hline
+      \end{tabular}
+    \end{center}
+    Based on the data, we could reasonably conclude that the limit is
+    somewhere between $1.6070$ and $1.6119$.  That may be enough
+    accuracy, depending on the use we were going to make of the
+    answer.  If not, we could add more lines to the table.  (Methods
+    you will learn if you take MATH 111 give $1.609$ as the actual
+    answer to three decimal places.)
+  \end{enumerate}
+\item %3
+  We tabulate values of $(1+x)^{1/x}$ for numbers $x$ that are closer
+  and closer to $0$ until the values stabilize in the fourth digit.
+  We obtain
+  \begin{center}
+    \begin{tabular}{|l|r|}
+      \hline
+      \multicolumn{1}{|c|}{$x$}
+      & \multicolumn{1}{|c|}{$(1+x)^{1/x}$} \\
+      \hline\hline
+      +1.0      & 2.00000 \\
+      \hline
+      +0.1      & 2.59374 \\
+      \hline
+      +0.01     & 2.70481 \\
+      \hline
+      +0.001    & 2.71692 \\
+      \hline
+      +0.0001   & 2.71814 \\
+      \hline
+      +0.00001  & 2.71826 \\
+      \hline 
+      +0.000001 & 2.71828 \\
+      \hline
+    \end{tabular}
+  \end{center}
+  for small positive values of $x$ and
+  \begin{center}
+    \begin{tabular}{|l|r|}
+      \hline
+      \multicolumn{1}{|c|}{$x$}
+      & \multicolumn{1}{|c|}{$(1+x)^{1/x}$} \\
+      \hline\hline
+      $-1.0$     & $\infty$ \\
+      \hline
+      $-0.1$     & $2.86797$ \\
+      \hline
+      $-0.01$    & $2.73200$ \\
+      \hline
+      $-0.001$   & $2.71964$ \\
+      \hline
+      $-0.0001$  & $2.71841$ \\
+      \hline 
+      $-0.00001$ & $2.71829$ \\
+      \hline
+    \end{tabular}
+  \end{center}
+  for small negative values of $x$.  The two tables agree to four
+  digits, so we have (most likely) found the first four digits of the
+  limit.  It looks suspiciously like the special number
+  $e=2.71828\ldots$ which is the base of the natural exponential and
+  logarithmic functions.  We'll see later that the limit is exactly $e$.
+\item %4 EJD
+  %My graphing device
+\item %5
+  It's difficult to make an educated guess in this problem.  If you
+  follow the instructions in the textbook, you'll see that the limit
+  seems to head towards $0.333$, but then as $x$ gets very small, the
+  value of $(\tan x -x)/x^3$ suddenly seems to veer down to $0$.  On
+  my calculator this happens at about $x=1.0\times 10^{-9}$.
+
+  You should try to use a computer to graph the function at a smaller
+  scale than the sample $x$ values given in the textbook to see what
+  happens when you really zoom in on the thing.  Something similar
+  should happen at a high enough zoom.
+
+  The moral of the story is that adding more accuracy to your inputs
+  doesn't necessarily result in more accurate outputs when using the
+  numerical approximations provided by calculators and computers.  We
+  have to be particularly careful when we subtract two numbers which
+  are very close to one another.  You should try to arrange
+  calculations so that you don't subtract two numbers which are close,
+  if possible.  You can learn more about the associated issues if you
+  take a course in numerical methods.
+
+  It is very hard for us to figure out how to evaluate this limit
+  given what we now know.  Some of the masters of the art from long
+  ago (e.g., Madhava of Sangamagrama) were able to do it, but until
+  the development of calculus such calculations were beyond the reach
+  of nearly everyone.  If you take MATH 111, you will learn
+  straightforward ways to evaluate this limit; L'H\^{o}pital's rule or
+  Taylor series tell me that the answer really is $1/3$, so our first
+  guess was correct.
+\end{enumerate}
+\end{document}
+

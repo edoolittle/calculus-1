@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{mathptmx}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroTwoFive}
+\author{\commonAuthor}
+\date{\commonDateZeroTwoFive}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+The following problems based on Section~2.5 of the textbook will help
+you study.  \emph{You do not need to hand in solutions to these
+  problems.}
+\begin{enumerate}
+\item (Based on 2.5.7--46) %1
+  Find the derivatives of the following functions.
+  \begin{multicols}{4}
+  \begin{enumerate}
+  \item $\ds \vphantom{\sqrt{\frac{t}{t^2}}} g(x)=(5x+x^3)^7$
+ %\item $\ds \vphantom{\sqrt{\frac{t}{t^2}}} H(t) = t^2 e^{kt}$
+  \item $\ds \vphantom{\sqrt{\frac{t}{t^2}}} H(t) = t^2 \cos kt$
+  \item $\ds \vphantom{\sqrt{\frac{t}{t^2}}} (1+2z)^{10}(3-2z)^8$
+  \item $\ds \vphantom{\sqrt{\frac{t}{t^2}}} W(t)=\sqrt{\frac{t}{t^2+4}}$
+  \end{enumerate}
+  \end{multicols}
+\item (Based on 2.5.51--54) %2
+  Find an equation of the tangent line to the curve $y=x\sin (3x-\pi)$
+  at the point $(\pi/2,\pi/2)$ on the curve.  Also find an equation of
+  the normal line to that curve at the given point.
+\item (Based on 2.5.47--50) %3
+  Find the second derivative of the function $y=x^2\cos 3x$
+%\item %4 Find all points on the graph of the curve $y=xe^{-x}$ where the
+%  graph is horizontal (i.e., where it has a horizontal tangent).
+%  FIXME : variation on 2\sin x + \sin^2 x question in textbook; \cos?
+\item (Based on 2.5.59) %5
+  Find all points on the graph of the curve $y=2\sin x + \sin^2 x$
+  where the graph is horizontal (i.e., where it has a horizontal
+  tangent).
+\item (Based on 2.5.61--62) %6
+  If $F(x)=f(g(x))$ where $f(-1)=3$, $f'(-1)=4$, $g(2)=-1$, and
+  $g'(2)=5$, find $F'(2)$
+% FIXME : graph question
+\item (Based on 2.5.70) %7
+  If $f(x)=xg(x^2)$, find $f''(x)$ in terms of $g$, $g'$, and $g''$.
+% \item %8
+%  Show that the function
+%  \begin{equation*}
+%    y = A e^{2x} + Bxe^{2x}
+%  \end{equation*}
+%  satisfies the equation
+%  \begin{equation*}
+%    y'' - 4y' + 4y = 0
+%  \end{equation*}
+\item (Based on 2.4.53) %9
+  Show that the function
+  \begin{equation*}
+    y = A \sin 2t + B \cos 2t
+  \end{equation*}
+  satisfies the equation
+  \begin{equation*}
+    y'' + 4y = 0
+  \end{equation*}
+\item (Based on 2.5.73--74) %10
+  Find the 23rd derivative of $y=\cos 2x$.
+\item (Based on 2.5.78) %11
+  The number of hours of daylight in Regina on day $t$ of the year
+  (counting from January 1 which is day 1) is given (approximately) by
+  the formula
+  \begin{equation*}
+    L(t) = 12 + 4.25 \sin \left[ \frac{2\pi}{365} (t-80) \right]
+  \end{equation*}
+  At what rate is the number of hours of daylight changing on April 1,
+  on June 21, and on December 1?  (Assume that the current year has
+  365 days.)
+\item (Based on 2.5.87) %12
+  Recall that $\cos \theta$ is the cosine of an angle as a function of
+  the measure $\theta$ of the angle in radians.  Let $\cos^{\circ} t$
+  be the cosine of an angle as a function of the measure $t$ of the
+  angle in degrees.
+  \begin{enumerate}
+  \item What is the relationship between the measure $\theta$ of an
+    angle in radians and the measure $t$ of the same angle in degrees? 
+  \item Write $\cos^{\circ}$ in terms of $\cos$
+  \item Find $\ds \frac{d}{dt} \cos^{\circ} t$.  (Note that the answer
+    is somewhat more complicated than $\ds \frac{d}{d\theta} \cos
+    \theta$.  That is one of the reasons why we use radian measure
+    rather than degree measure for angles in calculus.)
+  \end{enumerate}
+\end{enumerate}
+
+\noindent
+You may find the following additional exercises from Section~2.5
+helpful.
+\begin{itemize}
+\item[2.5] 
+  C-level: 1--6, 7--46, 47--50, 51--54, 55--57, 59--60, 61--64,
+  67--68, 69--72 \\ 
+  B-level: 58, 65--66, 73--74, 75--76, 77--80 \\
+  A-level: 83--90
+\end{itemize}
+
+
+
+
+\end{document}

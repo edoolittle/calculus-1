@@ -1,0 +1,721 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{multicol}
+%\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+% \usepackage{pgfmath}
+\usepackage[aux]{rerunfilecheck}
+
+\input{../common.tex}
+
+\newcommand{\ds}{\displaystyle}
+
+\title{\commonPSTitleZeroZeroB\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroZeroB}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item % (Based on B.1--6) Find the distance between the given points.
+  \begin{enumerate}
+  \item % $\ds (1,2)$, $\ds (4,6)$
+    We have $(x_1,y_1)=(1,2)$, $(x_2,y_2)=(4,6)$, so $x_2-x_1=3$,
+    $y_2-y_1=4$, and the distance between the points is 
+    \begin{equation*}
+      \sqrt{(x_2-x_1)^2+(y_2-y_1)^2} = \sqrt{3^2+4^2} = \sqrt{25} = 5
+    \end{equation*}
+  \item % $\ds (2,-5)$, $\ds (-3,7)$
+    We have to be careful with the negative numbers.
+    $x_2-x_1=-3-2=-5$, $y_2-y_1=7-(-5)=12$, and the distance is
+    \begin{equation*}
+      \sqrt{(x_2-x_1)^2+(y_2-y_1)^2} = \sqrt{(-5)^2+(12)^2} = 13
+    \end{equation*}
+  \item % $\ds (-1,-3)$, $\ds (-2,6)$
+    The distance is
+    \begin{equation*}
+      \sqrt{(-2-(-1))^2 + (6-(-3))^2} = \sqrt{(-1)^2+(9)^2}=\sqrt{82}
+    \end{equation*}
+  \item % $\ds (b,a)$, $\ds (a,b)$
+    The distance is $\sqrt{(a-b)^2+(b-a)^2}$.  You will usually see
+    expressions like that simplified as follows: note that
+    $(b-a)=-(a-b)$ so $(b-a)^2 = (-(a-b))^2 = (a-b)^2$ and we have
+    \begin{equation*}
+      \sqrt{(a-b)^2+(b-a)^2} = \sqrt{2(a-b)^2} = \sqrt{2} \,
+      \sqrt{(a-b)^2} = \sqrt{2} \, |a-b|
+    \end{equation*}
+    Note the appearance of the absolute value symbol.
+  \end{enumerate}
+% EJD: Should we add an (a,b) question as above?
+\item % (Based on B.7--10) Find the slope of the line through $P$ and $Q$.
+  \begin{enumerate}
+  \item % $\ds P(2,4)$, $\ds Q(5,9)$
+    As before we have $(x_1,y_1) = (2,4)$ and $(x_2,y_2) = (5,9)$, so
+    the differences are $x_2-x_1=5-2=3$, $y_2-y_1=9-4=5$ and the slope
+    is
+    \begin{equation*}
+      m = \frac{\mbox{rise}}{\mbox{run}} = \frac{y_2-y_1}{x_2-x_1} =
+      \frac{5}{3}
+    \end{equation*}
+  \item % $\ds P(-3,5)$, $\ds Q(2,-6)$
+    Again as before, we should be careful with the negatives, and also
+    with the order of the terms in the subtraction: always $x_2-x_1$
+    in the denominator, and always $y_2-y_1$ in the numerator.  The slope is
+    \begin{equation*}
+      m = \frac{-6-5}{2-(-3)} = \frac{-11}{5}
+    \end{equation*}
+  \item % $\ds P(-1,0)$, $\ds Q(-3,-7)$
+    The slope is
+    \begin{equation*}
+      m = \frac{-7-0}{-3-(-1)} = \frac{-7}{-2} = \frac{7}{2}
+    \end{equation*}
+  \end{enumerate}
+% EJD: diagrams
+\item % (Based on B.17--18) Sketch the graph of the equation.
+  \begin{enumerate}
+  \item % $\ds x=2$
+    This is a vertical line consisting of all points with $x=2$, so it
+    passes through the points $(2,3)$ and $(2,-4)$ for example.  (Any
+    other points of the form $(2,y)$ would do.)  We graph those two
+    points on the plane, see Figure~\ref{fig:x=2}(a), and then draw
+    a straight line through them, see Figure~\ref{fig:x=2}(b).  (Of
+    course, you don't have to first find two points if you're using
+    grid paper and you recognize that the line is a vertical grid line.)
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \node[fill=red,inner sep=1.5pt] (A) at (2,3) {};
+          \node[fill=red,inner sep=1.5pt] (B) at (2,-4) {};
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick] (2,-6)--(2,6);
+          \node[fill=red,inner sep=1.5pt] (A) at (2,3) {};
+          \node[fill=red,inner sep=1.5pt] (B) at (2,-4) {};
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Two points on the line}
+        &
+        \mbox{(b) Completed graph}
+      \end{array}$
+      \caption{Graph of $x=2$}
+      \label{fig:x=2}
+    \end{figure}
+  \item % $\ds y=-3$
+    This is similar to the previous problem.  Choose two points on the
+    horizontal line $y=-3$, say $(-4,-3)$ and $(5,-3)$, then draw the
+    line connecting them.  See Figure~\ref{fig:y=-3}.
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \node[fill=red,inner sep=1.5pt] (A) at (-4,-3) {};
+          \node[fill=red,inner sep=1.5pt] (B) at (5,-3) {};
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick] (-6,-3)--(6,-3);
+          \node[fill=red,inner sep=1.5pt] (A) at (-4,-3) {};
+          \node[fill=red,inner sep=1.5pt] (B) at (5,-3) {};
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Two points on the line}
+        &
+        \mbox{(b) Completed graph}
+      \end{array}$
+      \caption{Graph of $y=-3$}
+      \label{fig:y=-3}
+    \end{figure}
+  \end{enumerate}
+\item % (Based on B.21--36) Find an equation of the line that satisfies the
+  % given conditions.
+  \begin{enumerate}
+  \item % Through $(-3,1)$, slope $-5/3$
+    Since we have a point and a slope, we use point-slope form:
+    \begin{equation*}
+      y-y_1 = m(x-x_1) \implies y-1 = -\frac{5}{3} (x-(-3))
+      \implies y-1 = -\frac{5}{3} (x+3)
+    \end{equation*}
+    The final simplification is optional.
+  \item % Through $(1,-3)$ and $(-4,-2)$
+    There are several ways to handle this problem, but I recommend
+    first finding the slope of the line between the points:
+    \begin{equation*}
+      m = \frac{-2-(-3)}{-4-1} = \frac{-2+3}{-4-1} = \frac{1}{-5} =
+      -\frac{1}{5} 
+    \end{equation*}
+    Now using the point $P(1,-3)$ as our point and $m=-1/5$ as our
+    slope, we can use point-slope form:
+    \begin{equation*}
+      y-y_1 = m(x-x_1) \implies y-(-3) = -\frac{1}{5}(x-1)
+      \implies y+3 = -\frac{1}{5}(x-1)
+    \end{equation*}
+    The latter simplification is optional in this context.
+  \item % Slope $2$, $y$-intercept $5$
+    We use the slope-intercept form with $m=2$ and $b=5$:
+    \begin{equation*}
+      y= mx+b \implies y = 2x + 5
+    \end{equation*}
+    % EJD: diagrams below
+  \item % $x$-intercept $4$, $y$-intercept $-3$
+    If the $x$-intercept is $4$, that means the line passes through
+    the point $P(4,0)$.  Similarly, if the $y$-intercept is $-3$, that
+    means the line passes through the point $Q(0,-3)$.  Next we find
+    the slope:
+    \begin{equation*}
+      m = \frac{-3-0}{0-4} = \frac{-3}{-4} = \frac{3}{4}
+    \end{equation*}
+    Now we can use the point-slope form:
+    \begin{equation*}
+      y-y_1 = m(x-x_1) \implies y-0 = \frac{3}{4} (x-4)
+      \implies y = \frac{3}{4} (x-4)
+    \end{equation*}
+  \item % Through $(1,-4)$, parallel to the $x$-axis
+    You could use point-slope form, recalling that any line parallel
+    to the $x$-axis has slope $0$:
+    \begin{equation*}
+      y-y_1 = m(x-x_1) \implies y-(-4) = 0 (x-1)
+      \implies y+4 = 0 \implies y = -4
+    \end{equation*}
+    Either of the last two equations is acceptable as an answer.
+  \item % Through $(1,-4)$, parallel to the $y$-axis
+    The best way to answer this question is just to remember that all
+    lines parallel to the $y$-axis have equation of the form $x=a$.
+    Since the line passes through the point $(x,y)=(1,-4)$, we must
+    have $a=1$.  So the equation of the line is $x=1$.
+  \item % Through $(2,-3)$, parallel to the line $4x-5y=7$
+    The slope of the given line can be found by putting it into
+    slope-intercept form (solving for $y$).  We have
+    \begin{equation*}
+      4x-5y=7 \implies 5y = 4x-7 \implies y = \frac{4}{5} x -
+      \frac{7}{5}
+    \end{equation*}
+    It follows that the slope of the given line is $4/5$.  Since
+    parallel lines have the same slope, it follows that the slope of
+    the unknown line is also $4/5$.  Now we have a point on the
+    unknown line, $P(2,-3)$, and its slope, $m=4/5$, so we can use 
+    point-slope form to write an equation for the line:
+    \begin{equation*}
+      y-y_1 = m(x-x_1) \implies y-(-3) = \frac{4}{5} (x-2)
+      \implies y+3 = \frac{4}{5} (x-2)
+    \end{equation*}
+    where the latter simplification is optional.
+  \item % Through $(-1/2,5/3)$, perpendicular to the line $3x+7y=2$
+    Again, we first find the slope of the given line by solving for
+    $y$:
+    \begin{equation*}
+      3x+7y=2 \implies 7y = -3x + 2 \implies y = -\frac{3}{7} x +
+      \frac{2}{7}
+    \end{equation*}
+    so the slope of the given line is $-3/7$.  The slope of any
+    perpendicular line is the negative reciprocal of that number so we
+    can calculate
+    \begin{equation*}
+      m = -\frac{1}{-3/7} = -1 \times -\frac{7}{3} = \frac{7}{3}
+    \end{equation*}
+    (The end result can be obtained quickly by changing the sign
+    (negative) and flipping the fraction over (reciprocal).)  Now we
+    have a point on the unknown line, $P(-1/2,5/3)$, and its slope,
+    $7/3$, so we can write an equation for the line in point-slope
+    form:
+    \begin{equation*}
+      y-y_1 = m(x-x_1) 
+      \implies 
+      y-\frac{5}{3} = \frac{7}{3}\left(x-\left(-\frac{1}{2}\right)\right) 
+      \implies y-\frac{5}{3} = \frac{7}{3}\left(x+\frac{1}{2}\right)
+    \end{equation*}
+    where the latter simplification is optional.  (Other optional
+    simplifications may be helpful: you may find it easier to work
+    with such an equation, for example, if you ``clear fractions'' by
+    multiplying every term by $6$.)
+  \end{enumerate}
+\item % (Based on B.37--42) Find the slope and $y$-intercept of the line
+  % and draw its graph.
+  \begin{enumerate}
+  \item % $\ds x+2y=0$ % EJD: maybe having 0 in here first is harder?
+    To find the slope and $y$-intercept, we put the equation of the
+    line into slope-intercept form by solving for $y$:
+    \begin{equation*}
+      x+2y=0 \implies y = -\frac{1}{2} x + 0
+    \end{equation*}
+    so the slope is $m=-1/2$ and the $y$-intercept is $(0,b)=(0,0)$.
+    A second point could be found by substituting (say) $x=2$ into the
+    equation of the line to obtain $y=(-1/2)(2)+0 = -1$ so $(2,-1)$ is
+    a point on the line.  Plot the points $(0,0)$ and $(2,-1)$ and
+    draw a line through them.  See~Figure{fig:x+2y=0}.
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \node[fill=red,inner sep=1.5pt] (A) at (0,0) {};
+          \node[fill=red,inner sep=1.5pt] (B) at (2,-1) {};
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[red,very thick] (-6,3)--(6,-3);
+          \node[fill=red,inner sep=1.5pt] (A) at (0,0) {};
+          \node[fill=red,inner sep=1.5pt] (B) at (2,-1) {};
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Two points on the line}
+        &
+        \mbox{(b) Completed graph}
+      \end{array}$
+      \caption{Graph of $x+2y=0$}
+      \label{fig:x+2y=0}
+    \end{figure}
+  \item % $\ds 3x-4y=0$
+    Putting the equation into slope-intercept form we have
+    \begin{equation*}
+      3x-4y=0 \implies 4y = 3x \implies y = \frac{3}{4} x + 0
+    \end{equation*}
+    so the slope is $m=3/4$ and the $y$-intercept is $(0,0)$.  We need
+    a second point on the graph to determine the line.  We could solve
+    as we solved the previous, or we could reason like this: since the
+    slope is $3/4$, there is a rise of $3$ units for every run of $4$
+    units.  Starting at $(0,0)$, we rise by $3$ and run by $4$ to get
+    to $(4,3)$, which is therefore a second point on the graph.  We
+    plot those to points and draw a line through them.  See
+    Figure~\ref{fig:3x-4y=0}.
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \node[fill=red,inner sep=1.5pt] (A) at (0,0) {};
+          \node[fill=red,inner sep=1.5pt] (B) at (4,3) {};
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick] (-6,-4.5)--(6,4.5);
+          \node[fill=red,inner sep=1.5pt] (A) at (0,0) {};
+          \node[fill=red,inner sep=1.5pt] (B) at (4,3) {};
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Two points on the line}
+        &
+        \mbox{(b) Completed graph}
+      \end{array}$
+      \caption{Graph of $3x-4y=0$}
+      \label{fig:3x-4y=0}
+    \end{figure}
+  \item % $\ds y=2$
+    Writing in slope-intercept form, we have
+    \begin{equation*}
+      y=2 \implies y=0x + 2
+    \end{equation*}
+    so its slope is $0$ and $y$-intercept is $(0,2)$.  This is a line
+    in horizontal form, so it's easy to graph on grid paper (it is the
+    grid line parallel to the $x$-axis and passing through $(0,2)$).
+    Or you could pick any two points of the form $(x,2)$, e.g.,
+    $(-4,2)$, $(3,2)$, and draw the line through them.  See
+    Figure~\ref{fig:y=2}. 
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \node[fill=red,inner sep=1.5pt] (A) at (-4,2) {};
+          \node[fill=red,inner sep=1.5pt] (B) at (3,2) {};
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick] (-6,2)--(6,2);
+          \node[fill=red,inner sep=1.5pt] (A) at (-4,2) {};
+          \node[fill=red,inner sep=1.5pt] (B) at (3,2) {};
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Two points on the line}
+        &
+        \mbox{(b) Completed graph}
+      \end{array}$
+      \caption{Graph of $y=2$}
+      \label{fig:y=2}
+    \end{figure}
+  \item\label{prob:3x-2y-5=0} % $\ds 3x-2y-5=0$
+    The equation is given in general form.  Writing in slope-intercept
+    form by solving for $y$,
+    \begin{equation*}
+      3x-2y-5=0 \implies 2y = 3x-5 \implies y = \frac{3}{2} x -
+      \frac{5}{2}
+    \end{equation*}
+    so the slope is $m=3/2$ and the $y$-intercept is $(0,b)=(0,-5/2)$.
+    We can find a second point on the line by substituting $x=3$ (say)
+    to obtain $y=(3/2)(3) - (5/2) = 9/2 - 5/2 = 4/2 = 2$, so $(3,2)$
+    is a second point on the line.  We plot those points and draw the
+    line through them.  See Figure~\ref{fig:3x-2y-5=0}
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \node[fill=red,inner sep=1.5pt] (A) at (0,-2.5) {};
+          \node[fill=red,inner sep=1.5pt] (B) at (3,2) {};
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick] (-7/3,-6)--(17/3,6);
+          \node[fill=red,inner sep=1.5pt] (A) at (0,-2.5) {};
+          \node[fill=red,inner sep=1.5pt] (B) at (3,2) {};
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Two points on the line}
+        &
+        \mbox{(b) Completed graph}
+      \end{array}$
+      \caption{Graph of $3x-2y-5=0$}
+      \label{fig:3x-2y-5=0}
+    \end{figure}
+  \end{enumerate}
+\item\label{prob:graphineq} % (Based on B.43--49) 
+  % Sketch the graph of the region in the $xy$-plane.
+  \begin{enumerate}
+  \item % $\ds \{(x,y)| y<0\}$
+    We graph the line $y=0$ with a dashed line (because the
+    intequality is strict, i.e., $y<0$ not $y\le 0$) and since $y$ is
+    less than the expression that defines the line we shade all the
+    points below the line.  See Figure~\ref{fig:yLT0}.
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          % EJD: better dashes; maybe don't draw x-axis
+          \draw[color=red,very thick,dashed] (-6,0)--(6,0);
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick,dashed] (-6,0)--(6,0);
+          \draw[fill=red,very nearly transparent] %
+          (-6,0)--(-6,-6)--(6,-6)--(6,0)--cycle; 
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Boundary $y=0$ of the region}
+        &
+        \mbox{(b) Completed graph}
+      \end{array}$
+      \caption{Graph of $y<0$}
+      \label{fig:yLT0}
+    \end{figure}
+  \item % $\ds \{(x,y)| \mbox{$x\le 2$ and $y>1$}\}$ % EJD: this is not
+                                % covered in the lecture!! $x\le 2$
+    First we graph the vertical line $x=2$ with a solid line.  Then we
+    shade all points to the left of the line, which gives us $x\le 2$.
+    Then we graph the horizontal line $y=1$ with a dashed line.  Then
+    we shade all points to the abve the line, which gives us $y>1$.
+    All points which are ``double shaded'' are part of the final
+    answer.  Note that the corner $(2,1)$ is not part of the final
+    answer (why not?), so we draw it with an open circle for emphasis.
+    See Figure~\ref{fig:xLE2andyGT1}.
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick] (2,-6)--(2,6);
+          % EJD: better dashes
+          \draw[color=red,very thick,dashed] (-6,1)--(6,1);
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick] (2,1)--(2,6);
+          % EJD: better dashes
+          \draw[color=red,very thick,dashed] (-6,1)--(2,1);
+          \draw[fill=red,very nearly transparent] %
+          (-6,1)--(2,1)--(2,6)--(-6,6)--cycle;
+          \node[draw=red,fill=white,inner sep=1.5pt] (A) at (2,1) {};
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Boundary of the region}
+        &
+        \mbox{(b) Completed graph}
+      \end{array}$
+      \caption{Graph of $x\le 2$ and $y>1$}
+      \label{fig:xLE2andyGT1}
+    \end{figure}
+  \item % $\ds \{(x,y)| |y|<3\}$
+    The condition without absolute values translates to ``$-3<y$ and
+    $y<3$''.  We graph each of those regions by the method of the
+    previous problems and combine them to obtain the final result. 
+    See Figure~\ref{fig:absyLT3}.
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick, dashed] (-6,-3)--(6,-3);
+          \draw[color=red,very thick, dashed] (-6,3)--(6,3);
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick, dashed] (-6,-3)--(6,-3);
+          \draw[color=red,very thick, dashed] (-6,3)--(6,3);
+          \draw[fill=red,very nearly transparent] %
+          (-6,3)--(6,3)--(6,-3)--(-6,-3)--cycle;
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Boundary of the region}
+        &
+        \mbox{(b) Completed graph}
+      \end{array}$
+      \caption{Graph of $|y|<3$}
+      \label{fig:absyLT3}
+    \end{figure}
+  \item % $\ds \{(x,y)| \mbox{$\|x\|<4$ and $\|y\|<3$}\}$
+    The first condition translates to ``$-4<x$ and $x<4$'', while the
+    second condition translates to ``$-3<y$ and $y<3$''.  We graph
+    each of those regions, and the answer is the resulting ``quadruple-shaded''
+    region, also known as an ``open box'' (\textit{open} because it does not
+    include its boundary).
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick,dashed] (4,-6)--(4,6);
+          \draw[color=red,very thick,dashed] (-4,-6)--(-4,6);
+          \draw[color=red,very thick,dashed] (-6,3)--(6,3);
+          \draw[color=red,very thick,dashed] (-6,-3)--(6,-3);
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick,dashed] (4,-3)--(4,3);
+          \draw[color=red,very thick,dashed] (-4,-3)--(-4,3);
+          \draw[color=red,very thick,dashed] (-4,3)--(4,3);
+          \draw[color=red,very thick,dashed] (-4,-3)--(4,-3);
+          \draw[fill=red,very nearly transparent] %
+          (-4,-3)--(4,-3)--(4,3)--(-4,3)--cycle; 
+          \node[draw=red,fill=white,inner sep=1.5pt] (A) at (-4,-3) {};
+          \node[draw=red,fill=white,inner sep=1.5pt] (A) at (4,-3) {};
+          \node[draw=red,fill=white,inner sep=1.5pt] (A) at (4,3) {};
+          \node[draw=red,fill=white,inner sep=1.5pt] (A) at (-4,3) {};
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Boundary of the region}
+        &
+        \mbox{(b) Completed graph}
+      \end{array}$
+      \caption{Graph of $|x|<4$ and $|y|<3$}
+      \label{fig:absxLT4andabsyLT3}
+    \end{figure}
+  \end{enumerate}
+\item % (Based on B.11) Consider the points $A(1,0)$, 
+  % $B(-2,-3)$, and $C(-3,1)$.
+  % Show that the distance between $A$ and $C$ is the same as the distance
+  % between $B$ and $C$.
+  The distances are the same because
+  \begin{align*}
+    |AC| &= \sqrt{(-3-1)^2 + (1-0)^2} = \sqrt{16+1} = \sqrt{17} \\
+    |BC| &= \sqrt{(-3-(-2))^2 + (1-(-3))^2} = \sqrt{1+16} = \sqrt{17}
+  \end{align*}
+\item % (Based on B.14) 
+  \begin{enumerate}
+  \item % Show that the points $A(-4,7)$, $B(0,-5)$, and $C(2,-11)$ are
+    % collinear (lie on the same line) by showing that
+    % $|AB|+|BC|=|AC|$.
+    % EJD: is the Stewart version of the problem this hard?
+    We have
+    \begin{align*}
+      |AB| 
+      &= \sqrt{(0-(-4))^2 + (-5-7)^2} = \sqrt{16+144} = \sqrt{160} =
+        \sqrt{16} \, \sqrt{10} = 4\sqrt{10}
+      \\
+      |BC| 
+      &= \sqrt{(2-0)^2+(-11-(-5))^2} = \sqrt{4+36} = \sqrt{40} =
+      \sqrt{4} \, \sqrt{10} = 2\sqrt{10}
+      \\
+      |AC| 
+      &= \sqrt{(2-(-4))^2 + (-11-7)^2} = \sqrt{36+324} =
+      \sqrt{360} = \sqrt{36} \, \sqrt{10} = 6\sqrt{10}
+    \end{align*}
+    So we see that $|AB| + |BC| = 4\sqrt{10} + 2\sqrt{10} = 6\sqrt{10}
+    = |AC|$.  If $B$ were not directly between $A$ and $C$, the trip
+    from $A$ through $B$ to $C$ would be longer than the trip
+    directly from $A$ to $C$.  % EJD: diagrams
+  \item Use slopes to show that $A$, $B$, and $C$ are collinear.
+    The slopes of the lines are
+    \begin{align*}
+      \operatorname{slope}(AB) 
+      &= \frac{-5-7}{0-(-4)} = \frac{-12}{4} = -3 \\
+      \operatorname{slope}(BC)
+      &= \frac{-11-(-5)}{2-0} = \frac{-6}{2} = -3 
+    \end{align*}
+    If $B$ did not lie on the line betwen $A$ and $C$, there would be
+    a ``kink'' on the path from $A$ to $B$ to $C$ and the slopes would
+    be different.  Since the slopes are the same, $B$ does lie on the
+    line from $A$ to $C$.
+  \end{enumerate}
+\item % (Based on B.19--20) Sketch the graph of the equation.
+  % EJD: this is straightforward, not hard -- reorder
+  \begin{enumerate}
+  \item % $\ds |x|=2$
+    This is similar to question~\ref{prob:graphineq}.  The condition
+    translates to ``$x=-2$ or $x=2$'', so we graph those two vertical
+    lines.  See Figure~\ref{fig:absx=2ANDxy=0}(a).
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick] (-2,-6)--(-2,6);
+          \draw[color=red,very thick] (2,-6)--(2,6);
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick] (-6,0)--(6,0);
+          \draw[color=red,very thick] (0,-6)--(0,6);
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Graph of $|x|=2$}
+        &
+        \mbox{(b) Graph of $xy=0$}
+      \end{array}$
+      \caption{Two graphs}
+      \label{fig:absx=2ANDxy=0}
+    \end{figure}
+  \item % $\ds xy=0$
+    Factoring, the condition $xy=0$ reduces to ``$x=0$ or $y=0$''.
+    The line $x=0$ is the $y$-axis, and the line $y=0$ is the
+    $x$-axis.
+    See Figure~\ref{fig:absx=2ANDxy=0}(b).
+  \end{enumerate}
+\item % (Based on B.50--52) Sketch the region in the $xy$-plane.
+  \begin{enumerate}
+  \item % $\ds \{(x,y) | 2y<3x-5\}$
+    Solving for $y$, the condition is $y<(3/2)x-(5/2)$.  We graphed
+    this line in question~\ref{prob:3x-2y-5=0}, so we can just re-draw the
+    graph (but with a dotted line).  Then we shade the region below
+    the line. 
+    See Figure~\ref{fig:2yLT3x-5AND3-xLTyLT3+2x}(a).
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick,dashed] (-7/3,-6)--(17/3,6);
+          \draw[fill=red,very nearly transparent]
+          (-7/3,-6)--(17/3,6)--(6,6)--(6,-6)--cycle; 
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[lightgray,very thin] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[right]{$y$};
+          \draw[color=red,very thick,dashed] (0,3)--(6,-3);
+          \draw[color=red,very thick,dashed] (0,3)--(3/2,6);
+          \draw[fill=red,very nearly transparent] %
+          (0,3)--(3/2,6)--(6,6)--(6,-3)--cycle; 
+          \node[draw=red,fill=white,inner sep=1.5pt] (A) at (0,3) {};
+        \end{tikzpicture}
+        \\
+        \mbox{Graph of $2y<3x-5$}
+        &
+        \mbox{Graph of $3-x<y<3+2x$}
+      \end{array}$
+      \caption{Two graphs}
+      \label{fig:2yLT3x-5AND3-xLTyLT3+2x}
+    \end{figure}
+  \item % $\ds \{(x,y) | 3-x<y<3+2x\}$
+    The two conditions are $y>3-x$ and $y<2x+3$.  We graph each of
+    those lines with dashed lines, shade the region above the first
+    and below the second, and the final result is the region that is
+    double-shaded.  See Figure~\ref{fig:2yLT3x-5AND3-xLTyLT3+2x}(b).
+    Note that I have also marked the intersection of the two lines,
+    which has coordinate $(0,3)$.  (How can you find that intersection?)
+  \end{enumerate}
+\item % (Based on B.53) Find a point on the $y$-axis that is equidistant from
+  % $(4,-3)$ and $(2,5)$.
+  % EJD:diagram 
+  Points on the $y$-axis are of the form $(0,y)$.  The distance from
+  such a point to $(4,-3)$ is
+  \begin{equation*}
+    \sqrt{(-3-y)^2+(4-0)^2} = \sqrt{(y+3)^2 + 16} = \sqrt{y^2+6y+25}
+  \end{equation*}
+  The distance from such a point to $(2,5)$ is
+  \begin{equation*}
+    \sqrt{(5-y)^2+(2-0)^2} = \sqrt{y^2-10y+29}
+  \end{equation*}
+  If the point $(0,y)$ is equidistance from the two given points, we
+  must have
+  \begin{equation*}
+    \sqrt{y^2+6y+25} = \sqrt{y^2-10y+29}
+  \end{equation*}
+  Squaring both sides, we get 
+  \begin{equation*}
+    y^2 + 6y + 25 = y^2 - 10y + 29
+    \implies 16y = 4 
+    \implies y = \frac{1}{4}
+  \end{equation*}
+  So the point $(0,1/4)$ satisfies the conditions of the problem.
+  (Check!)
+  
+  If you are familiar with geometry, another (better) way to solve
+  this problem would be to find the intersection of two lines, the
+  $y$-axis and the perpendicular bisector of the segment connecting
+  the two points.
+\end{enumerate}
+\end{document}
+

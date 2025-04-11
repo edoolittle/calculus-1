@@ -1,0 +1,408 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroTwoTwo}
+\subtitle{\commonSubtitleZeroTwoTwo}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroTwoTwo}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{The Derivative as a Function}
+
+\subsection{The Derivative as a Function}
+
+\begin{frame}
+  \frametitle{A Simple Derivative Calculation}
+  \begin{itemize}
+  \item Suppose we need to know the velocity at time $t=1$ 
+    of a ball dropped from
+    rest at time $t=0$.  
+  \pause
+  \item According to Galileo, the position of the ball
+    is given by $s(t)=4.9t^2$ metres after $t$ seconds.
+  \pause
+  \item Our definition of velocity then tells us that
+    \begin{displaymath}
+      v(1) = s'(1) = \lim_{h\to 0} \frac{s(1+h)-s(1)}{h}
+    \end{displaymath}
+  \pause
+  \item Doing the calculation, we find
+    \begin{align*}
+      s(1) &= 4.9 \\
+      s(1+h) &= 4.9(1+h)^2 = 4.9(1+2h+h^2) \\
+             &= 4.9 + 9.8h + 4.9h^2 
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A Simple Derivative Calculation}
+  \begin{itemize}
+  \item Subtracting the previous two,
+    \begin{align*}
+      s(1+h)-s(1) &= 4.9 + 9.8h + 4.9h^2 - 4.9  \\
+                  &= 9.8 h + 4.9h^2 \\
+      s'(1) &= \lim_{h\to 0} \frac{9.8h + 4.9h^2}{h} \\
+            &= \lim_{h\to 0} 9.8 + 4.9 h \\
+	    &= 9.8
+    \end{align*}
+  \pause
+  \item So the velocity of the ball at $t=1$ seconds is $9.8$ metres per second
+    (downward).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Another Simple Derivative Calculation}
+  \begin{itemize}
+  \item Now suppose I find that I need to calculcate the velocity of the
+    ball at $t=2$ seconds.
+  \pause
+  \item I could repeat the above calculation with base time $2$ instead
+    of base time $1$.
+  \pause
+  \item However, I may need to repeat the calculation at $t=3,4$ etc.
+    Instead of re-doing similar looking calculations over and over, I could
+    just leave a variable $a$ in place of the number $1$ in the above
+    calculation.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Same Derivative Calculation with Variable Base Time}
+  Calculating the derivative $s'(a)$, we have
+  \begin{align*}
+    s(a) &= 4.9 a^2 \\
+    s(a+h) &= 4.9(a+h)^2=4.9a^2+9.8ah+4.9h^2 \\
+    s(a+h)-s(a) &= 9.8ah + 4.9h^2 \\
+    v(a) = s'(a) &= \lim_{h\to 0} \frac{9.8ah+4.9h^2}{h}
+    = \lim_{h\to 0} 9.8 a + 4.9 h \\
+    &= 9.8a
+  \end{align*}
+  \pause %
+  I have saved some repetitive work by using $a$ as a variable, but now
+  my derivative is a \textbf{function of $a$}.
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Derivative as a Function}
+  \begin{itemize}
+  \item The derivative can be regarded as a function of the base
+    number $a$, and we can write $s'(a)$.
+  \pause
+  \item However, since $a$ lies on the $t$ axis, it is customary
+    in this situation to use $t$ as the variable rather than $a$.
+  \pause
+  \item But that is just a matter of tradition; $s'(a)$ and $s'(t)$ are
+    the same function.
+  \pause
+  \item So we can define the derivative as a function of $t$ by
+    the formula
+    \begin{displaymath}
+      s'(t) = \lim_{h\to 0} \frac{s(t+h)-s(t)}{h}
+    \end{displaymath}
+  \pause
+  \item That is why I prefer the $\ds\lim_{h\to 0}$ version of the definition
+    of derivative over the $\ds\lim_{t\to a}$ version.  (Try it the other way
+    to see what happens!)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Graphing the Derivative}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}
+  \uncover<1->{
+  \item Since the derivative can be regarded as a function of $t$ (or of
+    $x$, as appropriate), we can graph it just as we graph any function.
+  }%
+  \uncover<2->{
+  \item For example, consider the graph of some function $f(x)$.
+  }%
+  \uncover<3->{
+  \item I have graphed the derivative $f'(x)$ below that $f(x)$; the
+    scale and position of the $x$-axis is the same for both graphs.
+    I could have graphed them both on one set of axes, but for now it
+    is less confusing to separate the graphs.
+  }%
+  \end{itemize}
+  \column{0.35\textwidth}
+  \begin{tabular}{c}
+  \uncover<2->{\includegraphics[width=0.75\textwidth]{graph0.eps}}%
+  \\
+  \uncover<3->{\includegraphics[width=0.75\textwidth]{graph1.eps}}%
+  \end{tabular}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Relationship Between Graphs of $f$ and $f'$}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}
+  \uncover<1->{
+  \item There is a relationship between the two graphs that we will
+    explore in great detail later.  
+  }%
+  \uncover<2->{
+  \item For now, note that 
+    \begin{enumerate}
+    \item when $f$ is increasing, $f'$ is positive; 
+    \item when $f$ is decreasing, $f'$ is negative; and 
+    \item when $f$ is `stationary', $f'$ is $0$.
+    \end{enumerate}
+  }%
+  \uncover<3->{
+  \item Using that relationship, given two graphs, one of a function
+    $f$ and the other of its derivative $f'$, it should be possible to
+    determine which is which.
+  }%
+  \end{itemize}
+  \column{0.35\textwidth}
+  \begin{tabular}{c}
+  \uncover<1->{\includegraphics[width=0.75\textwidth]{graph0.eps}}%
+  \\
+  \uncover<1->{\includegraphics[width=0.75\textwidth]{graph1.eps}}%
+  \end{tabular}
+  \end{columns}
+\end{frame}
+
+\subsection{Other Notations}
+
+\begin{frame}
+  \frametitle{Other Notations}
+  \begin{itemize}
+  \item There were initially two streams in the development of calculus, one
+    due to Newton and the other due to Leibniz.
+  \pause
+  \item We have been using notation similar to Newton's for the derivative,
+    $f'$.
+  \pause
+  \item The corresponding Leibniz notation for the derivative is
+    $\ds \frac{df}{dx}$ or sometimes $\ds \frac{dy}{dx}$ or $\ds\frac{d}{dx} f$.
+  \pause
+  \item Both notation systems have their advantages and disadvantages.
+    Newton's is clean and simple, but can be difficult to use in a `change
+    of variable situation' but under-emphasizes the role of $x$.  
+  \pause
+  \item Leibniz's notation behaves nicely under changes of variable 
+    and emphasizes the relationship between $\ds\frac{df}{dx}$ and
+    $\ds\frac{\Delta f}{\Delta x}$, but may be misunderstood as an
+    ordinary fraction.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{How a Function Can Fail to be Differentiable}
+
+\begin{frame}
+  \frametitle{How a Function Can Fail to be Differentiable}
+  \begin{itemize}
+  \item I have used the phrase `if $f'(a)$ exists' in some of the definitions
+    in a previous lecture.
+  \pause
+  \item The derivative may fail to exist at a point $a$ even if the function
+    is defined and continuous at $a$.  In other words, the domain of $f'(x)$
+    as a function may be smaller than the domain of $f(x)$.
+  \pause
+  \item Recall that the derivative is a limit, so derivatives can fail to
+    exist in the same ways limits can fail to exist:
+    \begin{enumerate}
+    \pause
+    \item One-sided limits exist but differ.
+    \pause
+    \item A one-sided limit is infinite.
+    \pause
+    \item A one-sided limit doesn't exist but isn't infinite (oscillatory
+      behaviour).
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples of Functions which Fail to be Differentiable}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}
+  \uncover<1->{
+  \item If the one-sided derivatives exist but differ at $a$, we say
+    that the function has an \textbf{angle point} at $a$.
+  }%
+  \uncover<3->{
+  \item If a one-sided derivative is infinite at $a$, there are
+    several possibilities.
+  }%
+  \uncover<7->{
+  \item If a one-sided derivative doesn't exist, likely the function
+    oscillates infinitely fast in the neighbourhood of $a$.
+  }%
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2>{
+    \begin{tabular}{c}
+      \includegraphics[width=\textwidth]{graph2.eps}
+    \\
+      angle point
+    \end{tabular}
+  }%
+  \only<4>{
+    \begin{tabular}{c}
+      \includegraphics[width=\textwidth]{graph3.eps}
+    \\
+      jump discontinuity
+    \end{tabular}
+  }%
+  \only<5>{
+    \begin{tabular}{c}
+      \includegraphics[width=\textwidth]{graph4.eps}
+    \\
+      cusp
+    \end{tabular}
+  }%
+  \only<6>{
+    \begin{tabular}{c}
+      \includegraphics[width=\textwidth]{graph5.eps}
+    \\
+      vertical tangent
+    \end{tabular}
+  }%
+  \only<8>{
+    \begin{tabular}{c}
+      \includegraphics[width=\textwidth]{graph6.eps}
+    \\
+      rapid oscillation
+    \end{tabular}
+  }%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Continuity and Differentiability}
+  \begin{itemize}
+  \item If a function is not continuous at $a$, I can prove that the function
+    is not differentiable at $a$.  The proof is in the textbook for those
+    who are interested.
+  \pause
+  \item It follows that if a function is differentiable at $a$, it must be
+    continuous at $a$.
+  \pause
+  \item The converse is \textbf{not true}.  A function may be continuous
+    at $a$ yet not be differentiable at $a$.  We have seen several examples
+    (angle point, cusp, and vertical tangent) already.
+  \pause
+  \item It follows that
+    the domain of $f'$ can be smaller than the domain of $f$.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Higher Derivatives}
+
+\begin{frame}
+  \frametitle{Higher Derivatives}
+  \begin{itemize}
+  \item Suppose we have a function $f$ of a variable $x$.  
+    We can find the derivative $f'$ as another function of the variable $x$,
+    perhaps on some smaller domain.
+  \pause
+  \item Since $f'$ is a function of $x$, we can differentiate it too,
+    getting a derivative $(f')'$.  That function is usually denoted by
+    $f''$ and is called the second derivative of $f$.
+  \pause
+  \item In Leibniz notation we write $\ds \frac{d}{dx} \frac{d}{dx} f$
+    or $\ds \frac{d}{dx} \frac{df}{dx}$ which can be abbreviated to
+    $\ds \frac{d^2}{dx^2} f$ or $\ds \frac{d^2f}{dx^2}$ respectively.
+  \pause
+  \item In a similar way, we can find third and higher derivatives of
+    a function.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Interpretation of Higher Derivatives}
+  \begin{itemize}
+  \item If $s(t)$ represents the position of a particle on a line at
+    time $t$, we know the interpretation of $s'(t)$ as the velocity of 
+    the particle.
+  \pause
+  \item There is also an interpretation of $s''(t)$: it is the 
+    \textbf{(instantaneous) acceleration} of the particle at time $t$.
+  \pause
+  \item Newton's law in physics shows how useful second derivatives can
+    be.  Most of the laws of mechanics can be phrased in terms of second
+    derivatives.
+    We will also find other applications for second derivatives in
+    graphing and optimization.
+  \pause
+  \item Third and higher derivatives will not be particularly useful to
+    us, but they do appear in the study of elasticity and fluid flow.
+  \pause
+  \item Another famous use of third derivatives was by Richard Nixon,
+    who once stated, ``The rate of increase of inflation is now decreasing''.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Find the derivative of $f(x)=|x-6|$ from first principles,
+    and indicate all numbers $a$ at which $f$ is not differentiable.
+  \item Let $\ds g(x) = \sqrt{3-5x}$.
+    \begin{enumerate}
+    \item Find $g'(x)$ from first principles.
+    \item Find the domains of $g$ and $g'$.
+    \end{enumerate}
+  \item Let $\ds h(x)=\sqrt[3]{x}$.
+    \begin{enumerate}
+    \item If $a\ne 0$, find $h'(a)$ from first principles.
+    \item Show that $h'(0)$ does not exist.
+    \item Show that the graph of $h$ has a vertical tangent at $0$.
+    \end{enumerate}
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~2.2.  After you have finished it,
+  you should try the following additional exercises from Section~2.2:
+  \begin{itemize}
+  \item[2.2] 
+    C-level: 1--2, 3, 4--11, 12--15, 16, 19--29, 31--32, 33--36, 37--38,
+    39--42, 47--50, 51--53; \\
+    B-level: 17--18, 30, 43--44, 45--46, 54, 55-56, 57--60, 63--64; \\
+    A-level: 61, 62, 65;
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

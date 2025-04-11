@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+\usepackage{mathptmx}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\reversemarginpar
+
+\title{MATH 110-003 200730 Quiz 4 Solutions}
+\author{Edward Doolittle}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item 
+  \begin{enumerate}
+  \item The velocity of the stone after $t$ seconds is $h'(t)=10-1.66 t$,
+    so the velocity after $3$ seconds is $h'(3)=10-1.66(3)\approx 5$ m/s.
+  \item The stone reaches its maximum height when $h'(t)=0$, i.e., when
+    $10-1.66 t=0$, i.e., $t\approx 10/(5/3) = 6$ s.  The maximum height
+    attained at $t=6$ is $h(6)=10(6)-0.83(6)^2\approx 60-(5/6)(6)^2=30$ m.
+  \end{enumerate}
+\item Differentiating implicitly, we have
+  \begin{align*}
+    \frac{d}{dx} (x^2+y^2) = \frac{d}{dx} (2x^2+2y^2-x)^2
+    &\implies
+    2x + 2y \frac{dy}{dx} = 2(2x^2+2y^2-x) \cdot \frac{d}{dx}(2x^2+2y^2-x)
+    \\
+    &\implies
+    2x + 2y \frac{dy}{dx} = 2(2x^2+2y^2-x) \cdot 
+    \left(4x + 4y \frac{dy}{dx} - 1\right)
+  \end{align*}
+  Since we are only evaluating this when $(x,y)=(0,1/2)$ we can save some
+  effort by postponing the algebra until we have substituted those
+  values into the above expression.  We have
+  \begin{align*}
+    2(0) + 2\left(\frac{1}{2}\right) \frac{dy}{dx}
+    &= 2(2(0)^2 + 2\left(\frac{1}{2}\right)^2 - 0) \cdot 
+    \left(4(0) + 4\frac{1}{2} \frac{dy}{dx} - 1\right)
+    \\
+    \frac{dy}{dx} &= 2\left(\frac{1}{2}\right) \cdot \left(4\frac{1}{2}
+      \frac{dy}{dx} -1\right)
+    \\
+    \frac{dy}{dx} &= 2 \frac{dy}{dx} - 1
+  \end{align*}
+  which implies $dy/dx = 1$.
+  The equation of the tangent line in point-slope form is
+  $y-(1/2) = 1(x-0)$.
+\end{enumerate}
+
+\end{document}
+
+

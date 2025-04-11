@@ -1,0 +1,509 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroFourOne}
+\subtitle{\commonSubtitleZeroFourOne}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroFourOne}
+
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Areas and Distances}
+
+\begin{frame}
+  \frametitle{Integral Calculus}
+  \begin{itemize}[<+->]
+  \item The subject of chapters 2 and 3 was \textit{differential calculus}.
+  \item The subject of chapters 4 and 5 is \textit{integral calculus}.
+  \item We began our study of differential calculus with
+    the \textit{tangent} and \textit{velocity} problems.
+  \item The tangent problem was a problem in geometry.  The velocity problem
+    was a problem in physics.  
+  \item Both were solved using similar methods,
+    a limiting process that we called \textit{differentiation}.
+  \item Now we are going to study two other problems, the
+    \textit{area} and \textit{distance} problems.
+  \item The area problem is a problem in geometry.  The distance problem is
+    a problem in physics.
+  \item We are going to solve them now, which will lead to 
+    a useful new limiting process called \textit{integration}.
+  \end{itemize}
+\end{frame}
+
+\subsection{The Area Problem}
+
+\begin{frame}
+  \frametitle{Areas of Polygons}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item An important problem in geometry is to find the area of various
+    geometrical figures.
+  \item We know how to find the area of a rectangular region: 
+    base $\times$ height.
+  \item The area of a triangular region is base $\times$ height/2.
+  \item You can see that by a simple construction.
+  \item Now we can figure out the areas of polygons.
+  \item We just subdivide a polygonal region into triangles.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2>{\includegraphics[width=\textwidth]{rect.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{tria0.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{tria1.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{poly0.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{poly1.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Estimating Areas of Curved Regions}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item However, we need new ideas to find the area under a parabola.
+  \item We begin by approximating.  We subdivide the area.
+  \item Then we fit a rectangle into each subdivision.
+  \item We obtain an under-estimate of the area.
+  \item Next we fit a rectangles over each subdivision.
+  \item We obtain an over-estimate of the area.
+  \item The under- and over-estimates give us an estimate.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{\includegraphics[width=\textwidth]{x2ninfty.eps}}%
+  \only<2>{\includegraphics[width=\textwidth]{x2ninfty4.eps}}%
+  \only<3-4>{\includegraphics[width=\textwidth]{x2n4le.eps}}%
+  \only<5->{\includegraphics[width=\textwidth]{x2n4re.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Under-estimate for the Area Under a Parabola}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item We can work out a formula for the under-estimate.
+  \item Label the points at which we subdivide the interval $x_0$,
+    \ldots, $x_4$.
+  \item The height of rectangle $i$ is the height above number $x_{i-1}$,
+    namely $f(x_{i-1})$.
+  \item The width of rectangle $i$ is the width of the region divided by
+    the number of rectangles, in this case $1/4$.
+  \item The area of rectangle $i$ is $f(x_{i-1})\cdot 1/4$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1->{\includegraphics[width=\textwidth]{x2n4le.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Under-estimate for the Area Under a Parabola, ctd.}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Rectangle $i$ has area $f(x_{i-1})\cdot 1/4$.
+  \item Adding the areas of the four rectangles, 
+    the underestimate for the total area is
+    \begin{align*}
+      f(x_0)\cdot\frac{1}{4}
+      + f(x_1)\cdot\frac{1}{4}
+      + f(x_2)\cdot\frac{1}{4}
+      + f(x_3)\cdot\frac{1}{4}
+    \end{align*}
+  \item Since we know $f(x)=x^2$, and $x_0=0/4$, $x_1=1/4$, $x_2=2/4$,
+    $x_3=3/4$ we have $A>$
+    \begin{align*}
+      \left(\frac{0}{4}\right)^2\frac{1}{4}
+      + \left(\frac{1}{4}\right)^2\frac{1}{4}
+      + \left(\frac{2}{4}\right)^2\frac{1}{4}
+      + \left(\frac{3}{4}\right)^2\frac{1}{4}
+    \end{align*}
+  \item Numerically, that gives $0.21875<A$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1->{\includegraphics[width=\textwidth]{x2n4le.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Over-estimate for the Area Under a Parabola}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Rectangle $i$ has area $f(x_{i})\cdot 1/4$.
+  \item Adding the areas of the four rectangles, 
+    the underestimate for the total area is
+    \begin{align*}
+      f(x_1)\cdot\frac{1}{4}
+      + f(x_2)\cdot\frac{1}{4}
+      + f(x_3)\cdot\frac{1}{4}
+      + f(x_4)\cdot\frac{1}{4}
+    \end{align*}
+  \item Since we know $f(x)=x^2$, and $x_1=1/4$, $x_2=2/4$,
+    $x_3=3/4$, $x_4=4/4$ we have $A<$
+    \begin{align*}
+      \left(\frac{1}{4}\right)^2\frac{1}{4}
+      + \left(\frac{2}{4}\right)^2\frac{1}{4}
+      + \left(\frac{3}{4}\right)^2\frac{1}{4}
+      + \left(\frac{4}{4}\right)^2\frac{1}{4}
+    \end{align*}
+  \item Numerically, that gives $A<0.46875$.  
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1->{\includegraphics[width=\textwidth]{x2n4le.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Improving Area Estimates with More Rectangles}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}
+  \item<1-> In summary, $0.21875<A<0.46875$.
+  \item<2-> That estimate is not good.  Let's try more rectangles
+    for the under-estimate:
+    \only<3>{10}\only<4>{20}\only<5>{30}\only<6->{40}
+  \item<7-> We can also try more rectangles for the over-estimate.
+    \only<8>{10}\only<9>{20}\only<10>{30}\only<11->{40}
+  \uncover<12->{
+  \only<-12>{\item The formula for the under-estimate is
+    \begin{align*}
+      &f(x_0)\frac{1}{n} + f(x_1)\frac{1}{n} + \cdots + f(x_{n-1})\frac{1}{n}
+      \\
+      &= \left(\frac{0}{n}\right)^2 \frac{1}{n}
+      + \left(\frac{1}{n}\right)^2 \frac{1}{n}
+      + \cdots
+      + \left(\frac{n-1}{n}\right)^2 \frac{1}{n}
+    \end{align*}
+  }%
+  \only<13>{\item The formula for the over-estimate is
+    \begin{align*}
+      &f(x_1)\frac{1}{n} + f(x_2)\frac{1}{n} + \cdots + f(x_{n})\frac{1}{n}
+      \\
+      &= \left(\frac{1}{n}\right)^2 \frac{1}{n}
+      + \left(\frac{2}{n}\right)^2 \frac{1}{n}
+      + \cdots
+      + \left(\frac{n}{n}\right)^2 \frac{1}{n}
+    \end{align*}
+  }%
+  }%
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<3>{\includegraphics[width=\textwidth]{x2n10le.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{x2n20le.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{x2n30le.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{x2n40le.eps}}%
+  \only<8>{\includegraphics[width=\textwidth]{x2n10re.eps}}%
+  \only<9>{\includegraphics[width=\textwidth]{x2n20re.eps}}%
+  \only<10>{\includegraphics[width=\textwidth]{x2n30re.eps}}%
+  \only<11>{\includegraphics[width=\textwidth]{x2n40re.eps}}%
+  \only<12>{\includegraphics[width=\textwidth]{x2n40le.eps}}%
+  \only<13->{\includegraphics[width=\textwidth]{x2n40re.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Estimating Areas for non-Increasing Functions}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item For non-increasing functions, we have to be more
+    careful about our estimates.
+  \item Consider $y=\cos x$.  It is decreasing.
+  \item The height of a rectangle from the right point of its
+    base gives an over-estimate.
+  \item The height of a rectangle from the left point of its
+    base gives an under-estimate.
+  \item Consider a function which is neither increasing nor decreasing.
+  \item The left-endpoint sum may be either under or over.
+  \item The right-endpoint sum may be either under or over.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2>{\includegraphics[width=\textwidth]{cosx.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{cosxn4le.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{cosxn4re.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{qbn4.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{qbn4le.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{qbn4re.eps}}%
+  \end{columns}
+\end{frame}
+
+% EJD : explanation of sigma notation?
+
+\begin{frame}
+  \frametitle{Areas as Limits of Estimates}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}
+  \item<1-> Usually we don't want to have to worry about
+    which endpoint we take, so we usually take the right endpoint.
+  \item<2-> Sometimes that leads to an under-estimate.
+  \item<3-> And sometimes that leads to an over-estimate.
+  \item<4-> BUT if we take limits, it should give us the exact area!
+  \item<8-> We \textit{define} the area under a curve as
+    \begin{align*}
+      A = \lim_{n\to\infty} \sum_{i=1}^{n} f(x_{i}^*) \frac{b-a}{n}
+    \end{align*}
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2>{\includegraphics[width=\textwidth]{x2n4re.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{cosxn4re.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{x2n10re.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{x2n20re.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{x2n30re.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{x2n40re.eps}}%
+  \end{columns}
+\end{frame}
+
+
+\subsection{Riemann Sums and the Definition of Area}
+
+\begin{frame}
+  \frametitle{Riemann Sums}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item The expression $\ds \sum_{i=1}^n f(x_i^*) \frac{b-a}{n}$ is
+    called a \textbf{Riemann Sum}.
+  \item We use Riemann Sums to obtain numerical estimates of areas.
+  \item $x_i^*$ is a point in the interval $[x_{i-1},x_{i}]$
+  \item In this case, we are taking $x_i^*=x_i$, left endpoints.
+  \item In this case, we are taking $x_i^*=x_{i+1}$, right endpoints.
+  \item In this case, we are taking $x_i^*=(x_i+x_{i+1})/2$, midpoints.
+  \item In this case, we are taking $x_i^*$ random.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<4>{\includegraphics[width=\textwidth]{qbn6xl.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{qbn6xr.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{qbn6xm.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{qbn6xX.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Definition of Area}
+  \begin{itemize}[<+->]
+  \item The expression
+    \begin{align*}
+      A = \lim_{n\to\infty} \sum_{i=1}^{n} f(x_{i}) \frac{b-a}{n}
+    \end{align*}
+    is used to \textit{define} the concept of area
+    for continuous functions.
+  \item Note that a Riemann sum appears in the expression for the
+    definition of area.
+  \item It is possible to prove that the above limit always exists for
+    continuous functions.
+  \item It is also possible to prove that
+    \begin{align*}
+      A = \lim_{n\to\infty} \sum_{i=1}^{n} f(x_{i}^*) \frac{b-a}{n}
+    \end{align*}
+    using any points $x_i^*\in[x_{i-1},x_i]$ as sample points.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: Area from First Principles}
+  \begin{itemize}[<+->]
+  \item The limits
+    \begin{align*}
+      A = \lim_{n\to\infty} \sum_{i=1}^{n} f(x_{i}) \frac{b-a}{n}
+    \end{align*}
+    are often difficult to evaluate.
+  \item We will be able to do it in some special cases.
+  \item For example, consider $f(x)=x^2$ on the interval $[a,b]=[0,1]$.
+  \item Earlier, we estimated $0.21875<A<0.46875$.
+  \item We will now find $A$ exactly using the definition of area.
+  \item First, we need to figure out $x_i$.  We subdivide $[0,1]$ into 
+    $n$ equally spaced parts, so $x_i=i/n$.
+  \item Next, $(b-a)/n=(1-0)/n=1/n$.  (We usually call that $\Delta x$.)
+  \end{itemize}
+\end{frame}
+
+% EJD : should have used $\Delta x$ in definition.
+
+\begin{frame}
+  \frametitle{Example: Area from First Principles, continued}
+  \begin{itemize}[<+->]
+  \item Substituting everything we know into the above expression for $A$
+    we have
+    \begin{align*}
+      A = \lim_{n\to\infty} \sum_{i=1}^{n} \left(\frac{i}{n}\right)^2\frac{1}{n}
+      = \lim_{n\to\infty} \frac{1}{n^3} \sum_{i=1}^{n} i^2
+    \end{align*}
+    where we have factored out all the $n$s from the sum.
+  \item We look up the sum 
+    \begin{align*}
+      \sum_{i=1}^n i^2 
+      = 1^2 + 2^2 + \cdots + n^2
+      = \frac{n(n+1)(2n+1)}{6}
+    \end{align*}
+  \item Substituting that into the above expression, we have
+    \begin{align*}
+      A = \lim_{n\to\infty} \frac{2n^3+3n^2+n}{6n^3} 
+      = \lim_{n\to\infty} \frac{2n^3/n^3+3n^2/n^3+n/n^3}{6n^3/n^3} 
+      = \frac{2+0+0}{6}
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+
+\subsection{The Distance Problem}
+
+\begin{frame}
+  \frametitle{The Distance Problem}
+  \begin{itemize}[<+->]
+  \item Recall the velocity problem: given the displacement (i.e.,
+    distance from the origin) travelled, find the instantaneous
+    velocity at any time.
+  \item The velocity problem was solved using calculus by taking the
+    derivative of the displacement at any moment of time.
+  \item The \emph{inverse} of the velocity problem is the
+    \emph{distance problem}.
+  \item Given the instantaneous velocity of a particle at all times,
+    we would like to calculate the distance it has travelled (i.e.,
+    the displacement).
+  \item Just as the velocity problem is directly analogous to the
+    tangent problem in geometry, the distance problem is directly
+    analogous to the area problem in geometry.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Distance Problem Example}
+  \begin{itemize}[<+->]
+  \item Suppose the odometer on our car is broken, but we want to
+    determine the distance travelled over a 30 second interval.  We
+    take speedometer readings every 5 seconds and convert them to ft/s
+    as in the following table:
+    \begin{tabular}{|l|r|r|r|r|r|r|r|}
+      \hline
+      Time (s) & 0 & 5 & 10 & 15 & 20 & 25 & 30 \\
+      \hline
+      Velocity (ft/s) & 25 & 31 & 35 & 43 & 47 & 45 & 41 \\
+      \hline
+    \end{tabular}
+  \item We estimate the distance travelled in the first 5 seconds by
+    assuming the velocity is approximately constant in that period:
+    $d\approx 25\times 5=125$ ft.
+  \item Altogether the distance over 30 seconds is approximately
+    $d\approx 25\times 5 + 31\times 5 + 35\times 5+43\times 5+47\times
+    5+45\times 5 = 1130$ ft.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Distance Problem Example, ctd}
+  \begin{itemize}[<+->]
+  \item Alternatively, we could use the velocity at the end of every 5
+    second subinterval to approximate the distance travelled
+    \begin{tabular}{|l|r|r|r|r|r|r|r|}
+      \hline
+      Time (s)        &  0 &  5 & 10 & 15 & 20 & 25 & 30 \\
+      \hline
+      Velocity (ft/s) & 25 & 31 & 35 & 43 & 47 & 45 & 41 \\
+      \hline
+    \end{tabular}
+  \item
+    $d\approx 31\times 5 + 35\times 5 + 43\times 5 + 47\times 5 +
+    45\times 5 + 41\times 5 = 1210$ ft.
+  \item Note that the two approximations we have obtained (1130 ft and
+    1210 ft) differ, so probably neither is correct.
+  \item However the two approximations are close so the answer is near
+    the two approximations.
+  \item If we want to improve the approximations, we could take
+    velocity readings every 2 seconds, every 1 second, every 0.5
+    seconds, and so on.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Distance Problem and Areas}
+  \begin{itemize}[<+->]
+  \item The expressions we have used to approximate the solution to
+    the distance problem are exactly the same as the expressions we
+    have used to approximate the solution to the area problem.
+  \item In both cases we have, using left endpoints of subintervals,
+    \begin{displaymath}
+      f(x_0) \Delta x + f(x_1) \Delta x + \cdots + f(x_{n-1}) \Delta x
+      = \sum_{i=1}^{n} f(x_{i-1}) \Delta x
+    \end{displaymath}
+  \item And using right endpoints of subintervals,
+    \begin{displaymath}
+      f(x_1) \Delta x + f(x_2) \Delta x + \cdots + f(x_n) \Delta x
+      = \sum_{i=1}^{n} f(x_{i}) \Delta x
+    \end{displaymath}
+  \item Those expressions appear so often (in area and distance
+    calculations, but also in work calculations in physics, cardiac
+    output in physiology, and so on) that they have a special name:
+    Riemann sums.
+  \end{itemize}
+\end{frame}
+
+
+\section{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Find an expression for the area under 
+    $f(x)=\sqrt[4]{x}$, $1\le x\le 16$.
+  \item 
+    \begin{enumerate}
+    \item Evaluate the Riemann sum for $x^2+x$, $0\le x\le 2$
+      with $n=4$, taking the sample points to be
+      right endpoints.
+    \item Use the definition of area to calculate
+      the area under the curve $f(x)=x^2+x$, $0\le x\le 2$.
+    \end{enumerate}
+  \item
+    \begin{enumerate}
+    \item Find an expression for the area under the curve $y=x^3$
+      from $0$ to $1$ as a limit.
+    \item Use the formula
+      \begin{align*}
+        1^3+2^3+\cdots+n^3=\left[ \frac{n(n+1)}{2}\right]^2
+      \end{align*}
+      to evaluate the limit.
+    \end{enumerate}
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~4.1.  After you have finished it,
+  you should try the following additional exercises from Section~4.1:
+  \begin{itemize}
+  \item[4.1]
+    C-level: 1--8, 13--20, 21--23, 24--25; \\
+    B-level: 7--8, 20--21; \\
+    A-level: 27--28, 32
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

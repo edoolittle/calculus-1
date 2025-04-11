@@ -1,0 +1,504 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+%\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+% \usepackage{pgfmath}
+\usepackage[aux]{rerunfilecheck}
+
+\input{../common.tex}
+
+\newcommand{\ds}{\displaystyle}
+
+\title{\commonPSTitleZeroZeroOne\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroZeroOne}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1 (Based on Algebra.1--12) Expand and simplify.
+  \begin{enumerate}
+  \item We have
+    \begin{equation*}
+      7(t^2-1)-2(t+3)-5t(t-4)
+      = 7t^2 - 7 -2t -6 -5t^2+20t
+      = 2t^2 +18t -13
+    \end{equation*}
+  \item By the binomial theorem and the distributive law,
+    \begin{equation*}
+      x(x-2)^2 = x(x^2-4x+4) = x^3 -4x^2 + 4x
+    \end{equation*}
+  \end{enumerate}
+\item %2 (Based on Algebra.17--26) Simplify.
+  \begin{enumerate}
+  \item We put the fractions over a common denominator and add:
+    \begin{equation*}
+      \frac{1}{x+2} + \frac{1}{x-1}
+      = \frac{x-1}{(x+2)(x-1)} + \frac{(x+2)}{(x+2)(x-1)}
+      = \frac{2x+1}{(x+2)(x-1)}
+    \end{equation*}
+    You could expand the denominator, but experience tells me that
+    it's best to leave it in factored form.
+  \item Invert and multiply:
+    \begin{equation*}
+      \frac{x/a}{y/b} = \frac{x}{a} \div \frac{y}{b}
+      = \frac{x}{a} \times \frac{b}{y} = \frac{bx}{ay}
+    \end{equation*}
+  \end{enumerate}
+\item %3 (Based on Algebra.29--41) Factor the expression.
+  \begin{enumerate}
+  \item Each term has a factor of 5, and a factor of $a$, and a factor
+    of $x$, so we take out a common factor of $5ax$ to obtain
+    \begin{equation*}
+      5ax - 35ax^2 = 5ax(1-7x)
+    \end{equation*}
+  \item\label{prob:quadAnonzero} % refer to this below
+    Let's first try guessing a root.  A good place to start would be the
+    factors of the constant term ($-3$), which has factors $1$, $-1$, $3$, and
+    $-3$.  (This approach isn't guaranteed, but when it does, it saves
+    us some work.)  Substituting in $x=1$ we get $2(1)^2-5(1)-3=-6\ne 0$, so
+    $x=1$ is not a root.  Substituting in $x=-1$, we get $2(-1)^2-5(-1)-3=
+    2+5-3=4\ne 0$, so $x=-1$ is not a root.  Substituting $x=3$ we get
+    $2(3)^2-5(3)-3=18-15-3=0$, so $x=3$ is a root!
+
+    Now we use the factor theorem to write
+    \begin{equation*}
+      2x^2-5x-3 = (x-3)(ax+b)
+    \end{equation*}
+    We don't know what $a$ and $b$ are, but we can find out by polynomial
+    long division or short division.  I'll use short division.  We expand
+    the RHS to obtain
+    \begin{equation*}
+      2x^2-5x-3 = ax^2 + bx - 3ax -3b = ax^2 + (b-3a) x -3b
+    \end{equation*}
+    comparing the coefficients of $x^2$, we see $2=a$.  Comparing the 
+    constant terms, we see $-3=-3b$ which implies $b=1$.  Altogether we 
+    should have
+    \begin{equation*}
+      2x^2-5x-3 = (x-3)(2x+1)
+    \end{equation*}
+    You should check that result by expanding the RHS.
+  \end{enumerate}
+\item %4 (Based on Algebra.49--51) Simplify the expression.
+  \begin{enumerate}
+  \item We factor the numerator and denominator, in search of common
+    factors that can be canceled:
+    \begin{equation*}
+      \frac{x^2+2x-3}{x^2-9}
+      = \frac{(x+3)(x-1)}{(x+3)(x-3)}
+      = \frac{x-1}{x-3}
+    \end{equation*}
+  \item Again, we factor the numerator using the technique
+    of question~\ref{prob:quadAnonzero}, which won't be reproduced here.
+    The denominator is harder to factor, but note that for this problem
+    to go anywhere, there has to be a factor of $x+2$ or a factor of 
+    $5x-1$ in the denominator.  (If there isn't, then we can't simplify
+    any further and we stop.) After some experimentation we have
+    \begin{equation*}
+      \frac{5x^2+9x-2}{10x^2-17x+3}
+      = \frac{(x+2)(5x-1)}{(5x-1)(2x-3)} 
+      = \frac{x+2}{2x-3}
+    \end{equation*}
+  \end{enumerate}
+% EJD: Better solution: x^2+6x = x^2+6x+9 - 9
+\item %5 (Based on Algebra.55--60) Complete the square.
+  \begin{enumerate}
+  \item We divide the coefficient of the $x$ term by $2$:
+    \begin{equation*}
+      x^2+6x-10 = (x+6/2)^2 + \mbox{junk}
+      = x^2 + 6x + 9 + \mbox{junk}
+    \end{equation*}
+    After cancellation we see that ``junk'' has to be $-19$.  In summary,
+    \begin{equation*}
+      x^2+6x-10 = (x+3)^2 -19
+    \end{equation*}
+    You should check by expanding and gathering the RHS.
+  \item Dealing with ``leading coefficients'' like the $3$ in this case is
+    a pain in the neck.  See the textbook supplement 
+    for one approach.  However, in
+    this case I would use a slightly more creative approach.  Write
+    \begin{equation*}
+      3x^2-18x+7 = 3x^2 -18x + 6 + 1 = 3(x^2-6x+2) + 1
+    \end{equation*}
+    Now we just have to complete the square inside the bracket.  Similar
+    to the previous problem we have
+    \begin{equation*}
+      x^2-6x+2 = (x-3)^2 + \mbox{junk} = x^2-6x+9 + \mbox{junk}
+    \end{equation*}
+    Cancelling and solving we have junk $=-7$.  Substituting that result
+    into the previous, we have
+    \begin{equation*}
+      3x^2 - 18x + 7 = 3\left( (x-3)^2 - 7 \right) + 1
+    \end{equation*}
+    That's pretty good, but we can gather the constants all together:
+    \begin{equation*}
+      3x^2 - 18x + 7 = 3(x-3)^2 - 21 + 1 = 3(x-3)^2 - 20
+    \end{equation*}
+    You should check by expanding the RHS.  The approach in the textbook
+    supplement is more straightforward but not as much fun.
+  \end{enumerate}
+\item %6 (Based on Algebra.61--66) Solve the equation.
+  We try to solve the equations by factoring.
+  \begin{enumerate}
+  \item Factoring, we have
+    \begin{equation*}
+      x^2+x-6=0 \implies (x+3)(x-2)=0
+    \end{equation*}
+    In order for the product $(x+3)(x-2)$ to be zero, one of the factors
+    must be zero, so we have $x+3=0$ which implies $x=-3$, or $x-2=0$ which
+    implies $x=2$.  You should check that $x=-3$ and $x=2$ are both solutions
+    to the original equation.
+  \item As before, we try to solve by factoring.  
+    We guess $1$, $-1$, $3$ and $-3$ as roots, but none of those work.  You
+    could spend more time playing around with various attempts at factoring,
+    but at some point you'll have to give up and try the quadratic formula
+    instead.  In the equation $3x^2-7x+3=0$ we have $a=3$, $b=-7$, and $c=3$,
+    so plugging in to the quadratic formula we get
+    \begin{equation*}
+      x = \frac{-b\pm \sqrt{b^2-4ac}}{2a}
+      = \frac{7\pm \sqrt{49-4(3)(3)}}{2(3)}
+      = \mbox{$\ds \frac{7+\sqrt{13}}{6}$ and $\ds \frac{7-\sqrt{13}}{6}$ }
+    \end{equation*}
+    It's a lot of work to check those answers by substituting into the
+    original equation, but it would be a great exercise if you have time.
+  \end{enumerate}
+\item %7 (Based on Algebra.69--72) Which of the quadratics are irreducible?
+  We calculate the discriminant $\Delta = b^2-4ac$:
+  \begin{enumerate}
+  \item 
+    \begin{equation*}
+      5x^2-8x+4 
+      \implies \mbox{$a=5$, $b=-8$, $c=4$}
+      \implies \mbox{$\Delta = 64-4(5)(4) = -16$}
+    \end{equation*}
+    Since the discriminant is negative, the quadratic has no roots so it
+    cannot be factored, i.e., it is irreducible.
+  \item 
+    \begin{equation*}
+      7x^2+3x-3
+      \implies \mbox{$a=7$, $b=3$, $c=-3$}
+      \implies \mbox{$\Delta = 9-4(7)(-3) = 93$}
+    \end{equation*}
+    Since the discriminant is positive, the quadratic has two (distinct) roots
+    so it can be factored, i.e., it is reducible, not irreducible.
+  \end{enumerate}
+\item %8 (Based on Algebra.77--82) Simplify the radicals.
+  \begin{enumerate}
+  \item Using the rule $\sqrt{a}\sqrt{b} = \sqrt{ab}$ we have
+    \begin{equation*}
+      \sqrt{45}\sqrt{20} 
+      = \sqrt{45\times 20} = \sqrt{3^2\times 5\times 5\times 2^2}
+      = \sqrt{3^2\times 5^2 \times 2^2}
+      = 3\times 5 \times 2 = 30
+    \end{equation*}
+  \item Using the rule $\sqrt{a}/\sqrt{b}=\sqrt{a/b}$ we have
+    \begin{equation*}
+      \frac{\sqrt{32x^4}}{\sqrt{2}} = \sqrt{\frac{32x^4}{2}}
+      = \sqrt{16x^4} = 4x^2
+    \end{equation*}
+  \end{enumerate}
+\item %9 (Based on Algebra.83--100) Use the Laws of Exponents to simplify.
+  \begin{enumerate}
+  \item Using the laws $a^m a^n = a^{m+n}$ and $a^m/a^n = a^{m-n}$ we have
+    \begin{equation*}
+      \frac{a^2\times a^{2n-2}}{a^{n+1}\times a^{n-1}}
+      = \frac{a^{2+2n-2}}{a^{n+1+n-1}}
+      = \frac{a^{2n}}{a^{2n}}
+      = a^{2n-2n} = a^0 = 1
+    \end{equation*}
+  \item\label{prob:fracstack} %
+    It may help if we re-write $x^{-1}=1/x$ and $y^{-1}=1/y$ and
+    then work on the numerator and denominator separately, putting them
+    over a common denominator:
+    \begin{equation*}
+      \frac{x^{-1}+y}{x+y^{-1}}
+      = \frac{\frac{1}{x} + y}{x+\frac{1}{y}}
+      = \frac{\frac{1}{x} + \frac{xy}{x}} {\frac{xy}{y}+\frac{1}{y}}
+      = \frac{\frac{1+xy}{x}} {\frac{xy+1}{y}}
+    \end{equation*}
+    Now we invert and multiply:
+    \begin{equation*}
+      \frac{\frac{1+xy}{x}} {\frac{xy+1}{y}}
+      = \frac{1+xy}{x} \times \frac{y}{xy+1}
+      = \frac{(1+xy)y}{x(xy+1)}
+      = \frac{y}{x}
+    \end{equation*}
+    where we have cancelled the common factor $1+xy$.  In summary,
+    \begin{equation*}
+      \frac{x^{-1}+y}{x+y^{-1}} = \frac{y}{x}
+    \end{equation*}
+    One way to partially 
+    check that result might be evaluating the left and right hand
+    sides for various numerical choices of $x$ and $y$.
+  \end{enumerate}
+\item %10 (Based on Algebra.101--106) Rationalize the denominator.
+  \begin{enumerate}
+  \item We multiply and divide by the ``conjugate radical'' $2+\sqrt{5}$:
+    \begin{equation*}
+      \frac{1}{2-\sqrt{5}} =
+      \frac{1}{2-\sqrt{5}} \times \frac{2+\sqrt{5}}{2+\sqrt{5}}
+      = \frac{2+\sqrt{5}}{(2-\sqrt{5})(2+\sqrt{5})}
+    \end{equation*}
+    The denominator is the product of a sum and a difference, so is a 
+    difference of squares like 
+    $(a-b)(a+b)=a^2-b^2$, and we have
+    \begin{equation*}
+      \frac{1}{2-\sqrt{5}} = \frac{2+\sqrt{5}}{4-5} 
+      = \frac{2+\sqrt{5}}{-1} = -2-\sqrt{5}
+    \end{equation*}
+  \item As in the previous question, we multiply and divide by the 
+    conjugate radical $\sqrt{2+h}+\sqrt{2-h}$:
+    \begin{equation*}
+      \frac{4}{\sqrt{2+h}-\sqrt{2-h}}
+      = \frac{4}{\sqrt{2+h}-\sqrt{2-h}} \times 
+      \frac{\sqrt{2+h}+\sqrt{2-h}}{\sqrt{2+h}+\sqrt{2-h}}
+      = \frac{4(\sqrt{2+h}+\sqrt{2-h})}{(2+h)-(2-h)}
+    \end{equation*}
+    Simplifying the denominator and cancelling common factors,
+    \begin{equation*}
+      \frac{4}{\sqrt{2+h}-\sqrt{2-h}}
+      = \frac{4(\sqrt{2+h}+\sqrt{2-h})}{2h}
+      = \frac{2(\sqrt{2+h}+\sqrt{2-h})}{h}
+    \end{equation*}
+  \end{enumerate}
+\item %11 (Based on Algebra.13--16) Expand and simplify.
+  \begin{enumerate}
+  \item By the binomial theorem and the distributive law,
+    \begin{equation*}
+      (x-2)^2 +2x(x+2)(x-4)
+      = (x^2-4x+4) + 2x(x^2-4x+2x-8)
+      = x^2 - 4x + 4 + 2x(x^2-2x-8)
+    \end{equation*}
+    Applying the distributive law again and gathering,
+    \begin{equation*}
+      (x-2)^2 +2x(x+2)(x-4)
+      = x^2 -4x + 4 + 2x^3 -4x^2 -16x
+      = 2x^3 - 3x^2 -20x + 4
+    \end{equation*}
+  \item We could apply the binomial theorem twice in a clever way, but
+    it is more straightforward just to multiply everything out in one shot:
+    \begin{equation*}
+      (1-2x+x^2)^2
+      = (1-2x+x^2)(1-2x+x^2)
+      = 1-2x+x^2-2x+4x^2-2x^3+x^2-2x^3+x^4
+    \end{equation*}
+    Gathering,
+    \begin{equation*}
+      (1-2x+x^2)^2
+      = 1-4x+6x^2-4x^3+x^4
+    \end{equation*}
+    Another, trickier way to solve this problem is to note that 
+    $1-2x+x^2=(1-x)^2$ so 
+    \begin{equation*}
+      (1-2x+x^2)^2 = ((1-x)^2)^2 = (1-x)^4
+      = 1-4x+6x^2-4x^3+x^4
+    \end{equation*}
+    by the binomial theorem.
+  \end{enumerate}
+\item %12 (Based on Algebra.27--28) Simplify.
+  \begin{enumerate}
+  \item We could answer this question like we did with 
+    question~\ref{prob:fracstack}, but let's try a different method this
+    time known as \textit{clearing fractions}.  We multiply the numerator
+    and denominator by whatever is required to eliminate the fraction in
+    the numerator, i.e.,
+    \begin{equation*}
+      \frac{1+\frac{1}{x-1}}{1+\frac{1}{x+1}}
+      = \frac{1+\frac{1}{x-1}}{1+\frac{1}{x+1}} \times
+      \frac{x-1}{x-1}
+      = \frac{x-1+1}{(x-1)+\frac{x-1}{x+1}}
+      = \frac{x}{(x-1)+\frac{x-1}{x+1}}
+    \end{equation*}
+    Similarly, we can clear the fraction in the denominator:
+    \begin{equation*}
+      \frac{x}{(x-1)+\frac{x-1}{x+1}}
+      = \frac{x}{(x-1)+\frac{x-1}{x+1}} \times \frac{x+1}{x+1}
+      = \frac{x(x+1)}{(x-1)(x+1) +(x-1)}
+      = \frac{x^2+x}{x^2+x-2}
+    \end{equation*}
+  \item Structures like this are known as ``continued fractions''.
+    We can simplify by starting at the bottom and working our way back
+    up:
+    \begin{equation*}
+      1-\frac{1}{1-\frac{1}{1-\frac{1}{1-x}}}
+      = 1-\frac{1}{1-\frac{1}{\frac{1-x}{1-x}-\frac{1}{1-x}}}
+      = 1-\frac{1}{1-\frac{1}{\frac{-x}{1-x}}}
+      = 1-\frac{1}{1+\frac{1-x}{x}}
+    \end{equation*}
+    Again, we add by rewriting $1$ as a fraction with a common denominator:
+    \begin{equation*}
+      1-\frac{1}{1+\frac{1-x}{x}}
+      = 1 - \frac{1}{\frac{x}{x}+\frac{1-x}{x}}
+      = 1 - \frac{1}{\frac{1}{x}}
+      = 1-x
+    \end{equation*}
+  \end{enumerate}
+\item %13 (Based on Algebra.42--48) Factor.
+  \begin{enumerate}
+  \item % EJD: Change from 8 to 64 next year
+    Note that $8=2^3$ is a perfect cube, so we can use the difference
+    of cubes pattern $a^3-b^3=(a-b)(a^2+ab+b^2)$ to obtain
+    \begin{equation*}
+      x^3-8 = (x-2)(x^2+2x+4)
+    \end{equation*}
+    Check by multiplying the RHS.  Now we should continue by attempting
+    to factor the quadratic $x^2+2x+4$.  However, note that the discriminant is
+    $\Delta = (2)^2-4(1)(4) = 4-16 = -12$ so the quadratic is irreducible
+    and we can go no further.
+  \item It is generally very difficult to factor cubics unless there
+    is something special about the cubic.  In the previous case, the cubic
+    was a difference of cubes.  In this case, we use the method we used
+    in question~\ref{prob:quadAnonzero}.  We test the integer factors of the
+    constant term to see whether any of them is a root of the cubic.
+    The factors of $30$ are $\pm 1$, $\pm 2$, $\pm 3$, $\pm 5$, $\pm 6$,
+    $\pm 10$, $\pm 15$, and $\pm 30$.  We quickly find that $-2$ is a
+    root of the cubic, so we use polynomial division to extract the factor
+    $x+2$:
+    \begin{equation*}
+      x^3 +4x^2-11x-30 
+      = (x+2)(x^2+bx+c) = x^3 +bx^2+cx+2x^2+2bx+2c
+      = x^3 + (b+2)x^2 + (c+2b)x + 2c
+    \end{equation*}
+    Comparing coefficients, we see that $b=2$ and $c=-15$, so we have
+    \begin{equation*}
+      x^3 +4x^2-11x-30 = (x+2)(x^2+2x-15)
+    \end{equation*}
+    Now we try to factor the remaining quadratic.  It is easy to guess
+    factors in this case, numbers that add to $2$ and multiply to $-15$:
+    \begin{equation*}
+      x^3 + 4x^2 - 11x - 30 = (x+2)(x+5)(x-3)
+    \end{equation*}
+    It doesn't matter how you order the factors, but I prefer to order the
+    factors in order of increasing root:
+    \begin{equation*}
+      x^3 + 4x^2 - 11x - 30 = (x+5)(x+2)(x-3)
+    \end{equation*}
+    Check by expanding the RHS!
+  \end{enumerate}
+\item %14 (Based on Algebra.52--54) Simplify the expression.
+  \begin{enumerate}
+  \item We must factor the numerator and the denominator.  A factor of $x$
+    comes immediately out of the numerator to give 
+    \begin{equation*}
+      x^3 + x^2 - 6x = x(x^2+x-6) = (x+3)x(x-2)
+    \end{equation*}
+    (remember, I like to order factors by increasing order of the corresponding
+    root).  Now to factor the denominator, we should start by trying the 
+    roots of the numerator.  (If the numerator and denominator don't have a
+    root in common, they don't have a factor in common, and we can't simplify
+    so we could just stop.)  Immediately we find that $x=2$ is a root of 
+    the denominator, and extracting that root by polynomial division gives
+    \begin{equation*}
+      3x^2-8x+4 = (x-2)(ax+b) = ax^2 + (b-2a)x - 2b
+    \end{equation*}
+    which tells us that $a=3$ and $b=-2$.  You should check that
+    \begin{equation*}
+      3x^2-8x+4 = (3x-2)(x-2)
+    \end{equation*}
+    In summary,
+    \begin{equation*}
+      \frac{x^3+x^2-6x}{3x^2-8x+4}
+      = \frac{(x+3)x(x-2)}{(3x-2)(x-2)}
+      = \frac{(x+3)x}{3x-2}
+    \end{equation*}
+    You could expand the numerator, but there's no particular reason to
+    do so, so I would just leave it alone.
+  \item % EJD: change this so x-1 turns out to be factor of numerator: try 4
+    We often find that we can make simplifications if we can factor
+    the polynomials involved in expressions, particularly polynomials in the
+    denominator.  Note that $x^2-6x+5 = (x-1)(x-5)$ so we have
+    \begin{equation*}
+      \frac{x}{x-1} + \frac{1}{x^2-6x+5}
+      = \frac{x}{x-1} + \frac{1}{(x-1)(x-5)}
+      = \frac{x(x-5)}{(x-1)(x-5)} + \frac{1}{(x-1)(x-5)}
+      = \frac{x^2-5x+1}{(x-1)(x-5)}
+    \end{equation*}
+    Neither $x=1$ nor $x=5$ is a root of the numerator, so we cannot simplify
+    any further.  You could try factoring the numerator, but in my opinion
+    that's unnecessarily messy.
+  \end{enumerate}
+\item %15 (Based on Algebra.67--68) Solve the equation.
+  \begin{enumerate}
+  \item As usual with cubics, we should try the factors of the constant term
+    as roots.  The factors of $2$ are $\pm 1$, $\pm 2$, and we find that
+    $x=1$ is a root, so we get
+    \begin{equation*}
+      x^3-3x+2 = (x-1)(x^2+bx+c) = x^3 + bx^2 + cx -x^2 -bx - c 
+      = x^3 +(b-1)x^2 + (c-b)x - c
+    \end{equation*}
+    Comparing coefficients gives $b=1$ and $c=-2$; factoring the resulting
+    quadratic gives
+    \begin{equation*}
+      x^3-3x+2 = (x-1)(x^2+x-2) = (x-1)(x+2)(x-1) = (x+2)(x-1)^2
+    \end{equation*}
+    (Check by expanding the RHS.)  So the equation can be written
+    \begin{equation*}
+      x^3-3x+2 = 0 \implies (x+2)(x-1)^2 = 0
+    \end{equation*}
+    from which we see that the solutions to the equation are $x=-2$ and
+    $x=1$ (which is a ``double root'').
+  \item % EJD: Change x to -x so root is x=-1
+    Again, we try the factors of the constant terms as roots of the
+    cubic.  The factors are $\pm 1$, $\pm 3$, and we soon see that 
+    $x=1$ works, so we have
+    \begin{equation*}
+      x^3-6x^2+8x-3 = (x-1)(x^2+bx+c) = x^3 +bx^2+cx - x^2 -bx -c
+      = x^3 + (b-1) x^2 + (c-b) x -c 
+    \end{equation*}
+    Comparing coefficients gives $b=-5$, $c=3$ so
+    \begin{equation*}
+      x^3 - 6x^2 + 8x -3 = 0 \implies (x-1)(x^2-5x+3) = 0
+    \end{equation*}
+    Unlike the previous problem, in this case we can't factor the remaining
+    quadratic, so we need to use the quadratic formula to get an expression
+    for the roots.  In summary, the solutions to $x^3-6x^2+8x-3$ are
+    \begin{equation*}
+      \mbox{$\ds x = 1$, $\ds \frac{5-\sqrt{13}}{2}$, 
+        $\ds \frac{5+\sqrt{13}}{2}$}
+    \end{equation*}
+  \end{enumerate}
+\item %16 (Based on Algebra.73--76) Use the binomial theorem to expand 
+  % the expression.
+  \begin{enumerate}
+  \item Plugging $n=5$ into the binomial theorem we get
+    \begin{equation*}
+      (x+y)^5 = x^5 + 5x^4y + 10x^3y^2 + 10x^2y^3 + 5xy^4 + y^5
+    \end{equation*}
+  \item By the binomial theorem we have
+    \begin{equation*}
+      (x^2-1)^3 = (x^2)^3 + 3(x^2)^2(-1) + 3(x^2)(-1)^2 + (-1)^3
+    \end{equation*}
+    By the laws of exponents we have
+    \begin{equation*}
+      (x^2-1)^3 = x^6 - 3x^4 + 3x^2 -1
+    \end{equation*}
+  \end{enumerate}
+% EJD: reorder these problems: factoring cubics is much harder than
+% binomial theorem or conjugate radicals
+\item %17 (Based on Algebra.107--108) Rationalize the expression.
+  \begin{enumerate}
+  \item Multiplying and dividing by the conjugate radical gives
+    \begin{equation*}
+      \sqrt{x^2+2}-x = (\sqrt{x^2+2}-x) \times 
+        \frac{ \sqrt{x^2+2}+x }{ \sqrt{x^2+2}+x }
+      = \frac{x^2+2 - x^2}{ \sqrt{x^2+2}+x }
+      = \frac{2}{ \sqrt{x^2+2}+x }
+    \end{equation*}
+  \item Again, multiplying and dividing by the conjugate radical gives
+    \begin{equation*}
+      \sqrt{2x^2+3x}-\sqrt{2x^2-3x}
+      = (\sqrt{2x^2+3x}-\sqrt{2x^2-3x}) \times
+        \frac{ \sqrt{2x^2+3x}+\sqrt{2x^2-3x} }{ \sqrt{2x^2+3x}+\sqrt{2x^2-3x} }
+    \end{equation*}
+    Multiplying the numerators,
+    \begin{equation*}
+      \sqrt{2x^2+3x}-\sqrt{2x^2-3x}
+      = \frac{ (2x^2+3x)-(2x^2-3x) }{ \sqrt{2x^2+3x}+\sqrt{2x^2-3x} }
+      = \frac{ 6x }{ \sqrt{2x^2+3x}+\sqrt{2x^2-3x} }
+    \end{equation*}
+  \end{enumerate}
+\end{enumerate}
+\end{document}
+

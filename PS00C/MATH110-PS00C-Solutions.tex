@@ -1,0 +1,691 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{multicol}
+%\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+% \usepackage{pgfmath}
+\usepackage[aux]{rerunfilecheck}
+
+\input{../common.tex}
+
+\newcommand{\ds}{\displaystyle}
+
+\title{\commonPSTitleZeroZeroC\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroZeroC}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %(Based on C.1--4) Find an equation of a circle that satisfies the
+  %given conditions.
+  \begin{enumerate}
+  \item %Center $(4,3)$, radius $5$
+    According to the formula from the lectures, the equation is
+    \begin{equation*}
+      (x-4)^2 + (y-3)^2 = 5^2
+    \end{equation*}
+  \item %Center $(-2,7)$, radius $3$
+    This question is nearly identical to the previous, except that we
+    have a negative coordinate in the center.  The equation is
+    \begin{equation*}
+      (x+2)^2 + (y-7)^2 = 3^2
+    \end{equation*}
+  \item %Center at the origin, passes through $(-5,12)$
+    Since the cirlce has center at the origin, its equation must be of
+    the form
+    % EJD: NOTE somewhere that (x-0)^2 + (y-0)^2 is the same as x^2 + y^2
+    \begin{equation*}
+      x^2 + y^2 = r^2 
+    \end{equation*}
+    Since $(-5,12)$ is a point on the circle it must satisfy the
+    equation of the circle so we must have
+    \begin{equation*}
+      (-5)^2 + (12)^2 = r^2 \implies 25 + 144 = r^2 \implies 169 = r^2
+      \implies r = 13
+    \end{equation*}
+    In summary, the equation of the circle is
+    \begin{equation*}
+      x^2 + y^2 = 13^2
+    \end{equation*}
+    Alternatively, you could note that the radius of the circle is the
+    distance from the center to any point on the circle.  In this case
+    the distance from the center to the point $(-5,12)$ on the circle
+    is 
+    \begin{equation*}
+      \sqrt{(0-(-5))^2 + (0-12)^2} = \sqrt{25+144} = \sqrt{169} = 13
+    \end{equation*}
+    So the radius $r=13$.
+  \item %Center $(3,-8)$, passes through the origin
+    This is similar to the previous, except now the form of the equation is
+    \begin{equation*}
+      (x-3)^2 + (y+8)^2 = r^2
+    \end{equation*}
+    Since the origin $(0,0)$ is a point on the circle we must have
+    \begin{equation*}
+      (0-3)^2 + (0+8)^2 = r^2 \implies 9 + 64 = r^2 \implies 73 = r^2
+    \end{equation*}
+    So we can write the equation of the circle as
+    \begin{equation*}
+      (x-3)^2 + (y+8)^2 = 73
+    \end{equation*}
+  \end{enumerate}
+\item %(Based on C.5--9) Show that the equation represents a circle, and find
+  %its center and radius.
+  \begin{enumerate}
+  \item %$\ds x^2+y^2+2x=0$
+    We complete the square.  We have
+    \begin{equation*}
+      x^2 + 2x + y^2 = 0 \implies x^2 + 2x + 1 + y^2 = 1 \implies
+      (x+1)^2 + (y-0)^2 = 1^2
+    \end{equation*}
+    so the equation is of the form of a circle with center $(-1,0)$
+    and radius $1$.
+  \item %$\ds x^2+y^2+10x-6y+8=0$
+    Completing the square,
+    \begin{equation*}
+      x^2 + 10x + y^2 -6y + 8 = 0 \implies x^2 + 10x + 25 + y^2 -6y +
+      9 + 8 = 25 + 9
+    \end{equation*}
+    Simplifying,
+    \begin{equation*}
+      (x+5)^2 + (y-3)^2 = 25 + 9 - 8 = 26
+    \end{equation*}
+    so the equation is of the form of a circle with center $(-5,3)$
+    and radius $r=\sqrt{26}$. 
+  \item %$\ds x^2+y^2-y=6$
+    Completing the square,
+    \begin{equation*}
+      x^2 + y^2 - y + \left(-\frac{1}{2}\right)^2 = 6 +
+      \left(-\frac{1}{2}\right)^2
+      \implies (x-0)^2 + \left(y-\frac{1}{2}\right)^2 = 6 +
+      \frac{1}{4} = \frac{25}{4}
+    \end{equation*}
+    so the equation is of the form of a circle with center $(0,1/2)$
+    and radius $5/2$.
+  \item %$\ds 3x^2+3y^2+x-2y-5=0$
+    It's probably best to divide through by $3$ to get the problem
+    into a more familiar form.  We have
+    \begin{equation*}
+      x^2 + \frac{1}{3} x + y^2 - \frac{2}{3} y = \frac{5}{3}
+      \implies 
+      x^2 + \frac{1}{3} x + \left(\frac{1}{6}\right)^2 + y^2 -
+      \frac{2}{3} y + \left(-\frac{1}{3}\right)^2 = \frac{5}{3} +
+      \frac{1}{36} + \frac{1}{9}
+    \end{equation*}
+    Simplifying,
+    \begin{equation*}
+      \left(x+\frac{1}{6}\right)^2 +
+      \left(y-\frac{1}{3}\right)^2 = \frac{65}{36}
+    \end{equation*}
+    which is the equation of a circle with center $(-1/6,1/3)$ and
+    radius $\sqrt{65}/6$.
+  \end{enumerate}
+\item %(Based on C.11--30) Identify the type of curve and sketch the graph.
+  %Do not plot points.  Just use the standard graphs given in the textbook
+  %and shift if necessary.
+  \begin{enumerate}
+  \item %$\ds 9x^2+y^2=1$ % EJD: kick this off with an easier one!!
+    In standard form, the equation is
+    \begin{equation*}
+      \frac{x^2}{(1/3)^2} + \frac{y^2}{1^2} = 1
+    \end{equation*}
+    which is an ellipse in standard position with $x$-intercepts
+    $(-1/3,0)$ and $(1/3,0)$, and $y$-intercepts $(0,-1)$ and $(0,1)$.
+    See Figure~\ref{fig:9x2+y2=1}
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}
+          \draw[very thin,lightgray] (-3,-3) grid (3,3);
+          \draw[->] (-3,0)--(3,0) node[above]{$x$};
+          \draw[->] (0,-3)--(0,3) node[left]{$y$};
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I1) at (-1/3,0) {} ;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I2) at (1/3,0) {} ;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I3) at (0,-1) {} ;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I4) at (0,1) {} ;
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}
+          \draw[very thin,lightgray] (-3,-3) grid (3,3);
+          \draw[->] (-3,0)--(3,0) node[above]{$x$};
+          \draw[->] (0,-3)--(0,3) node[left]{$y$};
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I1) at (-1/3,0) {} ;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I2) at (1/3,0) {} ;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I3) at (0,-1) {} ;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I4) at (0,1){} ;
+          \draw[red] (0,0) ellipse (1/3 and 1);
+        \end{tikzpicture}
+        \\
+        \mbox{(a) intercepts}
+        &
+        \mbox{(b) completed}
+        \end{array}$
+      \caption{Graphing $9x^2+y^2 = 1$}
+      \label{fig:9x2+y2=1}
+    \end{figure}
+  \item %$\ds x=y^2+4$
+    Rearranging,
+    \begin{equation*}
+      x=y^2+4 \implies x-4 = y^2
+    \end{equation*}
+    which is the equation of a parabola with vertex $(4,0)$ opening to
+    the right.  Picking $y=1$ gives $(5,1)$ as another point on the
+    parabola.
+    See Figure~\ref{fig:x=y2+4}.
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[very thin,lightgray] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[left]{$y$};
+          \node[fill=red,inner sep=1.5pt,shape=circle] (V) at (4,0) {} ;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (P) at (5,1) {} ;
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[very thin,lightgray] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[left]{$y$};
+          \node[fill=red,inner sep=1.5pt,shape=circle] (V) at (4,0) {} ;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (P) at (5,1) {}
+          ;
+          \draw[red,rotate=-90] (0,4) parabola ({sqrt(2)},6);
+          \draw[red,rotate=-90] (0,4) parabola ({-sqrt(2)},6);
+        \end{tikzpicture}
+        \\
+        \mbox{(a) vertex, point}
+        &
+        \mbox{(b) completed}
+        \end{array}$
+      \caption{Graphing $x=y^2+4$}
+      \label{fig:x=y2+4}
+    \end{figure}
+  \item %$\ds 16y^2-9x^2=25$
+    Dividing through by $25$,
+    \begin{equation*}
+      -\frac{9x^2}{25} + \frac{16y^2}{25} = 1
+      \implies
+      -\frac{x^2}{(5/3)^2} + \frac{y^2}{(5/4)^2} = 1
+    \end{equation*}
+    This is the equation of a hyperbola opening upward and downward,
+    with $y$-intercepts $(-5/4,0)$ and $(5/4,0)$ and asymptotes 
+    \begin{equation*}
+      \frac{x}{5/3} + \frac{y}{5/4} = 0, 
+      \qquad 
+      -\frac{x}{5/3} + \frac{y}{5/4} = 0
+    \end{equation*}
+    See Figure~\ref{fig:16y2-9x2=25}.
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[very thin,lightgray] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[left]{$y$};
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I1) at (0,-5/4) {} ;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I2) at (0,5/4) {};
+          \draw[blue] (-6,4.5)--(6,-4.5);
+          \draw[blue] (-6,-4.5)--(6,4.5);
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[very thin,lightgray] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[left]{$y$};
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I1) at (0,-5/4) {} ;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I2) at (0,5/4) {};
+          \draw[blue] (-6,4.5)--(6,-4.5);
+          \draw[blue] (-6,-4.5)--(6,4.5);
+          \clip (-6,-6)--(6,-6)--(6,6)--(-6,6)--cycle;
+          \draw[red,domain=-6:6] plot[id=hyp1] function{sqrt((25+9*x*x)/16)};
+          \draw[red,domain=-6:6] plot[id=hyp2] function{-sqrt((25+9*x*x)/16)};
+        \end{tikzpicture}
+        \\
+        \mbox{(a) vertices, asymptotes}
+        &
+        \mbox{(b) completed}
+        \end{array}$
+      \caption{Graphing $16y^2-9x^2=25$}
+      \label{fig:16y2-9x2=25}
+    \end{figure}
+  \item %$\ds y^2-x^2+4y=10$ % EJD: should make 10 -> 12
+    Completing the square,
+    \begin{equation*}
+      -x^2 + y^2 + 4y + 4 = 14
+      \implies -x^2 + (y+2)^2 = 14
+      \implies -\frac{x^2}{(\sqrt{14})^2} +
+      \frac{(y+2)^2}{(\sqrt{14})^2} = 1
+    \end{equation*}
+    We begin by graphing the hyperbola
+    \begin{equation*}
+      -\frac{x^2}{(\sqrt{14})^2} + \frac{y^2}{(\sqrt{14})^2} = 1
+    \end{equation*}
+    which opens upward and downward, has $y$-intercepts
+    $(0,-\sqrt{14})$ and $(0,\sqrt{14})$, and has asymptotes
+    \begin{equation*}
+      \frac{x}{\sqrt{14}}+\frac{y}{\sqrt{14}} = 0,
+      \qquad
+      -\frac{x}{\sqrt{14}}+\frac{y}{\sqrt{14}} = 0
+    \end{equation*}
+    in other words $x+y=0$ and $-x+y=0$.  See Figure~\ref{fig:y2-x2+4y=10}(a).
+    Finally, we shift the diagram so that the center moves from
+    $(0,0)$ to $(0,-2)$ to get the answer to the question.  See
+    Figure~\ref{fig:y2-x2+4y=10}(b). 
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.5]
+          \draw[very thin,lightgray] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[left]{$y$};
+          \clip (-6,-6)--(6,-6)--(6,6)--(-6,6)--cycle;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I1) at (0,{-sqrt(14)}) {} ;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I2) at (0,{sqrt(14)}) {};
+          \draw[blue] (-6,6)--(6,-6);
+          \draw[blue] (-6,-6)--(6,6);
+          \draw[red,domain=-6:6] plot[id=hyp3] function{sqrt(14+x*x)};
+          \draw[red,domain=-6:6] plot[id=hyp4]
+          function{-sqrt(14+x*x)};
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.5]
+          \draw[very thin,lightgray] (-6,-6) grid (6,6);
+          \draw[->] (-6,0)--(6,0) node[above]{$x$};
+          \draw[->] (0,-6)--(0,6) node[left]{$y$};
+          \clip (-6,-6)--(6,-6)--(6,6)--(-6,6)--cycle;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I1) at (0,{-sqrt(14)-2}) {} ;
+          \node[fill=red,inner sep=1.5pt,shape=circle] (I2) at (0,{sqrt(14)-2}) {};
+          \draw[blue] (-6,6-2)--(6,-6-2);
+          \draw[blue] (-6,-6-2)--(6,6-2);
+          \draw[red,domain=-6:6] plot[id=hyp5] function{(sqrt(14+x*x)-2)};
+          \draw[red,domain=-6:6] plot[id=hyp6] function{(-sqrt(14+x*x)-2)};
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Graph of $-x^2+y^2=14$}
+        &
+        \mbox{(b) completed}
+        \end{array}$
+      \caption{Graphing $y^2-x^2+4y=10$}
+      \label{fig:y2-x2+4y=10}
+    \end{figure}
+  \end{enumerate}
+\item %(Based on C.33--34) Sketch the region bounded by the curves.
+  \begin{enumerate}
+  \item %$\ds y=-x^2$, $y=5x$
+    A quick sketch (with a large-enough scale on the $y$-axis) shows
+    that there seem to be two intersection points.  See
+    Figure~\ref{fig:y=-x2ANDy=5x}(a).  To find the coordinates of the
+    intersection points, solve
+    \begin{equation*}
+      -x^2 = y = 5x \implies -x^2=5x \implies x^2+5x=0 \implies
+      (x+5)x=0
+    \end{equation*}
+    with roots $x=-5$, $x=0$ and corresponding $y$-values
+    $y=5(-5)=-25$ and $y=5(0)=0$.  So the intersection points are
+    $(-5,-25)$ and $(0,0)$.  See Figure~\ref{fig:y=-x2ANDy=5x}(b).
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[xscale=0.5,yscale=0.1]
+          \draw[ystep=5,very thin,lightgray] (-6,-30) grid (6,30);
+          \draw[->] (-6,0) -- (6,0) node[above]{$x$};
+          \draw[->] (0,-30)--(0,30) node[left]{$y$};
+          \draw[red] (0,0) parabola ({-sqrt(30)},-30);
+          \draw[red] (0,0) parabola ({sqrt(30)},-30);
+          \draw[red] (-6,-30)--(6,30);
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[xscale=0.5,yscale=0.1]
+          \draw[ystep=5,very thin,lightgray] (-6,-30) grid (6,30);
+          \draw[->] (-6,0) -- (6,0) node[above]{$x$};
+          \draw[->] (0,-30)--(0,30) node[left]{$y$};
+          \clip (-6,-30)--(6,-30)--(6,30)--(-6,30)--cycle;
+          \draw[red] (0,0) parabola ({-sqrt(30)},-30);
+          \draw[red] (0,0) parabola ({sqrt(30)},-30);
+          \draw[red] (-6,-30)--(6,30);
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle,label={[red]95:$(0,0)$}] (I0) at %
+          (0,0) {}; 
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle,label={[red]355:$(-5,-25)$}] (I1) %
+          at (-5,-25) {};
+          \fill[red,very nearly transparent] (0,0) parabola (-5,-25)
+          -- cycle;
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Sketch of curves}
+        &
+        \mbox{(b) Intersection points and region}
+      \end{array}$
+      \caption{Graphing region between $y=-x^2$ and $y=5x$}
+      \label{fig:y=-x2ANDy=5x}
+    \end{figure}
+  \item %$\ds y=x^2-1$, $y=2x+2$
+    A quick sketch of the curves again indicates that there should be
+    two intersection points.  See Figure~\ref{fig:y=x2-1ANDy=2x+2}(a).
+    To find the intersection points, solve
+    \begin{equation*}
+      x^2-1 = y = 2x+2 \implies x^2-1 = 2x+2 \implies x^2-2x-3 = 0
+      \implies (x+1)(x-3)=0
+    \end{equation*}
+    so the intersection points are $(-1,0)$ and $(3,8)$.  See
+    Figure~\ref{fig:y=x2-1ANDy=2x+2}(b). 
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[xscale=0.5,yscale=0.25]
+          \draw[very thin,lightgray] (-6,-12) grid (6,12);
+          \draw[->] (-6,0) -- (6,0) node[above]{$x$};
+          \draw[->] (0,-12) -- (0,12) node[left]{$y$};
+          \clip (-6,-12)--(6,-12)--(6,12)--(-6,12)--cycle;
+          \draw[red] (0,-1) parabola (-6,35);
+          \draw[red] (0,-1) parabola (6,35);
+          \draw[red] (-6,-10)--(6,14);
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[xscale=0.5,yscale=0.25]
+          \draw[very thin,lightgray] (-6,-12) grid (6,12);
+          \draw[->] (-6,0) -- (6,0) node[above]{$x$};
+          \draw[->] (0,-12) -- (0,12) node[left]{$y$};
+          \clip (-6,-12)--(6,-12)--(6,12)--(-6,12)--cycle;
+          \draw[red] (0,-1) parabola (-6,35);
+          \draw[red] (0,-1) parabola (6,35);
+          \draw[red] (-6,-10)--(6,14);
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle,label={[red]175:$(-1,0)$}] (I0) at %
+          (-1,0) {}; 
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle,label={[red]355:$(3,8)$}] (I1) %
+          at (3,8) {};
+          \fill[red,very nearly transparent] (-1,0) parabola[bend at
+            end] (0,-1) parabola (3,8) -- cycle;
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Sketch of curves}
+        &
+        \mbox{(b) Intersection points and region}
+      \end{array}$
+      \caption{Graphing the region between $y=x^2-1$ and $y=2x+2$}
+      \label{fig:y=x2-1ANDy=2x+2}
+    \end{figure}
+  \end{enumerate}
+\item %(Based on C.31--32) Identify the type of curve and sketch the graph.
+  %Do not plot points.  Just use the standard graphs given in the textbook
+  %and shift if necessary.
+  \begin{enumerate}
+  \item %$\ds x^2+4y^2-32y=16$ % EJD: make it =17?
+    Completing the square,
+    \begin{equation*}
+      x^2 + 4(y^2-8y+16-16) = 16 \implies x^2 + 4(y-4)^2 = 80
+    \end{equation*}
+    Putting the equation in standard form,
+    \begin{equation*}
+      \frac{x^2}{(\sqrt{80})^2} + \frac{(y-4)^2}{(\sqrt{20})} = 1
+    \end{equation*}
+    The figure is an ellipse.  We first graph $x^2/(\sqrt{80})^2+
+    y^2/(\sqrt{20})^2 = 1$ by locating the vertices, namely
+    $(-\sqrt{80},0)$, $(\sqrt{80},0)$, $(0,-\sqrt{20})$,
+    $(0,\sqrt{20})$ and joining them by appropriate arcs.  See
+    Figure~\ref{fig:x2+4y2-32y=16}(a). 
+    Then we shift the resulting figure so the center moves from
+    $(0,0)$ to $(0,4)$.  See Figure~\ref{fig:x2+4y2-32y=16}(b).
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=0.25]
+          \draw[very thin,lightgray] (-12,-12) grid (12,12);
+          \draw[->] (-12,0) -- (12,0) node[above]{$x$};
+          \draw[->] (0,-12) -- (0,12) node[left]{$y$};
+          \clip (-12,-12)--(12,-12)--(12,12)--(-12,12)--cycle;
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle] (I0) at %
+          ({-sqrt(80)},0) {}; 
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle] (I1) %
+          at ({sqrt(80)},0) {};
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle] (I2) at %
+          (0,{-sqrt(20)}) {}; 
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle] (I3) %
+          at (0,{sqrt(20)}) {};
+          \draw[red] (0,0) ellipse ({sqrt(80)} and {sqrt(20)});
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=0.25]
+          \draw[very thin,lightgray] (-12,-12) grid (12,12);
+          \draw[->] (-12,0) -- (12,0) node[above]{$x$};
+          \draw[->] (0,-12) -- (0,12) node[left]{$y$};
+          \clip (-12,-12)--(12,-12)--(12,12)--(-12,12)--cycle;
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle] (I0) at %
+          ({-sqrt(80)},4) {}; 
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle] (I1) %
+          at ({sqrt(80)},4) {};
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle] (I2) at %
+          (0,{-sqrt(20)+4}) {}; 
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle] (I3) %
+          at (0,{sqrt(20)+4}) {};
+          \draw[red] (0,4) ellipse ({sqrt(80)} and {sqrt(20)});
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Graph of $x^2/80+y^2/20=1$}
+        &
+        \mbox{(b) Center shifted to $(0,4)$}
+      \end{array}$
+      \caption{Graphing $x^2+4y^2-32y=16$}
+      \label{fig:x2+4y2-32y=16}
+    \end{figure}
+  \item %$\ds 9x^2-4y^2-6x+5=0$ % EJD: we haven't yet graphed
+        %hyperbola opening left and right!!
+    Completing the square,
+    \begin{equation*}
+      9\left(x^2-\frac{2}{3}x+\frac{1}{9}-\frac{1}{9}\right) - 4y^2 =
+      -5
+      \implies 9\left(x-\frac{1}{3}\right) - 4y^2 = -4
+    \end{equation*}
+    Putting the equation into standard form,
+    \begin{equation*}
+      -\frac{(x-1/3)^2}{(2/3)^2} + \frac{y^2}{1^2} = 1
+    \end{equation*}
+    We first graph $-x^2/(2/3)^2 + y^2/1^2 = 1$.  It is
+    a hyperbola opening upwards and downwards, with $y$-intercepts
+    $(0,-1)$ and $(0,1)$ and asymptotes
+    \begin{equation*}
+      \frac{x}{2/3} + \frac{y}{1} = 0, \qquad
+      -\frac{x}{2/3} + \frac{y}{1} = 0
+    \end{equation*}
+    See Figure~\ref{fig:9x2-4y2-6x+5=0}(a).  Then we shift the graph
+    so that the center moves from $(0,0)$ to $(1/3,0)$.  See
+    Figure~\ref{fig:9x2-4y2-6x+5=0}(b). 
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=1.0]
+          \draw[very thin,lightgray] (-3,-3) grid (3,3);
+          \draw[->] (-3,0) -- (3,0) node[above]{$x$};
+          \draw[->] (0,-3) -- (0,3) node[left]{$y$};
+          \clip (-3,-3)--(3,-3)--(3,3)--(-3,3)--cycle;
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle] (I0) at %
+          (0,-1) {}; 
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle] (I1) %
+          at (0,1) {};
+          \draw[blue] (-2,3)--(2,-3);
+          \draw[blue] (-2,-3)--(2,3);
+          \draw[red,domain=-3:3] plot[id=hyp07] function{sqrt(1+9*x*x/4)};
+          \draw[red,domain=-3:3] plot[id=hyp08] function{-sqrt(1+9*x*x/4)};
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=1.0]
+          \draw[very thin,lightgray] (-3,-3) grid (3,3);
+          \draw[->] (-3,0) -- (3,0) node[above]{$x$};
+          \draw[->] (0,-3) -- (0,3) node[left]{$y$};
+          \clip (-3,-3)--(3,-3)--(3,3)--(-3,3)--cycle;
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle] (I0) at %
+          (0.33333,-1) {}; 
+          \draw node[fill=red,inner %
+            sep=1.5pt,shape=circle] (I1) %
+          at (0.33333,1) {};
+          \draw[blue] (-2+0.33333,3)--(2+0.33333,-3);
+          \draw[blue] (-2+0.33333,-3)--(2+0.33333,3);
+          \draw[red,domain=-3:3] plot[id=hyp09]
+          function{sqrt(1+9*(x-0.33333)**2/4)};
+          \draw[red,domain=-3:3] plot[id=hyp10] function{-sqrt(1+9*(x-0.33333)**2/4)};
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Graph of $-x^2/(2/3)^2+y^2/1^2=1$}
+        &
+        \mbox{(b) Center shifted to $(1/3,0)$}
+      \end{array}$
+      \caption{Graphing $9x^2-4y^2-6x+5=0$}
+      \label{fig:9x2-4y2-6x+5=0}
+    \end{figure}
+  \end{enumerate}
+\item %(Based on C.35) Find an equation of the parabola with vertex $(1,5)$
+  %that opens downward and passes through the point $(-1,-4)$.
+  A parabola in standard position which opens downward has equation
+  \begin{equation*}
+    y=-ax^2
+  \end{equation*}
+  Shifting the vertex from $(0,0)$ to $(1,5)$, the equation becomes 
+  \begin{equation*}
+    y-5 = -a(x-1)^2
+  \end{equation*}
+  Since the parabola passes through $(-1,-4)$, the values
+  $(x,y)=(-1,-4)$ must satisfy the equation so we have
+  \begin{equation*}
+    -4-5 = -a(-1-1)^2 \implies -9 = -a (2)^2 \implies a = \frac{9}{4}
+  \end{equation*}
+  So the parabola has equation
+  \begin{equation*}
+    y-5 = -\frac{9}{4} (x-1)^2
+  \end{equation*}
+  You might want to check the correctness of that equation by graphing
+  it. 
+\item %(Based on C.37--40) Sketch the graph of the set.
+  \begin{enumerate}
+  \item %$\ds \{(x,y)|x^2+y^2\le 4\}$
+    The solution set is the set of all points the distance from the
+    origin of which is less than $\sqrt{4}$, in other words the inside
+    of a circle of center $(0,0)$ and radius $2$.  See
+    Figure~\ref{fig:graph-ineq1}(a). 
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=1.0]
+          \draw[very thin,lightgray] (-3,-3) grid (3,3);
+          \draw[->] (-3,0) -- (3,0) node[above]{$x$};
+          \draw[->] (0,-3) -- (0,3) node[left]{$y$};
+          \clip (-3,-3)--(3,-3)--(3,3)--(-3,3)--cycle;
+          \fill[red,very nearly transparent] (0,0) circle (2);
+          \draw[red] (0,0) circle (2);
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=1.0]
+          \draw[very thin,lightgray] (-3,-3) grid (3,3);
+          \draw[->] (-3,0) -- (3,0) node[above]{$x$};
+          \draw[->] (0,-3) -- (0,3) node[left]{$y$};
+          %\clip (-3,-3)--(3,-3)--(3,3)--(-3,3)--cycle;
+          \begin{scope}[even odd rule]
+            \clip {(-3,-3)--(3,-3)--(3,3)--(-3,3)--cycle (0,0) circle (1)};
+            \fill[red,very nearly transparent] (-3,-3)--(3,-3)--(3,3)--(-3,3)--cycle;
+          \end{scope}
+          \draw[red,dashed] (0,0) circle (1);
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Graph of $x^2+y^2\le 4$}
+        &
+        \mbox{(b) Graph of $x^2+y^2>1$}
+      \end{array}$
+      \caption{Graphing some inequalities} % EJD: refer to problem number
+      \label{fig:graph-ineq1}
+    \end{figure}
+  \item %$\ds \{(x,y)|x^2+y^2>1\}$
+    This question is similar to the previous, however the set of
+    points is the set that is not inside or on the unit circle.  See
+    Figure~\ref{fig:graph-ineq1}(b). 
+  \item %$\ds \{(x,y)|y>x^2-2x\}$
+    Completing the square we have
+    \begin{equation*}
+      y+1 > (x-1)^2
+    \end{equation*}
+    The region is the set of all points above a parabola with vertex
+    $(1,-1)$ opening upwards.
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{1cm}}c}
+        \begin{tikzpicture}[scale=1.0]
+          \draw[very thin,lightgray] (-3,-3) grid (3,3);
+          \draw[->] (-3,0) -- (3,0) node[above]{$x$};
+          \draw[->] (0,-3) -- (0,3) node[left]{$y$};
+          \clip (-3,-3)--(3,-3)--(3,3)--(-3,3)--cycle;
+          \fill[red,very nearly transparent] (-1,3) parabola[bend at end]
+            (1,-1) parabola (3,3) -- cycle;
+          \draw[red,dashed] (-1,3) parabola[bend at end] (1,-1) parabola (3,3);
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=1.0]
+          \draw[very thin,lightgray] (-3,-3) grid (3,3);
+          \draw[->] (-3,0) -- (3,0) node[above]{$x$};
+          \draw[->] (0,-3) -- (0,3) node[left]{$y$};
+          \fill[red,very nearly transparent] (0,0) ellipse (5/4 and 5/3);
+          \draw[red] (0,0) ellipse (5/4 and 5/3);
+        \end{tikzpicture}
+        \\
+        \mbox{(a) Graph of $y>x^2-2x$}
+        &
+        \mbox{(b) Graph of $16x^2+9y^2\le 25$}
+      \end{array}$
+      \caption{Graphing some other inequalities} % EJD: refer to problem number
+      \label{fig:graph-ineq2}
+    \end{figure}
+  \item %$\ds \{(x,y)|16x^2+9y^2\le 25\}$
+    In standard form, the equation is 
+    \begin{equation*}
+      \frac{x^2}{(5/4)^2} + \frac{y^2}{(5/3)^2} \le 1
+    \end{equation*}
+    so the boundary of the region is an ellipse in standard position
+    with vertices $(-5/4,0)$, $(5/4,0)$, $(0,-5/3)$, $(0,5/3)$.  Since
+    the ellipse is a flattened circle, and the $\le 1$ condition means
+    everything inside and on the circle in the circle case, we graph
+    all points inside and on the ellipse.
+  \end{enumerate}
+\item %(Based on C.10) Under what condition on the coefficients $a$, $b$, and
+  %$c$ does the equation $x^2+4y^2+ax+by+c=0$ represent an ellipse?  When
+  %that condition is satisfied, find the center of the ellipse.
+  Completing the square,
+  \begin{equation*}
+    x^2+ax + \frac{a^2}{4} - \frac{a^2}{4} + 
+    4\left(y^2 + \frac{b}{4} y + \frac{b^2}{64} -
+    \frac{b^2}{64}\right)
+    = -c
+  \end{equation*}
+  Simplifying,
+  \begin{equation*}
+    \left(x+\frac{a}{2}\right)^2 + 4\left(y+\frac{b}{8}\right)^2 = 
+    \frac{a^2}{4} - \frac{b^2}{16} - c
+  \end{equation*}
+  Since the LHS is a sum of squares, it must always be $\ge 0$.  So
+  for the equation to represent an ellipse, we must have the RHS $\ge
+  0$ (what happens if the RHS $=0$?).  So the condition for the
+  equation to represent an ellipse is
+  \begin{equation*}
+    \frac{a^2}{4} - \frac{b^2}{16} - c > 0
+  \end{equation*}
+  When that condition is satisfied, the center of the ellipse is 
+  \begin{equation*}
+    \left(-\frac{a}{2},-\frac{b}{8}\right)
+  \end{equation*}
+\end{enumerate}
+\end{document}
+

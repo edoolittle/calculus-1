@@ -1,0 +1,80 @@
+\documentclass{article}
+% \usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage[margin=0.5in]{geometry}
+% \usepackage{mathptmx}
+% \usepackage{txfonts}
+\usepackage{multicol}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{fillbetween}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroFourOne\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroFourOne}
+
+\begin{document}
+\maketitle
+\thispagestyle{plain}
+
+\noindent
+\begin{enumerate}
+\item
+  \begin{enumerate}
+  \item By the definition of area, the area under the curve $y=x^3$
+    from $x=0$ to $x=1$ is
+    \begin{equation*}
+      A = \lim_{n\to\infty} \sum_{i=1}^n x_i^3 \; \Delta x
+    \end{equation*}
+    where $\Delta x = (b-a)/n = (1-0)/n = 1/n$ and
+    $x_i=a + i\Delta x = 0 + i \cdot 1/n = i/n$:
+    \begin{equation*}
+      A = \lim_{n\to\infty} \sum_{i=1}^n \left(\frac{i}{n}\right)^3
+      \frac{1}{n}
+    \end{equation*}
+  \item Evaluating the above limit, we have
+    \begin{align*}
+      A &= \lim_{n\to\infty} \sum_{i=1}^n \frac{i^3}{n^3} \frac{1}{n}
+      \\
+        &= \lim_{n\to\infty} \frac{1}{n^4} \sum_{i=1}^n i^3
+      \\
+        &= \lim_{n\to\infty} \frac{1}{n^4} \frac{n^4 + 2n^3 + n^2}{4}
+      \\
+        &= \lim_{n\to\infty} \frac{n^4+2n^3+n^2}{4n^4}
+      \\
+        &=\lim_{n\to\infty} \frac{(n^4+2n^3+n^2)
+          \frac{1}{n^4}}{4n^4\frac{1}{n^4}}
+      \\
+        &= \lim_{n\to\infty} \frac{1+2/n+1/n^2}{4}
+      \\
+        &= \frac{1+0+0}{4} = \frac{1}{4}
+    \end{align*}
+  \end{enumerate}
+  % EJD: diagram
+\item We need to make an educated guess about which part of the
+  summand is $\Delta x$ and which part is $f(x_i)$.  Let's guess
+  $\Delta x = 2/n$ and $f(x_i)= (5+2i/n)^{10}$.  That would mean that
+  $f(x)=x^{10}$ and $x_i=5+2i/n = 5 + i\Delta x$.  Since
+  $x_i=a+i\Delta x$ that means $a=5$.  Since $\Delta x = (b-a)/n =
+  2/n$ that means $b-a = 2$ which implies $b=a+2=5+2=7$.  Checking,
+  the area is
+  \begin{equation*}
+    \lim_{n\to\infty} \sum_{i=1}^n f(x_i) \;
+    \Delta x = \lim_{n\to\infty} \sum_{i=1}^n \left(a + i\Delta
+      x\right)^{10} \Delta x
+    = \lim_{n\to\infty} \sum_{i=1}^n \left(5 + i \frac{2}{n}\right)^{10}
+    \frac{2}{n}
+  \end{equation*}
+  so our guesses were correct.  Then the region which answers the
+  question is the region bounded by the curve $y=x^{10}$ and the lines
+  $x=5$, $x=7$, and $y=0$.
+  % EJD: diagram
+\end{enumerate}
+\end{document}

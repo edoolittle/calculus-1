@@ -1,0 +1,569 @@
+%%% MATH110-PS021-Solutions.tex --- 
+%% 
+%% Filename: MATH110-PS021-Solutions.tex
+%% Description: 
+%% Author: U-ORONYA\edwar
+%% Maintainer: 
+%% Created: Sun Jan 29 21:34:17 2023 (-0600)
+%% Version: 
+%% Package-Requires: ()
+%% Last-Updated: Sun Jan 29 23:34:38 2023 (-0600)
+%%           By: U-ORONYA\edwar
+%%     Update #: 39
+%% URL: 
+%% Doc URL: 
+%% Keywords: 
+%% Compatibility: 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Commentary: 
+%% 
+%% 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Change Log:
+%% 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Copyright (C) 2023 Edward Doolittle
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Code:
+
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+%\usepackage{graphicx}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.13}
+% \allowdisplaybreaks
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroTwoOne\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroTwoOne}
+
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  Recall that the derivative from first principles is
+  \begin{equation*}
+    f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
+  \end{equation*}
+  To evaluate the above expression, we first evaluate $f(x+h)$,
+  simplifying if possible, then evaluate the limit.
+  \begin{enumerate}
+  \item %1a
+    We have
+    \begin{align*}
+      f(x+h) &= (x+h)^2 - 2(x+h) - 3
+               = x^2 + 2xh + h^2 - 2x - 2h - 3
+      \\
+      f(x+h) - f(x) &= x^2 + 2xh + h^2 - 2x - 2h - 3 - x^2 + 2x + 3
+                      = 2xh + h^2 - 2h
+    \end{align*}
+    Then
+    \begin{align*}
+      f'(x) &= \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
+      \\
+      &= \lim_{h\to 0} \frac{2xh + h^2 - 2h}{h}
+      \\
+      &= \lim_{h\to 0} (2x + h - 2)
+      \\
+      &= 2x - 2
+    \end{align*}
+    At the point $(0,-3)$ we have $x=0$ so $f'(0) = 2(0)-2 = -2$,
+    which is the slope of the tangent line at $x=0$.
+  \item %1b
+    We use the point-slope form for the equation of the tangent line.
+    The point slope form is
+    \begin{equation*}
+      y - y_0 = m(x-x_0)
+    \end{equation*}
+    where $(x_0,y_0)$ is the point and $m$ is the slope.  In our case,
+    $(x_0,y_0)=(0,-3)$ and $m=-2$ from the previous answer, so the
+    tangent line has equation
+    \begin{equation*}
+      y - (-3) = (-2) (x-0) \implies y + 3 = -2x \implies y = -2x - 3
+    \end{equation*}
+  \item %1c
+    See Figure~\ref{fig:graphParabola}.
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \draw[gray,very thin] (-1,-5) grid (2,1);
+        \draw[->] (-1,0)--(2,0);
+        \draw[->] (0,-5)--(0,1);
+        \draw[color=red, line width = 0.50mm]   plot[smooth,domain=-1:2]
+        (\x, {-3-2*\x+(\x)^2});
+        \draw[color=blue, line width = 0.50mm]
+        plot[smooth,domain=-1:1] (\x, {-3-2*\x});
+        \node[label={45:{(0,-3)}},circle,fill,inner sep=2pt] at (0,-3) {};
+      \end{tikzpicture}
+      \caption{Graphs of $y=x^2-2x-3$ and $y=-2x-3$}
+      \label{fig:graphParabola}
+    \end{figure}
+  \end{enumerate}
+\item %2
+  \begin{enumerate}
+  \item %2a
+    We have
+    \begin{align*}
+      f(x+h) &= \frac{1}{x+h+1} \\
+      f(x) &= \frac{1}{x+1} \\
+      f(x+h)-f(x) &= \frac{1}{x+h+1} - \frac{1}{x+1} = \frac{(x+1) -
+        (x+h+1)}{(x+h+1)(x+1)}
+      = \frac{-h}{(x+h+1)(x+1)} \\
+      \frac{f(x+h) - f(x)}{h} &= \frac{-1}{(x+h+1)(x+1)} \\
+      f'(x) &= \lim_{h\to 0} \frac{f(x+h)-f(x)}{h} = \lim_{h\to 0}
+      \frac{-1}{(x+h+1)(x+1)} = \frac{-1}{(x+1)^2}
+    \end{align*}
+    Substituting $x=0$,
+    \begin{equation*}
+      f'(0) = \frac{-1}{(0+1)^2} = -1
+    \end{equation*}
+    Using point-slope form, the equation of the tangent line is
+    \begin{equation*}
+      y - y_0 = m(x-x_0) \implies y - 1 = (-1) (x-0) \implies y - 1 =
+      -x \implies y = -x + 1
+    \end{equation*}
+  \item %2b
+    We have
+    \begin{align*}
+      f(x+h) &= \sqrt{2(x+h)-1} \\
+      f(x) &= \sqrt{2x-1} \\
+      f(x+h) - f(x) &= \sqrt{2(x+h)-1} - \sqrt{2x-1} \\
+      \frac{f(x+h) - f(x)}{h} &= \frac{\sqrt{2(x+h)-1} -
+        \sqrt{2x-1}}{h} \\
+      f'(x) &= \lim_{h\to 0} \frac{f(x+h) - f(x)}{h} = \lim_{h\to 0}
+      \frac{\sqrt{2(x+h)-1} - \sqrt{2x-1}}{h}
+    \end{align*}
+    To evaluate limits like this, multiply by the conjugate radical:
+    \begin{align*}
+      f'(x) &= \lim_{h\to 0} \frac{\sqrt{2x+2h-1} - \sqrt{2x-1}}{h}
+              \times \frac{\sqrt{2x+2h-1} + \sqrt{2x-1}}{\sqrt{2x+2h-1} +
+              \sqrt{2x-1}}
+      \\
+            &= \lim_{h\to 0} \frac{(2x+2h-1) -
+              (2x-1)}{h(\sqrt{2x+2h-1}-\sqrt{2x-1})}
+      \\
+            &= \lim_{h\to 0} \frac{2h}{h(\sqrt{2x+2h-1}-\sqrt{2x-1})}
+      \\
+            &= \frac{2}{\sqrt{2x-1}+\sqrt{2x-1}} = \frac{2}{2\sqrt{2x-1}}
+      \\
+            &= \frac{1}{\sqrt{2x-1}}
+    \end{align*}
+    Substituting $x=5$ gives $f'(5) = 1/(2(5)-1) = 1/9$.  The equation
+    of the tangent line is $y-3 = 1/9(x-5)$, which can be rearranged
+    to $y=(1/9) x - 22/9$.
+  \item %2c
+    We have
+    \begin{align*}
+      f(x+h) &= (x+h)^3 - 4(x+h) = x^3 + 3x^2 h + 3xh^2 + h^3 - 4x -
+      4h \\
+      f(x) &= x^3 - 4x \\
+      f(x+h) - f(x) &= 3x^2 h + 3xh^2 + h^3 - 4h \\
+      \frac{f(x+h) - f(x)}{h} &= \frac{3x^2h + 3xh^2 - h^3 - 4h}{h} =
+      3x^2 + 3xh - h^2 - 4 \\
+      f'(x) &= \lim_{h\to 0} \frac{f(x+h)-f(x)}{h} = \lim_{h\to 0}
+      3x^2 + 3xh - h^2 - 4 = 3x^2 - 4
+    \end{align*}
+    At $x=-1$, $f'(-1) = 3(-1)^2 - 4 = 3 -4 = -1$.  The equation of
+    the tangent line is $y-3 = (-1)(x-(-1))$ or $y-3 = -x -1$ or
+    $y=-x+2$.
+  \item %2d
+    We have
+    \begin{align*}
+      f(x+h) &= \frac{(x+h)^2}{2(x+h)-1} = \frac{x^2+2xh+h^2}{2x+2h-1}
+      \\
+      f(x) &= \frac{x^2}{2x-1} \\
+      f(x+h) - f(x) &= \frac{x^2+2xh+h^2}{2x+2h-1} - \frac{x^2}{2x-1}
+                      = \frac{(x^2+2xh+h^2)(2x-1)-(2x+2h-1)x^2}{(2x+2h-1)(2x-1)}
+                      \\
+                      &= \frac{2x^3 - x^2 + 4x^2h - 2xh + 2xh^2 - h^2 - 2x^3 - 2x^2h +
+                        x^2 }{(2x+2h-1)(2x-1)} 
+                        = \frac{4x^2h-2xh-h^2}{(2x+2h-1)(2x-1)} \\
+      \frac{f(x+h) - f(x)}{h} &= \frac{4x^2h-2xh-h^2}{(2x+2h-1)(2x-1)}
+                                = \frac{4x^2 - 2x -h}{(2x+2h+1)(2x-1)} \\
+      f'(x) &= \lim_{h\to 0} \frac{4x^2 - 2x - h}{(2x+2h-1)(2x-1)}
+      = \frac{4x^2 - 2x}{(2x-1)(2x-1)} = \frac{4x^2-2x}{(2x-1)^2}
+    \end{align*}
+  \end{enumerate}
+\item %3
+  \begin{enumerate}
+  \item We have
+    \begin{align*}
+      f(a+h) &= 10 + 3(a+h)^2 - (a+h)^3 = 10 + 3a^2 + 6ah + 3h^2
+               - a^3 - 3a^2h - 3ah^2 - h^3 \\
+      f(a) &= 10 + 3a^2 - a^3 \\
+      f(a+h)-f(a) &= 10 + 3a^2 + 6ah + 3h^2
+                    - a^3 - 3a^2h - 3ah^2 - h^3 - 10 - 3a^2 + a^3 \\
+             &= 6ah + 3h^2 - 3a^2h - 3ah^2 - h^3 \\
+      \frac{f(a+h)-f(a)}{h} &= \frac{6ah+3h^2-3a^2h-3ah^2-h^3}{h}
+    \end{align*}
+    Taking the limit,
+    \begin{align*}
+      f'(a) &= \lim_{h\to 0} \frac{f(a+h)-f(a)}{h} \\
+            &= \lim_{h\to 0} \frac{6ah+3h^2-3a^2h-3ah^2-h^3}{h} \\
+            &= \lim_{h\to 0} (6a + 3h - 3a^2 - 3ah - h^2) \\
+            &= 6a - 3a^2
+    \end{align*}
+  \item Now that we have a formula for the slope of the tangent line,
+    we can apply it to obtain the slope immediately in both cases.  In
+    the first case,
+    \begin{displaymath}
+      m = f'(1) = 6(1) - 3(1)^2 = 6 - 3 = 3
+    \end{displaymath}
+    so the point-slope form of the tangent line is
+    \begin{displaymath}
+      y - 12 = 3(x-1)
+    \end{displaymath}
+    You can further simplify your answer but that is not necessary.
+    In the second case,
+    \begin{displaymath}
+      m = f'(3) = 6(3) - 3(3)^2 = 18 - 27 = -9
+    \end{displaymath}
+    so the point-slope form of the tangent line is
+    \begin{displaymath}
+      y - 10 = -9(x-3)
+    \end{displaymath}
+  \item See Figure~\ref{fig:graphCubic}.
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \draw[gray,very thin] (0,0) grid (4,15);
+        \draw[->] (0,0)--(4,0);
+        \draw[->] (0,0)--(0,15);
+        \draw[color=red, line width = 0.50mm]   plot[smooth,domain=0:3.723]
+        (\x, {10+3*(\x)^2-(\x)^3});
+        \draw[color=blue, line width = 0.50mm]
+        plot[smooth,domain=0:2] (\x, {3*\x+9});
+        \draw[color=blue, line width = 0.50mm]
+        plot[smooth,domain=2.4444:4] (\x, {-9*\x+37});
+        \node[label={20:{(1,12)}},circle,fill,inner sep=2pt] at (1,12) {};
+        \node[label={160:{(3,10)}},circle,fill,inner sep=2pt] at (3,10) {};
+      \end{tikzpicture}
+      \caption{Graphs of $y=10+3x^2-x^3$ and $y=3x+9$ and $y=-9x+37$}
+      \label{fig:graphCubic}
+    \end{figure}
+  \end{enumerate}
+\item %4
+  Instantaneous velocity is the derivative.  Since we need the
+  velocity at several moments $t=1$, $t=2$, and $t=3$, we should find
+  a general formula for the derivative.  We have
+  \begin{align*}
+    f(a+h) &= \frac{1}{a+h} \\
+    f(a) &= \frac{1}{a} \\
+    f(a+h)-f(a) &= \frac{1}{a+h} - \frac{1}{a} = \frac{a - a - h}{(a+h)(a)}
+                  = \frac{-h}{(a+h)(a)} \\
+    \frac{f(a+h)-f(a)}{h} &= \frac{-h}{(a+h)(a)(h)}
+  \end{align*}
+  Taking the limit,
+  \begin{align*}
+    v(a) = s'(a) &= \lim_{h\to 0} \frac{f(a+h)-f(a)}{h} \\
+    &= \lim_{h\to 0} \frac{-h}{(a+h)(a)(h)} \\
+    &= \lim_{h\to 0} \frac{-1}{(a+h)(a)} \\
+    &= \frac{-1}{(a)(a)} \\
+    &= \frac{-1}{a^2}
+  \end{align*}
+  Then at times $a=1$, $a=2$, and $a=3$ we have
+  \begin{align*}
+    v(1) &= \frac{-1}{1^2} = -1 \\
+    v(2) &= \frac{-1}{2^2} = -\frac{1}{4} \\
+    v(3) &= \frac{-1}{3^2} = -\frac{1}{9}
+  \end{align*}
+  where all velocity units are m/s.  Finally, the speeds are the
+  absolute values of the velocities, so the speeds are
+  \begin{align*}
+    |v(a)| &= \left| -\frac{1}{a^2} \right| = \frac{1}{a^2} \\
+    |v(1)| &= |-1| = 1 \\
+    |v(2)| &= \left| -\frac{1}{4} \right| = \frac{1}{4} \\
+    |v(3)| &= \left| -\frac{1}{9} \right| = \frac{1}{9}
+  \end{align*}
+  again in m/s.  Note that in $|v(a)|$ it is potentially tricky to get
+  the sign right in general, but the fraction $1/a^2$ is always
+  positive.
+\item %5
+  Note that there are many possible answers to this question.  First,
+  we place a dot on an empty grid representing the point $(0,1)$
+  through which the graph passes, and we draw a small line segment
+  with slope $-1$ passing through the point $(0,1)$ representing the
+  tangent line to the graph at the point.  See
+  Figure~\ref{fig:four-conditions-1}(a).  Next, we draw a line segment
+  of slope $0$ at a point $(1,y_1)$.  We are not given a condition on
+  $y_1$ so we pick any $y_1$ (we should pick a value less than $1$ to
+  get a nice graph).  See Figure~\ref{fig:four-conditions-1}(b).  We
+  do the same thing with a small line segment of slope $3$ at the
+  point $(2,y_2)$, where $y_2$ can be anything (but we should pick a
+  value greater than $y_1$ to get a nice graph).  See
+  Figure~\ref{fig:four-conditions-2}(c).  Finally, we sketch a nice
+  smooth graph passing through the three points we have drawn, which
+  is tangent to the three line segments we have drawn.  See
+  Figure~\ref{fig:four-conditions-2}(d).
+  \begin{figure}[htbp]
+    \centering
+    $\begin{array}{c@{\hspace{0.5in}}c}
+    \begin{tikzpicture}[scale=1]
+      \draw[gray,very thin] (-1,0) grid (4,7);
+      \draw[->] (-1,0)--(4,0);
+      \draw[->] (0,0)--(0,7);
+      %\draw[color=red,domain=-1:3,samples=200] plot(\x,{(\x)^3/3-\x+1});
+      \draw[color=black,domain=-0.5:0.5] plot(\x,{-\x+1});
+      \fill[color=black] (0,1) circle (0.05);
+      %\draw[color=black,domain=0.5:1.5] plot(\x,{1/3});
+      %\fill[color=black] (1,1/3) circle (0.05);
+      %\draw[color=black,domain=1.75:2.25] plot(\x,{3*(\x-2)+5/3});
+      %\fill[color=black] (2,5/3) circle (0.05);
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=1]
+      \draw[gray,very thin] (-1,0) grid (4,7);
+      \draw[->] (-1,0)--(4,0);
+      \draw[->] (0,0)--(0,7);
+      %\draw[color=red,domain=-1:3,samples=200] plot(\x,{(\x)^3/3-\x+1});
+      \draw[color=black,domain=-0.5:0.5] plot(\x,{-\x+1});
+      \fill[color=black] (0,1) circle (0.05);
+      \draw[color=black,domain=0.5:1.5] plot(\x,{1/3});
+      \fill[color=black] (1,1/3) circle (0.05);
+      %\draw[color=black,domain=1.75:2.25] plot(\x,{3*(\x-2)+5/3});
+      %\fill[color=black] (2,5/3) circle (0.05);
+    \end{tikzpicture}
+    \\
+    \mbox{(a) Conditions $f(0)=1$, $f'(0)=-1$}
+    &
+    \mbox{(b) Adding condition $f'(1)=0$}
+    \end{array}$
+    \caption{First two conditions for graph}
+    \label{fig:four-conditions-1}
+  \end{figure}
+  \begin{figure}[htbp]
+    \centering
+    $\begin{array}{c@{\hspace{0.5in}}c}
+    \begin{tikzpicture}[scale=1]
+      \draw[gray,very thin] (-1,0) grid (4,7);
+      \draw[->] (-1,0)--(4,0);
+      \draw[->] (0,0)--(0,7);
+      %\draw[color=red,domain=-1:3,samples=200] plot(\x,{(\x)^3/3-\x+1});
+      \draw[color=black,domain=-0.5:0.5] plot(\x,{-\x+1});
+      \fill[color=black] (0,1) circle (0.05);
+      \draw[color=black,domain=0.5:1.5] plot(\x,{1/3});
+      \fill[color=black] (1,1/3) circle (0.05);
+      \draw[color=black,domain=1.75:2.25] plot(\x,{3*(\x-2)+5/3});
+      \fill[color=black] (2,5/3) circle (0.05);
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=1]
+      \draw[gray,very thin] (-1,0) grid (4,7);
+      \draw[->] (-1,0)--(4,0);
+      \draw[->] (0,0)--(0,7);
+      \draw[color=red,domain=-1:3,samples=200] plot(\x,{(\x)^3/3-\x+1});
+      \draw[color=black,domain=-0.5:0.5] plot(\x,{-\x+1});
+      \fill[color=black] (0,1) circle (0.05);
+      \draw[color=black,domain=0.5:1.5] plot(\x,{1/3});
+      \fill[color=black] (1,1/3) circle (0.05);
+      \draw[color=black,domain=1.75:2.25] plot(\x,{3*(\x-2)+5/3});
+      \fill[color=black] (2,5/3) circle (0.05);
+    \end{tikzpicture}
+    \\
+    \mbox{(c) Adding Condition $f'(2)=3$}
+    &
+    \mbox{(d) Graph Consistent with (c)}
+    \end{array}$
+    \caption{Third Condition, and Graph Consistent with Conditions}
+    \label{fig:four-conditions-2}
+  \end{figure}
+\item %6
+  \begin{enumerate}
+  \item We have
+    \begin{align*}
+      f(a+h) &= 4(a+h)^2 - (a+h)^3
+               = 4a^2 + 8ah + 4h^2 - a^3 - 3a^2h - 3ah^2 - h^3 \\
+      f(a) &= 4a^2 - a^3 \\
+      f(a+h)-f(a) &= 4a^2 + 8ah + 4h^2 - a^3 - 3a^2 h - 3ah^2 - h^3 - 4a^2 + a^3
+      \\
+             &= 8ah + 4h^2 - 3a^2 h - 3ah^2 - h^3
+    \end{align*}
+    Taking limits of the difference quotient,
+    \begin{align*}
+      f'(a) &= \lim_{h\to 0} \frac{8ah+4h^2-3a^2h-3ah^2-h^3}{h} \\
+            &= \lim_{h\to 0} (8a + 4h - 3a^2 - 3ah - h^2) \\
+            &= 8a - 3a^2
+    \end{align*}
+  \item By the binomial theorem we have
+    \begin{align*}
+      f(a+h) &= (a+h)^4 - 5(a+h) = a^4 + 4a^3h+6a^2h^2+4ah^3+h^4-5a-5h \\
+      f(a) &= a^4 - 5a \\
+      f(a+h)-f(a) &= a^4 + 4a^3h + 6a^2h^2 + 4ah^3 + h^4 - 5a - 5h - a^4 + 5a \\
+             &=4a^3h + 6a^2h^2 + 4ah^3 + h^4 - 5h
+    \end{align*}
+    Taking the limit of the difference quotient,
+    \begin{align*}
+      f'(a) &= \lim_{h\to 0} \frac{4a^3h + 6a^2h^2 + 4ah^3 + h^4 - 5h}{h} \\
+            &= \lim_{h\to 0} (4a^3 + 6a^2 h + 4ah^2 + h^3 - 5) \\
+            &= 4a^3 - 5
+    \end{align*}
+  \item We have
+    \begin{align*}
+      f(a+h) &= \frac{(a+h)^2 + 1}{a+h-2} = \frac{a^2+2ah+h^2+1}{a+h-2} \\
+      f(a) &= \frac{a^2+1}{a-2} \\
+      f(a+h)-f(a) &= \frac{a^2+2ah+h^2+1}{a+h-2} - \frac{a^2+1}{a-2} \\
+             &= \frac{(a^2+2ah+h^2+1)(a-2)-(a^2+1)(a+h-2)}{(a+h-2)(a-2)} \\
+             &= \frac{a^3 + 2a^2h + ah^2 + a - 2a^2-4ah-2h^2-2
+               - a^3 - a^2h + 2a^2 - h + 2}{(a+h-2)(a-2)} \\
+             &= \frac{a^2h + ah^2 - 4ah - 2h^2 - h}{(a+h-2)(a-2)}
+    \end{align*}
+    Taking the limit of the difference quotient,
+    \begin{align*}
+      f'(a) &= \lim_{h\to 0} \frac{a^2h+ah^2-4ah-2h^2-h}{h(a+h-2)(a-2)} \\
+            &= \lim_{h\to 0} \frac{a^2 + ah - 4a - 2h - 1}{(a+h-2)(a-2)} \\
+            &= \frac{a^2 - 4a - 1}{(a-2)^2}
+    \end{align*}
+  \item We have
+    \begin{align*}
+      f(a+h) &= \sqrt{3a + 3h + 1} \\
+      f(a) &= \sqrt{3a+1} \\
+      f(a+h)-f(a) &= \sqrt{3a + 3h + 1} - \sqrt{3a + 1}
+    \end{align*}
+    Taking the limit of the difference quotient and evaluating the
+    limit by multiplying by the conjugate radical,
+    \begin{align*}
+      f'(a) &= \lim_{h\to 0} \frac{\sqrt{3a+3h+1}-\sqrt{3a+1}}{h} \\
+            &= \lim_{h\to 0} \frac{\sqrt{3a+3h+1}-\sqrt{3a+1}}{h}
+       \times \frac{\sqrt{3a+3h+1}+\sqrt{3a+1}}{\sqrt{3a+3h+1}+\sqrt{3a+1}} \\
+     &= \lim_{h\to 0} \frac{(3a+3h+1)-(3a+1)}{h(\sqrt{3a+3h+1}+\sqrt{3a+1})} \\
+            &= \lim_{h\to 0} \frac{3h}{h(\sqrt{3a+3h+1}+\sqrt{3a+1})} \\
+            &= \lim_{h\to 0} \frac{3}{\sqrt{3a+3h+1}+\sqrt{3a+1}} \\
+            &= \frac{3}{2\sqrt{3a+1}}
+    \end{align*}
+  \end{enumerate}
+\item %7
+  We have
+  \begin{align*}
+    y(t+h) &= 5(t+h) - 4.9(t+h)^2 = 5t + 5h - 4.9t^2 - 9.8 th - 4.9
+             h^2 \\
+    y(t) &= 5t - 4.9 t^2 \\
+    y(t+h) - y(t) &= 5h - 9.8 th - 4.9 h^2 \\
+    \frac{y(t+y)-y(t)}{h} &= 5 - 9.8 t - 4.9 h \\
+    y' &= \lim_{h\to 0} \frac{y(t+h)-y(t)}{h} = \lim_{h\to 0}
+         (5-9.8t-4.9h) = 5-9.8t
+  \end{align*}
+  At $t=0.5$ seconds, $y'(0.5) = 5-9.8(0.5) = 5-4.9 = 0.1$ meters per
+  second.  Positive velocities are upward (and negative velocities
+  would be downward) in this problem.
+\item %8
+  We have to figure out how to represent some of the numbers in the
+  expressions differently.
+  \begin{enumerate}
+  \item Write $32=2^5$.  Then we have $f(x)=x^5$ and $a=2$.  Check.
+  \item Write $4=\sqrt{16}$.  Then we have $f(x)=\sqrt{x}$ and
+    $a=16$.  Check.
+  %\item Write $1=e^0$.  Then we have $f(x)=e^x$ and $a=0$.  Check.
+  \item Note that $\ds \sin \frac{\pi}{2} = 1$ so we can write the
+    expression as
+    \begin{displaymath}
+      \lim_{t\to\pi/2} \frac{\sin t - \sin(\pi/2)}{t-\pi/2}
+    \end{displaymath}
+    which is an alternate form for the derivative of $f(t)=\sin t$ at
+    $a=\pi/2$.
+    
+    Alternatively, you can convert the limit so it is a limit as
+    $h\to 0$.  Let $h=t-\pi/2$, in which case $t=h + \pi/2$.  We have
+    \begin{align*}
+      \lim_{t\to\pi/2} \frac{\sin t - 1}{t-\pi/2}
+      &= \lim_{h\to 0} \frac{\sin(h+\pi/2)-\sin(\pi/2)}{h}
+    \end{align*}
+    so we have $f(t)=\sin t$ and $a=\pi/2$.
+  \end{enumerate}
+\item %9
+  In business applications, the derivative is usually interpreted
+  as the ``marginal''.
+  \begin{enumerate}
+  \item The marginal cost is the cost of making one more widget after
+    you have made $x$ widgets.  It can be written as
+    \begin{equation*}
+      f(x+1) - f(x) = \frac{f(x+1)-f(x)}{1} = \frac{f(x+h)-f(x)}{h}
+    \end{equation*}
+    where $h=1$.  If you are making large numbers of widgets, $1$ is
+    considered close to $0$, so we have the approximation
+    \begin{equation*}
+      f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h} \approx
+      \frac{f(x+1)-f(x)}{1}
+    \end{equation*}
+    so the derivative is approximately equal to the marginal.  The
+    units are dollars per widget.
+  \item $f'(100)=12$ means the cost of making one more widget, after
+    you have already made 100 widgets, is 12 dollars.  (Usually the
+    first few widgets are very expensive because they carry the fixed
+    costs like renting factory space, etc.  After you get rolling, the
+    cost of one more widget just includes the materials and labour,
+    not the fixed costs.)
+  \item For small values of $x$, the marginal cost will decrease as
+    you make more widgets, because more of the fixed costs will be
+    absorbed into the previously made widgets.  For large values of
+    $x$ we may see an increase in the marginal cost because extra
+    manufacturing capacity will need to be added beyond a certain
+    level, and materials costs will increase because of the increasing
+    demand caused by your manufacturing.
+  \end{enumerate}
+\item %10
+  This question is hard.  When $x\ne 0$,
+  \begin{align*}
+    f(0+h) &= (0+h)^2 \cos \frac{1}{0+h}
+    \\
+    f(0) &= 0
+  \end{align*}
+  where we have used the first part of the definition of $f$ for
+  values $x=0+h$ away from $0$, and the second part of the definition
+  of $f$ for the value $x=0$.
+  \begin{align*}
+    \\
+    f(0+h) - f(0) &= h^2 \cos \frac{1}{h}
+    \\
+    \frac{f(0+h)-f(0)}{h} &= h \cos \frac{1}{h}
+    \\
+    f'(0) &= \lim_{h\to 0} \frac{f(0+h)-f(0)}{h}
+            = \lim_{h\to 0} h \cos \frac{1}{h}
+  \end{align*}
+  We have to be careful evaluating this limit.  We can't use the
+  product rule for limits because
+  \begin{equation*}
+    \lim_{h\to 0} \cos \frac{1}{h}
+  \end{equation*}
+  does not exist.  Instead we have to use the squeeze theorem.  Note
+  that $\cos$ is bounded between $-1$ and $1$:
+  \begin{equation*}
+    -1 \le \cos \frac{1}{h} \le 1
+  \end{equation*}
+  for any $h\ne 0$.  Assuming $h>0$, multiply by $h$ to obtain
+  \begin{equation*}
+    -h \le h \cos \frac{1}{h} \le h
+  \end{equation*}
+  Both $-h\to 0$ and $h\to 0$, squeezing the value in the middle, so
+  we can conclude that the one sided limit
+  \begin{equation*}
+    \lim_{h\to 0^+} h \cos \frac{1}{h} = 0
+  \end{equation*}
+  You should make a similar (but slightly different) argument to show
+  that $\lim_{h\to 0^-} h\cos (1/h) = 0$ also.  Since the one-sided
+  limits exist and are equal, we conclude that
+  \begin{equation*}
+    f'(0) = \lim_{h\to 0} h \cos \frac{1}{h} = 0
+  \end{equation*}
+\end{enumerate}
+\end{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MATH110-PS021-Solutions.tex ends here

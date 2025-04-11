@@ -1,0 +1,351 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+%\usepackage{graphicx}
+\usepackage{tikz}
+% \allowdisplaybreaks
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroTwoFive\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroTwoFive}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  \begin{enumerate}
+  \item We can write $g(x)=u^7$ where $u=5x+x^3$.  Differentiating, we have
+    \begin{align*}
+      \frac{dg}{du} &= 7u^6 \\
+      \frac{du}{dx} &= 5 + 3x^2
+    \end{align*}
+    so by the chain rule
+    \begin{equation*}
+      \frac{dg}{dx} = \frac{dg}{du}\cdot \frac{du}{dx}
+      = 7u^6 (5+3x^2) = 7(5x+x^3)^6 (5+3x^2)
+    \end{equation*}
+  % \item By the product rule,
+  %   \begin{equation*}
+  %     H'(t) = \left(\frac{d}{dt}t^2\right) e^{kt} +
+  %     t^2\left(\frac{d}{dt} e^{kt} \right)
+  %     = 2t e^{kt} + t^2 \frac{d}{dt} e^{kt}
+  %   \end{equation*}
+  %   Now we apply the chain rule to $\ds e^{kt}$.  Let $u=kt$; then
+  %   \begin{equation*}
+  %     \frac{d}{dt} e^{kt} = \frac{d}{du} e^u \cdot \frac{d}{dt} (kt)
+  %     = e^u \cdot k = k e^{kt}
+  %   \end{equation*}
+  %   Putting it all together,
+  %   \begin{equation*}
+  %     H'(t) = 2t e^{kt} + kt^2 e^{kt}
+  %   \end{equation*}
+  \item %1b
+    By the product rule,
+    \begin{equation*}
+      H'(t) = \left(\frac{d}{dt}t^2\right) \cos kt +
+      t^2\left(\frac{d}{dt} \cos kt \right)
+      = 2t \cos kt + t^2 \frac{d}{dt} \cos kt
+    \end{equation*}
+    Now we apply the chain rule to $\ds \cos kt$.  Let $u=kt$; then
+    \begin{equation*}
+      \frac{d}{dt} \cos kt = \frac{d}{du} \cos u \cdot \frac{d}{dt} (kt)
+      = -\sin u \cdot k = -k \sin kt
+    \end{equation*}
+    Putting it all together,
+    \begin{equation*}
+      H'(t) = 2t \cos kt - k t^2 \sin kt
+    \end{equation*}    
+  \item %1c
+    By the product rule,
+    \begin{equation*}
+      \frac{d}{dz} (1+2z)^{10} (3-2z)^8
+      = \left(\frac{d}{dz} (1+2z)^{10} \right) (3-2z)^8
+      + (1+2z)^{10} \left(\frac{d}{dz} (3-2z)^8 \right)
+    \end{equation*}
+    By the chain rule applied twice,
+    \begin{multline*}
+      \frac{d}{dz} (1+2z)^{10} (3-2z)^8
+      = 10(1+2z)^9 \left(\frac{d}{dz} (1+2z) \right) (3-2z)^8
+      + (1+2z)^{10} \cdot 8(3-2z)^7 \left(\frac{d}{dz} (3-2z) \right)
+      \\
+      = 10 (1+2z)^9 (2) (3-2z)^8 + (1+2z)^{10} (8) (3-2z)^7 (-2)
+    \end{multline*}
+    Further simplification is possible but is not necessary at this time.
+  \item First we write $W(t)$ in terms of powers:
+    \begin{equation*}
+      W(t) = \left( \frac{t}{t^2+4} \right)^{1/2}
+    \end{equation*}
+    By the chain rule,
+    \begin{equation*}
+      W'(t) = \frac{1}{2} \left( \frac{t}{t^2+4} \right)^{-1/2} 
+      \cdot \frac{d}{dt} \frac{t}{t^2+4}
+    \end{equation*}
+    By the quotient rule,
+    \begin{equation*}
+      W'(t) = \frac{1}{2} \left( \frac{t}{t^2+4} \right)^{-1/2} 
+      \cdot \frac{\left(\frac{d}{dt} t\right) (t^2+4) - t
+        \left(\frac{d}{dt} (t^2+4) \right)}{(t^2+4)^2}
+      = \frac{1}{2} \left( \frac{t}{t^2+4} \right)^{-1/2} 
+      \cdot \frac{(t^2+4)-t(2t)}{(t^2+4)^2}
+    \end{equation*}
+  \end{enumerate}
+% \item %2
+%   % EJD: fix question: x=2
+%   (The question should have read ``at the point $(2,2/e^2)$ on the curve''.)
+%   By the product rule then the chain rule,
+%   \begin{equation*}
+%     y'(x) = \left( \frac{d}{dx} x\right) e^{-x} + x \left(\frac{d}{dx}
+%     e^{-x} \right)
+%     = e^{-x} + x e^{-x} \frac{d}{dx} (-x) = e^{-x} - x e^{-x}
+%   \end{equation*}
+%   Evaluating at $x=2$,
+%   \begin{equation*}
+%     y'(2) = e^{-2} - 2 e^{-2} = -e^{-2}
+%   \end{equation*}
+%   which is the slope of the tangent line where $x=2$.  Therefore an
+%   equation of the tangent line is
+%   \begin{equation*}
+%     y-y_0 = m(x-x_0) \implies y-\frac{2}{e^2} = -e^{-2} (x-2)
+%   \end{equation*}
+%   The slope of the normal line is the negative reciprocal of the slope
+%   of the tangent line, i.e., 
+%   \begin{equation*}
+%     m = -\frac{1}{-e^{-2}} = e^2
+%   \end{equation*}
+%   so an equation of the normal line is
+%   \begin{equation*}
+%     y-y_0 = m(x-x_0) = y - \frac{2}{e^2} = e^2 (x-2)
+%   \end{equation*}
+\item %2
+  %EJD should have used y(x) = x\cos(3x-\pi)? Maybe not
+  By the product rule
+  \begin{equation*}
+    y'(x) = \left(\frac{d}{dx} x\right) \sin(3x-\pi) + x \left(\frac{d}{dx} \sin(3x-\pi) \right)
+    = \sin(3x-\pi) + x \left(\frac{d}{dx} \sin(3x-\pi)\right)
+  \end{equation*}
+  By the chain rule
+  \begin{equation*}
+    \frac{d}{dx} \sin(3x-\pi) = \sin'(3x-\pi) \cdot \frac{d}{dx}(3x-\pi)
+    = \cos(3x-\pi) \cdot (3) = 3 \cos (3x-\pi)
+  \end{equation*}
+  Putting it all together,
+  \begin{equation*}
+    y'(x) = \sin(3x-\pi) + 3x \cos (3x-\pi)
+  \end{equation*}
+  Evaluating at $x=\pi/2$,
+  \begin{equation*}
+    y'(\pi/2) = \sin\left(\frac{3\pi}{2} - \pi\right) + \frac{3\pi}{2} \cos\left(\frac{3\pi}{2}-\pi\right)
+    = \sin(\pi/2) + \frac{3\pi}{2} \cos(\pi/2) = 1 + \frac{3\pi}{2} (0) = 1
+  \end{equation*}
+  which is the slope of the tangent line.  The slope of the normal
+  line is the negative reciprocal $-1/1=-1$.  The equation of the
+  tangent line is
+  \begin{equation*}
+    y - \frac{\pi}{2} = 1 \left(x - \frac{\pi}{2}\right) \implies y = x
+  \end{equation*}
+  and the equation of the normal line is
+  \begin{equation*}
+    y - \frac{\pi}{2} = -1 \left(x - \frac{\pi}{2}\right)
+    \implies y = -x + \pi
+  \end{equation*}
+  % EJD: graph
+\item %3
+  The first derivative is found by applying the product rule then the
+  chain rule:
+  \begin{equation*}
+    y' = \left(\frac{d}{dx} x^2 \right) \cos 3x + x^2
+    \left(\frac{d}{dx} \cos 3x \right)
+    = 2x \cos 3x + x^2 (-\sin 3x) \frac{d}{dx} (3x) = 2x\cos 3x -
+    3x^2\sin 3x
+  \end{equation*}
+  The second derivative is found by taking the derivative of each term
+  of the first derivative:
+  \begin{equation*}
+    y'' = 2\cos 3x + 2x\cdot (-3\sin 3x) - 6x \sin 3x - 3x^2 \cdot
+    3\cos 3x = (2-9x^2)\cos 3x -12x\sin 3x
+  \end{equation*}
+\item %4 
+  % The derivative is 
+  % \begin{equation*}
+  %   y' = e^{-x} + x e^{-x} (-1) = (1-x) e^{-x}
+  % \end{equation*}
+  % The tangent is horizontal where $y'=0$, i.e., where
+  % \begin{equation*}
+  %   y'=0 \implies (1-x) e^{-x} = 0 \implies \mbox{$1-x=0$ or
+  %     $e^{-x}=0$} \implies \mbox{$x=1$}
+  % \end{equation*}
+  % (Recall that $e^{-x}=0$ has no solutions because the graph of
+  % $e^{-x}$ never crosses the $x$-axis.)
+  % So the only $x$-value at which the graph is horizontal is $x=1$.
+  The derivative is
+  \begin{equation*}
+    y' = 2\cos x + 2\sin x \cos x
+  \end{equation*}
+  To find horizontal tangents we must solve $y'=0$, which we do by
+  factoring:
+  \begin{align*}
+    2\cos x + 2\sin x \cos x &= 0
+    \\
+    2\cos x(1 + \sin x) &= 0
+  \end{align*}
+  The equation is true if and only if $\cos x =0$ or $1+\sin x = 0$,
+  i.e., if $x=\pi/2 + k\pi$, $k=0,\pm 1, \pm 2, \ldots$ or
+  $x=3\pi/2+2k\pi$, $k=0,\pm 1, \pm 2, \ldots$.
+  % EJD: graph
+\item %5
+  By the chain rule, we have
+  \begin{equation*}
+    F'(x) = f'(g(x)) \cdot g'(x)
+  \end{equation*}
+  Evaluating the derivative at $x=2$ and substituting the values we know,
+  \begin{equation*}
+    F'(2) = f'(g(2)) \cdot g'(2) = f'(-1) \cdot 5 = 4 \cdot 5 = 20
+  \end{equation*}
+\item %6
+  By the product rule we have
+  \begin{equation*}
+    \frac{d}{dx} f(x) = \frac{d}{dx} (x g(x^2)) = \left(\frac{d}{dx}
+    x\right) g(x^2) + x \left(\frac{d}{dx} g(x^2) \right) 
+    = g(x^2) + x \left(\frac{d}{dx} g(x^2) \right) 
+  \end{equation*}
+  By the chain rule we have
+  \begin{equation*}
+    \frac{d}{dx} f(x) = g(x^2) + x g'(x^2) \cdot 2x = g(x^2) + 2x^2
+    g'(x^2) 
+  \end{equation*}
+  Taking the second derivative,
+  \begin{multline*}
+    \frac{d^2}{dx^2} f(x) 
+    = \frac{d}{dx} \left( g(x^2) + 2x^2 g'(x^2) \right) 
+    \\
+    = \frac{d}{dx} g(x^2) + \left( \frac{d}{dx} 2x^2\right) g'(x^2) 
+    + 2x^2 \left( \frac{d}{dx} g'(x^2) \right)
+    \\
+    = 2xg'(x^2) + 4x g'(x^2) + 2x^2 g''(x^2) (2x) 
+    = 6x g'(x^2) + 4x^3 g''(x^2) 
+  \end{multline*}
+\item %7
+  % Differentiating by the product and chain rules,
+  % \begin{equation*}
+  %   y' = 2A e^{2x} + B e^{2x} + 2Bx e^{2x} = (2A+B) e^{2x} + 2Bxe^{2x}
+  % \end{equation*}
+  % Differentiating again,
+  % \begin{equation*}
+  %   y'' = 2(2A+B) e^{2x} + 2B e^{2x} + 4Bx e^{2x} = (4A+4B)e^{2x} +
+  %   4Bx e^{2x} 
+  % \end{equation*}
+  % So we have
+  % \begin{align*}
+  %   y''-4y'+4y 
+  %   &= (4A+4B) e^{2x} + 4Bx e^{2x} 
+  %   - 4\left((2A+B)e^{2x} + 2Bx e^{2x}\right) 
+  %   + 4\left( Ae^{2x} + Bxe^{2x}\right)
+  %   \\
+  %   &= (4A+4B) e^{2x} + 4Bx e^{2x} - (8A+4B) e^{2x} 
+  %   - 8Bx e^{2x} + 4A e^{2x} + 4Bx e^{2x} 
+  %   \\
+  %   &= (4A+4B-8A-4B+4A) e^{2x} + (4B - 8B + 4B) xe^{2x} = 0
+  % \end{align*}
+  Differentiating by the product and chain rules,
+  \begin{align*}
+    y' &= 2A \cos 2t - 2B \sin 2t
+  \end{align*}
+  Differentiating again,
+  \begin{align*}
+    y'' &= -4A \cos 2t - 4B \sin 2t
+  \end{align*}
+  So we have
+  \begin{align*}
+    y'' + 4y &= -4A \cos 2t - 4B \sin 2t + 4(A\sin 2t + B\cos 2t)
+    \\
+             &= -4A \cos 2t - 4B \sin 2t + 4A \sin 2t + 4B \cos 2t
+    \\
+             &= 0
+  \end{align*}
+\item %8
+  We take a few derivatives and look for a pattern.  By the chain rule
+  we have
+  \begin{align*}
+    y &= 2\cos 2x \\
+    y' &= -2\sin 2x \\
+    y'' &= -2^2 \cos 2x \\
+    y^{(3)} &= 2^3 \sin 2x \\
+    y^{(4)} &= 2^4 \cos 2x
+  \end{align*}
+  Note that the coefficient in $y^{(n)}$ is $2^n$.  Also, note that
+  the functions are $\cos$, $-\sin$, $-\cos$, $\sin$, repeating in a
+  cycle of 4.  So the 23rd derivative should have the same function as
+  the 19th, 15th, 11th, 7th, and 3rd derivatives.  Therefore we should
+  have 
+  \begin{equation*}
+    y^{(23)} = 2^{23} \sin 2x
+  \end{equation*}
+\item %9 
+  % EJD: probably should only go to 2 digits
+  We have
+  \begin{equation*}
+    L'(t) = 4.25 \cos \left[ \frac{2\pi}{365} (t-80) \right] \cdot
+    \frac{d}{dt} \frac{2\pi}{365} (t-80) = \frac{8.5\pi}{365} \cos
+    \left[\frac{2\pi}{365} (t-80)\right]
+  \end{equation*}
+  Now we need to figure out the $t$ values for the various dates
+  given.  On April 1, the number of days already past (in a non-leap
+  year) is $31 + 28 + 31 = 90$, so April 1 is $t=91$.  On June 21, we
+  have $t= 31 + 28 + 31 + 30 + 31 + 21 = 172$.  On December 1, we have 
+  $t=365 - 31 + 1 = 335$.  So on April 1 we have
+  \begin{equation*}
+    L'(91) = \frac{8.5\pi}{365} \cos \left[ \frac{2\pi}{365}
+      (91-80)\right] = 0.072
+  \end{equation*}
+  i.e., the number of hours of daylight is increasing by 0.072 hours
+  per day; on June 21 we have 
+  \begin{equation*}
+    L'(172) = \frac{8.5\pi}{365} \cos \left[ \frac{2\pi}{365}
+      (172-80)\right]
+    = -0.001
+  \end{equation*}
+  i.e., the length of the day is changing hardly at all, and on
+  December 1 we have
+  \begin{equation*}
+    L'(335) = \frac{8.5\pi}{365} \cos \left[ \frac{2\pi}{365}
+      (335-80)\right]
+    = -0.023
+  \end{equation*}
+  i.e., the amount of daylight is decreasing by about 0.023 hours per day.
+  % EJD: graph?
+  When do you think the amount of daylight is changing the fastest?
+  When is it hardly changing at all?
+\item %10
+  \begin{enumerate}
+  \item We have a semicircle is $\pi$ radians or $180$ degrees, so if
+    an angle measures $\theta$ radians it must measure
+    \begin{equation*}
+      t = \frac{180}{\pi} \theta
+    \end{equation*}
+    degrees.  (Try a few values for $\theta$ to convince yourself that
+    that is correct.)
+  \item It follows from the above that 
+    \begin{equation*}
+      \cos^{\circ} t = \cos\theta = \cos \frac{\pi}{180} t
+    \end{equation*}
+  \item Taking a derivative of the above by the chain rule we have
+    \begin{equation*}
+      \frac{d}{dt} \cos^{\circ} t 
+      = \frac{d}{dt} \cos \frac{\pi}{180} t
+      = -\frac{\pi}{180} \sin \frac{\pi}{180}t = -\frac{\pi}{180}
+      \sin^{\circ} t
+    \end{equation*}
+    Note the extra factor of $\pi/180$ in comparison with the
+    derivative of the trig functions in radians.  Higher derivatives
+    would include higher powers of that factor, which would be
+    somewhat inconvenient.
+  \end{enumerate}
+\end{enumerate}
+\end{document}
+
+

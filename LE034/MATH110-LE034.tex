@@ -1,0 +1,361 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroThreeFour}
+\subtitle{\commonSubtitleZeroThreeFour}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroThreeFour}
+
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Limits at Infinity; Horizontal Asymptotes}
+
+\subsection{Horizontal Asymptotes}
+
+\begin{frame}
+  \frametitle{Large Scale Behaviour of a Function}
+  \begin{itemize}[<+->]
+  \item We have studied how to graph a function
+    by concentrating on its interesting features, which can
+    all be found in some limited domain $[a,b]$.
+  \item However, sometimes we are more interested in the large
+    scale behaviour of a function.
+  \item Consider $\ds C(t)=\frac{30t}{200+t}$
+    which models the concentration of salt in a tank of water after
+    $t$ minutes (see 3.4.60).
+  \item We are likely most interested in what happens to $C(t)$ over the
+    long term because the short term behaviour is quickly changing
+    and we expect the concentration to settle down to
+    its long term behaviour after a moderate period of time.
+  \item Knowledge of the long term behaviour (also called \textit{end
+    behaviour}) of a function completes the picture and provides a kind
+    of a frame within which we can get a more accurate graph.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Graph of $C(t)=30t(200+t)^{-1}$}
+  \begin{columns}
+  \column{0.5\textwidth}
+  \begin{itemize}[<+->]
+  \item Let's graph $C(t)$.
+  \item $\ds C'(t)=6000(200+t)^{-2}$, 
+    $\ds C''(t)=-12000(200+t)^{-3}$
+  \item Increasing wherever defined.
+  \item $C''$ undef at $-200$. 
+    \uncover<+->{}
+    \uncover<+->{Concave up on $(-\infty,-200)$,
+    Concave down on $(-200,\infty)$.}
+  \item Vertical asymptote $x=-200$ useful information.
+    \uncover<+->{}\uncover<+->{}
+  \item If we could predict the horizontal asymptote $y=30$, $C$ would
+    be easier to graph.
+  \end{itemize}
+  \column{0.5\textwidth}
+  \only<1-2>{\includegraphics[width=\textwidth]{Coft.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{Coft0.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{Coft1.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{Coft2.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{Coft3.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{Coft4.eps}}%
+  \only<8>{\includegraphics[width=\textwidth]{Coft5.eps}}%
+  \only<9>{\includegraphics[width=\textwidth]{Coft6.eps}}%
+  \only<10>{\includegraphics[width=\textwidth]{Coft7.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Graph of $f(x)=(x^2-1)(x^2+1)^{-1}$}
+  \begin{itemize}[<+->]
+  \item $\ds f'(x)=\frac{4x}{(x^2+1)^{2}}$, 
+    $\ds f''(x) = \frac{-12(x+1/\sqrt{3})(x-1/\sqrt{3})}{(x^2+1)^{3}}$
+  \item Critical point at $x=0$; decreasing for $x<0$; increasing for $x>0$;
+    \uncover<+->{critical point at $x=0$ is a minimum by first derivative test.}
+  \item $f''$ roots at $\pm 1/\sqrt{3}$;
+    \uncover<+->{}%
+    \uncover<+->{concave down on $(-\infty,-1/\sqrt{3})$ 
+    and $(1/\sqrt{3},\infty)$;
+    Concave up on $(-1/\sqrt{3},1/\sqrt{3})$.}
+  \item Concavity changes at 
+    $\pm 1/\sqrt{3}$ so they are inflection points.
+    \uncover<+->{}\uncover<+->{}\uncover<+->{}
+  \item \uncover<+->{Note the large-scale 
+    ``frame'' on the graph provided by $y=1$.}%
+  \end{itemize}
+  \only<1>{\includegraphics[width=\textwidth]{fofx.eps}}%
+  \only<2>{\includegraphics[width=\textwidth]{fofx0.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{fofx1.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{fofx2.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{fofx3.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{fofx4.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{fofx5.eps}}%
+  \only<8>{\includegraphics[width=\textwidth]{fofx6a.eps}}%
+  \only<9>{\includegraphics[width=\textwidth]{fofx6b.eps}}%
+  \only<10>{\includegraphics[width=\textwidth]{fofx6c.eps}}%
+  \only<11>{\includegraphics[width=\textwidth]{fofx6.eps}}%
+  \only<12>{\includegraphics[width=\textwidth]{fofx7.eps}}%
+  % EJD : diagrams
+\end{frame}
+
+
+\subsection{Limits at Infinity}
+
+\begin{frame}
+  \frametitle{Limits at Infinity and Horizontal Asymptotes}
+  \begin{itemize}[<+->]
+  \item We can find horizontal asymptotes by calculating
+    limits at infinity.
+  \item \textbf{Definition:} Let $f$ be a function defined on 
+    some interval $(a,\infty)$.  Then $\ds \lim_{x\to\infty} f(x)=L$
+    means that the values of $f(x)$ can be made as close to $L$ as
+    we like by taking $x$ sufficiently large.
+  \end{itemize}
+  \uncover<+->{\includegraphics[width=0.3\textwidth]{ha0.eps}}%
+  \quad
+  \uncover<+->{\includegraphics[width=0.3\textwidth]{ha1.eps}}%
+  \quad
+  \uncover<+->{\includegraphics[width=0.3\textwidth]{ha2.eps}}%
+\end{frame}
+
+\begin{frame}
+  \frametitle{Limits at Infinity and Horizontal Asymptotes, ctd}
+  \uncover<+->{\includegraphics[width=0.3\textwidth]{ha3.eps}}%
+  \quad
+  \uncover<+->{\includegraphics[width=0.3\textwidth]{ha4.eps}}%
+  \quad
+  \uncover<+->{\includegraphics[width=0.3\textwidth]{ha5.eps}}%
+  \begin{itemize}[<+->]
+  \item \textbf{Definition:} Let $f$ be a function defined on
+    some interval $(-\infty,b)$.  Then $\ds \lim_{x\to -\infty} f(x)=L$
+    means that the values of $f(x)$ can be made as close to $L$ as
+    we like by taking $x$ sufficiently large negative.
+  % EJD : diagrams
+  \item \textbf{Definition:} The line $y=L$ is called a \textbf{horizontal
+    asymptote} of the curve $y=f(x)$ if either
+    $\ds \lim_{x\to\infty} f(x)=L$ or $\ds \lim_{x\to -\infty} f(x)=L$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Limits at Infinity for Rational Functions}
+  \begin{itemize}[<+->]
+  \item Note that $\ds \lim_{x\to\infty} \frac{1}{x^r} = 0$ for any
+    $r>0$. 
+  \item For example, $\lim_{x\to\infty} \frac{1}{x} = 0$, $\lim_{x\to\infty}
+    \frac{1}{x^2} = 0$, $\lim_{x\to\infty} \frac{1}{x^{1/2}} = 0$, etc.
+  \item Similarly, $\ds\lim_{x\to -\infty} \frac{1}{x^r} = 0$ for any
+    $r>0$.
+  \item We can use those results to find 
+    $\lim_{x\to \pm\infty} \frac{p(x)}{q(x)}$ for any rational function.
+    The process is to divide through by the highest power of $x$ that appears
+    in the denominator then apply limit laws.
+  \item For example, in $C(x)=30x/(200+x)$, the highest power of $x$ in the
+    denominator is $x^1$ so
+    \begin{align*}
+      \lim_{x\to\infty} C(x) 
+      &=\lim_{x\to\infty} \frac{30x}{200+x}
+      \uncover<+->{=\lim_{x\to\infty} \frac{30x \cdot \frac{1}{x}}{(200+x)\cdot \frac{1}{x}} }%
+      \uncover<+->{= \lim_{x\to\infty} \frac{30}{\frac{200}{x}+1} }%
+      \\
+      \uncover<+->{&= \frac{\lim_{x\to\infty}30}{\lim_{x\to\infty}\frac{200}{x}+1}}%
+      \uncover<+->{= \frac{30}{0+1} = 30}%
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Limits at Infinity for Rational/Root Functions}
+  \begin{itemize}[<+->]
+  \item The same idea works for some functions with roots.
+  \item Consider the function 
+    $\ds f(x)=\sqrt{x^4+1}/(5x^2+3x+2)$
+  \item The highest power of $x$ that appears in the denominator is
+    $x^2$.
+  \item \textbf{Note:} $\sqrt{x^4+1} \ne \sqrt{x^4} + \sqrt{1}$
+  \item To calculate the limit,
+    \begin{align*}
+      &\lim_{x\to\infty} \frac{\sqrt{x^4+1}}{5x^2+3x+2}
+      = \lim_{x\to\infty} 
+        \frac{\sqrt{x^4+1} \frac{1}{x^2}}{(5x^2+3x+2)\frac{1}{x^2}}
+      \uncover<+->{= \lim_{x\to\infty}
+        \frac{\sqrt{x^4+1} \sqrt{\frac{1}{x^4}}}{5+\frac{3}{x}+\frac{2}{x^2}}}%
+      \\
+      \uncover<+->{&= \lim_{x\to\infty}
+        \frac{\sqrt{(x^4+1)\frac{1}{x^4}}}{5+\frac{3}{x}+\frac{2}{x^2}}}%
+      \uncover<+->{= \lim_{x\to\infty} 
+        \frac{\sqrt{1+\frac{1}{x^4}}}{1+\frac{3}{x}+\frac{2}{x^2}}}%
+      \uncover<+->{= \frac{\sqrt{1+\lim_{x\to\infty}\frac{1}{x^4}}}{5+\lim_{x\to\infty}\frac{3}{x} + \lim_{x\to\infty}\frac{2}{x^2}} }%
+      \\
+      \uncover<+->{&= \frac{\sqrt{1+0}}{5+0+0}= \frac{1}{5}}%
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Limits at Infinity for $\sqrt{ax^2+b}-cx$}
+  \begin{itemize}[<+->]
+  \item The usual trick for handling limits of the form $\lim_{x\to\infty}
+    \sqrt{ax^2+b}-cx$
+    is to multiply by the conjugate radical.
+  \item Consider $f(x)=\sqrt{4x^2+3x}-2x$.
+  \item Multiplying by the conjugate radical,
+    \begin{align*}
+      f(x)
+      =\frac{\sqrt{4x^2+3x}-2x}{1} \cdot 
+      \frac{\sqrt{4x^2+3x}+2x}{\sqrt{4x^2+3x}+2x}
+      \uncover<+->{= \frac{3x}{\sqrt{4x^2+3x}+2x}}%
+    \end{align*}
+  \item The limit has been reduced to the situation of the previous slide.
+  \item The highest power of $x$ in the denominator is $x^1$.  (We count the
+    $x^2$ under the square root sign as $x^1$.)  We have
+    \begin{align*}
+      \lim_{x\to\infty} \frac{3x}{\sqrt{4x^2+3x}+2x}
+      \uncover<+->{= \lim_{x\to\infty} 
+        \frac{\frac{3x}{x}}{\sqrt{\frac{4x^2}{x^2}+\frac{3x}{x^2}}+\frac{2x}{x}}
+      }%
+      \uncover<+->{= \frac{3}{\sqrt{4+0}+2}}%
+      \uncover<+->{= \frac{3}{4}}%
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Squeeze Theorem for Limits at Infinity}
+  \begin{columns}
+  \column{0.6\textwidth}
+  \begin{itemize}[<+->]
+  \item The Squeeze Theorem also applies to limits at infinity.
+  \item Consider $\ds f(x)=\frac{\sin x}{x}$.
+  \item We have $\ds -1\le \sin x\le 1$, so 
+    $\ds -1/x \le (\sin x)/x \le 1/x$ for $x$ positive.
+  \item We have $\ds \lim_{x\to\infty} -\frac{1}{x} = 0$ and
+    $\ds \lim_{x\to\infty} \frac{1}{x} = 0$.
+  \item Therefore by the Squeeze Theorem, $\ds\lim_{x\to\infty} \frac{\sin x}{x}    = 0$.
+  \item Similarly, you can show $\ds \lim_{x\to -\infty} \frac{\sin x}{x} = 0$.
+    (Try it!)
+  \end{itemize}
+  \column{0.4\textwidth}
+  \only<2>{\includegraphics[width=\textwidth]{sinc0.eps}}%
+  \only<3-4>{\includegraphics[width=\textwidth]{sinc1.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{sinc2.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{sinc3.eps}}%
+  \end{columns}
+\end{frame}
+
+
+\subsection{Infinite Limits at Infinity}
+
+\begin{frame}
+  \frametitle{Infinite Limits at Infinity}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Instead of tending to a finite value $L$, some
+    functions $f(x)$ grow without bound as $x$ grows.
+  \item We use one of the following notations:
+    \begin{align*}
+      \lim_{x\to\infty} f(x) = \infty
+      \qquad
+      \uncover<+->{\lim_{x\to\infty} f(x) = -\infty}%
+      \\
+      \uncover<+->{\lim_{x\to -\infty} f(x) = \infty}%
+      \qquad
+      \uncover<+->{\lim_{x\to -\infty} f(x) = -\infty}%
+    \end{align*}
+  \item For example, $\ds\lim_{x\to\infty} x^3 = \infty$
+  \item Also $\ds\lim_{x\to -\infty} x^3 = -\infty$.
+  \item Also, $\ds\lim_{x\to\infty} x^3-x = \lim_{x\to\infty} x(x^2-1)
+    = \infty$ because both multiplicands tend to $\infty$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<6>{\includegraphics[width=0.9\textwidth]{cubic0.eps}}%
+  \only<7>{\includegraphics[width=0.9\textwidth]{cubic1.eps}}%
+  \only<8>{\includegraphics[width=0.9\textwidth]{cubic2.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Infinite Limits at Infinity for Rational Functions}
+  \begin{itemize}[<+->]
+  \item If the degree of the numerator of a rational function $f(x)$
+    exceeds the degree of the denominator, the limit at infinity of
+    $f(x)$ is $\pm\infty$.
+  \item The limit can be calculated by dividing through by the highest
+    power of $x$ in the denominator, as usual.
+  \item Consider $\ds\lim_{x\to\infty} \frac{-3x^2+2}{5x-4}$.
+  \item The highest power of $x$ in the denominator is $x^1$.  We have
+    \begin{align*}
+      \lim_{x\to\infty} \frac{-3x^2+2}{5x-4}
+      = \lim_{x\to\infty} 
+        \frac{(-3x^2+2)\cdot\frac{1}{x}}{(5x-4)\cdot\frac{1}{x}}
+      \uncover<+->{= \lim_{x\to\infty} \frac{-3x+\frac{2}{x}}{5-\frac{4}{x}}}%
+    \end{align*}
+  \item The numerator of the expression tends to $-\infty$, the denominator
+    to the finite value $1$, so the result is $-\infty$.
+  \end{itemize}
+\end{frame}
+
+
+\section{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Find the following limits at infinity.
+    \begin{enumerate}
+    \item $\ds \lim_{x\to\infty} \frac{3x^4+x-5}{6x^4-2x^2+1}$
+    \item $\ds \lim_{x\to-\infty} \frac{\sqrt{4x^2+1}}{3x-1}$
+    \item $\ds \lim_{x\to-\infty} (x^2+x^3)$
+    \item $\ds \lim_{x\to-\infty} \left(\sqrt{4x^2+3x}-2x\right)$
+    \item $\ds \lim_{x\to\infty} \frac{\sin^4 x}{\sqrt{x}}$
+    \end{enumerate}
+  \item Sketch a graph of $\ds y=\frac{1-x}{1+x}$ illustrating
+    intervals of increase/decrease, extrema, concavity, inflection points,
+    and horizontal and vertical asymptotes.
+  \item The same for $\ds y=\frac{\sqrt{2x^2+1}}{3x-5}$.
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~3.4.  After you have finished it,
+  you should try the following additional exercises from Section~3.4:
+  \begin{itemize}
+  \item[3.4] 
+    C-level: 1--40, 44--46, 48--51, 57--60; \\
+    B-level: 41--43, 47, 52--56, 61--64; \\
+    A-level: 65--74
+  \end{itemize}
+  % EJD: check precise definitions
+  % We will not be studying the ``Precise Definitions'' subsection
+  % at the end of section 3.4.
+\end{frame}
+
+
+\end{document}
+

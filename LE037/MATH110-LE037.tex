@@ -1,0 +1,359 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroThreeSeven}
+\subtitle{\commonSubtitleZeroThreeSeven}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroThreeSeven}
+
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Optimization Problems}
+
+\subsection{Steps in Solving Optimization Problems}
+
+\begin{frame}
+  \frametitle{Steps in Solving Optimization Problems}
+  \begin{itemize}[<+->]
+  \item Optimization problems are word problems in which your goal is
+    to maximize or minimize some quantity: time, cost, profit, etc.
+  \item Steps required to solve such problems typically include:
+    \begin{enumerate}[<+->]
+    \item \textbf{Understand the problem.}  You will need to read carefully and
+      understand the statement of the problem before you can solve it.  You
+      may have to return to this step repeatedly as you move through the other
+      steps.
+    \item \textbf{Draw a diagram.}  Essential for geometry-related problems.
+    \item \textbf{Introduce notation.}  Sometimes it is given, usually you
+      need to introduce it yourself.
+    \item \textbf{Find a formula for $Q$, the quantity to be maximized.}
+    \item \textbf{Find formulas for constraints.}  Use them to reduce $Q$
+      to a function of one variable.
+    \item \textbf{Use the methods of 3.1, 3.3, 3.4 to find the 
+      \textit{absolute} maximum or minimum of $Q$.}  Check end behaviour!
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Skills Required}
+  \begin{itemize}[<+->]
+  \item In nearly every problem, four major steps are required:
+    \begin{enumerate}[<+->]
+    \item Analysis: Go from words to formulas for objective $Q$ 
+      and constraint(s) $C$.
+    \item Algebra: Eliminate dependent variables in $Q$ by solving $C$.
+    \item Calculus: Find the absolute maximum or minimum value of $Q$.
+    \item Interpretation: Re-read the question and answer it in words.
+    \end{enumerate}
+  \item The skills required in each case are different:
+    \begin{enumerate}[<+->]
+    \item Analysis: understanding, 
+       visualization, and conversion of words to symbols.
+    \item Algebra: algebraic manipulations.
+    \item Calculus: essentially the same skills as for curve sketching.
+    \item Interpretation: understanding and conversion of symbols to words.
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Advice}
+  \begin{itemize}[<+->]
+  \item Optimization problems are some of the most useful applications
+    of calculus we will study.
+  \item Optimization problems are difficult because they test a wide 
+    spectrum of skills and abilities.
+  \item With optimization problems, as with all word problems,
+    lots of practice is necessary to build skill.
+  \item The problems we will look at divide into categories (dealing with
+    numbers, geometry with rectangles, geometry with circles and rectangles,
+    three dimensional geometry with boxes, trigonometry, etc.)
+  \item Once you have done a few problems in each category, you will be able
+    to solve others in that category more quickly.
+  \item Start with easier problems to build skill and then 
+    work through as many of the harder problems as you can.
+  \end{itemize}
+\end{frame}
+
+\subsection{Examples from Algebra}
+
+\begin{frame}
+  \frametitle{Sum is Constraint, Product is Objective}
+  \begin{itemize}[<+->]
+  \item Find two numbers, the sum of which is 23 and the product of which
+    is maximum.
+  \item We want two numbers, so let's call them $x$ and $y$.
+  \item The sum of the two numbers is 23, so $x+y=23$.  That is the 
+    constraint in the problem.
+  \item The product should be a maximum, so our objective is to maximize
+    $Q=xy$.
+  \item We use the constraint to eliminate one of the variables, e.g.,
+    $y=23-x$ so we can write $Q(x)=xy=x(23-x)$.
+  \item To maximize $Q$, we consider $Q'(x)=23-2x$.  The max will occur
+    where $Q'(x)=0$, or where $Q'(x)$ doesn't exist (but it always
+    exists), or at an endpoint
+    of the domain (there is no endpoint).  Solving $Q'(x)=0$ we have
+    $23-2x=0$ or $x=23/2$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sum is Constraint, Product is Objective, ctd.}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item We have found $Q(x)=xy=x(23-x)$ has a critical point at $x=23/2$.
+  \item We need to check that $Q(x)$ has a \textbf{maximum} at $x=23/2$.
+  \item $Q'(x)>0$ for $x<23/2$,
+    and $Q'(x)<0$ for $x>23/2$, so $Q(x)$ increases to $x=23/2$ 
+    then decreases.
+  \item By the first derivative test, $Q$ has an absolute maximum at
+    $x=23/2$.
+  \item Now we can answer the problem: The two numbers which add to 
+    $23$ and have the largest possible product are $x=23/2$ and $y=23-x
+    =23/2$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2->{\includegraphics[width=\textwidth]{s23pmax.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sum is Objective, Product is Constraint}
+  \begin{itemize}[<+->]
+  \item Find two positive numbers, the product of which is 100 and the
+    sum of which is minimum.
+  \item Again, let our two numbers be $x$ and $y$.
+  \item We have the constraint $xy=100$.
+  \item We have the objective to minimize $Q=x+y$.
+  \item We also have the constraint that $x$ and $y$ must be positive;
+    in symbols, $x>0$ and $y>0$.
+  \item Eliminating the variable $y=100/x$, we reduce the problem to
+    minimizing $Q(x)=x+y=x+100/x$, $x>0$.  Note that the domain of $Q$ 
+    is not the whole real line, only the half line $(0,\infty)$.
+  \item The derivative is $Q'(x)=1-100/x^2$, with critical points
+    where $Q'(x)=0$, $1-100/x^2=0$, $x=\pm 10$.
+  \item We throw away $x=-10$ because it is outside of the domain of $Q$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sum is Objective, Product is Constraint, ctd.}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Once again, we need to check that we have an absolute minimum
+    at $x=10$.
+  \item We have $Q'(x)=1-100/x^2 <0$ for $x<10$, and $Q'(x)>0$ for $x>10$.
+  \item So $Q(x)$ decreases to $x=10$ and then increases.
+  \item By the First Derivative Test, $Q$ has an absolute minimum
+    at $x=10$.
+  \item The answer to the question is: the two numbers, the product of which 
+    is 100 and the sum of which is a minimum, are $x=10$ and $y=100/x=10$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2->{\includegraphics[width=\textwidth]{sminp100.eps}}%
+  \end{columns}
+\end{frame}
+
+
+\subsection{Examples from Geometry and Physics}
+
+\begin{frame}
+  \frametitle{Plane Geometry}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Find a rectangle with perimeter 100 m for which the area is 
+    a maximum.
+  \item To understand this problem better, we should draw a picture.
+  \item We introduce labels for quantities.
+  \item We use the geometry of the diagram to label the other sides.
+  \item Geometry tells us that the area is
+    $A=xy$ and the perimeter is $P=x+y+x+y=2x+2y$.
+  \item Our constraint is $P=100$, i.e., $x+y=50$.
+  \item Our objective is to maximize $A=xy$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2>{\includegraphics[width=\textwidth]{area0.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{area1.eps}}%
+  \only<4->{\includegraphics[width=\textwidth]{area2.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Analytic Geometry}
+  \begin{columns}
+  \column{0.85\textwidth}
+  \begin{itemize}[<+->]
+  \item Find the point on the line $y=4x+7$ that is closest to the origin.
+  \item Again, we draw a diagram, including both the line and the origin.
+  \item We introduce a variable $x$ to describe a point on the line.  Then
+    the coordinates of the point on the line are $(x,4x+7)$.
+  \item We try to imagine how we might find the point that is closest to
+    the origin as $x$ moves.  We need a formula for the length of the
+    line segment connecting $(0,0)$ and $(x,4x+7)$.
+  \end{itemize}
+  \column{0.15\textwidth}
+  \only<2>{\includegraphics[width=\textwidth]{line0.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{line1.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{line2.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{line3.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{line4.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{line5.eps}}%
+  \only<8>{\includegraphics[width=\textwidth]{line6.eps}}%
+  \only<9>{\includegraphics[width=\textwidth]{line7.eps}}%
+  \only<10>{\includegraphics[width=\textwidth]{line8.eps}}%
+  \only<11>{\includegraphics[width=\textwidth]{line9.eps}}%
+  \end{columns}
+  % EJD : size, wobbly diagrams
+\end{frame}
+
+\begin{frame}
+  \frametitle{Analytic Geometry, ctd}
+  \begin{columns}
+  \column{0.85\textwidth}
+  \begin{itemize}[<+->]
+  \item Recall that the distance between the two points $(0,0)$ and
+    $(x,4x+7)$ is $d(x)=\sqrt{x^2+(4x+7)^2}$ by the Pythagorean theorem.
+  \item The usual trick in these problems is to minimize the function 
+    $D(x)=(d(x))^2$.  Then we don't have to worry about square roots.
+  \item We have $D(x)=x^2+(4x+7)^2=17x^2+56x+49$.
+  \item $D'(x)=34x+56$.
+  \item $D'(x)=0$ implies $x=-56/34=-28/17$.
+  \item The first derivative test tells us there's an absolute min
+    at $x=-28/17$.
+  \item The point on the line that is closest
+    to the origin is $(x,y)=(-28/17,4(-28/17)+7)$.
+  \end{itemize}
+  \column{0.15\textwidth}
+  \only<1>{\includegraphics[width=\textwidth]{line0a.eps}}%
+  \only<2-4>{\includegraphics[width=\textwidth]{line0a.eps}}%
+  \only<5->{\includegraphics[width=\textwidth]{line0b.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solid Geometry}
+  \begin{itemize}[<+->]
+  \item If $1200$ cm$^2$ of material is available to make a box with
+    a square base and an open top, find the largest possible volume of
+    the box.
+  \end{itemize}
+  % EJD : incomplete
+\end{frame}
+
+\begin{frame}
+  \frametitle{Physics}
+  \begin{itemize}[<+->]
+  \item A boat leaves a dock at 2 pm and travels south at a speed of 
+    20 km/h.  Another boat has been heading east at 15km/h and reaches
+    the dock at 3pm.  At what time were the boats closest together?
+  \end{itemize}
+  % EJD : incomplete
+\end{frame}
+
+
+\subsection{Examples from Business and Economics}
+
+\begin{frame}
+  \frametitle{Optimizing Revenue}
+  \begin{itemize}[<+->]
+  \item The demand function $p(x)$ is the price per unit that a company 
+    can charge if it wants to sell $x$ units.
+  \item The revenue function at sales level $x$ is $R(x)=x\cdot p(x)$.
+  \item A baseball team plays in a stadium that holds $55,000$ spectators.
+    With ticket prices at \$10, the average attendance had been $27,000$.
+    When ticket prices were lowered to \$8, the average attendance rose
+    to $33,000$.
+    \begin{enumerate}[<+->]
+    \item Find the demand function, assuming that it is linear.
+    \item How should ticket prices be set to maximize revenue?
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Optimizing Profit}
+  \begin{itemize}[<+->]
+  \item Profit is revenue minus cost at sales level $x$, i.e.,
+    $P(x)=x\cdot p(x) - C(x)$.
+  \item A manufacturer has been selling $1000$ television sets per
+    week at \$450 each.  A market survey indicates that for each \$10
+    rebate offered to the buyer, the number of sets sold will increase
+    by $100$ per week.
+    \begin{enumerate}[<+->]
+    \item Find the demand function.
+    \item How large a rebate should the company offer to maximize its
+      revenue?
+    \item If its weekly cost function is $C(x)=68,000+150x$, how should
+      the manufacturer set the size of the rebate in order to maximize
+      its profit?
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+
+\section{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item A farmer wants to fence an area $1.5$ million square feet in 
+    rectangular field and then divide it in half with a fence parallel
+    to one of the sides.  How can he do this so as to minimize the cost of
+    the fence?
+  \item Find the points on the ellipse $4x^2+y^2=4$ that are farthest
+    away from the point $(0,1)$.
+  \item A right circular cylinder is inscribed in a sphere of radius $r$.
+    Find the largest possible volume of such a cylinder.
+  \item The illumination of an object by a light source is directly
+    proportional to the strength of the source and inversely proportional
+    to the square of the distance from the source.  If two light sources,
+    one three times as strong as the other, are placed $10$ ft apart,
+    where should the object be placed on the line between the sources so
+    as to receive the least illumination?
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~3.7.  After you have finished it,
+  you should try the following additional exercises from Section~3.7:
+  \begin{itemize}
+  \item[3.7]
+    C-level: 1--64; \\
+    B-level: 65--67, 69--70; \\
+    A-level: 71--80
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

@@ -1,0 +1,404 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+%\documentclass[serif,ignorenonframetext]{beamer}
+\documentclass[ignorenonframetext]{beamer}
+%\documentclass{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+%\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroTwoFour}
+\subtitle{\commonSubtitleZeroTwoFour}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroTwoFour}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Derivatives of Trigonometric Functions}
+
+\begin{frame}
+  \frametitle{Strategy for Finding Derivatives of Trig Functions}
+  \begin{itemize}[<+->]
+  \item In this course we will be studying the following trigonometric
+    functions:
+    \begin{align*}
+      \sin \quad &\cos \quad \tan \\
+      \csc \quad &\sec \quad \cot
+    \end{align*}
+  \item We would like to be able to differentiate those functions.
+  \item The strategy we will employ is to reduce everything to $\sin$ and
+    $\cos$.
+  \item We still need to differentiate those functions.  In order to do so,
+    we will have to use the definition of the derivative in terms of limits.
+  \item That means we will need to be able to calculate limits of $\sin$
+    and $\cos$, which is the problem to which we now turn.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{The Basic Trig Limits}
+
+\begin{frame}
+  \frametitle{The Basic Trig Limits}
+  \begin{itemize}[<+->]
+  \item We have already seen two basic trig limits in connection with
+    our study of the continuity of $\sin$ and $\cos$:
+    \begin{displaymath}
+      \lim_{h\to 0} \sin h = 0
+      \quad\mbox{and}\quad
+      \lim_{h\to 0} \cos h = 1
+    \end{displaymath}
+  \item If we are going to calculate $\sin'(0)$, we'll need a new trig
+    limit.
+  \item By the definition of derivative,
+    \begin{displaymath}
+      \sin'(0) = \lim_{h\to 0} \frac{\sin(0+h)-\sin(0)}{h}
+      = \lim_{h\to 0} \frac{\sin h}{h}
+    \end{displaymath}
+  \item So we need the latter limit.  Recall
+    that $\sin x \approx x$ (in radians), so we expect
+    \begin{displaymath}
+      \lim_{h\to 0} \frac{\sin h}{h} = 1
+    \end{displaymath}
+  \item All of our results for trig functions
+    will follow from those limits.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Big Idea Behind the Proof of a Basic Trig Limit}
+  \begin{columns}
+  \column{0.6\textwidth}
+  \only<1>{Consider the diagram on the right.}%
+  \only<2-6>{We calculate the lengths of various lines in the 
+    diagram in terms of the angle $x$.}%
+  \only<7-9>{Now consider the areas of various regions in the diagram.}
+  \only<10-12>{It should be clear from the diagram that
+    \begin{displaymath}
+      \operatorname{area}(A)
+      \le \operatorname{area}(B)
+      \le \operatorname{area}(C)
+    \end{displaymath}
+  }%
+  \only<13>{Now we calculate the various areas.
+    \begin{displaymath}
+      \operatorname{area}(A)
+      \le \operatorname{area}(B)
+      \le \operatorname{area}(C)
+    \end{displaymath}
+  }%
+  \only<14>{Now we calculate the various areas.
+    \begin{displaymath}
+      \frac{1}{2} \sin x \cos x
+      \le \operatorname{area}(B)
+      \le \operatorname{area}(C)
+    \end{displaymath}
+  }%
+  \only<15>{Now we calculate the various areas.
+    \begin{displaymath}
+      \frac{1}{2} \sin x \cos x
+      \le \frac{1}{2} x 
+      \le \operatorname{area}(C)
+    \end{displaymath}
+  }%
+  \only<16>{Now we calculate the various areas.
+    \begin{displaymath}
+      \frac{1}{2} \sin x \cos x
+      \le \frac{1}{2} x 
+      \le \frac{1}{2} \tan x
+    \end{displaymath}
+  }%
+  \only<17>{Now we calculate the various areas.
+    \begin{displaymath}
+      \frac{1}{2} \sin x \cos x
+      \le \frac{1}{2} x 
+      \le \frac{1}{2} \frac{\sin x}{\cos x}
+    \end{displaymath}
+  }%
+  \only<18>{Simplifying,
+    \begin{displaymath}
+      \frac{1}{2} \sin x \cos x
+      \le \frac{1}{2} x 
+      \le \frac{1}{2} \frac{\sin x}{\cos x}
+    \end{displaymath}
+  }%
+  \only<19>{Simplifying,
+    \begin{displaymath}
+      \sin x \cos x
+      \le x 
+      \le \frac{\sin x}{\cos x}
+    \end{displaymath}
+  }%
+  \only<20>{Simplifying,
+    \begin{displaymath}
+      \cos x
+      \le \frac{x}{\sin x}
+      \le \frac{1}{\cos x}
+    \end{displaymath}
+  }%
+  \only<21>{Taking limits,
+    \begin{displaymath}
+      \lim_{x\to 0} \cos x
+      \le \lim_{x\to 0} \frac{x}{\sin x}
+      \le \lim_{x\to 0} \frac{1}{\cos x}
+    \end{displaymath}
+  }%
+  \only<22>{Applying the squeeze theorem,
+    \begin{displaymath}
+      1
+      \le \lim_{x\to 0} \frac{x}{\sin x}
+      \le 1
+    \end{displaymath}
+  }%
+  \column{0.4\textwidth}
+  \only<1>{\includegraphics[width=\textwidth]{circ0.eps}}%
+  \only<2>{\includegraphics[width=\textwidth]{circ0a.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{circ0b.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{circ0c.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{circ0d.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{circ0e.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{circ1.eps}}%
+  \only<8>{\includegraphics[width=\textwidth]{circ2.eps}}%
+  \only<9>{\includegraphics[width=\textwidth]{circ3.eps}}%
+  \only<10>{\includegraphics[width=\textwidth]{circ1.eps}}%
+  \only<11>{\includegraphics[width=\textwidth]{circ2.eps}}%
+  \only<12>{\includegraphics[width=\textwidth]{circ3.eps}}%
+  \only<13-14>{\includegraphics[width=\textwidth]{circ1.eps}}%
+  \only<15>{\includegraphics[width=\textwidth]{circ2.eps}}%
+  \only<16->{\includegraphics[width=\textwidth]{circ3.eps}}%
+  \end{columns}
+\end{frame}
+
+
+\subsection{Other Trig Limits}
+
+\begin{frame}
+  \frametitle{The Limit $\ds \lim_{h\to 0} \frac{\tan h}{h}$}
+  \begin{itemize}[<+->]
+  \item The basic trig limits
+    \begin{displaymath}
+      \lim_{h\to 0} \sin h = 0
+      \qquad
+      \lim_{h\to 0} \cos h = 1
+      \qquad
+      \lim_{h\to 0} \frac{\sin h}{h} = 1
+    \end{displaymath}
+    allow us to compute more complicated limits of trig functions.
+  \item For example,
+    \begin{displaymath}
+      \lim_{h\to 0} \frac{\tan h}{h}
+      \uncover<+->{= \lim_{h\to 0} \frac{\sin h}{h} \frac{1}{\cos h}}%
+      \uncover<+->{= \lim_{h\to 0} \frac{\sin h}{h} \lim_{h\to 0} \frac{1}{\cos h}}%
+      \uncover<+->{= 1 \cdot \frac{1}{1} = 1}%
+    \end{displaymath}
+  \item In general, we try to use algebra to rearrange expressions so that
+    the basic trig limits appear.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Limit $\ds \lim_{h\to 0} \frac{\sin 2h}{\tan h}$}
+  \begin{itemize}[<+->]
+  \item Sometimes we have to be clever about rearranging expressions to
+    calculate trig limits.
+  \item For example,
+    \begin{displaymath}
+      \lim_{h\to 0} \frac{\sin 2h}{\tan h}
+      \uncover<+->{= \lim_{h\to 0} \frac{\sin 2h}{2h} \cdot \frac{2h}{h}
+        \cdot \frac{h}{\tan h}}%
+      \uncover<+->{= \lim_{h\to 0} \frac{\sin 2h}{2h} \cdot 2 \cdot
+        \frac{1}{\ds \lim_{h\to 0} \frac{\tan h}{h}}}%
+      \uncover<+->{= 2}%
+    \end{displaymath}
+  \item In general, we want to divide and multiply by the arguments of
+    any $\sin$ functions that appear.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Limit $\ds \lim_{h\to 0} \frac{\cos h - 1}{h}$}
+  \begin{itemize}[<+->]
+  \item Another important limit for which we have to be clever is
+    \begin{align*}
+      \lim_{h\to 0} \frac{\cos h - 1}{h}
+      \uncover<+->{&= \lim_{h\to 0} \frac{\cos h - 1}{h} \cdot \frac{\cos h + 1}{\cos h + 1} \\}%
+      \uncover<+->{&= \lim_{h\to 0} \frac{\cos^2 h -1}{h} \cdot \frac{1}{\cos h + 1} \\}%
+      \uncover<+->{&= \lim_{h\to 0} \frac{-\sin^2 h}{h} \cdot \frac{1}{\cos h + 1} \\}%
+      \uncover<+->{&= -\lim_{h\to 0} \frac{\sin h}{h} \cdot \frac{\sin h}{\cos h + 1} \\}%
+      \uncover<+->{&= -\lim_{h\to 0} \frac{\sin h}{h} \cdot \lim_{h\to 0} \frac{\sin h}{\cos h + 1} }%
+      \uncover<+->{= -1 \cdot \frac{0}{1+1} = 0}%
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Derivatives of Trig Functions}
+
+\begin{frame}
+  \frametitle{The Derivatives of $\sin$ and $\cos$}
+  \begin{itemize}[<+->]
+  \item We have learned the basic trig limit 
+    $\ds \lim_{h\to 0} \frac{\sin h}{h} = 1$,
+    which essentially expresses the fact that $\sin'(0)=1$:
+    \begin{align*}
+      \uncover<+->{\sin'(0)}%
+      \uncover<+->{=\lim_{h\to 0} \frac{\sin(0+h)-\sin 0}{h}}%
+      \uncover<+->{=\lim_{h\to 0} \frac{\sin h}{h}}%
+      \uncover<+->{=1}%
+    \end{align*}
+  \item We would like to find the derivative of $\sin$ at other numbers $x$.
+  \item For that we will need the angle addition formula
+    \begin{align*}
+      \sin(x+h) 
+      \uncover<+->{= \sin x \cos h + \cos x \sin h}%
+    \end{align*}
+  \item Now we have
+    \begin{align*}
+      \sin'(x)
+      \uncover<+->{= \lim_{h\to 0} \frac{\sin(x+h)-\sin x}{h}}%
+      \uncover<+->{= \lim_{h\to 0} \frac{\sin x \cos h + \cos x \sin h -\sin x}{h}}%
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Derivatives of $\sin$ and $\cos$, continued}
+  \begin{itemize}[<+->]
+  \item Applying the difference and constant multiple limit laws
+    ($\sin x$ and $\cos x$ are considered constants inside this calculation),
+    \begin{align*}
+      \sin'(x)
+      \uncover<+->{&= \lim_{h\to 0} \frac{\sin x (\cos h - 1)}{h} + \frac{\cos x \sin h}{h} \\}%
+      \uncover<+->{&= \sin x \cdot \lim_{h\to 0} \frac{\cos h - 1}{h} + \cos x \cdot \lim_{h\to 0} \frac{\sin h}{h} \\}%
+      \uncover<+->{&= \sin x \cdot 0 + \cos x \cdot 1 \\}%
+      \uncover<+->{&= \cos x}%
+    \end{align*}
+  \item In summary, $\sin' x = \cos x$.
+  \item An analogous argument gives $\cos' x = -\sin x$.  Try it!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A Word on Radian Measure}
+  \begin{itemize}[<+->]
+  \item The basic trig limit $\ds\lim_{h\to 0} \frac{\sin h}{h}$, and 
+    everthing that follows it, depends on using \textbf{radian measure}
+    for angles.
+  \item We use radian measure because it is more natural in the math
+    setting than other angle units.
+  \item The basic trig limit in degree measure is
+    \begin{align*}
+      \lim_{h\to 0} \frac{\operatorname{sindeg} h}{h}
+      \uncover<+->{= \lim_{h\to 0} 
+        \frac{\ds \sin \frac{\pi}{180} h}{h} }%
+      \uncover<+->{= \lim_{h\to 0} 
+        \frac{\ds \sin \frac{\pi}{180} h}{\ds \frac{\pi}{180} h}
+        \cdot \frac{\pi}{180}}%
+      \uncover<+->{= \frac{\pi}{180}}%
+    \end{align*}
+  \item That crazy factor of $\pi/180$ will screw up every other calculus 
+    formula involving trig functions.  
+  \item For another example, try differentiating $\operatorname{sindeg}$.
+    We'll take another look at that in section 3.5.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Derivatives of $\tan$ and $\sec$}
+  \begin{itemize}[<+->]
+  \item The derivatives of other trig functions can now be found by
+    writing them in terms of $\sin$ and $\cos$ and applying the
+    quotient rule.
+  \item For example,
+    \begin{align*}
+      \frac{d}{dx} \tan x
+      \uncover<+->{= \frac{d}{dx} \frac{\sin x}{\cos x}}%
+      \uncover<+->{&= \frac{\cos x \sin' x - \sin x \cos' x}{\cos^2 x}\\}%
+      \uncover<+->{&= \frac{\cos x \cos x + \sin x \sin x}{\cos^2 x}}%
+      \uncover<+->{= \frac{1}{\cos^2 x}}%
+      \uncover<+->{= \sec^2 x}%
+    \end{align*}
+  \item The answer can be expressed in numerous ways depending on
+    which trig identities are applied.  
+  \item The derivative of $\sec x$ is similar:
+    \begin{align*}
+      \frac{d}{dx} \sec x
+      \uncover<+->{= \frac{d}{dx} \frac{1}{\cos x}}%
+      \uncover<+->{= \frac{\cos x \cdot 0 - 1(-\sin x)}{\cos^2 x}}%
+      \uncover<+->{= \frac{\sin x}{\cos^2 x}}%
+      \uncover<+->{= \sec x \tan x}%
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Table of Trig Derivatives}
+  The traditional formulas for the derivatives of the basic
+  trig functions are as follows:
+  \begin{center}
+    \begin{tabular}{|l|l|}
+      \hline
+      \uncover<1->{$\sin' x = \cos x$}   
+      & \uncover<5->{$\csc' x = -\csc x \cot x$} \\
+      \hline
+      \uncover<1->{$\cos' x = -\sin x$}
+      & \uncover<4->{$\sec' x = \sec x \tan x$} \\
+      \hline
+      \uncover<2->{$\tan' x = \sec^2 x$}
+      & \uncover<5->{$\cot' x = -\csc^2 x$}\\
+      \hline
+    \end{tabular}
+  \end{center}
+  You should memorize that table as well as you can.
+\end{frame}
+
+
+\subsection{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Find the limit $\ds\lim_{\theta\to 0} \frac{\cos\theta -1}{\sin\theta}$.
+  \item Find the derivative of $\ds y=\frac{\sec x}{1+\tan x}$.
+  \item Find equations of the tangent and normal lines to 
+    $\ds y=\sec x$ at the point $(\pi/3,2)$.
+  \item Find the numbers $x$ at which the tangent to the
+    curve $y=\sin x + \cos x$ is horizontal.
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~2.4.  After you have finished it,
+  you should try the following additional exercises from Section~2.4:
+  \begin{itemize}
+  \item[2.4] 
+    C-level: 1--16, 21--24, 25--26, 27--30, 33--34, 39--50; \\
+    B-level: 17--20, 31, 32, 35--38; \\
+    A-level: 51--52, 53--58
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[aux]{rerunfilecheck}
+
+\input{../common.tex}
+
+\newcommand{\ds}{\displaystyle}
+
+\title{\commonPSTitleZeroOneFour\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroOneFour}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  \begin{enumerate}
+  \item We can answer this question with the following table, in which
+    the interval $I$ has endpoints $t_0$ and $t_1$.  For example,
+    when the time interval $I$ is $[1,1.1]$ we have $t_0=1$ and $t_1=1.1$.
+    \begin{center}
+      \begin{tabular}{|l|r|l|l|l|l|}
+        \hline
+        \multicolumn{1}{|c|}{$I$}        
+	           & \multicolumn{1}{|c|}{$s(t_1)$}
+		              & \multicolumn{1}{|c|}{$s(t_0)$} 
+			                 & \multicolumn{1}{|c|}{$\Delta s$} 
+					       & \multicolumn{1}{c}{$\Delta t$}
+					          & \multicolumn{1}{|c|}{$V$} \\
+	\hline\hline
+	$[1,2]$    & 12.5600  & 8.14     & 4.42       & 1          & 4.42  \\
+	\hline
+	$[1,1.5]$  & 10.8150  & 8.14     & 2.675      & 0.5        & 5.35  \\
+	\hline
+	$[1,1.1]$  &  8.7494  & 8.14     & 0.6094     & 0.1        & 6.094 \\
+	\hline
+	$[1,1.01]$ &  8.2026  & 8.14     & 0.0626     & 0.01       & 6.261 \\
+	\hline
+	$[1,1.001]$ & 8.1463  & 8.14     & 0.006278   & 0.001      & 6.278 \\
+	\hline
+      \end{tabular}
+    \end{center}
+  \item Based on the above table, we might estimate that the instantaneous
+    velocity of the ball is something like $6.28$ m/s when $t=1$.
+  \end{enumerate}
+\item This is similar to the previous question, with $t$ replaced by $x$,
+  $s$ replaced by $y$, and the average velocity replaced with the slope
+  of the secant line, i.e.,
+  \begin{equation*}
+    m  = \frac{\Delta y}{\Delta x} = \frac{y(x)-y(3)}{x-3}
+  \end{equation*}
+  \begin{enumerate}
+  \item We have the following table of values.
+    \begin{center}
+      \begin{tabular}{|l|l|l|r|r|r|}
+        \hline
+        \multicolumn{1}{|c|}{$x$}     
+	        & \multicolumn{1}{|c|}{$y(x)$}
+		         & \multicolumn{1}{|c|}{$y(3)$} 
+			          & \multicolumn{1}{|c|}{$\Delta y$} 
+				             & \multicolumn{1}{|c|}{$\Delta x$} 
+					         & \multicolumn{1}{|c|}{$m$}  \\
+	\hline\hline
+	$3.1$   & 1.0488 & 1      & 0.0488     & 0.100      & 0.4880 \\
+	\hline
+	$3.01$  & 1.0050 & 1      & 0.0050     & 0.010      & 0.4988 \\
+	\hline
+	$3.001$ & 1.0005 & 1      & 0.0005     & 0.001      & 0.4999 \\
+	\hline
+	$2.999$ & 0.9995 & 1      &-0.0005     &-0.001      & 0.5001 \\
+	\hline
+	$2.99$  & 0.9950 & 1      &-0.0050     &-0.010      & 0.5013 \\
+	\hline
+	$2.9$   & 0.9487 & 1      &-0.0513     &-0.100      & 0.5132 \\
+	\hline
+      \end{tabular}
+    \end{center}
+  \item Based on the table, a reasonable guess for the slope of the tangent
+    line would be $0.5000$.  We'll learn later that that is the 
+    correct answer.
+  \end{enumerate}
+\end{enumerate}
+\end{document}
+

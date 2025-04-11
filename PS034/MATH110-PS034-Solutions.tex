@@ -1,0 +1,636 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{pgfplots}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroThreeFour\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroThreeFour}
+
+\allowdisplaybreaks
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  We draw the asymptote lines as a frame
+  (Figure~\ref{fig:asymptotes}(a)), and then sketch any function that
+  is consistent with the asymptotes (Figure~\ref{fig:asymptotes}(b)).
+  There are many, many possible correct answers.
+  \begin{figure}[htbp]
+    \centering
+    $\begin{array}{c@{\hspace{0.5in}}c}
+    \begin{tikzpicture}[scale=0.35]
+      \draw[gray,very thin] (-5,-10) grid (15,10);
+      \draw[->] (-5,0)--(15,0);
+      \draw[->] (0,-10)--(0,10);
+      \draw[color=blue,dashed] (0,1)--(-5,1);
+      \draw[color=blue,dashed] (0,-3)--(15,-3);
+      \draw[color=blue,dashed] (4,-10)--(4,10);
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=0.35]
+      \draw[gray,very thin] (-5,-10) grid (15,10);
+      \draw[->] (-5,0)--(15,0);
+      \draw[->] (0,-10)--(0,10);
+      \draw[color=blue,dashed] (0,1)--(-5,1);
+      \draw[color=blue,dashed] (0,-3)--(15,-3);
+      \draw[color=blue,dashed] (4,-10)--(4,10);
+      \draw[color=red,domain=-5:3.9090909,samples=200] plot(\x,{1+1/(\x-4)});
+      % 1+1/(x-4)=-10 -> 1/(x-4)=-11 -> x-4=-1/11 -> x=4-1/11 -> x=3.9090...
+      \draw[color=red,domain=4:15,samples=200] plot(\x,{-3+5/(\x-3)});
+      % -3 + a/(4-3) = 2 -> a=5
+    \end{tikzpicture}
+    \\
+    \mbox{(a) Asymptotes as Frame}
+    &
+    \mbox{(b) Graph Consistent with (a)}
+    \end{array}$
+    \caption{Asymptotes and Example of Graph Consistent with Asymptotes}
+    \label{fig:asymptotes}
+  \end{figure}
+\item %2
+  We first divide through by the highest power of $x$ in the
+  denominator, namely $x^2$, to obtain
+  \begin{displaymath}
+    \lim_{x\to\infty} \frac{3x^2-8x+2}{x^2+6x-5}
+    = \lim_{x\to\infty} \frac{3-\frac{8}{x}+\frac{2}{x^2}}{
+      1+\frac{6}{x}-\frac{5}{x^2}}
+  \end{displaymath}
+  As $x\to\infty$, terms $8/x$, $2/x^2$, etc., tend to $0$ so we have
+  \begin{displaymath}
+    \lim_{x\to\infty} \frac{3x^2-8x+2}{x^2+6x-5}
+    = \lim_{x\to\infty} \frac{3-\frac{8}{x}+\frac{2}{x^2}}{
+      1+\frac{6}{x}-\frac{5}{x^2}}
+    = \frac{3-0+0}{1+0-0} = 3
+  \end{displaymath}
+\item %3
+  \begin{enumerate}
+  \item %3a
+    The highest power of $t$ in the denominator is $t^3$.  Dividing through,
+    \begin{equation*}
+      \lim_{t\to -\infty} \frac{t^2+2}{t^3+t^2-1}
+      = \lim_{t\to -\infty} \frac{(1/t)+(2/t^3)}{1+(1/t)-(1/t^3)}
+      = \frac{0+0}{1+0-0}
+      = 0
+    \end{equation*}
+  \item %3b
+    As usual, we divide through by the highest power of $x$ in the denominator.
+    The highest power appears to be $x^2$, but since the $x^2$ is under a
+    square root sign we use $\sqrt{x^2}$ instead:
+    \begin{equation*}
+      \lim_{x\to\infty} \frac{x+2}{\sqrt{9x^2+1}}
+      = \lim_{x\to\infty} \frac{1+2/x}{\sqrt{9x^2+1}/x}
+      = \lim_{x\to\infty} \frac{1+2/x}{\sqrt{(9x^2+1)/x^2}}
+      = \lim_{x\to\infty} \frac{1+2/x}{\sqrt{9+1/x^2}}
+      = \frac{1+0}{\sqrt{9+0}}
+      = \frac{1}{3}
+    \end{equation*}
+  \item %3c
+    The highest power of $x$ in the denominator is $x^3$.  We divide through
+    by $x^3$:
+    \begin{equation*}
+      \lim_{x\to -\infty} \frac{\sqrt{9x^6-x}}{x^3+1}
+      = \lim_{x\to -\infty} \frac{(9x^6-x)^{1/2}\cdot (1/x^3)}{1+(1/x^3)}
+    \end{equation*}
+    We need to bring $1/x^3$ into the square root.  We would like to write
+    \begin{equation*}
+      \frac{1}{x^3} = \left(\frac{1}{x^6}\right)^{1/2}
+    \end{equation*}
+    but in this case that is not quite correct.  Since $x\to -\infty$, we
+    can assume that $x^3$ is negative, so $1/x^3$ is negative, but 
+    $(1/x^6)^{1/2}$ is positive, so its sign is wrong.  Instead we must write
+    \begin{equation*}
+      \frac{1}{x^3} = -\left(\frac{1}{x^6}\right)^{1/2}
+    \end{equation*}
+    so our limit becomes
+    \begin{multline*}
+      \lim_{x\to -\infty} \frac{(9x^6-x)^{1/2}\cdot (1/x^3)}{1+(1/x^3)}
+      = \lim_{x\to -\infty} \frac{(9x^6-x)^{1/2}\cdot -(1/x^6)^{1/2}}{1+(1/x^3)}
+      \\
+      = \lim_{x\to -\infty} \frac{-(9-1/x^5)^{1/2}}{1+(1/x^3)}
+      = \frac{-(9-0)^{1/2}}{1+0} = -3
+    \end{multline*}
+    The correct answer is negative, not positive.
+    % EJD: diagram
+  \item %3d
+    We know how to take infinite limits of fractions, so we try to convert
+    the expression into a fraction.  Multiply and divide by the conjugate
+    radical:
+    \begin{multline*}
+      \lim_{x\to -\infty} \left(x+\sqrt{x^2+2x}\right)
+      = \lim_{x\to -\infty} \frac{\left(x+\sqrt{x^2+2x}\right)
+        \left(x-\sqrt{x^2+2x}\right)}{x-\sqrt{x^2+2x}}
+      \\
+      = \lim_{x\to -\infty} \frac{x^2-(x^2+2x)}{x-\sqrt{x^2+2x}}
+      = \lim_{x\to -\infty} \frac{-2x}{x-\sqrt{x^2+2x}}
+    \end{multline*}
+    Now divide through by the highest power of $x$ in the denominator.
+    The $x^2$ in the denominator is under a square root sign so we think
+    of it as $(x^2)^{1/2}\approx x$ so we divide through by $x$:
+    \begin{equation*}
+      \lim_{x\to -\infty} \frac{-2x}{x-\sqrt{x^2+2x}}
+      = \lim_{x\to -\infty} \frac{-2}{1-\sqrt{x^2+2x}/x}
+    \end{equation*}
+    It is tempting to just write $x=\sqrt{x^2}$ to move it under the
+    square root sign, but as with the previous problem, $x$ is negative
+    while $\sqrt{x^2}$ is positive so we really have $x=-\sqrt{x^2}$ and
+    we write
+    \begin{multline*}
+      \lim_{x\to -\infty} \frac{-2}{1-\sqrt{x^2+2x}/x}
+      = \lim_{x\to -\infty} \frac{-2}{1+\sqrt{x^2+2x}/\sqrt{x^2}}
+      = \lim_{x\to -\infty} \frac{-2}{1+\sqrt{(x^2+2x)/x^2}}
+      \\
+      = \lim_{x\to -\infty} \frac{-2}{1+\sqrt{1+2/x}}
+      = \frac{-2}{1+\sqrt{1+0}}
+      = -1
+    \end{multline*}
+    As with the previous problem, if you are not careful with this one you
+    will get it wrong, in this case with
+    a negative sign in front of the square root in the denominator
+    which will lead to an infinite answer which is completely incorrect.
+  \end{enumerate}
+\item %4
+  \begin{enumerate}
+  \item %4a
+    The horizontal asymptotes are found by evaluating
+    \begin{displaymath}
+      \lim_{x\to -\infty} \frac{3x-1}{x+2}
+      = \lim_{x\to -\infty} \frac{3-\frac{1}{x}}{1+\frac{2}{x}}
+      = 3, \qquad
+      \lim_{x\to \infty} \frac{3x-1}{x+2}
+      = \lim_{x\to \infty} \frac{3-\frac{1}{x}}{1+\frac{2}{x}}
+      = 3
+    \end{displaymath}
+    giving $y=3$ as the only horizontal asymptote.  Candidates for the
+    vertical asymptotes of a rational function are the roots of the
+    denominator: $x+2=0 \implies x=-2$.  We check by evaluating the limits
+    \begin{displaymath}
+      \lim_{x\to -2^-} \frac{3x+1}{x+2} = \frac{7}{-0} = -\infty,
+      \qquad
+      \lim_{x\to -2^+} \frac{3x+1}{x+2} = \frac{7}{+0} = +\infty
+    \end{displaymath}
+    which shows that $x=-2$ is a vertical asymptote.  See
+    Figure~\ref{fig:3asy}(a).
+  \item %4b
+    The horizontal asymptotes are found by evaluating
+    \begin{displaymath}
+      \lim_{x\to -\infty} \frac{x^2+x-6}{x^2-3x+2}
+      = \lim_{x\to -\infty} \frac{1+\frac{1}{x}-\frac{6}{x^2}}{
+        1 - \frac{3}{x} + \frac{2}{x^2}}
+      = \frac{1+0-0}{1-0+0} = 1
+    \end{displaymath}
+    and
+    \begin{displaymath}
+      \lim_{x\to \infty} \frac{x^2+x-6}{x^2-3x+2}
+      = \lim_{x\to \infty} \frac{1+\frac{1}{x}-\frac{6}{x^2}}{
+        1 - \frac{3}{x} + \frac{2}{x^2}}
+      = \frac{1+0-0}{1-0+0} = 1
+    \end{displaymath}
+    which give the only horizontal asymptote $y=1$.  The candidates
+    for vertical asymptotes are $x$ values where the denominator of
+    the rational function is zero: $x^2-3x+2=0 \implies (x-1)(x-2)=0$
+    which gives candidates $x=1$, $x=2$.  To check whether they are
+    actual vertical asymptotes we must evaluate the following limits:
+    \begin{align*}
+      \lim_{x\to 1^-} \frac{x^2+x-6}{x^2-3x+2}
+      &= \lim_{x\to 1^-} \frac{(x+3)(x-2)}{(x-1)(x-2)}
+        = \lim_{x\to 1^-} \frac{x+3}{x-1} = \frac{4}{-0} = -\infty \\
+      \lim_{x\to 1^+} \frac{x^2+x-6}{x^2-3x+2}
+      &= \lim_{x\to 1^+} \frac{(x+3)(x-2)}{(x-1)(x-2)}
+        = \lim_{x\to 1^+} \frac{x+3}{x-1} = \frac{4}{+0} = +\infty \\
+      \lim_{x\to 2^-} \frac{x^2+x-6}{x^2-3x+2}
+      &= \lim_{x\to 2^-} \frac{(x+3)(x-2)}{(x-1)(x-2)}
+        = \lim_{x\to 2^-} \frac{x+3}{x-1} = \frac{5}{1} = 5 \\
+      \lim_{x\to 2^+} \frac{x^2+x-6}{x^2-3x+2}
+      &= \lim_{x\to 2^+} \frac{(x+3)(x-2)}{(x-1)(x-2)}
+        = \lim_{x\to 2^+} \frac{x+3}{x-1} = \frac{5}{1} = 5
+    \end{align*}
+    which show that $x=1$ is a vertical asymptote but $x=2$ is not.
+    See Figure~\ref{fig:3asy}(b).
+  \item %4c
+    The horizontal asymptotes are found by evaluating
+    \begin{displaymath}
+      \lim_{x\to -\infty} \frac{1+2x^3}{x^3-x}
+      = \lim_{x\to -\infty} \frac{\frac{1}{x^3}+2}{1-\frac{1}{x^2}}
+      = \frac{0+2}{1-0} = 2
+    \end{displaymath}
+    and
+    \begin{displaymath}
+      \lim_{x\to \infty} \frac{1+2x^3}{x^3-x}
+      = \lim_{x\to \infty} \frac{\frac{1}{x^3}+2}{1-\frac{1}{x^2}}
+      = \frac{0+2}{1-0} = 2
+    \end{displaymath}
+    giving $y=2$ as the only horizontal asymptote.  The candidates for
+    vertical asymptotes are $x$ values at which the denominator is
+    $0$, in other words solutions to the equation $x^3-x=0$.
+    Generally it is difficult to solve cubic equations, but this one
+    can be solved by factoring:
+    $x^3-x = x(x^2-1) = x(x-1)(x+1) = 0 \implies x=-1,0,1$.
+    Evaluating left and right limits at each of those $x$ values gives
+    \begin{align*}
+      \lim_{x\to -1^-} \frac{1+2x^3}{x^3-x}
+      &= \lim_{x\to -1^-} \frac{1+2x^3}{(x+1)x(x-1)}
+        = \frac{1+2(-1)^3}{-0(-1)(-2)} = \frac{-1}{-0} = +\infty \\
+      \lim_{x\to -1^+} \frac{1+2x^3}{x^3-x}
+      &= \lim_{x\to -1^+} \frac{1+2x^3}{(x+1)x(x-1)}
+        = \frac{1+2(-1)^3}{+0(-1)(-2)} = \frac{-1}{+0} = -\infty \\
+      \lim_{x\to 0^-} \frac{1+2x^3}{x^3-x}
+      &= \lim_{x\to 0^-} \frac{1+2x^3}{(x+1)x(x-1)}
+        = \frac{1+2(0)^3}{(1)(-0)(-1)} = \frac{1}{+0} = +\infty \\
+      \lim_{x\to 0^+} \frac{1+2x^3}{x^3-x}
+      &= \lim_{x\to 0^+} \frac{1+2x^3}{(x+1)x(x-1)}
+        = \frac{1+2(0)^3}{(1)(+0)(-1)} = \frac{1}{-0} = -\infty \\
+      \lim_{x\to 1^-} \frac{1+2x^3}{x^3-x}
+      &= \lim_{x\to 1^-} \frac{1+2x^3}{(x+1)x(x-1)}
+        = \frac{1+2(1)^3}{(2)(1)(-0)} = \frac{3}{-0} = -\infty \\
+      \lim_{x\to 1^+} \frac{1+2x^3}{x^3-x}
+      &= \lim_{x\to 1^+} \frac{1+2x^3}{(x+1)x(x-1)}
+        = \frac{1+2(1)^3}{(2)(1)(+0)} = \frac{3}{+0} = +\infty
+    \end{align*}
+    showing that there is a vertical asymptote at each of $x=-1,0,1$.
+    See Figure~\ref{fig:3asy}(c).
+  \end{enumerate}
+  \begin{figure}[htbp]
+    \centering
+    $\begin{array}{c@{\hspace{0.25in}}c@{\hspace{0.25in}}c}
+       \begin{tikzpicture}[scale=0.75]
+         \begin{axis}[domain=-10:10,samples=150,restrict y to domain=-10:10,
+           extra x ticks=-2,
+           extra y ticks=3,
+           grid=both,axis lines=middle]
+           \addplot[color=red] { (3*\x-1)/(\x+2) };           
+         \end{axis}
+       \end{tikzpicture}
+     &
+       \begin{tikzpicture}[scale=0.75]
+         \begin{axis}[domain=-10:10,samples=150,restrict y to domain=-10:10,
+           extra x ticks=1,
+           extra y ticks=1,
+           grid=both,axis lines=middle]
+           \addplot[color=red] { (\x*\x+\x-6)/(\x*\x-3*\x+2) };
+           \node[draw=red,fill=white,circle,inner sep=1pt] at (axis cs:2,5) {};
+         \end{axis}
+       \end{tikzpicture}
+    &
+       \begin{tikzpicture}[scale=0.75]
+         \begin{axis}[domain=-10:10,samples=500,restrict y to domain=-10:10,
+           extra x ticks={-1,0,1},
+           extra y ticks=2,
+           grid=both,axis lines=middle]
+           \addplot[color=red,domain=-10:-1] { (1+2*\x*\x*\x)/(\x*\x*\x-\x) };
+           \addplot[color=red,domain=-1:0] { (1+2*\x*\x*\x)/(\x*\x*\x-\x) }; 
+           \addplot[color=red,domain=0:1] { (1+2*\x*\x*\x)/(\x*\x*\x-\x) };
+           \addplot[color=red,domain=1:10] { (1+2*\x*\x*\x)/(\x*\x*\x-\x) };
+         \end{axis}
+       \end{tikzpicture}
+    \\
+    \mbox{(a) $y=\frac{3x+1}{x+2}$}
+       &
+    \mbox{(b) $y=\frac{x^2+x-6}{x^2-3x+2}$}
+       &
+    \mbox{(c) $y=\frac{1+2x^3}{x^3-x}$}
+    \end{array}$
+    \caption{Asymptotes for Three Functions}
+    \label{fig:3asy}
+  \end{figure}
+\item %5 
+  In Figure~\ref{fig:2exp} you can see the graph of the function
+  plotted in two windows; in Figure~\ref{fig:2exp}(a) the $x$-axis
+  goes from $0$ to $10$ and the $y$-axis goes from $0$ to $1$.  From
+  that graph it appears that the function has a horizontal asymptote
+  somewhere between $y=0.3$ and $y=0.4$.  In Figure~\ref{fig:2exp}(b)
+  the $x$-axis is shifted to go from $90$ to $100$ and the $y$-axis is
+  magnified to go from $0.3$ to $0.4$.  From that graph it seems
+  likely that the horizontal asymptote rounded to two decimal points
+  is $y=0.37$, so we conclude that the limit rounded to two decimal
+  points is $0.37$.
+  \begin{figure}[htbp]
+    \centering
+    $\begin{array}{c@{\hspace{0.25in}}c@{\hspace{0.25in}}c}
+       \begin{tikzpicture}[scale=1.0]
+         \begin{axis}[domain=0:10,samples=200,ymin=0,ymax=1,
+           restrict y to domain=-10:10,
+           grid=both,axis lines=middle]
+           \addplot[color=red] { (1-1/x)^x };
+         \end{axis}
+       \end{tikzpicture}
+     &
+       \begin{tikzpicture}[scale=1.0]
+         \begin{axis}[domain=90:100,samples=3,ymin=0.3,ymax=0.4,
+           restrict y to domain=0:1,
+           extra y ticks={0.31,0.33,0.35,0.37,0.39},
+           grid=both,axis lines=middle]
+           \addplot[color=red,smooth] { (1-1/x)^x };
+         \end{axis}
+       \end{tikzpicture}
+    \\
+    \mbox{(a) Domain $0< x \le 10$}
+       &
+    \mbox{(b) Domain $90\le x \le 100$}
+    \end{array}$
+    \caption{Two Graphs of $f(x)=\left(1-\frac{1}{x}\right)^x$}
+    \label{fig:2exp}
+  \end{figure}
+
+  The conclusion is supported by Table~\ref{tab:exp} where the
+  function is calculated at successive powers of $10$.
+  \begin{table}[htbp]
+    \begin{center}
+      \begin{tabular}{|r|l|l|l|}
+        \hline
+        \multicolumn{1}{|c|}{$x$}     
+	         & \multicolumn{1}{|c|}{$1/x$}
+		           & \multicolumn{1}{|c|}{$1-1/x$} 
+			             & \multicolumn{1}{|c|}{$(1-1/x)^x$} \\
+	\hline\hline
+	$1$      & 1.0     & 0       & 0      \\
+	\hline
+	$10$     & 0.1     & 0.9     & 0.3486 \\
+	\hline
+	$100$    & 0.01    & 0.99    & 0.3660 \\
+	\hline
+	$1000$   & 0.001   & 0.999   & 0.3677 \\
+	\hline
+	$10000$  & 0.0001  & 0.9999  & 0.3679 \\
+	\hline
+	$100000$ & 0.00001 & 0.99999 & 0.3679 \\
+	\hline
+      \end{tabular}
+    \end{center}
+    \caption{Table of Values for $\left(1-\frac{1}{x}\right)^x$ to Four
+      Decimal Points}
+    \label{tab:exp}
+  \end{table}
+  In MATH 111 you will learn that the exact value of the limit is
+  $1/e = 0.367879\ldots$.
+\item %6
+  In\label{prob:sqrtlim} order to calculate the limits, we divide
+  through by the highest power of $x$ in the denominators.  For the
+  limit as $x\to\infty$,
+  \begin{displaymath}
+    \lim_{x\to\infty} \frac{\sqrt{x^2+1}}{2x-3}
+    = \lim_{x\to\infty} \frac{\sqrt{x^2+1}/x}{2-3/x}
+    = \lim_{x\to\infty} \frac{\sqrt{(x^2+1)/x^2}}{2-3/x}
+    = \lim_{x\to\infty} \frac{\sqrt{1+1/x^2}}{2-3/x}
+    = \frac{\sqrt{1+0}}{2-0} = \frac{1}{2}
+  \end{displaymath}
+  where we square $x$ when we bring it under the square root.  On
+  the other hand, for the limit as $x\to -\infty$,
+  \begin{displaymath}
+    \lim_{x\to -\infty} \frac{\sqrt{x^2+1}}{2x-3}
+    = \lim_{x\to -\infty} \frac{\sqrt{x^2+1}/x}{2-3/x}
+    = \lim_{x\to -\infty} \frac{-\sqrt{(x^2+1)/x^2}}{2-3/x}
+    = \lim_{x\to -\infty} \frac{-\sqrt{1+1/x^2}}{2-3/x}
+    = -\frac{\sqrt{1+0}}{2-0} = -\frac{1}{2}
+  \end{displaymath}
+  Note the appearance of the negative sign in the second step which
+  may at first be puzzling.  This phenomenon, which may occur when
+  taking limits at infinity of functions involving roots, is unlike
+  what happens with ordinary rational functions which always have
+  equal limits as $x\to \pm\infty$.  The negative sign appears because
+  $x$ is negative in the limit $x\to -\infty$, but $\sqrt{x^2}$ is
+  positive.  For equality in this case we must write $x=-\sqrt{x^2}$.
+  See Figure~\ref{fig:sqrtlim}.
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[domain=-50:50,restrict y to domain=-2:2,
+        extra x ticks=1.5,
+        extra y ticks={-0.5,0.5},
+        grid=both, axis lines=middle,
+        samples=500]
+        \addplot[color=red] { sqrt(x^2+1)/(2*x-3) };
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Graph of $\ds y=\frac{\sqrt{x^2+1}}{2x-3}$}
+    \label{fig:sqrtlim}
+  \end{figure}
+\item %7
+  We will find a rational function satisfying the given conditions.
+  The denominator of the function should contain factors $x+2$ and
+  $x-3$; $(x+2)(x-3)=x^2-x-6$ is the simplest choice.  In order for
+  the function to have a horizontal asymptote the highest power of $x$
+  in the numerator must match the highest power of $x$ in the
+  denominator; $x^2$ is the simplest choice for the numerator.  (We
+  must also ensure that neither $x+2$ nor $x-3$ is a factor of the
+  numerator.)  Finally, to scale the horizontal asymptote to $5/2$
+  from its current value of $1$, we just multiply the function by
+  $5/2$ to obtain
+  \begin{displaymath}
+    f(x) = \frac{5x^2}{2x^2-2-12}
+  \end{displaymath}
+  You should check that the resulting function satisfies the
+  conditions of the problem.  You should also try to find other
+  answers to the problem.
+\item %8
+  This question is like Example~11 in Section~3.4 of the textbook.
+  The $y$-intercept is
+  \begin{displaymath}
+    y=f(0) = 0^2(0+2)^3(1-0) = 0
+  \end{displaymath}
+  so $(0,0)$ is a point on the graph.  The $x$-intercepts are roots of
+  the equation
+  \begin{displaymath}
+    f(x)=0 \implies x^2(x+2)^3(1-x)=0 \implies x=-2,0,1
+  \end{displaymath}
+  so $(-2,0)$, $(0,0)$, and $(1,0)$ are points on the graph.  In
+  addition, a careful analysis shows that the function does not change
+  sign at $x=0$ because the $x^2$ factor has an even exponent, but the
+  function does change sign at $x=-2$ and $x=1$ because of the odd
+  exponents in the factors $(x+2)^3$ and $(1-x)^1$.  As $x\to\infty$,
+  \begin{displaymath}
+    \lim_{x\to\infty} x^2(x+2)^3(1-x) = -\infty
+  \end{displaymath}
+  because for large positive $x$ the $x^2$ and $(x+2)^3$ are positive,
+  while $(1-x)$ is negative.  Similarly, as $x\to -\infty$,
+  \begin{displaymath}
+    \lim_{x\to -\infty} x^2(x+2)^3(1-x) = -\infty
+  \end{displaymath}
+  because for large negative $x$ the $x^2$ term is positive, the
+  $(x+2)^3$ term is negative, and the $(1-x)$ term is positive.
+  Putting all the information together, your graph should resemble
+  Figure~\ref{fig:sixdeg}.
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[domain=-10:10,restrict y to domain=-10:10,
+        %extra x ticks=1.5,
+        %extra y ticks={-0.5,0.5},
+        grid=both, axis lines=middle,
+        samples=300]
+        \addplot[color=red] { x^2*(x+2)^3*(1-x) };
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Graph of $\ds y=x^2(x+2)^3(1-x)$}
+    \label{fig:sixdeg}
+  \end{figure}
+% \item %10
+%   This is an application of the Squeeze Theorem for infinite limits.
+%   We have
+%   \begin{align*}
+%     \lim_{x\to\infty} \frac{4x-1}{x} 
+%     &= \lim_{x\to\infty} \frac{4-1/x}{1}
+%     = \frac{4-0}{1} = 4
+%     \\
+%     \lim_{x\to\infty} \frac{4x^2+3x}{x^2} 
+%     &= \lim_{x\to\infty} \frac{4+3/x}{1}
+%     = \frac{4+0}{1} = 4
+%   \end{align*}
+%   Since the two limits are equal, the limit for $f(x)$ is squeezed between
+%   the two outer limits to obtain
+%   \begin{equation*}
+%     \lim_{x\to\infty} f(x) = 4
+%   \end{equation*}
+% \item\label{prob:funknown} %11
+%   We don't know what $f$ is, but we only need $f'$ to construct our usual
+%   table for intervals of increase/decrease.  The critical numbers are at the
+%   zeros of $f'$, namely $x=-1$, $x=3$, and $x=6$, which gives us 
+%   Table~\ref{tab:funknown}.
+%   \begin{table}[htbp]
+%     \centering
+%     \begin{tabular}{|c|c|c|c|c|c|}
+%       \hline
+%       Interval       & $(x+1)^2$ & $(x-3)^5$ & $(x-6)^4$ & $f'(x)$ & $f$
+%       \\
+%       \hline\hline
+%       $-\infty<x<-1$ & $+$       & $-$       & $+$       & $-$     & decreasing
+%       \\
+%       \hline
+%       $x=-1$         & $0$       & $-$       & $+$       & $0$     & stationary
+%       \\
+%       \hline
+%       $-1<x<3$       & $+$       & $-$       & $+$       & $-$     & decreasing
+%       \\
+%       \hline
+%       $x=3$          & $+$       & $0$       & $+$       & $0$     & stationary
+%       \\
+%       \hline
+%       $3<x<6$        & $+$       & $+$       & $+$       & $+$     & increasing
+%       \\
+%       \hline
+%       $x=6$          & $+$       & $+$       & $0$       & $0$     & stationary
+%       \\
+%       \hline
+%       $6<x<\infty$   & $+$       & $+$       & $+$       & $+$     & increasing
+%       \\
+%       \hline
+%     \end{tabular}
+%     \caption{Intervals of Increase/Decrease for problem~\ref{prob:funknown}}
+%     \label{tab:funknown}
+%   \end{table}
+%   Note that the minus signs in the $(x+1)^2$ and $(x-6)^4$ columns have
+%   flipped to plus signs because the power is an even number in both cases.
+%   We conclude that $f$ is increasing on just
+%   the intervals $(3,6)$ and $(6,\infty)$.
+%   % EJD: diagram
+% \item %12
+%   % EJD: later
+%   We'll do this later.
+% \item %13
+%   The derivatives are
+%   \begin{align*}
+%     y' &= \frac{(1+x^2)-(1+x)(2x)}{(1+x^2)^2} = (1-2x-x^2)(1+x^2)^{-2} \\
+%     y'' &= (-2-2x)(1+x^2)^{-2} + (1-2x-x^2)(-2)(1+x^2)^{-3}(2x)
+%   \end{align*}
+%   Simplifying the second derivative,
+%   \begin{align*}
+%     y'' &= -2(1+x^2)^{-3} \left[(x+1)(1+x^2) +(2x)(1-2x-x^2)\right]
+%     \\
+%     &= -2(1+x^2)^{-3} \left[x^3+x^2+x+1-2x^3-4x^2+2x\right]
+%     \\
+%     &= 2 (1+x^2)^{-3} (x^3+3x^2-3x-1)
+%   \end{align*}
+%   We need to further factor $y''$.  We guess roots which divide the constant
+%   term in the cubic $-x^3-3x^2+3x+1$, namely $1$, so our guesses for roots
+%   are $\pm 1$.  The root $x=1$ works so we can pull out a factor $(x-1)$
+%   by polynomial division or otherwise:
+%   \begin{align*}
+%     y'' = 2(1+x^2)^{-3} (x-1)(x^2+4x+1)
+%   \end{align*}
+%   We complete factoring by using the quadratic formula to get the roots
+%   $x=-2-\sqrt{3}$ and $x=-2+\sqrt{3}$, so we can write
+%   \begin{align*}
+%     y'' = 2(1+x^2)^{-3} (x-(-2-\sqrt{3}))(x-(-2+\sqrt{3}))(x-1)
+%   \end{align*}
+%   The potential inflection numbers are the numbers $x$ where $y''$ is 
+%   undefined (nowhere, since the denominator $(1+x^2)^3$ is never $0$) and
+%   where $y''=0$, namely $x=-2-\sqrt{3}$, $x=-2+\sqrt{3}$ and $x=1$.  You
+%   can make a table for the sign of $y''$ if you wish, but since each of
+%   the factors in the numerator is not to an even power, the sign of $y''$
+%   will change across each of those potential inflection numbers, so the
+%   concavity will change at each of those potential inflection numbers, so
+%   each of those potential inflection numbers is an actual inflection number.
+%   (Make a table if you are confused by the above discussion.)
+
+%   To find the actual inflection points, we evaluate $y$ at each of the
+%   inflection numbers:
+%   \begin{align*}
+%     y(-2-\sqrt{3}) = \frac{1+-2-\sqrt{3}}{1+(-2-\sqrt{3})^2}
+%     = \frac{-1-\sqrt{3}}{1+4+4\sqrt{3}+3}
+%     = \frac{-1-\sqrt{3}}{8+4\sqrt{3}}
+%     = -\frac{1}{4} \frac{1+\sqrt{3}}{2+\sqrt{3}}
+%   \end{align*}
+%   It will be convenient to rationalize the denominator by multiplying
+%   through by the conjugate of the denominator:
+%   \begin{equation*}
+%     y(-2-\sqrt{3}) 
+%     = -\frac{1}{4}\frac{(1+\sqrt{3})(2-\sqrt{3})}{(2+\sqrt{3})(2-\sqrt{3})}
+%     = -\frac{1}{4} \frac{-1+\sqrt{3}}{1}
+%     = \frac{1}{4} (1-\sqrt{3})
+%   \end{equation*}
+%   Similarly (just changing some of the plus signs to minus signs in the above
+%   two calculations) we obtain
+%   \begin{equation*}
+%     y(-2+\sqrt{3})
+%     = \frac{1}{4} (1+\sqrt{3})
+%   \end{equation*}
+%   and obviously $y(1)=(1+1)/(1+1)=1$.  So the three points of inflection
+%   are
+%   \begin{equation*}
+%     \mbox{$(-2-\sqrt{3},1/4-(1/4)\sqrt{3})$, $(-2+\sqrt{3},1/4+(1/4)\sqrt{3})$,
+%       and $(1,1)$}
+%   \end{equation*}
+%   There are various ways to show that three points lie on a straight line,
+%   the most straightforward of which is to find the line through two of
+%   the points and show that the third point lies on that line.  We find
+%   the line through the first two inflection points.  The slope of the
+%   line is
+%   \begin{equation*}
+%     m = \frac{y_2-y_1}{x_2-x_1}
+%     = \frac{(1/4)(1+\sqrt{3})-(1/4)(1-\sqrt{3})}{(-2+\sqrt{3})-(-2-\sqrt{3})}
+%     = \frac{1}{4} \frac{2\sqrt{3}}{2\sqrt{3}} = \frac{1}{4}
+%   \end{equation*}
+%   So one way to write the equation of the line through the first two 
+%   inflection points is
+%   \begin{equation*}
+%     y-y_1 = m(x-x_1) \implies
+%     y-\frac{1}{4}(1-\sqrt{3}) = \frac{1}{4} (x-(-2-\sqrt{3}))
+%   \end{equation*}
+%   Obviously the second inflection point lies on that line, so we only need
+%   to check whether the third inflection point $(1,1)$ also lies on it.
+%   The left hand side of the equation for the line is
+%   \begin{equation*}
+%     1-\frac{1}{4}(1-\sqrt{3}) = \frac{3}{4} + \frac{1}{4}\sqrt{3}
+%   \end{equation*}
+%   while the right hand side is
+%   \begin{equation*}
+%     \frac{1}{4} (1-(-2-\sqrt{3}) = \frac{1}{4} (3+\sqrt{3})
+%     = \frac{3}{4} + \frac{1}{4} \sqrt{3}
+%   \end{equation*}
+%   Since the LHS and the RHS agree, $(1,1)$ also lies on the line, so all
+%   three points lie on the same straight line.
+% \item %14
+%   % EJD: later
+%   We'll do this later.
+\end{enumerate}
+\end{document}
+
+

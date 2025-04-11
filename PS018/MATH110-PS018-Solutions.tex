@@ -1,0 +1,236 @@
+%%% MATH110-PS018-Solutions.tex --- 
+%% 
+%% Filename: MATH110-PS018-Solutions.tex
+%% Description: 
+%% Author: U-ORONYA\edwar
+%% Maintainer: 
+%% Created: Mon Jan 30 16:14:59 2023 (-0600)
+%% Version: 
+%% Package-Requires: ()
+%% Last-Updated: Mon Jan 20 15:56:38 2025 (-0600)
+%%           By: Edward Doolittle
+%%     Update #: 3
+%% URL: 
+%% Doc URL: 
+%% Keywords: 
+%% Compatibility: 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Commentary: 
+%% 
+%% 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Change Log:
+%% 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Copyright (C) 2023 Edward Doolittle
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Code:
+
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroOneEight\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroOneEight}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %3
+  \begin{enumerate}
+  \item %a
+    Each of the multiplicands $\sqrt[3]{x}$ and $1+x^2$ is defined and
+    continuous for all real numbers $x$, the former because it is a
+    root function with an odd index $3$, the latter because it is a
+    polynomial, so the product function $G$ is also defined and
+    continuous for all real numbers.
+  \item %b
+    The sine function is defined and continuous for all real numbers
+    (that is just a fact you should memorize), and the function $x+1$
+    is defined for all real numbers, but we have to be careful about
+    when the denominator $x+1$ is $0$.  Solving the equation $x+1=0$
+    we get $x=-1$ as a value for which the quotient $\sin x/(x+1)$ is
+    undefined, and hence not continuous.  However, $x=-1$ is outside
+    of the domain of the function, so we can still say that the
+    function is continuous for all values of $x$ on the domain.
+  %% \item %c
+  %%   We can break the given function down as the composition of the tangent
+  %%   function $\tan u$ and the ``doubling'' function $d(x)=2x$: 
+  %%   \begin{equation*}
+  %%     h(x) = \tan (2x) = \tan (d(x)) \implies h = \tan \circ d
+  %%   \end{equation*}
+  %%   The $\tan$ function is continuous wherever it is defined, and the doubling
+  %%   function is a polynomial so it is continuous everywhere.  Finally,
+  %%   the composition of two continuous functions is continuous where it is
+  %%   defined, namely wherever $2x\ne (2k+1)\pi/2$ or $x\ne (2k+1)\pi/4$.
+  %\item %c 
+  %  We can break the given function down as the composition of the
+  %  exponential function $f(u)=e^u$ and the ``doubling'' function
+  %  $d(x)=2x$: % FIXME : is this really the best way to go?
+  %  \begin{equation*}
+  %    h(x) = e^{2x} = e^{d(x)} \implies h = \exp \circ d
+  %  \end{equation*}
+  %  The exponential function $\exp$ is defined and continuous for all
+  %  real numbers, and the doubling function is a polynomial so it is
+  %  continous everywhere too.  So the composition is defined and
+  %  continuous on its domain, which is all real numbers.
+  \item %d
+    The sine and cosine functions are defined and continuous
+    everywhere, so the composition
+    \begin{equation*}
+      \sin\circ \cos \circ \sin
+    \end{equation*}
+    is also defined and continuous everywhere.
+  \end{enumerate}
+\item %4
+  \begin{enumerate}
+  \item %a
+    When $x\ne 3$, the function $f(x)$ is the same as 
+    \begin{equation*}
+      \frac{2x^2-5x-3}{x-3}
+    \end{equation*}
+    which is continuous for $x\ne 3$, so it follows that $f(x)$ is
+    continuous for $x\ne 3$.  So the only number in question is $x=3$.
+    Calculating the limit by factoring,
+    \begin{equation*}
+      \lim_{x\to 3} f(x) = \lim_{x\to 3} \frac{2x^2-5x-3}{x-3}
+      = \lim_{x\to 3} \frac{(x-3)(2x+1)}{x-3}
+      = \lim_{x\to 3} (2x+1) = 7
+    \end{equation*}
+    while on the other hand $f(3)=6$.  Since
+    $\ds \lim_{x\to 3} f(x)\ne f(3)$, $f$ is not continuous at $x=3$.
+    (You should be able to graph $f$ easily.  How could you change the
+    definition of $f$ to make it continuous?)
+  \item %b
+    The function $x+1$ is continuous everywhere, so it is continuous
+    on the interval $-\infty< x< 1$.  Similarly, $1/x$ is continuous
+    everywhere except $x=0$, so it is continuous on the interval
+    $1<x<3$.  Finally, $\sqrt{x-3}$ is continuous wherever it is
+    defined, so it is continuous on the interval $3< x<\infty$.  So
+    the only places where $g$ might not be continuous are $x=1$ and
+    $x=3$.  At $x=1$ we have
+    \begin{align*}
+      \lim_{x\to 1^-} g(x) &= \lim_{x\to 1^-} (x+1) = 2 \\
+      g(1) &= \left. x+1 \right|_{x=1} = 1+1 = 2 \\
+      \lim_{x\to 1^+} g(x) &= \lim_{x\to 1^+} \frac{1}{x} = \frac{1}{1} = 1
+    \end{align*}
+    Since not all of the above results agree, the function $g(x)$ is
+    not continuous at $x=1$.  At $x=3$ we have
+    \begin{align*}
+      \lim_{x\to 3^-} g(x) &= \lim_{x\to 3^-} \frac{1}{x} = \frac{1}{3} \\
+      g(3) &= \sqrt{3-3} = \sqrt{0} = 0 \\
+      \lim_{x\to 3^+} g(x) &= \lim_{x\to 3^+} \sqrt{x-3} = \sqrt{3-3} = 0
+    \end{align*}
+    Again, not all of the above results agree, so the function $g(x)$
+    is not continuous at $x=3$.
+  \end{enumerate}
+\item %5 % EJD: we need simpler IVT questions
+  % EJD: graphs would help
+  \begin{enumerate}
+  \item %a
+    We convert the problem to one of showing the existence of a zero
+    of the function by rewriting the equation as
+    $\sqrt[3]{x} +x - 1 = 0$.  Then we have to show that the function
+    $f(x)=\sqrt[3]{x}+x-1$ has a zero on the interval $(0,1)$.
+
+    The Intermediate Value Theorem does not apply directly to the
+    above situation because the interval $(0,1)$ is not a closed
+    interval, but an open interval.  However, in this case we can
+    widen the interval slightly to $[0,1]$ because we can't add any
+    roots of the function because
+    \begin{align*}
+      f(0) &= \sqrt[3]{0} + 0 - 1 = 0 + 0 - 1 = -1 \ne 0 \\
+      f(1) &= \sqrt[3]{1} + 1 - 1 = 1 + 1 - 1 = 1 \ne 0
+    \end{align*}
+    So if $f$ has a root on $[0,1]$ it must have a root on $(0,1)$.
+
+    Note that $f$ is continuous (why?) and $f(0)<0$, $f(1)>0$, so by
+    the IVT $f$ has a root in the interval $(0,1)$.
+  \item %b
+    As above, we want to be able to show the existence of a zero of a
+    function by rewriting the equation as $\tan x - 2x = 0$.  So we
+    have to show that the function $f(x)=\tan x - 2x$ has a zero on
+    the interval $(0,1.4)$.  As above, the interval is not a closed
+    interval, but in this case it does matter if we widen it slightly
+    because including $x=0$ in the interval would introduce a new
+    root.  So instead, we shrink the interval a little and consider
+    instead $[0.1, 1.4]$.  (If that interval doesn't work, we could
+    consider $[0.01,1.4]$, etc.)  We have
+    \begin{align*}
+      f(0.1) &= \tan 0.1 - 2(0.1) \approx -0.0997 < 0\\
+      f(1.4) &= \tan 1.4 - 2(1.4) \approx 2.9979 > 0 
+    \end{align*}
+    So the function changes sign on the interval $[0.1,1.4]$.  It is
+    continuous in that interval because $2x$ is continuous everywhere,
+    and $\tan$ is continuous where it is defined, such as on the
+    interval $(-\pi/2,\pi/2)\approx (-1.5708,1.5708)$ which contains
+    the interval $[0.1,1.4]$, so $f$ is continuous on the latter
+    interval.  The IVT applies, and we conclude that $f$ has a root in
+    that interval.
+  \item %c
+    We must show that the function $f(x)=x^5-x^2+2x+3$ has a root on
+    the interval $(-\infty,\infty)$.  In this case we can't widen the
+    interval by including $-\infty$ and $\infty$ because those are not
+    numbers.  So we must consider a smaller closed interval inside
+    $(-\infty,\infty)$.  We just try to guess appropriate bounds for
+    the interval, and if they don't work, we guess again.  Note that
+    $f(0)=0^5-0^2+2(0)+3>0$ so if we can find a value $a$ at which
+    $f(a)<0$ then we can apply the IVT.  Try
+    $f(-1)=(-1)^5-(-1)^2+2(-1)+3=-1-1-2+3=-1<0$ so we're in luck.  The
+    function $f(x)$ changes sign on the closed interval $[-1,0]$, and
+    it is continuous because it's a polynomial, so the IVT applies and
+    $f(x)$ has a root in the interval $(-1,0)$ so it has a root in the
+    bigger interval $(-\infty,\infty)$.
+  \end{enumerate}
+\item %6
+  As in a previous question, $f(x)$ is continuous in the open
+  intervals $(-\infty,2)$, $(2,3)$, and $(3,\infty)$ because the
+  functions $(x^2-4)/(x-2)$, $ax^2-bx+3$, and $2x-a+b$ are continuous
+  on those intervals, respectively.  So we just have to pay attention
+  to what happens near $x=2$ and $x=3$.  Near $x=2$ we have
+  \begin{align*}
+    \lim_{x\to 2^-} f(x) &= \lim_{x\to 2^-} \frac{x^2-4}{x-2}
+    = \lim_{x\to 2^-} \frac{(x-2)(x+2)}{x-2} = \lim_{x\to 2^-} (x+2) = 4 \\
+    f(2) &= a(2)^2-b(2)+3 = 4a-2b+3 \\
+    \lim_{x\to 2^+} f(x) &= \lim_{x\to 2^+} (ax^2-bx+3) = a(2)^2-b(2)+3
+    = 4a-2b+3
+  \end{align*}
+  so the condition for $f$ to be continuous at $x=2$ is $4a-2b+3=4$ or
+  $4a-2b=1$.  Similarly, near $x=3$ we have
+  \begin{align*}
+    \lim_{x\to 3^-} f(x) &= \lim_{x\to 3^-} (ax^2-bx+3) = a(3)^2-b(3)+3 = 
+    9 a -3 b + 3 \\
+    f(3) &= 2(3)-a+b = 6-a+b \\
+    \lim_{x\to 3^+} f(x) &= \lim_{x\to 3^+} (2x-a+b) = 2(3)-a+b = 6-a+b
+  \end{align*}
+  so the condition for $f$ to be continuous at $x=3$ is
+  $9a-3b+3=6-a+b$ or $10a-4b=3$.  In summary our conditions are
+  \begin{align*}
+    4a-2b&=1 \\
+    10a-4b&=3
+  \end{align*}
+  which is a linear system in the two variables $a$ and $b$.
+  Multiplying the first equation by $-2$ and adding, $2a=1$ so
+  $a=1/2$, which implies $b=1/2$.
+\end{enumerate}
+\end{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MATH110-PS018-Solutions.tex ends here

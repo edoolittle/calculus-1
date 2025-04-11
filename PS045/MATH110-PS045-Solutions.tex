@@ -1,0 +1,433 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{mathptmx}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroFourFive\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroFourFive}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item
+  \begin{enumerate}
+  \item Let $u=x^3+5$.  Then $du/dx = 3x^2$, $du/3 = x^2 \; dx$ and
+    \begin{equation*}
+      \int x^2(x^3+5)^9 \; dx = \int u^9 \frac{du}{3} = \frac{1}{30} u^{10} + C
+      = \frac{1}{30} (x^3+5)^{10} + C
+    \end{equation*}
+    Check by differentiating.
+  \item Let $u=3t+2$.  Then $du/dt = 3$, $du/3 = dt$ and
+    \begin{equation*}
+      \int (3t+2)^{2.4} \; dt = \int u^{2.4} \; \frac{du}{3}
+      = \frac{1}{3} \int u^{2.4} \; du = \frac{1}{3}
+      \frac{u^{3.4}}{3.4} + C = \frac{1}{10.2} (3t+2)^{3.4} + C
+    \end{equation*}
+    Check by differentiating.
+  \item Let $u=x^2+1$.  Then $du/dx = 2x$, $du/2 = x\; dx$ and
+    \begin{equation*}
+      \int \frac{x}{(x^2+1)^2} \; dx = \int u^{-2} \frac{du}{2}
+      = -\frac{1}{2} u^{-1} + C = -\frac{1}{2(x^2+1)} + C
+    \end{equation*}
+    Check by differentiating.
+  \item Let $u=5t+4$, $du/dt = 5$, $du/5 = dt$.  Then
+    \begin{equation*}
+      \int \frac{1}{(5t+4)^{2.7}} \; dt
+      = \int u^{-2.7} \frac{du}{5}
+      = \frac{1}{5} \frac{u^{-1.7}}{-1.7} + C
+      = -\frac{1}{8.5} (5t+4)^{-1.7} + C
+    \end{equation*}
+    Check by differentiating.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item Let $u=2\theta$, $du=2\; d\theta$, $du/2 = d\theta$:
+    \begin{equation*}
+      \int \sec 2\theta \tan 2\theta \; d\theta
+      = \int \sec u \tan u \; \frac{du}{2}
+      = \frac{1}{2} \sec u + C
+      = \frac{1}{2} \sec 2\theta + C
+    \end{equation*}
+    Check by differentiating.
+  \item Let $u=1+x^{3/2}$.  Then $du/dx = 3x^{1/2}/2$, $2\; du/3 =
+    \sqrt{x} \; dx$ and
+    \begin{equation*}
+      \int \sqrt{x} \sin(1+x^{3/2} \; dx
+      = \frac{2}{3} \int \sin u \; du
+      = -\frac{2}{3} \cos u + C
+      = -\frac{2}{3} \cos (1+x^{3/2}) + C
+    \end{equation*}
+    Check by differentiating.
+  \item Let $u=\pi/x$, $du/dx = -\pi/x^2$, $-du/\pi = dx/x^2$.  Then
+    \begin{equation*}
+      \int \frac{\cos(\pi/x)}{x^2} \; dx
+      = -\frac{1}{\pi} \int \cos u \; du
+      = -\frac{1}{\pi} \sin u + C
+      = -\frac{1}{\pi} \sin(\pi/x) + C
+    \end{equation*}
+    Check by differentiating.
+  \item Let $u=1+\tan\theta$, $du/d\theta = \sec^2\theta$, $du =
+    \sec^2\theta d\theta$.  Then
+    \begin{equation*}
+      \int (1+\tan\theta)^5 \sec^2\theta \; d\theta
+      = \int u^5 \; du
+      = \frac{1}{6} u^6 + C
+      = \frac{1}{6} (1+\tan\theta)^6 + C
+    \end{equation*}
+    Check by differentiating.
+  \end{enumerate}
+\item These ones are a little trickier than the previous.
+  \begin{enumerate}
+  \item Let $u=1+\tan t$, $du/dt = \sec^2 t$, $du = \sec^2 t \; dt =
+    dt/\cos^2 t$ where we have used the trig identity $\sec^2 t =
+    1/\cos^2 t$.  Then
+    \begin{equation*}
+      \int \frac{dt}{\cos^2t \sqrt{1+\tan t}}
+      = \int u^{-1/2} \; du
+      = 2 u^{1/2} + C
+      = 2 \sqrt{1+\tan t} + C
+    \end{equation*}
+    Check by differentiating.
+  \item Let $u=\cos t$, $du/dt = -\sin t$, $-du = \sin t\; dt$.  Then
+    \begin{equation*}
+      \int \sin t \sec^2(\cos t) \; dt
+      = -\int \sec^2 u \; du
+      = -\sec u + C
+      = -\sec(\cos t) + C
+    \end{equation*}
+  \item Let $u=1-x$, $du = -dx$, $-du = dx$.  Then
+    \begin{equation*}
+      \int \frac{x^2}{\sqrt{1-x}} \; dx
+      = -\int \frac{x^2}{\sqrt{u}} \; du
+    \end{equation*}
+    Unfortunately, that substitution is not complete, because not all
+    of the $x$s have been eliminated from the integral.  In order to
+    complete the substitution we need to go back to $u=1-x$ and solve
+    for $x$: $x=1-u$.  So we can write
+    \begin{equation*}
+      -\int \frac{x^2}{\sqrt{u}} \; du
+      = -\int \frac{(1-u)^2}{u^{1/2}} \; du
+      = -\int \frac{1-2u+u^2}{u^{1/2}} \; du
+      = -\int (u^{-1/2} - 2 u^{1/2} + u^{3/2}) \; du
+    \end{equation*}
+    Integrating by the power rule we have
+    \begin{equation*}
+      \int \frac{x^2}{\sqrt{1-x}} \; dx
+      = -2u^{1/2} - \frac{4}{3} u^{3/2} + \frac{2}{5} u^{5/2} + C
+      = -2(1-x)^{1/2} - \frac{4}{3} (1-x)^{3/2} + \frac{2}{5}
+      (1-x)^{5/2} + C
+    \end{equation*}
+    You should check your answer by differentiating, then doing some
+    algebra. 
+  \item Let $u=x^2+1$, $du/dx = 2x$, $du/2 = x\; dx$.  Then
+    \begin{equation*}
+      \int x^3 \sqrt{x^2+1} \; dx
+      = \frac{1}{2} \int x^2 \sqrt{u} \; du
+    \end{equation*}
+    Again, the substitution hasn't been completed.  We must eliminate
+    $x^2$: $u=x^2+1$ gives $x^2 =u-1$ so
+    \begin{equation*}
+      \frac{1}{2} \int x^2 \sqrt{u} \; du = \frac{1}{2} \int (u-1)^2
+      u^{1/2} \; du
+      = \frac{1}{2} \int (u^2-2u+1)u^{1/2} \; du
+      = \frac{1}{2} \int (u^{5/2} - 2u^{3/2} + u^{1/2}) \; du
+    \end{equation*}
+    Integrating by the power rule,
+    \begin{equation*}
+      \int x^3 \sqrt{x^2+1} \; dx
+      = \frac{1}{7} u^{7/2} - \frac{2}{5} u^{5/2}  + \frac{1}{3}
+      u^{3/2} +C
+      = \frac{1}{7} (x^2+1)^{7/2} - \frac{2}{5} (x^2+1)^{5/2} +
+      \frac{1}{3} (x^2+1)^{3/2} + C
+    \end{equation*}
+    You should check your answer by differentiating, then doing some
+    algebra. 
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item To evaluate the indefinite integral, let $u=\sin x$.  Then
+    $du/dx = \cos x$, $du = \cos x \; dx$:
+    \begin{equation*}
+      \int \cos x \; \sin(\sin x) \; dx
+      = \int \sin u \; du
+      = -\cos u + C
+      = -\cos(\sin x) + C
+    \end{equation*}
+    You should check the indefinite integral by differentiating. 
+    Now by the Fundamental Theorem of Calculus,
+    \begin{equation*}
+      \int_0^{\pi/2} \cos x \; \sin(\sin x) \; dx
+      = \left. \vphantom{\int} -\cos(\sin x) \right|_0^{\pi/2}
+      = -\cos(\sin(\pi/2)) + \cos(\sin(0))
+      = -\cos(1) + \cos(0) = 1 - \cos(1)
+    \end{equation*}
+    \emph{Alternate Solution:} We can combine the two steps above into
+    one step by substituting the lower and upper bounds of integration
+    when we do the substitution.  When $x=0$, $u=\sin x = \sin 0 = 0$,
+    so that becomes the lower bound of integration after the
+    substitution.  Similarly when $x=\pi/2$,
+    $u=\sin x = \sin(\pi/2) = 1$.  The calculation becomes
+    \begin{equation*}
+      \int_0^{\pi/2} \cos x \; \sin(\sin x) \; dx
+      = \int_0^1 \sin u \; du
+      = \left. \vphantom{\int} -\cos u \right|_0^1
+      = -\cos 1 + \cos 0 = 1 - \cos 1
+    \end{equation*}
+    That is the same answer as before, but the calculation is somewhat
+    shorter because we don't have to reverse the subsitition after the
+    integration step.  On the other hand, it gives you less
+    opportunity to check your work by differentiating.
+  \item In this problem $a$ is a constant parameter.  To evaluate the
+    indefinite integral we make the substitution $u=a^2-x^2$, $du/dx =
+    -2x$, $-du/2 = x \; dx$:
+    \begin{equation*}
+      \int x \sqrt{a^2-x^2} \; dx
+      = -\frac{1}{2} \int u^{1/2} \; du
+      = -\frac{1}{3} u^{3/2} + C
+      = -\frac{1}{3} (a^2-x^2)^{3/2} + C
+    \end{equation*}
+    You can check the answer by differentiating.
+    The definite integral is
+    \begin{equation*}
+      \int_0^a x \; \sqrt{a^2-x^2} \; dx
+      = \left. \vphantom{\int} -\frac{1}{3} (a^2-x^2)^{3/2}
+      \right|_0^a
+      = -\frac{1}{3} (a^2-a^2)^{3/2} + \frac{1}{3} (a^2-0)^{3/2}
+      = \frac{1}{3} a^3
+    \end{equation*}
+    \emph{Alternate Solution:} When $x=0$, $u=a^2-x^2=a^2-0=a^2$, so
+    that becomes the lower bound of integration after the
+    substitution.  Similarly, when $x=a$, $u=a^2-a^2 = 0$, so that
+    becomes the upper bound of integration after the substition.  We
+    can write
+    \begin{equation*}
+      \int_0^a x \; \sqrt{a^2-x^2} \; dx
+      = -\frac{1}{2} \int_{a^2}^0 u^{1/2} \; du
+      = -\frac{1}{2} \left. \vphantom{\int} \frac{2}{3} u^{3/2}
+      \right|_{a^2}^0
+      = -\frac{1}{3} (0^{3/2} - (a^2)^{3/2})
+      = \frac{1}{3} a^3
+    \end{equation*}
+    Again, the alternate solution is shorter, but we can't check the
+    indefinite integral by differentiating.
+  \item Let $u=1+2x$, $du/dx = 2$, $du/2=dx$, $x=(u-1)/2$:
+    \begin{equation*}
+      \int \frac{x}{\sqrt{1+2x}} \; dx
+      = \int \frac{(u-1)/2}{\sqrt{u}} \; \frac{du}{2}
+      = \frac{1}{4} \int (u^{1/2} - u^{-1/2}) \; du
+      = \frac{1}{6} u^{3/2} - \frac{1}{2} u^{1/2} + C
+      = \frac{1}{6} (1+2x)^{3/2} - \frac{1}{2} (1+2x)^{1/2} + C
+    \end{equation*}
+    Check by differentiating and then doing some algebra.
+    Now we can evaluate the definite integral:
+    \begin{equation*}
+      \int_0^4 \frac{x}{\sqrt{1+2x}} \; dx
+      = \left. \vphantom{\int} \frac{1}{6} (1+2x)^{3/2} - \frac{1}{2}
+        (1+2x)^{1/2} \right|_0^4
+      = \frac{1}{6} 9^{3/2} - \frac{1}{2} 9^{1/2} - \frac{1}{6}
+      1^{3/2} + \frac{1}{2} 1^{1/2}
+      = \frac{27}{6} - \frac{3}{2} - \frac{1}{6} + \frac{1}{2}
+      = \frac{10}{3}
+    \end{equation*}
+    \emph{Alternate Solution:} When $x=0$, $u=1+2x=1$, and when $x=4$,
+    $u=1+2x = 9$:
+    \begin{equation*}
+      \int_0^4 \frac{x}{\sqrt{1+2x}} \; dx
+      = \frac{1}{4} \int_1^9 (u^{1/2}-u^{-1/2}) \; du
+      = \frac{1}{4} \left. \vphantom{\int} \frac{2}{3} u^{3/2} - 2
+        u^{1/2} \right|_1^9
+      = \frac{1}{6} 9^{3/2} - \frac{1}{2} 9^{1/2}
+      - \frac{1}{6} 1^{3/2} + \frac{1}{2} 1^{1/2}
+      = \frac{10}{3}
+    \end{equation*}
+    As usual, the alternate solution is shorter but has the
+    disadvantage that you can't check the integral by differentiating.
+  \item In this problem $T$ and $\alpha$ are constant parameters.  Let
+    $u=2\pi t/T-\alpha$.  Then $du/dt = 2\pi/T$ and $T/(2\pi) du =
+    dt$.  The indefinite integral is
+    \begin{equation*}
+      \int \sin(2\pi t/T-\alpha) \; dt
+      = \frac{T}{2\pi} \int \sin u \; du
+      = \frac{T}{2\pi} (-\cos u) + C
+      = -\frac{T}{2\pi} \cos (2\pi t/T - \alpha) + C
+    \end{equation*}
+    which you can check by differentiating.
+    Now the definite integral is
+    \begin{multline*}
+      \int_0^{T/2} \sin(2\pi t/T - \alpha) \; dt
+      = \left. \vphantom{\int} -\frac{T}{2\pi} \cos (2\pi t/T -
+        \alpha) \right|_0^{T/2}
+      \\
+      = -\frac{T}{2\pi} \cos (2\pi (T/2)/T - \alpha)
+      +\frac{T}{2\pi} \cos (2\pi (0)/T - \alpha)
+      = -\frac{T}{2\pi} \left(\cos (\pi-\alpha) - \cos(-\alpha)\right)
+    \end{multline*}
+    \emph{Alternate Solution:} When $t=0$, $u=2\pi
+    (0)/T-\alpha=-\alpha$, and when $t=T/2$, $u=2\pi (T/2) / T -
+    \alpha = \pi-\alpha$, so
+    \begin{equation*}
+      \int_0^{T/2} \sin(2\pi t/T - \alpha) \; dt
+      =\frac{T}{2\pi} \int_{-\alpha}^{\pi-\alpha} \sin u \; du
+      = \left. \vphantom{\int} -\frac{T}{2\pi} \cos u
+      \right|_{-\alpha}^{\pi-\alpha}
+      = -\frac{T}{2\pi} \left(\cos(\pi-\alpha) - \cos(-\alpha) \right)
+    \end{equation*}
+    As usual, the alternate solution is shorter, but you can't check
+    the substitution by differentiating.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item We have
+    \begin{equation*}
+      \int_{-2}^2 (x+3) \sqrt{4-x^2}
+      = \int_{-2}^2 \left( x\sqrt{4-x^2} + 3 \sqrt{4-x^2} \right) \;
+      dx
+      = \int_{-2}^2 x\sqrt{4-x^2} \; dx + 3 \int_{-2}^2 \sqrt{4-x^2}
+      \; dx
+    \end{equation*}
+    by the rules for definite integrals.  The first integral we can do
+    by the substitution $u=4-x^2$, $du/dx = -2x$, $-du/2 = x \; dx$:
+    \begin{equation*}
+      \int x \; \sqrt{4-x^2} \; dx
+      = -\frac{1}{2} \int u^{1/2} \; du
+      = -\frac{1}{3} u^{3/2} + C
+      = -\frac{1}{3} (4-x^2)^{3/2} + C
+    \end{equation*}
+    which you should check by differentiating.  The definite integral
+    is then
+    \begin{equation*}
+      \int_{-2}^2 x \; \sqrt{4-x^2} \; dx
+      = \left. \vphantom{\int} -\frac{1}{3} (4-x^2)^{3/2}
+      \right|_{-2}^2
+      = -\frac{1}{3}(4-(-2)^2)^{3/2} + \frac{1}{3} (4-2^2)^{3/2}
+      = 0
+    \end{equation*}
+    On the other hand, the second integral
+    \begin{equation*}
+      3\int_{-2}^2 \sqrt{4-x^2} \; dx
+    \end{equation*}
+    cannot be done by a substitution (at least none that you have
+    learned in MATH 110; if you take MATH 111, you will learn a clever
+    substitution that will work).  However, you can evaluate that
+    definite integral geometrically; $y=\sqrt{4-x^2}$ is the upper
+    half of a circle of radius $2$ centered at the origin $(0,0)$, so
+    the integral is the area of a semicircle of radius $2$, namely
+    $2\pi$.  % EJD: Graph
+    Altogether,
+    \begin{equation*}
+      \int_{-2}^2 (x+3) \sqrt{4-x^2}
+      = \int_{-2}^2 \left( x\sqrt{4-x^2} + 3 \sqrt{4-x^2} \right) \;
+      dx
+      = \int_{-2}^2 x\sqrt{4-x^2} \; dx + 3 \int_{-2}^2 \sqrt{4-x^2}
+      \; dx
+      = 0 + 3(2\pi) = 6\pi
+    \end{equation*}
+  \item If we try the obvious substitution $u=1-x^4$, we are going to
+    have difficulty completing it.  So instead, inspired by the
+    previous problem, let's try $u=x^2$, $du/dx = 2x$, $du/2 = x \;
+    dx$; when $x=0$, $u=x^2=0$, and when $x=1$, $u=x^2=1$:
+    \begin{equation*}
+      \int_0^1 x \; \sqrt{1-x^4} \; dx
+      = \frac{1}{2} \int_{0}^{1} \sqrt{1-u^2} \; du
+    \end{equation*}
+    Geometrically, the integral is the area of one quarter of a unit
+    circle, which is $\pi/4$, so the answer is
+    \begin{equation*}
+      \int_0^1 x \; \sqrt{1-x^4} \; dx
+      = \frac{1}{2} \int_{0}^{1} \sqrt{1-u^2} \; du
+      = \frac{1}{2} \cdot \frac{\pi}{4}
+      = \frac{\pi}{8}
+    \end{equation*}
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item This one requires a trick.  Recall the Pythagorean identity
+    $\cos^2 x = 1-\sin^2 x$.  We can write
+    \begin{equation*}
+      \int \cos^3 x \; \sin^6 x \; dx
+      = \int \cos x \; (1-\sin^2 x) \; \sin^6 x \; dx
+      = \int \cos x \; \sin^6 x \; dx  - \int \cos x \; \sin^8 x \; dx
+    \end{equation*}
+    Both of the resulting integrals can be evaluated by the
+    substitution $u=\sin x$, $du = \cos x \; dx$:
+    \begin{equation*}
+      \int \cos x \; \sin^6 x \; dx - \int\cos x \; \sin^8 x \; dx
+      = \int u^6 \; du - \int u^8 \; du
+      = \frac{1}{7} \sin^7 x - \frac{1}{9} \sin^9 x + C
+    \end{equation*}
+    A similar strategy works for the integral of any product of a
+    power of cosine times a power of sine, as long as at least one of
+    the powers is odd.  If both powers are even, you need to use more
+    advanced techniques you will learn in MATH 111.
+  \item Let $u=-x$, $-du=dx$; note that when $x=-1$, $u=1$ and when
+    $x=1$, $u=-1$.  Then
+    \begin{equation*}
+      \int_{-1}^1 \frac{x^2\; \tan x}{x^4+1} \; dx
+      = \int_{1}^{-1} \frac{(-u)^2 \; \tan (-u)}{(-u)^4+1} (-du)
+      = \int_{-1}^1 \frac{u\;(- \tan u)}{u^4+1} \; du
+      = -\int_{-1}^1 \frac{ x\; \tan x}{x^4+1} \; dx
+    \end{equation*}
+    where we have used the fact that $\tan x$ is odd (i.e.,
+    $\tan(-x) = -\tan x$), $x^2$ is even (i.e., $(-x)^2 = x^2$), $x^4$
+    is even, and we used the property
+    \begin{equation*}
+      \int_a^b f(x) \; dx = -\int_b^a f(x) \; dx
+    \end{equation*}
+    of the Riemann integral.  In summary,
+    \begin{equation*}
+      \int_{-1}^1 \frac{x^2 \; \tan x}{x^4+1} \; dx
+      = -\int_{-1}^1 \frac{x^2\; \tan x}{x^4+1} \; dx
+    \end{equation*}
+    which implies that the value of the integral is $0$.
+
+    You can also reason about this problem geometrically; the
+    integrand is odd, and the domain of integration is balanced across
+    $0$, so the negative areas exactly balance the positive areas and
+    the integral must be $0$. % EJD: Graph
+  \end{enumerate}
+\item Let $u=x^2$, $du/dx = 2x$, $du/2 = x\; dx$; note that when
+  $x=0$, $u=x^2=0$, and when $x=3$, $u=x^2=9$.  So
+  \begin{equation*}
+    \int_0^3 xf(x^2)\; dx
+    = \frac{1}{2} \int_0^9 f(u) \; du
+    = \frac{1}{2} \cdot 4 = 2
+  \end{equation*}
+\item Let $u=\pi-x$, $du/dx = -1$, $-du = dx$, $x=\pi-u$; note that
+  when $x=0$, $u=\pi-x=\pi$, and when $x=\pi$, $u=\pi-\pi=0$:
+  \begin{equation*}
+    \int_0^\pi x f(\sin x) \; dx
+    = -\int_\pi^0 (\pi-u) f(\sin(\pi-u)) \; du
+    = \int_0^\pi (\pi-u) f(\sin(\pi-u)) \; du
+  \end{equation*}
+  By the angle subtraction identity for $\sin$ we have
+  \begin{equation*}
+    \sin(\pi-u) = \sin\pi\cos u - \sin u \cos \pi
+    = 0\cos u - \sin u (-1)
+    = \sin u
+  \end{equation*}
+  so
+  \begin{equation*}
+    \int_0^\pi x f(\sin x) \; dx
+    = \int_0^\pi (\pi-u) f(\sin(\pi-u)) \; du
+    = \pi \int_0^\pi f(\sin u) \; du - \int_0^\pi u f(\sin u) \; du
+  \end{equation*}
+  Since $u$ is a dummy variable in the integral we can replace it by
+  $x$:
+  \begin{equation*}
+    \int_0^\pi x f(\sin x) \; dx
+    = \pi \int_0^\pi f(\sin x) \; dx - \int_0^\pi x f(\sin x) \; dx
+  \end{equation*}
+  We can move the last term to the left side of the equation to obtain
+  \begin{equation*}
+    2\int_0^\pi x f(\sin x) \; dx
+    = \pi \int_0^\pi f(\sin x) \; dx
+  \end{equation*}
+  Dividing both sides of the equation above by $2$ gives the result.
+\end{enumerate}
+\end{document}

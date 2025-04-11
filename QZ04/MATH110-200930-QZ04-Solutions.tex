@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage{mathptmx}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\reversemarginpar
+
+\title{MATH110--S01--S02 200930 Quiz 4 Solutions}
+\author{Edward Doolittle}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item By the quotient rule,
+  \begin{equation*}
+    f'(x) = \frac{\left(\frac{d}{dx} \cos x\right) (\tan x + \sin x)
+    - \cos x \left( \frac{d}{dx} (\tan x + \sin x)\right)}{(\tan x + \sin x)^2}
+  \end{equation*}
+  By the derivative of $\cos$, the sum rule, and the derivatives of $\tan$
+  and $\sin$, we have
+  \begin{equation*}
+    f'(x) = \frac{-\sin x(\tan x + \sin x) - \cos x (\sec^2 x + \cos x)}{
+      (\tan x + \sin x)^2}
+  \end{equation*}
+  Various simplifications are possible here, but are not necessary.  For
+  example, multiplying the numerator out and applying the Pythagorean identity,
+  \begin{equation*}
+    f'(x) = \frac{-\sin x \tan x - \sin^2 x - \sec x - \cos^2 x}{
+      (\tan x + \sin x )^2}
+    = \frac{-\sin x \tan x -\sec x -1}{(\tan x + \sin x)^2}
+  \end{equation*}
+  Further simplification might be possible by multiplying the numerator and
+  denominator through by $\cos^2 x$, etc.
+\item Call the limit in the question $L$.
+  By the chain rule for limits (or the product rule for limits), we have
+  \begin{equation*}
+    L = \lim_{t\to 0} \left( \frac{\sin 3t}{t} \right)^2
+    = \left( \lim_{t\to 0} \frac{\sin 3t}{t} \right)^2
+  \end{equation*}
+  provided the limit inside the bracket exists.  But it is just a variation
+  on the basic trig limit we studied:
+  \begin{equation*}
+    \lim_{t\to 0} \frac{\sin 3t}{t}
+    = \lim_{t\to 0} 3 \frac{\sin 3t}{3t}
+    = 3 \lim_{t\to 0} \frac{\sin 3t}{3t}
+    = 3 \cdot 1
+  \end{equation*}
+  Putting it all together, $L=9$.
+\end{enumerate}
+
+\end{document}
+
+

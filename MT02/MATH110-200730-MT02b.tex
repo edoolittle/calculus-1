@@ -1,0 +1,181 @@
+\documentclass[12pt]{article}
+%\documentclass[12pt,legalpaper]{article}
+\usepackage{fullpage}
+\usepackage{amsmath,amssymb}
+\usepackage{mathptmx}
+%\usepackage{fancyheadings}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[aux]{rerunfilecheck}
+
+%\setlength{\textheight}{11.5in}
+
+\reversemarginpar
+
+\newcommand{\myimp}{\Rightarrow}
+\newcommand{\myiff}{\Leftrightarrow}
+\newcommand{\mynot}{\neg}
+\newcommand{\myor}{\vee}
+\newcommand{\myand}{\wedge}
+\newcommand{\ds}{\displaystyle}
+
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}
+
+\pagestyle{fancy}
+\lhead{MATH 110--003--004 200730                    \\ 
+       Midterm Test 2B \hspace{1.25in} Page\ \thepage\ of \pageref{LastPage} \\ 
+       Time: 50 minutes                             \\
+       \quad}
+%\chead{\quad \\ Page\ \thepage\ of \pageref{LastPage} \\ \quad}
+\chead{}
+\rhead{Name: \underline{\hspace{2in}}        \\ 
+       Student \#: \underline{\hspace{2in}}  \\ 
+       Section: \underline{\hspace{2in}}     \\
+       \quad}
+\cfoot{}
+\addtolength{\headheight}{\baselineskip}
+\addtolength{\headheight}{\baselineskip}
+\addtolength{\headheight}{\baselineskip}
+\addtolength{\headheight}{\baselineskip}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \lhead{}
+  \chead{UNIVERSITY OF REGINA                \\
+    DEPARTMENT OF MATHEMATICS AND STATISTICS \\
+    MATH 110--003--004 200730
+  }
+  \rhead{}
+  \cfoot{Page\ \thepage\ of \pageref{LastPage}}
+}
+
+\title{Midterm Test 2 (B version)}
+\author{Edward Doolittle}
+
+\begin{document}
+\thispagestyle{plain}
+%\maketitle
+
+\begin{center}
+  \quad\\
+  \LARGE{Midterm Test 1 (B version)}
+\end{center}
+
+\begin{flushleft}
+\quad\\
+Time: 50 minutes                \hfill       Name: \underline{\hspace{2in}}  \\
+Instructors:                    \hfill Student \#: \underline{\hspace{2in}}  \\
+\quad Dr. Edward Doolittle      \hfill    Section: \underline{\hspace{2in}}  \\
+\end{flushleft}
+
+
+\noindent
+You have 50 minutes to do each of the following questions.
+The test is worth a total of 40 marks.
+Please\marginpar{\small(marks)} justify your conclusions and
+show all your work.
+A non-programmable calculator of approved type is permitted.  No other aids
+are permitted.
+Use the backs of the pages for rough work.
+
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 1 %%%
+\item Find the following derivatives.  Do not simpify!
+  \begin{enumerate}
+  \item $\ds y'$\marginpar{\small(4)}
+    where 
+    $\ds y = \sec^3 (2x)$
+\vfill
+  \item $\ds g''$\marginpar{\small(4)}
+    where 
+    $\ds g(t)=\sqrt{t^3+1}$
+\vfill
+  \end{enumerate}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 2 %%%
+\item Find\marginpar{\small(4)}
+  the differential $dy$ of 
+  $\ds y=\frac{u+1}{u-1}$
+\vfill
+\item Find\marginpar{\small(4)} 
+  $\ds \lim_{x\to \infty} \left(\sqrt{9x^2+x}-3x\right)$
+\vfill
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 3 %%%
+\item A\marginpar{\small(6)} rectangular storage container with an open
+  top is to have a volume of $10$ m$^3$.  The length of the base must be
+  three times
+  the width.  Find the dimensions of the container that minimize the
+  amount of material used.
+  \begin{enumerate}
+  \item Sketch a diagram illustrating the situation, labelling important
+    quantities with letters.
+\vfill
+\vfill
+  \item Write formulas and for the objective function
+    to be minimized and for any constraints.
+\vfill
+\vfill
+  \item Find the minimum value of the objective function.  Use the First
+    Derivative Test to ensure that you have a minimum.
+\vfill
+\vfill
+  \item State the solution to the problem in words.
+\vfill
+  \end{enumerate}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 4 %%%
+\item Two\marginpar{\small(5)} 
+  cars start moving from the same point.  One travels 
+  north at $60$ km/h
+  and the other travels 
+  east at $80$ km/h. 
+  At what rate is the distance
+  between the cars increasing two hours later?
+\vfill
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 5 %%%
+\item Consider\marginpar{\small(5)}
+  the function $f$, given below along with its derivatives.
+  \begin{align*}
+    f(x) = \frac{x^2+1}{x^2+3}
+    \qquad
+    f'(x) = \frac{4x}{(x^2+3)^2}
+    \qquad
+    f''(x) = \frac{-12(x+1)(x-1)}{(x^2+3)^3}
+  \end{align*}
+  (Note that the denominators in the above three expressions 
+  are always positive.)
+  Find each of the following.  \textbf{You do not need to sketch the graph!}
+  \begin{enumerate}
+  \item The interval(s) on which $f$ is increasing and concave up
+\vfill
+  \item The interval(s) on which $f$ is increasing and concave down
+\vfill
+  \item The interval(s) on which $f$ is decreasing and concave up
+\vfill
+  \item The interval(s) on which $f$ is decreasing and concave down
+\vfill
+  \item The horizontal asymptote(s) of $f$.
+\vfill
+  \end{enumerate}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 6 %%%
+\item Find\marginpar{\small(4)} 
+  $\ds \lim_{\theta\to 0} \frac{\cos\theta - 1}{\tan\theta}$.  
+  Do not use L'H\^{o}pital's Rule!
+\vfill
+\item Show\marginpar{\small(4)} that
+  $\ds
+    2\sqrt{x} > 3 - \frac{1}{x}
+  $
+  for all $x>1$.
+\vfill
+\end{enumerate}
+
+\end{document}

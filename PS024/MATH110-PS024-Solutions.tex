@@ -1,0 +1,356 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+%\usepackage{graphicx}
+\usepackage{tikz}
+% \allowdisplaybreaks
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroTwoFour\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroTwoFour}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  \begin{enumerate}
+  \item %1a
+    We apply the sum rule for derivatives:
+    \begin{align*}
+      f'(x) &= \frac{d}{dx} (2x^3 + \cos x)
+      \\
+            &= \frac{d}{dx} 2x^3 + \frac{d}{dx} \cos x
+      \\
+            &= 2 \frac{d}{dx} x^3 + \frac{d}{dx} \cos x
+      \\
+            &= 2 \cdot 3 x^2 - \sin x
+      \\
+            &= 6 x^2 - \sin x
+    \end{align*}
+    using the constant multiple rule, power rule, and rule for $\cos
+    x$. 
+  \item %1b
+    Using the product rule,
+    \begin{align*}
+      G'(t) &= \frac{d}{dt} (t^2 \cos t)
+      \\
+            &= \left(\frac{d}{dt} t^2\right) \cos t
+              + t^2 \frac{d}{dt} \cos t
+      \\
+            &= 2t \cos t + t^2 (-\sin t)
+      \\
+            &= 2t \cos t - t^2 \sin t
+    \end{align*}
+    where we used the power rule and the rule for $\cos t$ on the
+    second line.
+% \item %1c
+  \item %1d
+    By the quotient rule
+    \begin{align*}
+      \frac{d}{d\theta} \frac{1-\sin\theta}{\tan\theta+\cos\theta}
+      &= \frac{(\tan\theta+\cos\theta)(-\cos\theta) -
+        (1-\sin\theta)(\sec^2\theta-\sin\theta)}{
+        (\tan\theta+\cos\theta)^2}
+    \end{align*}
+    You can do lots of algebra and apply various trig identities to
+    simplify the expression slightly, but my advice is to leave it
+    alone, unless you need to do something else with it that requires
+    simplification.
+  \end{enumerate}
+\item %2
+  To find a tangent line we need to find its slope, which is a derivative.
+  \begin{align*}
+    y' &= \frac{d}{dx} x \cos x
+    \\
+       &= \frac{dx}{dx} \cos x + x \frac{d}{dx} \cos x
+    \\
+       &= \cos x + x (-\sin x)
+    \\
+       &= \cos x - x \sin x
+  \end{align*}
+  where we applied the product rule.  We evaluate the derivative at
+  the base point $x=\pi$ to find the slope:
+  \begin{equation*}
+    y'(\pi) = \cos\pi - \pi \sin \pi = -1 - \pi (0) = -1
+  \end{equation*}
+  So the equation of the tangent line is
+  \begin{equation*}
+    y - (-\pi) = -1 (x - \pi)
+    \implies y + \pi = \pi - x
+    \implies y = -x
+  \end{equation*}
+  The negative reciprocal of $-1$ is $-1/-1 = 1$, which is the slope
+  of the normal line, so the equation of the normal line is
+  \begin{equation*}
+    y - (-\pi) = 1 (x -\pi)
+    \implies
+    y + \pi = x -\pi
+    \implies
+    y = x - 2\pi
+  \end{equation*}
+  % EJD Show graph
+\item %3
+  We calculated the first derivative in the previous problem.  We take
+  the derivative of that to obtain the second derivative:
+  \begin{align*}
+    \frac{d^2y}{dx^2} &= \frac{d}{dx} \frac{dy}{dx}
+    \\
+                      &= \frac{d}{dx} (\cos x - x \sin x)
+    \\
+                      &= \frac{d}{dx} \cos x - \frac{d}{dx} x\sin x
+    \\
+                      &= -\sin x - \sin x - x \cos x
+    \\
+                      &= -2\sin x - x \cos x
+  \end{align*}
+\item %4
+  The function has a horizontal tangent where its derivative is $0$.
+  So we need to calculate the derivative:
+  \begin{equation*}
+    f'(x) = 1 - \sin x
+  \end{equation*}
+  We need to solve the equation
+  \begin{equation*}
+    f'(x) = 0 \implies 1 - \sin x = 0 \implies \sin x = 1
+  \end{equation*}
+  The $\sin^{-1}$ button on the calculator can give one solution: $x =
+  \sin^{-1} (1) = \pi/2$.  You should look at a graph of $\sin x$ to
+  find all the other solutions: $x = \pi/2 \pm 2k\pi$,
+  $k=0,1,2,\ldots$.
+  % EJD: include graph
+\item %5
+  \begin{enumerate}
+  \item %5a
+    Multiply the numerator and denominator by $2$ to obtain
+    \begin{equation*}
+      \lim_{x\to 0} \frac{\sin 2x}{x}
+      = \lim_{x\to 0} 2\frac{\sin 2x}{2x}
+      = 2
+    \end{equation*}
+  \item %5b
+    Multiply the numerator and denominator by $2x$, and then by $3x$, to
+    obtain
+    \begin{equation*}
+      \lim_{x\to 0} \frac{\sin 2x}{\sin 3x}
+      = \lim_{x\to 0} \frac{\sin 2x}{2x} \cdot \frac{2x}{3x} \cdot
+      \frac{3x}{\sin 3x}
+      = 1 \cdot \frac{2}{3} \cdot 1 = \frac{2}{3}
+    \end{equation*}
+  \item %5c
+    Call the limit in the question $L$.
+    By the product rule for limits we have
+    \begin{equation*}
+      L = \lim_{t\to 0} \left( \frac{\sin 2t}{t} \right)^3
+      = \left( \lim_{t\to 0} \frac{\sin 2t}{t} \right)^3
+    \end{equation*}
+    provided the limit inside the bracket exists.  But it is just a variation
+    on the basic trig limit we studied:
+    \begin{equation*}
+      \lim_{t\to 0} \frac{\sin 2t}{t}
+      = \lim_{t\to 0} 2 \frac{\sin 2t}{2t}
+      = 2 \lim_{t\to 0} \frac{\sin 2t}{2t}
+      = 2 \cdot 1 = 2
+    \end{equation*}
+    Putting it all together, $L=2^3=8$.
+  \item %5d
+    \textbf{Solution 1:} Call the limit $L$.  Write $\tan\theta$ in
+    terms of $\sin\theta$ and $\cos\theta$:
+    \begin{equation*}
+      L
+      = \lim_{\theta\to 0} \frac{\cos\theta - 1}{\tan\theta}
+      = \lim_{\theta\to 0} \frac{\cos\theta -
+        1}{\frac{\sin\theta}{\cos\theta}}
+      = \lim_{\theta\to 0} \frac{(\cos\theta-1)\cos\theta}{
+        \sin\theta} 
+    \end{equation*}
+    Divide both numerator and denominator by $\theta$:
+    \begin{equation*}
+      L = \lim_{\theta\to 0} \frac{\frac{\cos\theta-1}{\theta}
+        \cos\theta}{
+        \frac{\sin\theta}{\theta}}
+    \end{equation*}
+    By the quotient rule for limits we have 
+    \begin{equation*}
+      L = \frac{\lim_{\theta\to 0}\frac{\cos\theta -
+          1}{\theta}\lim_{\theta\to 0} \cos\theta}{
+        \lim_{\theta\to 0}\frac{\sin\theta}{\theta}}
+      = \frac{0 \cdot 1}{1} = 0
+    \end{equation*}
+
+    \textbf{Solution 2:}  Multiply numerator and denominator by the
+    ``conjugate'' $\cos\theta+1$ to obtain
+    \begin{equation*}
+      L = \lim_{\theta\to 0} \frac{\cos\theta - 1}{\sin\theta}
+      = \lim_{\theta\to 0} \frac{\cos\theta - 1}{\tan\theta} 
+      \cdot \frac{\cos\theta+1}{\cos\theta+1}
+      = \lim_{\theta\to 0} \frac{\cos^2\theta - 1}{\tan\theta(\cos\theta+1)} 
+    \end{equation*}
+    Using the Pythagorean identity $\sin^2\theta+\cos^2\theta=1$,
+    \begin{align*}
+      L &= \lim_{\theta\to 0} \frac{\cos^2\theta - 1}{\tan\theta(\cos\theta+1)} 
+          = \lim_{\theta\to 0}
+          \frac{-\sin^2\theta}{(\sin\theta/\cos\theta)(\cos\theta+1)}
+      \\
+        &= \lim_{\theta\to 0} \frac{-\sin\theta}{(\cos\theta+1)/\cos\theta}
+        = \frac{-\sin 0}{(\cos 0+1)/\cos 0} = \frac{-0}{(1+1)/1} =
+        \frac{0}{2}
+      \\
+        &= 0
+    \end{align*}
+  \end{enumerate}
+\item %6
+  This is a question from the lecture.  Using the definition of $\sec$
+  in terms of $\cos$ and the quotient rule,
+  \begin{align*}
+    \frac{d}{dx} \sec x &= \frac{d}{dx} \frac{1}{\cos x}
+    \\
+                        &= \frac{\cos x (0) - 1 (-\sin x)}{\cos^2 x}
+    \\
+                        &=\frac{\sin x}{\cos^2 x}
+    \\
+                        &=\frac{1}{\cos x} \cdot \frac{\sin x}{\cos x}
+    \\
+                        &=\sec x \tan x
+  \end{align*}
+\item %7
+  This is a question from the lecture.  The solution is essentially
+  parallel to the calculation of the derivative for $\sin$.  Using the
+  definition of derivative,
+  \begin{align*}
+    \frac{d}{dx} \cos x &= \lim_{h\to 0} \frac{\cos(x+h) - \cos x}{h}
+  \end{align*}
+  Now we need an angle addition formula for $\cos$, which you can look
+  up in the trig identity tables in the textbook:
+  \begin{align*}
+    \cos(x+h) = \cos x \cos h - \sin x \sin h
+  \end{align*}
+  Continuing with our calculation,
+  \begin{align*}
+    \frac{d}{dx} \cos x &= \lim_{h\to 0}
+                          \frac{\cos x \cos h -\sin x \sin h -\cos x}{
+                          h}
+    \\
+                        &= \cos x \lim_{h\to 0} \frac{\cos h-1}{h}
+                          - \sin x\lim_{h\to 0} \frac {\sin h}{h}
+    \\
+                        &= \cos x (0) - \sin x (1)
+    \\
+                        &= -\sin x
+  \end{align*}
+  by the basic trig limits.
+\item %8
+  \begin{enumerate}
+  \item %8a
+    Note that $\mu$ and $W$ are constants in this problem, so we treat
+    them as constants when we apply the differentiation rules.  By the
+    quotient rule,
+    \begin{align*}
+      \frac{dF}{d\theta} &= \frac{(\mu\sin\theta+\cos\theta)(0) - \mu
+                           W(\mu\cos\theta - \sin\theta)}{
+                           (\mu\sin\theta+\cos\theta)^2}
+      \\
+                         &= -\frac{\mu W(\mu\cos\theta-\sin\theta)}{
+                           (\mu\sin\theta+\cos\theta)^2}
+    \end{align*}
+  \item %8b
+    By the previous, $dF/d\theta=0$ implies that
+    \begin{equation*}
+      \mu\cos\theta-\sin\theta = 0
+    \end{equation*}
+    (Note: we are assuming that $\mu$ and $W$ are not $0$.  What
+    happens if either number is $0$?  What would that mean
+    physically?)
+
+    To solve that equation, we move $\sin\theta$ to the right-hand
+    side and then divide by $\cos\theta$:
+    \begin{align*}
+      \mu\cos\theta &= \sin\theta \\
+      \mu &= \frac{\sin\theta}{\cos\theta} \\
+      \mu &= \tan\theta
+    \end{align*}
+    You can solve that equation with a calculator using the
+    $\tan^{-1}$ button: $\theta= \tan^{-1} \mu$ gives the solution as
+    an angle in radians if your calculator is set to radian mode, or
+    in degrees if your calculator is set to degree mode.  For example,
+    if $\mu=1$ your calculator should give the answer $\pi/4$ radians,
+    or $45^\circ$.
+  \end{enumerate}
+% \item %9
+%   You should try taking several derivatives and looking for patterns.
+%   However, there is a trick you could use to help speed up the process.
+%   Consider the functions
+%   \begin{align*}
+%     f(x) &= x\sin x + x\cos x + a\sin x + b\cos x \\
+%     g(x) &= x\sin x - x\cos x + c\sin x + d\cos x
+%   \end{align*}
+%   By the constant multiple, sum, and product rules we have
+%   \begin{equation*}
+%     Df(x) = a \cos x + ax(-\sin x) + b\sin x + bx\cos x - c\sin x + d\cos x
+%     = bx\cos x - a x\sin x + (a+d) \cos x + (b-c)\sin x
+% \item %10
+\end{enumerate}
+\end{document}
+
+%% Some leftover junk??
+  %   \textbf{Solution 1:}  Write
+  %   \begin{equation*}
+  %     \lim_{\theta\to 0} \frac{\cos\theta - 1}{\tan\theta}
+  %     = \lim_{\theta\to 0} \frac{\frac{\cos\theta - 1}{\theta}}{
+  %       \frac{\sin\theta}{\theta}\cdot\cos\theta}
+  %   \end{equation*}
+  %   By the quotient rule for limits we have 
+  %   \begin{equation*}
+  %     \lim_{\theta\to 0} \frac{\frac{\cos\theta - 1}{\theta}}{
+  %       \frac{\sin\theta}{\theta}}
+  %     = \frac{\lim_{\theta\to 0} \frac{\cos\theta - 1}{\theta}}{
+  %       \lim_{\theta\to 0} \frac{\sin\theta}{\theta}}
+  %   \end{equation*}
+  %   provided both limits exist and the limit in the denominator is not $0$.
+  %   But both limits do exist: they are the basic trig limits; the numerator
+  %   is $0$ and the denominator is $1$, so the original limit exists and
+  %   equals $0$.
+
+  %   \textbf{Solution 2:}  Multiply numerator and denominator by the
+  %   ``conjugate'' $\cos\theta+1$ to obtain
+  %   \begin{equation*}
+  %     \lim_{\theta\to 0} \frac{\cos\theta - 1}{\sin\theta}
+  %     = \lim_{\theta\to 0} \frac{\cos\theta - 1}{\sin\theta} 
+  %     \cdot \frac{\cos\theta+1}{\cos\theta+1}
+  %     = \lim_{\theta\to 0} \frac{\cos^2\theta - 1}{\sin\theta(\cos\theta+1)} 
+  %   \end{equation*}
+  %   Using the Pythagorean identity $\sin^2\theta+\cos^2\theta=1$,
+  %   \begin{equation*}
+  %     \lim_{\theta\to 0} \frac{\cos^2\theta - 1}{\sin\theta(\cos\theta+1)} 
+  %     = \lim_{\theta\to 0} \frac{-\sin^2\theta}{\sin\theta(\cos\theta+1)}
+  %     = \lim_{\theta\to 0} \frac{-\sin\theta}{\cos\theta+1}
+  %     = \frac{-\sin 0}{\cos 0+1} = 0
+  %   \end{equation*}
+  % \item %1b
+  %   Call the limit in the question $L$.
+  %   By the chain rule for limits (or the product rule for limits), we have
+  %   \begin{equation*}
+  %     L = \lim_{t\to 0} \left( \frac{\sin 3t}{t} \right)^2
+  %     = \left( \lim_{t\to 0} \frac{\sin 3t}{t} \right)^2
+  %   \end{equation*}
+  %   provided the limit inside the bracket exists.  But it is just a variation
+  %   on the basic trig limit we studied:
+  %   \begin{equation*}
+  %     \lim_{t\to 0} \frac{\sin 3t}{t}
+  %     = \lim_{t\to 0} 3 \frac{\sin 3t}{3t}
+  %     = 3 \lim_{t\to 0} \frac{\sin 3t}{3t}
+  %     = 3 \cdot 1
+  %   \end{equation*}
+  %   Putting it all together, $L=9$.
+  % \item %1c
+  %   Multiply numerator and denominator by $x$ to obtain
+  %   \begin{equation*}
+  %     \lim_{x\to 0} \frac{\sin(x^2)}{x}
+  %     = \lim_{x\to 0} \frac{\sin(x^2)}{x^2} \cdot x
+  %     = \lim_{x\to 0} \frac{\sin(x^2)}{x^2} \cdot \lim_{x\to 0} x
+  %     = 1 \cdot 0 = 0
+  %   \end{equation*}

@@ -1,0 +1,405 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+\usepackage{tikz}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroTwoThree}
+\subtitle{\commonSubtitleZeroTwoThree}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroTwoThree}
+
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+\section{Differentiation Formulas}
+
+\begin{frame}
+  \frametitle{Review of the Reduction Strategy for Limits}
+  \begin{itemize}[<+->]
+  \item Recall when we evaluated limits, we applied limit laws
+    to break a complicated limit into simpler parts.
+  \item For example, we can apply the sum rule to the limit
+    \begin{displaymath}
+      \lim_{x\to 2} (3x+7) = \lim_{x\to 2} (3x) + \lim_{x\to 2} 7
+    \end{displaymath}
+    to break a complicated limit into simpler parts.
+  \item Thee first summand can be broken down further by the 
+    product rule for limits:
+    \begin{displaymath}
+      \lim_{x\to 2} (3x) 
+      = (\lim_{x\to 2} 3) (\lim_{x\to 2} x )
+    \end{displaymath}
+  \item The resulting simple limits
+    can be evaluated by applying the bottom level rules $\ds\lim_{x\to 2} c
+    = c$ for $c=3$ and $c=7$, and $\ds \lim_{x\to 2} x = 2$.
+  \item We would like to develop a similar strategy for evaluating derivatives.
+  \end{itemize} 
+\end{frame}
+
+
+\subsection{Bottom Level Rules for Derivatives}
+
+\begin{frame}
+  \frametitle{Bottom Level Rules for Derivatives: Constant Functions}
+  \begin{itemize}[<+->]
+  \item Let us begin this time with some bottom-level rules for derivatives.
+  \item These rules are slightly different from the corresponding rules for
+    limits.
+  \item First, suppose $f(x)=c$, a constant.  Then
+    \begin{align*}
+      \frac{d}{dx} f(x) 
+      \uncover<+->{= \lim_{h\to 0} \frac{f(x+h) - f(x)}{h}  }
+      \uncover<+->{= \lim_{h\to 0} \frac{c - c}{h} }
+      \uncover<+->{= \lim_{h\to 0} \frac{0}{h} }
+      \uncover<+->{= 0}
+    \end{align*}
+  \item In words, the derivative of a constant is $0$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bottom Level Rules for Derivatives: the Identity Function}
+  \begin{itemize}[<+->]
+  \item Now let $f(x)=x$.  That function is known as the `identity
+    function' because the output of $f$ is identical to the input.
+  \item Now, calculating the derivative,
+    \begin{align*}
+      f'(x) 
+      \uncover<+->{= \lim_{h\to 0} \frac{f(x+h) - f(x)}{h}  }
+      \uncover<+->{= \lim_{h\to 0} \frac{x+h - x}{h} }
+      \uncover<+->{= \lim_{h\to 0} \frac{h}{h} }
+      \uncover<+->{= 1}
+    \end{align*}
+  \item In words, the derivative of the identity function is $1$.
+  \item The derivatives of constant functions and of the identity
+    function will be the building blocks for most of the derivative
+    calculations in this section.
+  \item There are other bottom-level derivatives that we will learn later.
+    Each time we introduce a new kind of function (e.g., 
+    $\sin$, $\cos$, $\exp$, $\log$, \ldots) there
+    will be a new bottom-level derivative that will have to be calculated
+    from first principles.  
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Reduction Formulas for Derivatives}
+
+\begin{frame}
+  \frametitle{Sums, Differences, and Constant Multiples for Derivatives}
+  \begin{itemize}[<+->]
+  \item As with limits, derivatives behave in a simple way with respect
+    to sums, differences, and constant multiples.
+  \item The derivative of a sum is the sum of the derivatives
+    \begin{displaymath}
+      (f+g)' = f'+g' \quad\mbox{or}\quad 
+      \frac{d}{dx} (f(x)+g(x)) = \frac{d}{dx} f(x) + \frac{d}{dx} g(x)
+    \end{displaymath}
+  \item The derivative of a difference is the difference of the derivatives.
+    \begin{displaymath}
+      (f-g)' = f' - g' \quad\mbox{or}\quad
+      \frac{d}{dx} (f(x)-g(x)) = \frac{d}{dx} f(x) - \frac{d}{dx} g(x)
+    \end{displaymath}
+  \item The derivative of a constant multiple is the constant multiple of
+    the derivative.
+    \begin{displaymath}
+      (cf)' = cf' \quad\mbox{or}\quad
+      \frac{d}{dx} (cf(x)) = c\frac{d}{dx} f(x)
+    \end{displaymath} 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Justifying the Sum Rule for Derivatives}
+  \begin{itemize}[<+->]
+  \item The sum, difference, and constant multiple rules are direct
+    consequences of the corresponding rules for limits.
+  \item For example, we have
+    \begin{align*}
+      (f+g)'(x)
+      \uncover<+->{&= \lim_{h\to 0} \frac{(f+g)(x+h) - (f+g)(x)}{h} \\ }
+      \uncover<+->{&= \lim_{h\to 0} \frac{f(x+h) + g(x+h) - f(x) - g(x)}{h} \\}
+      \uncover<+->{&= \lim_{h\to 0} \left(\frac{f(x+h) - f(x)}{h}
+        + \frac{g(x+h)-g(x)}{h} \right)}
+    \end{align*}
+  \item Now we apply the sum rule for limits to show the latter expression
+    is the same as $f'(x)+g'(x)$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{First Attempt at a Product Rule for Derivatives}
+  \begin{itemize}[<+->]
+  \item We've had some success we've had in guessing rules for derivatives
+    from rules from the rules for limits.
+  \item It might seem natural to guess that the derivative of a product is
+    the product of the derivatives.
+  \item That is incorrect, however.  Consider the example $f(x)=1$, $g(x)=x$.
+  \item The derivative of the product is the derivative of $x$ which is $1$.
+  \item The derivative of $f(x)$ is $0$ and the derivative of $g(x)$ is $1$,
+    so the product of the derivatives is $0$.
+  \item Even in this simple case, the derivative of the product ($1$) is
+    different from the product of the derivatives ($0$).
+  \item What is the correct rule?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Discovering the Product Rule for Derivatives}
+  \begin{itemize}[<+->]
+  \item The product rule for derivatives is not what we might
+    naively expect. 
+    $(fg)'$ \textbf{is not} $f'g'$!
+  \item To understand what the derivative of a product should be,
+    consider the meaning of the derivative.  If I change $x$ by
+    a small amount $dx$, this is what happens to $f$:
+    \begin{displaymath}
+      f(x+dx) = f(x) + f'(x) dx + \mbox{terms in $dx^2$, etc.}
+    \end{displaymath}
+  \item Now consider what happens to the product $f(x)g(x)$
+    when we change $x$ by a small amount $dx$:
+    \begin{align*}
+      f(x+dx)g(x+dx) &= (f(x)+f'(x)dx+\cdots)(g(x)+g'(x)dx+\cdots) \\
+      &= f(x)g(x) + 
+      \tikz[baseline=(t1.base)]{
+        \node[fill=yellow!50] (t1)
+	{$(f'(x)g(x)+f(x)g'(x))$};
+      }
+      dx + \cdots
+    \end{align*}
+  \item This tells us that $(f(x)g(x))'$ should be $f'(x)g(x)+f(x)g'(x)$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Product Rule for Derivatives}
+  \begin{itemize}[<+->]
+  \item In summary, we have the formula in Leibniz notation
+    \begin{displaymath}
+      \frac{d}{dx} \left(f(x)g(x)\right) 
+      = \left(\frac{d}{dx} f(x)\right) g(x) 
+      + f(x) \left(\frac{d}{dx} g(x) \right)
+    \end{displaymath}
+  \item Or, in more compact Newton notation,
+    \begin{displaymath}
+      (fg)' = f'g + fg'
+    \end{displaymath}
+  \item Note that the derivative of a product \textbf{is not} the product
+    of the derivatives!
+  \item Derivatives differ from limits in this regard.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Discovering the Quotient Rule for Derivatives}
+  \begin{itemize}[<+->]
+  \item In a similar way, the quotient rule for derivatives is not what
+    we might naively expect.  Consider $f(x)=x$, $g(x)=x$.  Then 
+    $(f/g)'=0$ but $f'/g'=1$.
+  \item We can figure out what the correct rule must be by differentiating
+    the equation $f=g(f/g)$ using the product rule.
+  \item We have $f'=g'(f/g) + g(f/g)'$.
+  \item Solving for $(f/g)'$, we have
+    \begin{align*}
+      \left(\frac{f}{g}\right)'
+      = \frac{gf'-fg'}{g^2}
+    \end{align*}
+  \item The mantra ``bottom times derivative of top minus top times derivative
+    of bottom over bottom squared'' may help you remember the quotient rule.
+  \end{itemize}
+\end{frame}
+
+%\begin{frame}
+%  \frametitle{The Quotient Rule for Derivatives}
+%  EJD
+%\end{frame}
+
+\begin{frame}
+  \frametitle{Example: Derivatives of Monomials}
+  \begin{itemize}[<+->]
+  \item We now know enough to do some complicated 
+    derivatives.
+  \item Consider the derivative of $x^2$.  We can write
+    $x^2$ as a product $x\cdot x$.
+  \item The product rule then tells us that
+    \begin{displaymath}
+      \frac{d}{dx} x^2 = \frac{d}{dx} (x\cdot x)
+      = \left( \frac{d}{dx} x \right) x + x \left(\frac{d}{dx} x\right)
+      = x + x = 2x
+    \end{displaymath}
+  \item Using the previous result, the product rule tells us that
+    \begin{displaymath}
+      \frac{d}{dx} x^3 = \frac{d}{dx} (x\cdot x^2)
+      = \left(\frac{d}{dx} x \right) x^2 + x\left(\frac{d}{dx} x^2\right)
+      = x^2 + x\cdot 2x = 3x^2
+    \end{displaymath}
+  \item Continuing the pattern, we have $\ds \frac{d}{dx} x^n = nx^{n-1}$
+    for $n=1,2,\ldots$.
+  \item That result is found in a more complicated way in the textbook.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: Power Rule for Derivatives}
+  \begin{itemize}[<+->]
+  \item We can now find derivatives of negative powers of $x$ using
+    the quotient rule.
+  \item Suppose $f(x) = x^{-m}$ where $m$ is some positive integer.
+  \item We can write $f(x)=1/x^m$.  Differentiating by the quotient rule
+    we have 
+    \begin{displaymath}
+      f'(x) = \frac{x^m (1)' - 1 (x^m)'}{(x^{m})^2}
+      = \frac{-mx^{m-1}}{x^{2m}}
+      = -m\frac{1}{x^{m+1}}
+      = -mx^{-m-1}
+    \end{displaymath}
+  \item Writing $n=-m$ we have $\ds \frac{d}{dx} x^n = nx^{n-1}$ for 
+    $n=-1,-2,\ldots$.
+  \item The case $n=0$ is special, but the result still holds.
+  \item In general, $\ds\frac{d}{dx} x^p = px^{p-1}$ for any real number
+    $p$, but the proof is too complicated to give now.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Application: Tangent and Normal Lines}
+
+\begin{frame}
+  \frametitle{Tangent Lines Revisited}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->] 
+  \item Now we can more easily solve derivative questions.
+  \item Consider $f(x)=x^2+1$.  What is the tangent line at $a=1$?
+  \item Recall that the tangent line is $y-f(a)=f'(a)(x-a)$.
+  \item We know $f(a)$.  From our rules, 
+    $\ds  \frac{d}{dx} f(x) 
+    = \frac{d}{dx} (x^2 + 1) 
+    = \frac{d}{dx} x^2 + \frac{d}{dx} 1
+    = 2x + 0 = 2x$.
+  \item So $f'(a)=f'(1)=2(1)=2$, and the 
+    tangent line is $y-2=2(x-1)$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1-4>{\includegraphics[width=\textwidth]{perp2.eps}}%
+  \only<5->{\includegraphics[width=\textwidth]{perp3.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Perpendicular Lines}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item We will need to find lines which are \textbf{perpendicular}
+    to a tangent line.
+  \item Two lines are perpendicular if the product of their slopes is $-1$.
+  \item E.g., if we have two lines $y=m_1x+b$
+    and $y-y_0=m_2(x-x_0)$, they are perpendicular if $m_1m_2=-1$.
+  \item Given the slope $m_1$ of a line, the slope $m_2$ of any perpendicular
+    line is the \textbf{negative reciprocal} 
+    of $m_1$: $\ds m_2 = -\frac{1}{m_1}$
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{\includegraphics[width=\textwidth]{perp0.eps}}%
+  \only<2->{\includegraphics[width=\textwidth]{perp1.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Normal Lines}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Now we can find \textbf{normal lines} (lines perpendicular
+    to a tangent at a point on a curve).  Let $f(x)=x^2+1$ and $a=1$.
+  \item The slope of the tangent is $f'(1)=2(1)=2$;
+    the slope of the normal line is $m_2=-1/2$.
+  \item The normal line in point-slope form is
+    $\ds  y-f(a)=m_2(x-a) $, or filling in the blanks,
+    \uncover<+->{$y-2 = -\frac{1}{2}(x-1)$.}
+  \item The normal line to $y=f(x)$ at $P(a,f(a))$ is 
+    $\ds  y-f(a) = -\frac{1}{f'(a)} (x-a)$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{\includegraphics[width=\textwidth]{perp2.eps}}%
+  \only<2>{\includegraphics[width=\textwidth]{perp3.eps}}%
+  \only<3->{\includegraphics[width=\textwidth]{perp4.eps}}%
+  \end{columns}
+\end{frame}
+
+
+\subsection{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Calculate $y'$ where 
+    \begin{enumerate}
+    \item $\ds y=\sqrt{x} + \frac{1}{\sqrt[3]{x^4}}$
+    \item $\ds y=\frac{3x-2}{\sqrt{x}}$.
+    \item $\ds y=\frac{\sqrt{x}}{3x-2}$.
+    \end{enumerate}
+  \item Find the equations of the tangent and normal lines to the
+    curve $\ds y=\frac{x-1}{x+1}$ at the point $(0,-1)$.
+  \item Find the equations of the tangent and normal lines to the 
+    curve $\ds y=\frac{x^2-1}{x^2+1}$ at the point $(0,-1)$.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solution to Example 3}
+  \begin{itemize}
+  \item In this example we have 
+    $\ds y'=\frac{(x^2+1)2x - (x^2-1)2x}{(x^2+1)^2}
+    = \frac{4x}{(x^2+1)^2}$, so $y'(0)=0$.  
+  \item The equation of the tangent
+    line is easy enough to find: $y-f(a)=f'(a)(x-a)$ where $a=0$, $f(a)=-1$,
+    and $f'(a)=0$ gives $y-(-1)=0(x-0)$ or in other words $y=-1$.
+  \item The equation of the normal is not so clear in this case.  Since 
+    the slope of the tangent is $0$, the slope of the normal would be
+    $-1/0$ which doesn't make any sense.  However, it should seem clear that
+    a line perpendicular to the horizontal line $y=-1$ is a vertical line.
+    Since the vertical line must pass through $(0,1)$, the
+    equation of the normal line is $x=0$.  Draw it!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~2.3.  After you have finished it,
+  you should try the following additional exercises from Section~2.3:
+  \begin{itemize}
+  \item[2.3] 
+    C-level: 1--22, 25--44, 51--52, 53--54, 55--58, 59--62, 63--66 \\
+    B-level: 23--24, 45, 46--48, 49--50, 67, 68, 69--72, 73--74, 75--76,
+    77--82, 83--86, 93--96, \\
+    A-level: 87, 88--92, 97--100, 101--110
+  \end{itemize}
+ \end{frame}
+
+
+\end{document}
+

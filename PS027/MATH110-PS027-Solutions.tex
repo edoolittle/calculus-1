@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroTwoSeven\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroTwoSeven}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  \begin{enumerate}
+  \item This question can be answered with or without calculus.
+    Without calculus, we can complete the square to obtain
+    \begin{align*}
+      s &= -16(t^2-5t) 
+      = -16\left(t^2-2\frac{5}{2}t
+        +\left(\frac{5}{2}\right)^2-\left(\frac{5}{2}\right)^2\right)
+      = -16\left(t-\frac{5}{2}\right)^2+16\left(\frac{5}{2}\right)^2
+      = -16\left(t-\frac{5}{2}\right)^2+100
+    \end{align*}
+    which has a maximum value of $100$, so the ball reaches a maximum
+    height of $100$ ft.
+
+    With calculus, note that the ball reaches a maximum height when it
+    is no longer moving upwards, i.e., when $s'=0$, which occurs when
+    $80-32t=0$, i.e., $t=5/2$ seconds.  At that time, the ball is at a
+    height of $s(5/2)=80(5/2)-16(5/2)^2=200-100=100$ ft.
+  \item When the ball is 96 ft above the ground we have
+    $s(t)=80t-16t^2=96$ which gives $16t^2-80t+96=0$, $t^2-5t+6=0$
+    $(t-2)(t-3)=0$, so the ball is $96$ ft above the ground when $t=2$
+    seconds and when $t=3$ seconds.  Note that the velocity of the
+    ball is the derivative of $s$ so $s'(t)=80-32t$; at $t=2$ we have
+    $s'(2)=80-32(2)=80-64=16$, so the ball is moving upwards (positive
+    is up in this problem) at 16 ft/s.  When $t=3$ we have
+    $s'(3)=80-32(3)=80-96=-16$, so the ball is moving downwards at 16
+    ft/s.
+  \end{enumerate}
+\item %2
+  Based on the formula for linear density in the textbook, the linear
+  density is $m'(x)=6x$ kg/m.  (a) When $x=1$ the linear density is
+  $m'(1)=6$ kg/m; (b) 12 kg/m; (c) 18 kg/m.
+\item %3
+  \begin{enumerate}
+  \item We have $C'(x)=25-0.18x+0.0012x^2$ so $C'(100)=25-18+12=19$.
+    We interpret this as an approximation to the marginal cost, i.e.,
+    the cost of producing one more unit of the commodity after we have
+    produced 100 is approximately $19$ monetary units.  (The problem
+    doesn't state what those units are; they could be dollars,
+    thousands of dollars, millions of dollars, etc.)
+  \item The exact cost of producing one more item after 100 have been
+    produced is
+    \begin{align*}
+      M
+      &=C(101)-C(100)
+      \\
+      &= 339+25(101)-0.09(101)^2+0.0004(101)^3
+      -(339+25(100)-0.09(100)^2+0.0004(100)^3)
+      \\
+      &= 19.0304
+    \end{align*}
+    We can see that the marginal cost is very close to the
+    approximation in the previous part; the relative error is
+    $0.0304/19=0.0016$, or 0.16\%.
+  \end{enumerate}
+\item %4
+  \begin{enumerate}
+  \item The rate of the reaction is 
+    \begin{equation*}
+      d[C]/dt= \frac{d}{dt} \frac{a^2kt}{akt+1}
+      = \frac{(akt+1)(a^2k)-a^2kt(ak)}{(akt+1)^2}
+      = \frac{a^3k^2t+a^2k-a^3k^2t}{(akt+1)^2}
+      = \frac{a^2k}{(akt+1)^2}
+    \end{equation*}
+  \item We have worked out the left side of the purported identity
+    above.  The right side is
+    \begin{equation*}
+      k(a-x)^2 = k\left(a-\frac{a^2kt}{akt+1}\right)^2
+      = k\left(\frac{a^2kt+a-a^2kt}{akt+1}\right)^2
+      = k\frac{a^2}{(akt+1)^2}
+    \end{equation*}
+    which is the same as the left side and we are done.
+  \end{enumerate}
+\item %5
+  \begin{enumerate}
+  \item By a stable population, we mean a population which doesn't
+    change in number (of course, the particular individuals will
+    change from year to year, but the number of them won't).  That
+    means $P$ is constant throughout time, so $dP/dt=0$.
+  \item We are given $P_c=10,000$, $r_0=0.05$, and $\beta=0.04$;
+    furthermore, if the population is stable, we have $dP/dt=0$.
+    Substituting those values into the equation, we have
+    \begin{equation*}
+      0 = 0.05\left(1-\frac{P(t)}{10,000}\right)P(t)-0.04P(t)
+    \end{equation*}
+    Clearing fractions by multiplying through by $10,000$ and
+    factoring,
+    \begin{equation*}
+      0 = P(t) (0.05 \left(10,000 - P(t)\right) - 400)
+      = P(t) (100 - 0.05P(t))
+    \end{equation*}
+    with solutions $P(t)=0$ and $P(t)=2000$.  The stable population
+    levels are $P(t)=0$ and $P(t)=2000$; if we have no fish, we will
+    continue to have no fish; on the other hand, if we have any other
+    number of fish, the population will in the long run tend to
+    $2,000$ fish, meaning we'll only be able to harvest about 80 fish
+    per year in the long run.
+  \item As with the previous, we have $P_c=10,000$, $r_0=0.05$, and
+    $dP/dt=0$, but now we have $\beta=0.05$ instead of $0.04$, which
+    could happen, say, if we tried to harvest $100$ fish per year at
+    the $2,000$ population level.  In that case our equation becomes
+    \begin{equation*}
+      0 = 0.05\left(1-\frac{P(t)}{10,000}\right)P(t)-0.05P(t)
+    \end{equation*}
+    Clearing fractions by multiplying through by $10,000$ and
+    factoring,
+    \begin{equation*}
+      0 = P(t) (0.05 \left(10,000 - P(t)\right) - 500)
+      = P(t) (-0.05P(t))
+    \end{equation*}
+    with only the solution $P(t)=0$.  That means that no matter how
+    many fish we start with, in the long run we'll have no fish under
+    those conditions.
+  \end{enumerate}
+\end{enumerate}
+\end{document}
+
+

@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{mathptmx}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{tikz}
+% FIXME : probably don't need these all with circuiTikz
+\usetikzlibrary{decorations,decorations.pathmorphing,decorations.pathreplacing}
+\usepackage{circuitikz}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroTwoEight}
+\author{\commonAuthor}
+\date{\commonDateZeroTwoEight}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent
+The following problems based on Section~2.8 of the textbook will help
+you study.  \emph{You do not need to hand in solutions to these
+  problems.}
+\begin{enumerate}
+\item (Based on 2.8.10) %1
+  If $x^2+y^2=25$ and $dy/dt=6$, find $dx/dt$ when $y=4$.
+\item (Based on 2.8.11) %2
+  If $z^2=x^2+y^2$, $dx/dt=2$, and $dy/dt=3$, find
+  $dz/dt$ when $x=5$ and $y=12$.
+\item (Based on 2.8.6) %3
+  The radius of a sphere is increasing at a rate of $4$
+  mm/s.  How fast is the volume increasing when the radius is $40$ mm?
+\item (Based on 2.8.14) %4
+  If a snowball melts so that its surface area
+  decreases at a rate of $1$ cm$^2$/min, find the rate at which the
+  diameter decreases when the diameter is $10$ cm.
+\item (Based on 2.8.16) %5
+  At noon, ship $A$ is $150$ km west of ship $B$.
+  Ship $A$ is sailing east at $35$ km/h and ship $B$ is sailing north at 
+  $25$ km/h.  How fast is the distance between the ships changing at
+  4:00 pm?
+\item (Based on 2.8.25) %6
+  Water is leaking out of an inverted conical tank
+  at a rate of $10,000$ cm$^3$/min at the same time that water is being
+  pumped into the tank at a constant rate.  The tank has height $6$ m
+  and the diameter at the top is $4$ m.  If the water level is rising at
+  a rate of $20$ cm/min when the height of the water is $2$ m, find the
+  rate at which water is being pumped into the tank.
+\item (Based on 2.8.39)\label{prob:circuit} %7
+  If two resistors $R_1$ and $R_2$ are connected in parallel, as in
+  Figure~\ref{fig:circuit}, then the total resistance $R$, measured in
+  ohms ($\Omega$), is given by
+  \begin{align*}
+    \frac{1}{R} = \frac{1}{R_1} + \frac{1}{R_2}
+  \end{align*}
+  If $R_1$ and $R_2$ are increasing at rates of $0.3$ $\Omega$/s and
+  $0.2$ $\Omega$/s respectively, how fast is $R$ changing when
+  $R_1=80$ $\Omega$ and $R_2=100$ $\Omega$?
+  \begin{figure}[htbp]
+    \centering
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$U_q$] (0,2) % The voltage source
+      to[short] (2,2)
+      to[R=$R_1$] (2,0) % The resistor
+      to[short] (0,0);
+      \draw (2,2)
+      to[short] (4,2)
+      to[R=$R_2$] (4,0)
+      to[short] (2,0);
+    \end{circuitikz}
+    \caption{Electrical circuit for problem~\ref{prob:circuit}}
+    \label{fig:circuit}
+  \end{figure}
+\item (Based on 2.8.44) %8
+  A lighthouse is located on a small island $3$ km away from the
+  nearest point $P$ on a straight shoreline.  The light in the
+  lighthouse makes four revolutions per minute.  How fast is the beam
+  of light moving along the shoreline when it is shining on a point
+  $Q$ on the shoreline which is $1$ km from $P$?
+\end{enumerate}
+
+\noindent
+You may find the following additional exercises from Section~2.8  helpful.
+\begin{itemize}
+\item[2.8] C-level: 1--35; \\
+  B-level: 36--40; \\
+  A-level: 41--50
+\end{itemize}
+
+
+
+
+\end{document}

@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage{mathptmx}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\reversemarginpar
+
+\title{MATH 110-004 200730 Quiz 6 Solutions}
+\author{Edward Doolittle}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item We follow the standard procedure for optimizing a continuous function
+  on a closed interval.  (Why is $f$ continuous?)
+  \begin{enumerate}
+  \item The critical numbers are where $f'(x)=4x^3-4x$ is zero or doesn't
+    exist.  Since $f$ is a polynomial the derivative always exists, so the
+    critical numbers are exactly where $f'(c)=4c^3-4c=4c(c-1)(c+1)=0$,
+    namely $c=0$, $c=1$, and $c=-1$.  Since all of those critical numbers
+    are inside the interval $[-2,3]$ we keep them all.
+  \item Evaluating $f$ at the critical numbers we have
+    $f(0)=3$, $f(-1)=2$, $f(1)=2$.
+  \item Evaluating $f$ at the endpoints, $f(-2)=16-8+3=11$ and $f(3)=81-18+3
+    = 66$.
+  \item The smallest of the above function values is $2$, so $f$ takes on a
+    minimum value of $2$.  The largest of the above function values is
+    $66$, so $f$ takes on a maximum value of $66$ in $[-2,3]$.
+  \end{enumerate}
+\item First, we guess an interval on which $f(x)=5x-3\sin x+1$ changes sign.
+  One guess might be $[-1,1]$.  Note that $f(-1)=-5-3\sin(-1)+1<-4+3<0$
+  and $f(1)=5-3\sin(1)+1>6-3>0$, so $f$ changes sign on $[-1,1]$.  (It is
+  acceptable to evaluate $f(-1)$ and $f(1)$ numerically instead of using
+  inequalities.)  Since $f$ is continuous, the IVT says that it must have
+  a root between $-1$ and $1$, so $f$ has at least one root.  (Intervals
+  other than $[-1,1]$ could work, too.)
+
+  Now assume that $f$ has at least two roots, e.g., $a$ and $b$.
+  Since $f$ is continuous and differentiable and $f(a)=f(b)$, Rolle's 
+  theorem tells us there is a $c$ between $a$ and $b$ such that $f'(c)=0$.
+  However, $f'(c)=5-3\sin c$, and 
+  \begin{align*}
+    \sin c \le 1 \implies -3 \le -3\sin c \implies 5-3 \le 5-3\sin c
+    \implies 0<2\le 5-3\sin c = f'(c)
+  \end{align*}
+  contradicting $f'(c)=0$.  Therefore our assumption that $f$ has two or
+  more roots is wrong, and we conclude that $f$ has exactly one root.
+\end{enumerate}
+
+\end{document}
+
+

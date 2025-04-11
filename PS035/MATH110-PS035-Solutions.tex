@@ -1,0 +1,1006 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fullpage}
+% \usepackage{graphicx}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+%\usepackage{pgfmath}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroThreeFive\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroThreeFive}
+
+\allowdisplaybreaks
+
+% EJD: labels for special points on graphs
+% EJD: combine pairs of graphs
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  \begin{enumerate}
+  \item %1a
+    \begin{itemize}
+    \item[A] Domain: a polynomial has domain all of $\mathbb{R}$.
+    \item[B] Intercepts: $x=0$ implies $y=0^4-4(0)^2+4=4$, so $(0,4)$
+      is the $y$-intercept.  $y=0$ implies $x^4-4x^2+4=0$.  Factoring,
+      $(x^2-2)^2=0$ which implies $x^2-2=0$ so $x=\pm\sqrt{2}$.  The
+      $x$-intercepts are $(-\sqrt{2},0)$ and $(\sqrt{2},0)$.
+    \item[C] Symmetry: Since the function only contains even powers of
+      $x$, it follows that $y(x)=y(-x)$, in other words the function
+      is even, with mirror symmetry in the $y$-axis.
+    \item[D] Asymptotes: non-constant polynomials do not have
+      asymptotes.
+    \item[E] Intervals of increase/decrease: the derivative is
+      $y'=4x^3-8x=4x(x^2-2)=4(x+\sqrt{2})x(x-\sqrt{2})$.  The
+      derivative is negative for $x<-\sqrt{2}$, positive for
+      $-\sqrt{2}<x<0$, negative for $0<x<\sqrt{2}$, and positive for
+      $\sqrt{2}<x$, which gives the intervals of increase/decrease.
+    \item[F] Local max/min: the derivative is $0$ at $x=-\sqrt{2}$,
+      $x=0$, and $x=\sqrt{2}$.  From E above we see that the
+      derivative changes sign at each of those points, and we conclude
+      that there is a local min at $x=-\sqrt{2}$, a local max at
+      $x=0$, and a local min at $x=\sqrt{2}$.
+    \item[G] Concavity and inflection points:
+      $y''=12x^2-8=12(x^2-2/3)=12(x+\sqrt{2/3})(x-\sqrt{2/3})$.  The
+      second derivative is positive on $x<-\sqrt{2/3}$ (concave up),
+      negative on $-\sqrt{2/3}<x<\sqrt{2/3}$ (concave down), and
+      positive on $\sqrt{2/3}<x$.  Since the second derivative changes
+      sign at $x=\pm\sqrt{2/3}$, those are both inflection points.
+    \item[H] Graph: see Figure~\ref{fig:x4-4x2+4}.
+    \end{itemize}
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[domain=-3:3,
+          samples=200,
+          grid=both]
+          \addplot[red,<->] { x^4-4*x^2+4 };
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -1.414,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 0,4) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 1.414,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -0.816,1.778) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 0.816,1.778) {};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Graph of $y=x^4-4x^2+4$}
+      \label{fig:x4-4x2+4}
+    \end{figure}
+  \item %1b
+    \begin{itemize}
+    \item[A] Domain: a polynomial has domain all of $\mathbb{R}$.
+    \item[B] Intercepts: $x=0$ implies $y=(9-0^2)^3=729$.  $y=0$
+      implies $(9-x^2)^3=0$ which implies $(9-x^2)=0$.  Factoring,
+      $(3+x)(3-x)=0$ giving the $x$-intercepts $(-3,0)$ and $(3,0)$.
+    \item[C] Symmetry: the function has only even powers of $x$, so it
+      is an even function, with mirror symmetry in the $y$-axis; in
+      other words, $y(-x)=y(x)$.
+    \item[D] Asymptotes: non-constant polynomials do not have
+      asymptotes.
+    \item[E] Intervals of increase/decrease:
+      $y'=3(9-x^2)^2(-2x)=-6(3+x)^2x(3-x)^2$.  The derivative is
+      positive on $x<-3$, remains positive on $-3<x<0$, becomes
+      negative on $0<x<3$, and remains negative on $3<x$.
+    \item[F] Local max/min: the derivative only changes sign at $x=0$,
+      which gives a local max.
+    \item[G] Concavity and inflection points: the second derivative is
+      \begin{align*}
+        y'' &= 24(9-x^2)x^2-6(9-x^2)^2 = 6(9-x^2)(4x^2-9+x^2) \\
+        &= 30(3+x)(x+3\sqrt{1/5})(x-3\sqrt{1/5})(3-x)
+      \end{align*}
+      which is negative on $x<-3$, positive on $-3<x<-3\sqrt{1/5}$,
+      negative on $-3\sqrt{1/5}<x<3\sqrt{1/5}$, positive on
+      $3\sqrt{1/5}<x<3$, and negative on $3<x$.  Since the concavity
+      changes at each of the roots of $y''$, they are all inflection
+      points.
+    \item[H] Graph: see Figure~\ref{fig:9-x2all3}.
+    \end{itemize}
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[domain=-4:4,
+          samples=200,
+          grid=both]
+          \addplot[red,<->] { (9-x^2)^3  };
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -3,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -1.342,373.248) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 0,729) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 1.342,373.248) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 3,0) {};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Graph of $y=(9-x^2)^3$}
+      \label{fig:9-x2all3}
+    \end{figure}
+  \end{enumerate}
+\item %2
+  \begin{enumerate}
+  \item %2a
+    \begin{itemize}
+    \item[A] Domain: rational functions are defined wherever the
+      denominator is non-zero, so the domain is all of $\mathbb{R}$
+      except for solutions to $9-x^2=0$ which are $x=-3$ and $x=3$.
+    \item[B] Intercepts: when $x=0$, $y=0/9=0$.  When $y=0$,
+      $x^2-3x=0$.  Factoring, $x(x-3)=0$ with roots $x=0$ and $x=3$.
+      However, $x=3$ is not in the domain of the function, so the only
+      $x$-intercept is at $x=0$.
+    \item[C] Symmetry: there is no obvious relationship between $y(x)$
+      and $y(-x)$ so there is no obvious symmetry.
+    \item[D] Asymptotes:
+      $\lim_{x\to\pm\infty} (x^2+3x)/(9-x^2) = \lim_{x\to\pm\infty}
+      (1+3/x)/(9/x^2-1) = -1$, so the only horizontal asymptote is
+      at $y=1$.  For vertical asymptotes, we take one-sided limits
+      as $x$ approaches the locations at which the denominator is
+      zero:
+      \begin{align*}
+        \lim_{x\to -3^-} \frac{x^2+3x}{9-x^2}
+        &= \lim_{x\to -3^-} \frac{x(x+3)}{(3+x)(3-x)}
+          = \lim_{x\to -3^-} \frac{x}{3-x} = \frac{-3}{6} = -\frac{1}{2} \\
+        \lim_{x\to -3^+} \frac{x^2+3x}{9-x^2}
+        &= \lim_{x\to -3^+} \frac{x(x+3)}{(3+x)(3-x)}
+          = \lim_{x\to -3^+} \frac{x}{3-x} = \frac{-3}{6} = -\frac{1}{2} \\
+        \lim_{x\to 3^-} \frac{x^2+3x}{9-x^2}
+        &= \lim_{x\to 3^-} \frac{x(x+3)}{(3+x)(3-x)}
+          = \lim_{x\to 3^-} \frac{x}{3-x} = \frac{3}{+0} = +\infty \\
+        \lim_{x\to 3^+} \frac{x^2+3x}{9-x^2}
+        &= \lim_{x\to 3^+} \frac{x(x+3)}{(3+x)(3-x)}
+          = \lim_{x\to 3^+} \frac{x}{3-x} = \frac{3}{-0} = -\infty
+      \end{align*}
+      The only vertical asymptote is at $x=3$.  The function has a
+      removable discontinuity at $x=-3$.
+    \item[E] Intervals of increase/decrease: to simplify the
+      calculation, remove the common factor of $x+3$ from the
+      numerator and denominator and then apply the quotient rule:
+      \begin{displaymath}
+        y'=\frac{(3-x)-x(-1)}{(3-x)^2} = \frac{3}{(3-x)^2}
+      \end{displaymath}
+      The first derivative $y'$ is always positive on the domain of
+      the function, so the function is increasing on its domain.
+    \item[F] Local max/min: since $y'$ never changes sign, there are
+      no local min/max.
+    \item[G] Concavity and inflection points: by the chain rule the
+      second derivative is
+      \begin{displaymath}
+        y'' = -6(3-x)^{-3}(-1) = 6(3-x)^{-3}
+      \end{displaymath}
+      The second derivative is positive for $x<3$, so concave up; the
+      second derivative is negative for $x>3$, so concave down.  The
+      only candidate for an inflection point would be at $x=3$ where
+      the concavity changes, but $x=3$ is not in the domain of the
+      function, so no inflection points.
+    \item[H] Graph: see Figure~\ref{fig:x2+3xover9-x2}.
+    \end{itemize}
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[domain=-10:10,
+          restrict y to domain=-10:10,
+          samples=200,
+          extra x ticks=3,
+          extra y ticks=-1,
+          grid=both]
+          \addplot[red,domain=-10:3,<->] { (x^2+3*x)/(9-x^2) };
+          \addplot[red,domain=3:10,<->] { (x^2+3*x)/(9-x^2) };
+          \node[draw=red,fill=white,circle,inner sep=0.75pt]
+          at (axis cs:-3,-0.5) {};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Graph of $\ds y=\frac{x^2+3x}{9-x^2}$}
+      \label{fig:x2+3xover9-x2}
+    \end{figure}
+  \item %2b
+    \begin{itemize}
+    \item[A] Domain: the denominator is always positive, so the domain
+      is all of $\mathbb{R}$.
+    \item[B] Intercepts: when $x=0$, $y=(0-2)^2/(0^2+4)=4/4=1$, so
+      $(0,1)$ is the $y$-intercept.  When $y=0$, $(x-2)^2/(x^+4)=0$
+      which implies $(x-2)^2=0$ so $x=2$.  The point $(2,0)$ is the
+      only $x$-intercept.
+    \item[C] Symmetry: there is no obvious relationship between $y(x)$
+      and $y(-x)$, so there is no obvious symmetry.
+    \item[D] Asymptotes:
+      \begin{displaymath}
+        \lim_{x\to\pm\infty} \frac{(x-2)^2}{x^2+4}
+        = \lim_{x\to\pm\infty} \frac{(x-2)^2/x^2}{(x^2+4)/x^2}
+        = \lim_{x\to\pm\infty} \frac{(1-2/x)^2}{1+4/x^2}
+        = \frac{(1-0)^2}{1+0} = 1
+      \end{displaymath}
+      so $y=1$ is the only horizontal asymptote.  Since the domain of
+      this rational function is $\mathbb{R}$, there are no vertical
+      asymptotes.
+    \item[E] Intervals of increase/decrease: the derivative is
+      \begin{align*}
+        y' &= \frac{(x^2+4)\cdot 2(x-2) - (x-2)^2\cdot 2x}{(x^2+4)^2}
+        = \frac{2x^3-4x^2+8x-16-2x^3+8x^2-8x}{(x^2+4)^2} \\
+        &= \frac{4x^2-16}{(x^2+4)^2} = \frac{4(x+2)(x-2)}{(x^2+4)^2}
+      \end{align*}
+      The first derivative is positive for $x<-2$, negative for
+      $-2<x<2$, and positive for $2<x$.
+    \item[F] Local max/min: the derivative changes sign at $x=-2$
+      (local max) and at $x=2$ (local min).
+    \item[G] Concavity and inflection points: the second derivative is
+      \begin{align*}
+        y''
+        &=\frac{(x^2+4)^2\cdot 8x - 4(x^2-4)\cdot 2(x^2+4)\cdot 2x}{(x^2+4)^4}
+        \\
+        &=\frac{(x^2+4)\cdot 8x - 4(x^2-4)\cdot 4x}{(x^2+4)^3}
+        \\
+        &= \frac{8x^3 + 32 x - 16x^3+64x}{(x^2+4)^3}
+        \\
+        &= \frac{-8x^3+96x}{(x^2+4)^3}
+          = -\frac{8x(x+2\sqrt{3})(x-2\sqrt{3})}{(x^2+4)^3}
+      \end{align*}
+      The second derivative is positive on $x<-2\sqrt{3}$, negative on
+      $-2\sqrt{3}<x<0$, positive on $0<x<2\sqrt{3}$, and negative on
+      $2\sqrt{3}<x$.  Because the concavity changes at
+      $x=-2\sqrt{3},0,2\sqrt{3}$, they are all inflection points.
+    \item[H] Graph: see Figure~\ref{fig:x-2all2overx2+4}.
+    \end{itemize}
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[domain=-40:40,
+          restrict y to domain=-10:10,
+          samples=200,
+          %extra x ticks=3,
+          %extra y ticks=-1,
+          grid=both]
+          \addplot[red,<->] { ((x-2)^2)/(x^2+4) };
+          %\node[draw=red,fill=white,circle,inner sep=1pt]
+          %at (axis cs:-3,-0.5) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -3.464,1.866) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -2,2) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 0,1) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 2,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 3.464,0.134) {};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Graph of $\ds y=\frac{(x-2)^2}{x^2+4}$}
+      \label{fig:x-2all2overx2+4}
+    \end{figure}
+  \end{enumerate}
+\item %3
+  \begin{enumerate}
+  \item\label{prob:sqrtx2+2x-x} %3a
+    \begin{itemize}
+    \item[A] Domain: the function is defined where the radicand
+      $x^2+2x\ge 0$.  Factoring, we need $(x+2)x\ge 0$, which is true
+      when both factors are negative or when both factors are
+      positive, in other words, on $x\le -2$ and $0\le x$.
+    \item[B] Intercepts: $x=0$ implies $y=\sqrt{0^2+2(0)}-0=0$, giving
+      the $y$-intercept at $(0,0)$.  $y=0$ implies $\sqrt{x^2-2x}-x=0$
+      which implies $\sqrt{x^2-2x}=x$ and $x^2-2x=x^2$ and finally
+      $x=0$, so the only $x$-intercept is $(0,0)$.
+    \item[C] Symmetry: there is no obvious relationship between $y(x)$
+      and $y(-x)$ so there are no obvious symmetries.
+    \item[D] Asymptotes: we evaluate the limit at infinity:
+      \begin{align*}
+        \lim_{x\to\infty} \sqrt{x^2+2x}-x
+        &= \lim_{x\to\infty} (\sqrt{x^2+2x}-x)\cdot
+          \frac{\sqrt{x^2+2x}+x}{\sqrt{x^2+2x}+x} \\
+        &= \lim_{x\to\infty} \frac{x^2+2x-x^2}{\sqrt{x^2+2x}+x} \\
+        &= \lim_{x\to\infty} \frac{2}{\sqrt{x^2+2x}/\sqrt{x^2}+1} \\
+        &= \lim_{x\to\infty} \frac{2}{\sqrt{1+2/x}+1} \\
+        &= \frac{2}{\sqrt{1+0}+1} = \frac{2}{2} = 1
+      \end{align*}
+      On the other hand, the limit at $-\infty$ is
+      \begin{align*}
+        \lim_{x\to -\infty} \sqrt{x^2+2x}-x
+        &= \lim_{x\to -\infty} (\sqrt{x^2+2x}-x)\cdot
+          \frac{\sqrt{x^2+2x}+x}{\sqrt{x^2+2x}+x} \\
+        &= \lim_{x\to -\infty} \frac{x^2+2x-x^2}{\sqrt{x^2+2x}+x} \\
+        &= \lim_{x\to -\infty} \frac{2}{-\sqrt{x^2+2x}/\sqrt{x^2}+1} \\
+        &= \lim_{x\to -\infty} \frac{2}{-\sqrt{1+2/x}+1} \\
+        &= \frac{2}{-\sqrt{1+0}+1} = \frac{2}{+0} = +\infty
+      \end{align*}
+      so there is no horizontal asymptote as $x\to -\infty$.  Note
+      that a negative sign appears in the calculation because
+      $x=-\sqrt{x^2}$ for negative $x$, and that the value of the
+      denominator is positive $+0$ for large negative $x$ because
+      $1+2/x<1$ for such $x$.  There are no vertical asymptotes
+      because there is no denominator to go to $0$ in the function.
+    \item[E] Intervals of increase/decrease: the derivative is
+      \begin{displaymath}
+        y'=\frac{1}{2}(x^2+2x)^{-1/2}\cdot (2x+2) - 1
+        = \frac{x+1}{\sqrt{x^2+2x}} - 1
+        = \frac{\pm\sqrt{x^2+2x+1}}{\sqrt{x^2+2x}} - 1
+      \end{displaymath}
+      For $0<x$, we use the $+$ sign in front of the square root, and
+      then the fraction is always slightly larger than $0$ so $y'>0$,
+      so $y$ is increasing.  For $x<-2$ we use the $-$ sign in front
+      of the square root which makes $y'<0$, so $y$ is decreasing.
+    \item[F] Local max/min: the first derivative does not change signs
+      in the domain of the function so there are no local max/min in
+      the interior of the domain.  There is a local min at both
+      endpoints because in the neighborhood of $x=-2$ the function is
+      decreasing and in the neighborhood of $x=0$ the function is
+      increasing.
+    \item[G] Concavity and inflection points: the second derivative is
+      \begin{displaymath}
+        y''=\frac{(x^2+2x)^{1/2}(1)- (x+1)\frac{1}{2}(x^2+2x)^{-1/2}(2x+2)}
+        {x^2+2x}
+        = \frac{x^2+2x-(x+1)^2}{(x^2+2x)^{3/2}}
+        = -\frac{1}{(x^2+2x)^{3/2}}
+      \end{displaymath}
+      where we have simplified by multiplying the numerator and
+      denominator by $(x^2+2x)^{1/2}$.  The second derivative is
+      always negative so the graph is always concave down.
+    \item[H] Graph: see Figure~\ref{fig:sqrtx2+2x-x}.
+    \end{itemize}
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[domain=-10:10,
+          restrict y to domain=-10:10,
+          samples=500,
+          %extra x ticks=3,
+          extra y ticks=1,
+          grid=both]
+          \addplot[red,domain=-10:-2,<-] { sqrt(x^2+2*x)-x };
+          \addplot[red,domain=0:10,->] { sqrt(x^2+2*x)-x };
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -2,2) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 0,0) {};
+          %\node[draw=red,fill=red,circle,inner sep=0.5pt]
+          %at (axis cs: 0,1) {};
+          %\node[draw=red,fill=red,circle,inner sep=0.5pt]
+          %at (axis cs: 2,0) {};
+          %\node[draw=red,fill=red,circle,inner sep=0.5pt]
+          %at (axis cs: 3.464,0.134) {};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Graph of $\ds y=\sqrt{x^2+2x}-x$}
+      \label{fig:sqrtx2+2x-x}
+    \end{figure}
+  \item %3b
+    \begin{itemize}
+    \item[A] Domain: the radicand $x^2-4$ must be greater than $0$ so
+      that the square root can be taken and so that the denominator is
+      not $0$.  $x^2-4>0$ implies $(x+2)(x-2)>0$ which is true for
+      $x<-2$ and $2<x$.
+    \item[B] Intercepts: $x=0$ is not in the domain of the function so
+      there is no $y$-intercept.  For $x$-intercepts,
+      $x/\sqrt{x^2-4}=0$ implies $x=0$ which is again outside of the
+      domain, so there are no $x$-intercepts.
+    \item[C] Symmetry:
+      $y(-x)=-x/\sqrt{(-x)^2-4}=-(x/\sqrt{x^2-4})=-y(x)$ so the
+      function is odd, with rotational symmetry about the origin
+      $(0,0)$.
+    \item[D] Asymptotes: this function has interesting asymptotes.
+      Taking the limit as $x\to\infty$ and dividing through by
+      $x=\sqrt{x^2}$,
+      \begin{displaymath}
+        \lim_{x\to\infty} \frac{x}{\sqrt{x^2-4}}
+        = \lim_{x\to\infty} \frac{x/x}{\sqrt{x^2-4}/\sqrt{x^2}}
+        = \lim_{x\to\infty} \frac{1}{\sqrt{1-4/x^2}}
+        = \frac{1}{\sqrt{1-0}}
+        = 1
+      \end{displaymath}
+      Taking the limit as $x\to -\infty$ and dividing through by
+      $x=-\sqrt{x^2}$,
+      \begin{displaymath}
+        \lim_{x\to -\infty} \frac{x}{\sqrt{x^2-4}}
+        = \lim_{x\to -\infty} \frac{x/x}{-\sqrt{x^2-4}/\sqrt{x^2}}
+        = \lim_{x\to -\infty} -\frac{1}{\sqrt{1-4/x^2}}
+        = -\frac{1}{\sqrt{1-0}}
+        = -1
+      \end{displaymath}
+      So this function has two different horizontal asymptotes, $y=1$
+      and $y=-1$, which is a phenomenon that does not occur with
+      rational functions.
+
+      Candidates for vertical asymptotes are $x$-values at which the
+      denominator of the function goes to $0$, namely $x=-2$ and
+      $x=2$.  Those values are not in the domain of the function, but
+      we can still take one-sided limits as $x$ approaches those
+      values:
+      \begin{align*}
+        \lim_{x\to -2^-} \frac{x}{\sqrt{x^2-4}} &= \frac{-2}{+0} = -\infty
+        \\
+        \lim_{x\to 2^+} \frac{x}{\sqrt{x^2-4}} &= \frac{2}{+0} = +\infty
+      \end{align*}
+      which show that both $x=-2$ and $x=2$ are vertical asymptotes.
+    \item[E] Intervals of increase/decrease: the derivative is
+      \begin{displaymath}
+        y'=\frac{(x^2-4)^{1/2}(1)-x\cdot\frac{1}{2}(x^2-4)^{-1/2}(2x)}{x^2-4}
+        = \frac{x^2-4-x^2}{(x^2-4)^{3/2}} = -\frac{4}{(x^2-4)^{3/2}}
+      \end{displaymath}
+      which is always negative so the function is always decreasing.
+    \item[F] Local max/min: since the function is always decreasing,
+      there can be no local max/min.
+    \item[G] Concavity and inflection points: the second derivative is
+      \begin{displaymath}
+        y'' = 6(x^2-4)^{-5/2}\cdot 2x
+      \end{displaymath}
+      which has the same sign as $x$, so the function is concave down
+      for $x<-2$ and concave up for $2<x$.
+    \item[H] Graph: see Figure~\ref{fig:xoversqrtx2-4}.
+    \end{itemize}
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[domain=-10:10,
+          restrict y to domain=-10:10,
+          samples=500,
+          extra x ticks={-2,2},
+          extra y ticks={-1,1},
+          grid=both]
+          \addplot[red,domain=-10:-2,<->] { x/sqrt(x^2-4) };
+          \addplot[red,domain=2:10,<->] { x/sqrt(x^2-4) };
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Graph of $\ds y=\frac{x}{\sqrt{x^2-4}}$}
+      \label{fig:xoversqrtx2-4}
+    \end{figure}    
+  \end{enumerate}
+\item %4
+  \begin{enumerate}
+  \item %4a
+    \begin{itemize}
+    \item[A] Domain: the domain is given in the problem statement:
+      $[-2\pi,2\pi]$.
+    \item[B] Intercepts: when $x=0$, $y=0+\sin 0=0+0=0$, so $(0,0)$ is
+      the $y$-intercept.  For the $x$-intercept we need to solve
+      $0=x+\sin x$.  Solving such trigonometric equations can be
+      difficult, but we have done most of the work already in Problem
+      Set~3.2 where we used the mean value theorem to show that
+      $|\sin x|\le |x|$ for all $x$.  A slight refinement of the
+      solutions to Problem Set~3.2 shows that $|\sin x|<|x|$ for
+      $-2\pi\le x<0$ and for $0<x\le 2\pi$.  So the only possible
+      solution in our domain is $x=0$, and a quick check shows that
+      $x=0$ is a solution.
+    \item[C] Symmetry: we have $y(-x)=-x+\sin(-x)=-x-\sin x=-y(x)$ so
+      the function is odd, with rotational symmetry about the origin
+      $(0,0)$.
+    \item[D] Asymptotes: the domain is finite so there are no
+      horizontal asymptotes.  The values of the function are bounded
+      on its domain (because $-2\pi-1\le x+\sin x\le 2\pi+1$ so there
+      are no vertical asymptotes.
+    \item[E] Intervals of increase/decrease: the derivative is
+      \begin{displaymath}
+        y' = 1 + \cos x
+      \end{displaymath}
+      Since $-1\le \cos x \le 1$, it follows that $y'\ge 0$, and the
+      function is non-decreasing.
+    \item[F] Local max/min: the points where $y'=0$ are solutions to
+      $\cos x = -1$, which we know from the graph of cosine are
+      $x=-\pi$ and $x=\pi$.  (There are more solutions: $x=k\pi$,
+      where $k$ is an odd integer, but $\pm\pi$ are the only solutions
+      in the domain $[-2\pi,2\pi]$.)  However, the derivative does not
+      change sign at $\pm\pi$, so they are not locations of local
+      max/min.  Since the function is defined on a finite interval,
+      the endpoints are candidates for local max/min: $x=-2\pi$ is a
+      local min because the function is increasing in its
+      neighborhood, and similarly $x=2\pi$ is a local max because the
+      function is increasing in its neighborhood.
+    \item[G] Concavity and inflection points: the second derivative is
+      $y''=-\sin x$, which one can easily graph to obtain $y''<0$ on
+      the interval $-2\pi<x<-\pi$, $y''>0$ on the interval $-\pi<x<0$,
+      $y''<0$ on the interval $0<x<\pi$, and $y''<0$ on the interval
+      $\pi<x<2\pi$.  Since the concavity changes at each of
+      $x=-\pi,0,\pi$, those are all inflection points.
+    \item[H] Graph:
+    \end{itemize}
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[domain=-2*pi:2*pi,
+          %restrict y to domain=-10:10,
+          samples=500,
+          %extra x ticks={-2,2},
+          %extra y ticks={-1,1},
+          ytick={-2*pi, -pi, 0, pi, 2*pi},
+          yticklabels={
+            $-2\pi$, $-\pi$, $0$, $\pi$, $2\pi$ },
+          xtick={-2*pi, -pi, 0, pi, 2*pi},
+          xticklabels={
+            $-2\pi$, $-\pi$, $0$, $\pi$, $2\pi$ },
+          grid=both]
+          \addplot[red,domain=-2*pi:2*pi] { x + sin(deg(x)) };
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -2*pi,-2*pi) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -pi,-pi) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 0,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: pi,pi) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 2*pi,2*pi) {};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Graph of $\ds y=x+\sin x$}
+      \label{fig:x+sinx}
+    \end{figure}    
+  \item %4b
+    \begin{itemize}
+    \item[A] Domain: the function is defined on $\mathbb{R}$ except
+      where the denominator is $0$.  However, $-1\le \cos x \le 1$ for
+      all $x$, so $2+\cos x$ is never $0$.
+    \item[B] Intercepts: when $x=0$, $y=\sin(0)/(2+\cos(0))=0/3=0$ so
+      the $y$-intercept is $(0,0)$.  When $y=0$, $\sin x/(2+\cos x)=0$
+      which implies $\sin x =0$.  From a graph of $\sin x$ we see that
+      the solutions are at $x=k\pi$ where $k$ is any integer.  So
+      there are $x$-intercepts at the points $(k\pi,0)$ where $k$ is
+      any integer.
+    \item[C] Symmetry: there is no obvious relationship between $y(x)$
+      and $y(-x)$ so there is no obvious mirror or rotational
+      symmetry.  However, with trigonometric functions we often see
+      another kind of symmetry, ``translational'' symmetry, also
+      called ``periodicity''.  In this case
+      \begin{displaymath}
+        y(x+2\pi)=\frac{\sin(x+2\pi)}{2+\cos(x+2\pi)}
+        = \frac{\sin x}{2+\cos x} = y(x)
+      \end{displaymath}
+      so the function is periodic with period $2\pi$.  We only have to
+      graph a single period of the function to get a complete picture
+      of its behaviour (but we will graph several periods below so
+      that we can see what periodicity means geometrically).
+    \item[D] Asymptotes: because of periodicity, there are no
+      horizontal asymptotes.  Because the denominator never goes to
+      $0$ there are no vertical asymptotes.
+    \item[E] Intervals of increase/decrease: the first derivative is
+      \begin{displaymath}
+        y'=\frac{(2+\cos x)\cdot \cos x - \sin x (-\sin x)}{(2+\cos x)^2}
+        = \frac{2\cos x +\cos^2 x + \sin^2 x}{(2+\cos x)^2}
+        = \frac{2\cos x + 1}{(2+\cos x)^2}
+      \end{displaymath}
+      where we have used the Pythagorean identity to simplify in the
+      last step.  The sign of the derivative is the same as the sign
+      of $2\cos x+1$.  To find where it changes sign we solve
+      $2\cos x+1=0$ which is equivalent to $\cos x = -1/2$.  From our
+      knowledge of trigonometric functions we have solutions
+      $x=\pm 2\pi/3+ 2k\pi$; in other words, $2\cos x + 1$ is positive
+      for $0\le x < 2\pi/3$, negative on $2\pi/3 < x < 4\pi/3$,
+      positive on $4\pi/3<x\le 2\pi$, and the pattern recurs with a
+      period of $2\pi$.
+    \item[F] Local max/min: the first derivative goes from positive to
+      negative at $x=2\pi/3$ so there is a local max there (and
+      consequently at every $x$ value of the form $2\pi/3+2k\pi$ where
+      $k$ is an integer).  The first derivative goes from negative to
+      positive at $x=4\pi/3$ so there is a local min there (and
+      consequently at ever $x$ value of the form $4\pi/3+2k\pi$ where
+      $k$ is an integer).
+    \item[G] Concavity and inflection points: the second derivative is
+      \begin{align*}
+        y'' &= \frac{(2+\cos x)^2 \cdot 2(-\sin x)
+              - (2\cos x+1)\cdot 2(2+\cos x)(-\sin x)}{(2+\cos x)^4}
+        \\
+            &= \frac{-8\sin x -8 \sin x \cos x - 2\sin x\cos^2 x
+              + 8 \sin x \cos x + 4 \sin x \cos^2 x + 4\sin x + 2\sin x\cos x}
+              {(2+\cos x)^4}
+        \\
+            &= \frac{-4\sin x + 2\sin x\cos^2 x + 2\sin x \cos x}{(2+\cos x)^4}
+        \\
+            &= \frac{2\sin x(\cos^2 x + \cos x - 2)}{(2+\cos x)^4}
+        \\
+            &= \frac{2\sin x(\cos x +2)(\cos x -1)}{(2+\cos x)^4}
+        \\
+            &= \frac{2\sin x(\cos x -1)}{(2+\cos x)^3}
+      \end{align*}
+      The second derivative is $0$ whenever $\sin x=0$ or $\cos x =1$.
+      The solutions to those equations are actually the same, namely
+      $x=k\pi$ where $k$ is an integer, so those are our potential
+      points of inflection.  Note that $\cos x - 1\le 0$ and
+      $2+\cos x>0$ so the sign of the second derivative depends on
+      $\sin x$ only; the latter goes from negative to positive at
+      $x=0$, from positive to negative at $x=\pi$, and so on, so all
+      the potential inflection points are actual inflection points.
+    \item[H] Graph: see Figure~\ref{fig:sinxover2+cosx}.
+    \end{itemize}
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[domain=-3*pi:3*pi,
+          samples=500,
+          xtick={-3*pi, -2*pi, -pi, 0, pi, 2*pi, 3*pi},
+          xticklabels={$-3\pi$, $-2\pi$, $-\pi$, $0$, $\pi$, $2\pi$, $3\pi$},
+          grid=both]
+          \addplot[red] { sin(deg(x))/(2+cos(deg(x))) };
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -3*pi,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -2*pi,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -pi,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 0,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 3*pi,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 2*pi,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: pi,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 2*pi/3,0.57735) {};  % sqrt(3)/3
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 8*pi/3,0.57735) {};  % sqrt(3)/3
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -4*pi/3,0.57735) {};  % sqrt(3)/3
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -2*pi/3,-0.57735) {};  % sqrt(3)/3
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -8*pi/3,-0.57735) {};  % sqrt(3)/3
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 4*pi/3,-0.57735) {};  % sqrt(3)/3
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Graph of $\ds y=\frac{\sin x}{2+\cos x}$}
+      \label{fig:sinxover2+cosx}
+    \end{figure}    
+  \end{enumerate}
+\item %5
+  The functions both are rational with numerator of degree one higher
+  than denominator, so they should both have slant asymptotes.  We do
+  polynomial division to find those slant asymptotes.
+  \begin{enumerate}
+  \item %5a
+    By polynomial division,
+    \begin{displaymath}
+      5x^2-7x+8 = (x-3)(5x+8)+32
+    \end{displaymath}
+    so
+    \begin{displaymath}
+      \frac{5x^2-7x+8}{x-3} = 5x+8 + \frac{32}{x-3}
+      \implies
+      \lim_{x\to\pm\infty} \frac{5x^2-7x+8}{x-3}-(5x+8)
+      = \lim_{x\to\pm\infty}\frac{32}{x-3} = 0
+    \end{displaymath}
+    It follows that the slant asymptote is $y=5x+8$.
+  \item %5b
+    By polynomial division,
+    \begin{displaymath}
+      2x^3-4x^2+5 = (x^2-3x-1)(2x+2) + 8x +7
+    \end{displaymath}
+    so
+    \begin{displaymath}
+      \lim_{x\to\pm\infty} \frac{2x^3-4x^2+5}{x^2-3x-1} - (2x+2)
+      = \lim_{x\to\pm\infty} \frac{8x+7}{x^2-3x-1}
+      = 0
+    \end{displaymath}
+    and $y=2x+2$ is the slant asymptote.
+  \end{enumerate}
+\item %6
+  We follow the same set of steps as always, except we look for slant
+  asymptotes instead of horizontal asymptotes in step D.
+  \begin{enumerate}
+  \item %6a
+    \begin{itemize}
+    \item[A] Domain: the domain of the rational function is all real
+      numbers except those where the denominator is $0$, namely
+      $x=-2$.
+    \item[B] Intercepts: when $x=0$, $y=1/2$.  When $y=0$,
+      $1-2x-3x^2=0$.  Factoring, $(1+x)(1-3x)=0$ which gives
+      $x$-intercepts at $(-1,0)$ and $(1/3,0)$.
+    \item[C] Symmetry: there is no obvious relationship between $y(x)$
+      and $y(-x)$ so no obvious symmetry.
+    \item[D] Asymptotes: since the degree of the numerator is one more
+      than the degree of the denominator, there is no horizontal
+      asymptote, but there may be a slant asymptote.  By polynomial
+      division,
+      \begin{displaymath}
+        1-2x-3x^2 = (x+2)(-3x + 4) -7
+      \end{displaymath}
+      so
+      \begin{displaymath}
+        \frac{1-2x-3x^2}{x+2} = -3x + 4 - \frac{7}{x+2}
+        \implies
+        \lim_{x\to\pm\infty} \frac{1-2x-3x^2}{x+2} - (-3x+4)
+        = \lim_{x\to\pm\infty} -\frac{7}{x+2} = 0
+      \end{displaymath}
+      so the slant asymptote is $y=-3x+4$.
+
+      There is also a vertical asymptote at $x=-2$ because
+      \begin{displaymath}
+        \lim_{x\to -2^-} \frac{1-2x-3x^2}{x+2}
+        = \lim_{x\to -2^-} \frac{(1+x)(1-3x)}{x+2}
+        = \frac{(-1)(7)}{-0} = +\infty
+      \end{displaymath}
+      and
+      \begin{displaymath}
+        \lim_{x\to -2^+} \frac{1-2x-3x^2}{x+2}
+        = \lim_{x\to -2^+} \frac{(1+x)(1-3x)}{x+2}
+        = \frac{(-1)(7)}{+0} = -\infty
+      \end{displaymath}
+    \item[E] Intervals of increase/decrease: the derivative is
+      \begin{align*}
+        y'&=\frac{(x+2)(-2-6x)-(1-2x-3x^2)(1)}{(x+2)^2}
+        = \frac{-2x-6x^2-4-12x-1+2x+3x^2}{(x+2)^2} \\
+        &= \frac{-3x^2-12x-5}{(x+2)^2} 
+      \end{align*}
+      The roots of the quadratic in the numerator can be found using
+      the quadratic formula:
+      \begin{displaymath}
+        x= -2 \pm \sqrt{\frac{7}{3}}
+      \end{displaymath}
+      The numerator is negative to the left of the first root ($y$ is
+      decreasing), is positive between the roots ($y$ is increasing),
+      and is negative to the right of the second root ($y$ is
+      decreasing).
+    \item[F] Local max/min: since the derivative changes sign at its
+      two roots, they are a local min and local max respectively.
+    \item[G] Concavity and inflection points: after some calculation,
+      the second derivative is
+      \begin{displaymath}
+        y''= -\frac{14}{(x+2)^3}
+      \end{displaymath}
+      which has the opposite sign of $x+2$, so the function is concave
+      up on $x<-2$ and concave down on $-2<x$.  The point $x=-2$ is
+      not an inflection point because the function is not defined
+      there.
+    \item[H] Graph: see Figure~\ref{fig:1-2x-3x2overx+2}.
+    \end{itemize}
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[domain=-8:5,
+          restrict y to domain=-50:50,
+          samples=500,
+          extra x ticks=-2,
+          %extra y ticks=-1,
+          grid=both]
+          \addplot[lightgray,domain=-8:5,<->] { (-3*x+4) };
+          \addplot[red,domain=-8:-2,<->] { (1-2*x-3*x^2)/(x+2) };
+          \addplot[red,domain=-2:5,<->]  { (1-2*x-3*x^2)/(x+2) };
+          %\node[draw=red,fill=white,circle,inner sep=1pt]
+          %at (axis cs:-3,-0.5) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 0,0.5) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -1,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: 0.33333,0) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -3.52753,19.1652) {};
+          \node[draw=red,fill=red,circle,inner sep=0.5pt]
+          at (axis cs: -0.472475,0.834849) {};          
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Graph of $\ds y=\frac{1-2x-3x^2}{x+2}$}
+      \label{fig:1-2x-3x2overx+2}
+    \end{figure}
+  \item %6b
+    \begin{itemize}
+    \item[A] Domain: the domain of this rational function is all of
+      $\mathbb{R}$ except for $x$ values where the denominator is $0$,
+      namely $x=-2$.
+    \item[B] Intercepts: $x=0$ implies $y=-8/4=-2$.  $y=0$ implies
+      $(x-2)^3=0$ with solution $x=2$.
+    \item[C] Symmetry: there is no obvious relationship between $y(x)$
+      and $y(-x)$, so no obvious symmetry.
+    \item[D] Asymptotes: since the degree of the numerator is one more
+      than the degree of the denominator, there is no horizontal
+      asymptote, but there may be a slant asymptote.  By polynomial
+      division,
+      \begin{displaymath}
+        x^3-2x^2+4x-8 = (x^2+4x+4)(x-6) + 24x+16
+      \end{displaymath}
+      By a calculation similar to that of the previous problem, the
+      slant asymptote is $y=x-6$.  There is a potential vertical
+      asymptote at $x=-2$ which we can easily verify by taking limits:
+      \begin{align*}
+        \lim_{x\to -2^-} \frac{(x-2)^3}{(x+2)^2} &= \frac{-64}{+0} = -\infty
+        \\
+        \lim_{x\to -2^+} \frac{(x-2)^3}{(x+2)^2} &= \frac{-64}{+0} = -\infty
+      \end{align*}
+    \item[E] Intervals of increase/decrease: the derivative is
+      \begin{displaymath}
+        y' = \frac{(x+2)^2\cdot 3(x-2)^2 - (x-2)^3\cdot 2(x+2)}{(x+2)^4}
+        = \frac{(x-2)^2(3(x+2)-2(x-2))}{(x+2)^3}
+        = \frac{(x-2)^2(x+10)}{(x+2)^3}
+      \end{displaymath}
+      The sign of $y'$ changes from positive to negative at $x=-10$,
+      and then changes from negative to positive at $x=-2$.  It then
+      goes to $0$ at $x=2$ but stays positive for $2<x$.  The function
+      increases on $x<-10$, decreases on $-10<x<-2$, increases on
+      $-2<x<2$, and increases on $2<x$.
+    \item[F] Local max/min: since the derivative changes sign from
+      positive to negative at $x=-10$ there is a local max there.
+      There is no local min at $x=-2$ because the function is not
+      defined there.  There is no local max/min at $x=2$ because the
+      derivative does not change sign there.
+    \item[G] Concavity and inflection points: after some calculating,
+      \begin{displaymath}
+        y''=\frac{96(x-2)}{(x+2)^4}
+      \end{displaymath}
+      which is negative (concave down) for $x<2$ and positive (concave
+      up) for $2<x$.
+    \item[H] Graph: see Figure~\ref{fig:x-2all3overx+2all2}.
+    \end{itemize}
+  \end{enumerate}
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[domain=-20:10,
+        restrict y to domain=-50:10,
+        samples=500,
+        extra x ticks=-2,
+          %extra y ticks=-1,
+        grid=both]
+        \addplot[lightgray,domain=-20:10,<->] { (x-6) };
+        \addplot[red,domain=-20:-2,<->] { ((x-2)^3)/(x+2)^2 };
+        \addplot[red,domain=-2:10,<->] { ((x-2)^3)/(x+2)^2 };
+        \node[draw=red,fill=red,circle,inner sep=0.5pt]
+        at (axis cs:0,-2) {};
+        \node[draw=red,fill=red,circle,inner sep=0.5pt]
+        at (axis cs: 2,0) {};
+        \node[draw=red,fill=red,circle,inner sep=0.5pt]
+        at (axis cs: -10,-27) {};
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Graph of $\ds y=\frac{(x-2)^3}{(x+2)^2}$}
+    \label{fig:x-2all3overx+2all2}
+  \end{figure}
+\item %7
+  This problem is similar to the other graphing problems we have done,
+  except that it involves the parameters $m_0$ and $c$ instead of just
+  numbers.
+  \begin{itemize}
+  \item[A] Domain: the radicand $1-v^2/c^2$ must be greater than $0$
+    for the function to be defined; $1-v^2/c^2>0$ implies $v^2<c^2$,
+    or in other words, $-c<v<c$.
+  \item[B] Intercepts: when $v=0$, $m=m_0$.  It is not possible to
+    have $m=0$ (unless $m_0=0$, which is an uninteresting special
+    case).
+  \item[C] Symmetry:
+    $m(-v)=m_0/\sqrt{1-(-v)^2/c^2}=m_0/\sqrt{1-v^2/c^2}=m(v)$ so the
+    function has mirror symmetry in the $y$-axis.
+  \item[D] Asymptotes: the domain is bounded, so there can be no
+    horizontal or slant asymptotes.  The denominator goes to $0$ when
+    $v\to\pm c$ so there may be vertical asymptotes at $v=\pm c$.
+    Checking the relevant limits,
+    \begin{align*}
+      \lim_{v\to -c^+} \frac{m_0}{\sqrt{1-v^2/c^2}} &= \frac{m_0}{+0} = +\infty
+      \\
+      \lim_{v\to c^-} \frac{m_0}{\sqrt{1-v^2/c^2}} &= \frac{m_0}{+0} = +\infty
+    \end{align*}
+  \item[E] Intervals of increase/decrease: the derivative is
+    \begin{displaymath}
+      y'=m_0\cdot -\frac{1}{2} (1-v^2/c^2)^{-3/2} \cdot -2v/c^2
+      = \frac{m_0v}{c^2(1-v^2/c^2)^{3/2}}
+    \end{displaymath}
+    which has the same sign as $v$, $m(v)$ is decreasing on $-c<v<0$
+    and increasing on $0<v<c$.
+  \item[F] Local max/min: the derivative changes sign from negative to
+    positive at $v=0$, so that is a local min.
+  \item[G] Concavity and inflection points: the second derivative is
+    \begin{align*}
+      y''&=\frac{m_0}{c^2} \left( (1-v^2/c^2)^{-3/2} + v \cdot -\frac{3}{2}
+        (1-v^2/c^2)^{-5/2} \cdot -2v/c^2 \right) \\
+      &= \frac{m_0}{c^2} \left( (1-v^2/c^2) + 3 v^2/c^2 \right)
+      (1-v^2/c^2)^{-5/2} \\
+      &=\frac{m_0}{c^2} \frac{1+2v^2/c^2}{(1-v^2/c^2)^{5/2}}
+    \end{align*}
+    The second derivative is always positive so the function is
+    concave up everywhere in its domain.
+  \item[H] Graph: see Figure~\ref{fig:relativity}.
+  \end{itemize}
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[domain=-1:1,
+        restrict y to domain=-10:10,
+        xtick={-1, -0.5, 0, 0.5, 1},
+        xticklabels={$-c$, $-\frac{c}{2}$, $0$, $\frac{c}{2}$, $c$},
+        ytick={0,1,2,3,4,5,6,7,8,9,10},
+        yticklabels={$0$,$m_0$,$2m_0$,$3m_0$,$4m_0$,$5m_0$,$6m_0$,$7m_0$,
+          $8m_0$, $9m_0$, $10m_0$},
+        samples=500,
+        grid=both]
+        \addplot[red,domain=-1:1,<->] { 1/sqrt(1-x^2) };
+        \node[draw=red,fill=red,circle,inner sep=0.5pt]
+        at (axis cs: 0,1) {};
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Graph of $\ds m=\frac{m_0}{\sqrt{1-v^2/c^2}}$}
+    \label{fig:relativity}
+  \end{figure}    
+\item %8
+  The slant asymptotes are checked in step D below.
+  \begin{itemize}
+  \item[A] Domain: the radicand must be greater than or equal to $0$,
+    so $x^2-4x\ge 0$.  Factoring, $x(x-4)\ge 0$ which is true when
+    $x\le 0$ or when $4\ge x$.
+  \item[B] Intercepts: $x=0$ implies $y=0$.  $y=0$ implies $x^2-4x=0$
+    with solutions $x=0$, $x=4$.
+  \item[C] Symmetry: there is no obvious relationship between $y(x)$
+    and $y(-x)$ so there is no obvious symmetry.
+  \item[D] Asymptotes: as suggested, we will investigate two potential
+    slant asymptotes by taking the limit as $x\to\pm\infty$ of the
+    difference between the function and the proposed asymptote.  In
+    the limit calculation, we will multiply and divide by conjugate
+    radicals.
+    \begin{align*}
+      \lim_{x\to\infty} \sqrt{x^2-4x}-(x-2)
+      &= \lim_{x\to\infty} \left(\sqrt{x^2-4x}-(x-2)\right)
+        \cdot\frac{\sqrt{x^2-4x}+(x-2)}{\sqrt{x^2-4x}+(x-2)} \\
+      &= \lim_{x\to\infty} \frac{x^2-4x - x^2 + 4x - 4}{\sqrt{x^2-4x}+(x-2)} \\
+      &= \lim_{x\to\infty} \frac{-4}{\sqrt{x^2-4x}+(x-2)}
+        = \frac{4}{\infty} =0
+    \end{align*}
+    which shows that $y=x-2$ is a slant asymptote as $x\to\infty$.
+    The limit as $x\to -\infty$ is similar:
+    \begin{align*}
+      \lim_{x\to -\infty} \sqrt{x^2-4x}-(-x+2)
+      &= \lim_{x\to -\infty} \left(\sqrt{x^2-4x}-(-x+2)\right)
+        \cdot\frac{\sqrt{x^2-4x}+(-x+2)}{\sqrt{x^2-4x}+(-x+2)} \\
+      &= \lim_{x\to -\infty} \frac{x^2-4x-x^2+4x-4}{\sqrt{x^2-4x}+(-x+2)} \\
+      &= \lim_{x\to -\infty} \frac{-4}{\sqrt{x^2-4x}+(-x+2)}
+        = \frac{4}{\infty} =0        
+    \end{align*}
+    where in the last line we have used $-x$ is positive.  (If we had
+    used $x-2$ instead of $-x+2$ in this calculation, the
+    $\sqrt{x^2-4x}$ and $x-2$ in the denominator would cancel and we
+    would not get the denominator tending to $\infty$.)  That shows
+    that $y=-x+2$ is a slant asymptote as $x\to -\infty$.
+  \item[E] Intervals of increase/decrease: the derivative is
+    \begin{displaymath}
+      y' = \frac{1}{2} (x^2-4x)^{-1/2} \cdot (2x-4) = \frac{x-2}{\sqrt{x^2-4x}}
+    \end{displaymath}
+    which has the same sign as $x-2$ so the function is decreasing on
+    $x<0$ and increasing on $4<x$.
+  \item[F] Local max/min: the derivative does not change sign in the
+    domain so there are no local max/min except for the endpoints of
+    the domain, $x=0$ and $x=4$, which are both local minimums.
+  \item[G] Concavity and inflection points: the second derivative of
+    the function is
+    \begin{displaymath}
+      y''=(x^2-4x)^{-1/2}
+      + (x-2) \cdot -\frac{1}{2} (x^2-4x)^{-3/2} \cdot (2x-4)
+      = \frac{x^2-4x - (x-2)^2}{(x^2-4x)^{3/2}}
+      = -\frac{4}{(x^2-4x)^{3/2}}
+    \end{displaymath}
+    which is always negative so the function is always concave down.
+  \item[H] Graph: see Figure~\ref{fig:sqrtx2-4x}.
+  \end{itemize}
+  Now that we have a new technique for checking slant asymptotes, you
+  should go back to Problem~\ref{prob:sqrtx2+2x-x} to try to figure
+  out what the slant asymptote is, and then to check it by taking the
+  limit $x\to -\infty$.
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[domain=-10:10,
+        restrict y to domain=-10:10,
+        samples=200,
+        grid=both]
+        \addplot[lightgray,domain=-10:0,<-] { -x+2 };
+        \addplot[lightgray,domain=4:10,->] { x-2 };
+        \addplot[red,domain=-10:0,<-] { sqrt(x^2-4*x) };
+        \addplot[red,domain=4:10,->] { sqrt(x^2-4*x) };
+        \node[draw=red,fill=red,circle,inner sep=0.5pt]
+        at (axis cs: 0,0) {};        
+        \node[draw=red,fill=red,circle,inner sep=0.5pt]
+        at (axis cs: 4,0) {};        
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Graph of $\ds y=\sqrt{x^2-4x}$}
+    \label{fig:sqrtx2-4x}
+  \end{figure}    
+\end{enumerate}
+\end{document}
+
+

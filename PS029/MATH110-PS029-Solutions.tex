@@ -1,0 +1,182 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroTwoNine\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroTwoNine}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %1
+  The best way to remember how to find the linearization is to find
+  the equation of the tangent line and then solve for $y$.
+  \begin{enumerate}
+  \item First note that when $f(a)=f(0)=(2+0)^{-1/2}=1/\sqrt{2}$, so
+    $(a,f(a))=(0,1/sqrt{2})$ is the point of interest on the curve.  The slope
+    of the tangent line at that point is $f'(a)=(-1/2)(2+a)^{-3/2}=
+    (-1/2)(2+0)^{-3/2}=-1/2^{5/2}=-1/(4\sqrt{2})$.  Therefore the equation
+    of the tangent line is
+    \begin{align*}
+      y-\frac{1}{\sqrt{2}} &= -\frac{1}{4\sqrt{2}} (x-0)
+    \end{align*}
+    Solving for $y$ gives
+    \begin{align*}
+      y &= \frac{1}{\sqrt{2}} -\frac{1}{4\sqrt{2}} (x-0)
+    \end{align*}
+    so the linearization of $f(x)$ is
+    \begin{align*}
+      L(x) &= \frac{1}{\sqrt{2}} -\frac{1}{4\sqrt{2}} x
+    \end{align*}
+  \item We have $f(a)=16^{3/4}=(16^{1/4})^3=2^3=8$, so $(a,f(a))=(16,8)$
+    is the point of interest on the curve.  The slope of the tangent line
+    at that point is $f'(a)=(3/4)a^{-1/4} = (3/4) (1/2) = 3/8$ so the
+    equation of the tangent line is
+    \begin{align*}
+      y-8 &= \frac{3}{8} (x-16)
+    \end{align*}
+    and the linearization of $f(x)$ at $a=16$ is
+    \begin{equation*}
+      L(x) = 8 + \frac{3}{8} (x-16)
+    \end{equation*}
+  \end{enumerate}
+\item %2
+  \begin{enumerate}
+  \item By the quotient rule,
+    \begin{equation*}
+      \frac{dy}{ds} = \frac{(1+2s)-s(2)}{(1+2s)^2}
+      = \frac{1}{(1+2s)^2}
+    \end{equation*}
+    so
+    \begin{equation*}
+      dy = \frac{1}{(1+2s)^2} ds
+    \end{equation*}
+    which can also be written
+    \begin{equation*}
+      dy = \frac{ds}{(1+2s)^2}
+    \end{equation*}
+  \item Differentiating by the product rule,
+    \begin{equation*}
+      \frac{dy}{du} = \cos u - u \sin u
+    \end{equation*}
+    so
+    \begin{equation*}
+      dy = (\cos u - u\sin u) \; du
+    \end{equation*}
+    Don't forget the brackets!
+  \item Differentiating by the chain rule,
+    \begin{equation*}
+      \frac{dy}{dt} = 5(t+\tan t)^4 \cdot \frac{d}{dt} (t+\tan t)
+      = 5(t+\tan t)^4 (1+\sec^2 t)
+    \end{equation*}
+    so 
+    \begin{equation*}
+      dy = 5(t+\tan t)^4 (1+\sec^2 t) \; dt
+    \end{equation*}
+  \item Differentiating by the chain rule,
+    \begin{equation*}
+      \frac{dy}{dz} = \frac{1}{2} (z+1/z)^{-1/2} \cdot \frac{d}{dz} (z+1/z)
+      = \frac{1}{2} (z+1/z)^{-1/2} \cdot (1-1/z^2)
+    \end{equation*}
+    so 
+    \begin{equation*}
+      dy = \frac{1}{2} (z+1/z)^{-1/2} \cdot (1-1/z^2) \cdot dz
+    \end{equation*}
+  \end{enumerate}
+\item \label{prob:dyDeltay} %3
+  We have $\Delta y= f(x+\Delta x) - f(x)= \sqrt{1+1} - \sqrt{1}
+  = \sqrt{2}-1 \approx 0.4142$, and we have $dy=(1/2) x^{-1/2} \; dx
+  = (1/2) 1^{-1/2} \; 1 = 0.5$.  See Figure~\ref{fig:dyDeltay}.
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[scale=2]
+      \draw[lightgray,very thin] (0,0) grid (3,2);
+      \draw[->] (0,0)--(3,0) node[right] {$x$};
+      \draw[->] (0,0)--(0,2) node[above] {$y$};
+      \draw[color=red,domain=0:3,smooth,samples=50] plot (\x,{sqrt(\x)}) node[right] {$y=\sqrt{x}$};
+      \draw[color=blue,domain=0:3] plot (\x,{0.5*(\x-1)+1}) node[right] {$y=L(x) = \frac{1}{2}(x-1)+1$};
+      \draw[color=blue] (1,1)--(2,1)--(2,1.5);
+      \node[shape=circle,fill=red,minimum size=3pt,inner sep=1pt] at (1,1) {};
+      \draw[color=blue,decorate,decoration={brace,amplitude=3.5pt}] (2,1.5)--(2,1) node[midway,right=1pt] {$dy$};
+      \draw[color=red,decorate,decoration={brace,amplitude=3.5pt}] (2,1)--(2,{sqrt(2)}) node[midway,left=1pt] {$\Delta y$};
+    \end{tikzpicture}
+    \caption{$dy$ versus $\Delta y$ for Problem~\ref{prob:dyDeltay}}
+    \label{fig:dyDeltay}
+  \end{figure}
+\item \label{prob:triangle} %4
+  This type of problem is a sort of combination of related rates
+  problems and differentials.  It is like a related rates problem in
+  that we need to find a relationship between two variables, in this
+  case the hypoteneuse and the measured angle; it is different from
+  related rates in that time is not a factor.  So instead of
+  differentiating with respect to time, we calculate the
+  differentials.  (If we wanted to change the problem to be about a
+  situation in which $\theta$ were actually changing over time, we
+  could put time back into the picture by dividing through by $dt$; do
+  that, and compare with what would happen if you had applied the
+  operator $d/dt$ to the relationship instead of finding the
+  differentials first and dividing by $dt$.)
+  \begin{enumerate}
+  \item Let $\theta$ be the angle opposite the 20 cm side.  Then
+    $\sin\theta = 20/h$; if $\theta$ were exactly $30^{\circ}=\pi/6$
+    radians, we would have $\sin\theta = 0.5$ which would mean $h=40$
+    cm.  We think of the potential error in measurement as a small
+    change in the angle.  We write the small change in the angle as
+    $d\theta$, and we try to estimate the resulting change in the
+    calculated value of the hypoteneuse $\Delta h \approx dh$.  You
+    could figure out $\Delta h$ exactly (try it), but the goal of this
+    problem is to estimate it quickly by calculating $dh$ instead.
+
+    Differentiating both sides of the relationship between $\theta$
+    and $h$ with respect to $\theta$ gives
+    \begin{equation*}
+      \cos\theta = -\frac{20}{h^2} \frac{dh}{d\theta}
+    \end{equation*}
+    by the chain rule.  Multiplying by $d\theta$ gives
+    \begin{equation*}
+      \cos\theta \; d\theta = -\frac{20}{h^2} \; dh
+    \end{equation*}
+    When $\theta=30^{\circ}=\pi/6$ and $d\theta=\pm 1^{\circ}\approx\pm 0.0174$ 
+    radians
+    we have $\cos\theta = \sqrt{3}{2} \approx 0.8660$, $h=40$ (calculated
+    above), and so
+    \begin{equation*}
+      0.8660 \cdot \pm 0.0174 = -\frac{20}{(40)^2} \; dh
+      \implies dh \approx \mp 1.209
+    \end{equation*}
+    So an error of about $1^{\circ}$ smaller in the measured angle
+    means that the hypoteneuse is about $1.209$ cm larger than $40$
+    cm; an error of about $1^{\circ}$ larger in the measured angle
+    means that the hypoteneuse is about $1.209$ cm smaller than $40$
+    cm.  See Figure~\ref{fig:triangle}.
+
+    Note that we had to do the calculation in radians; if you did the
+    calculation in degrees, you would have gotten the wrong answer!
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}[scale=0.1]
+        \draw (30:40)--node[midway,right] {$20$} (30:40|-0,0)--(0,0)-- node[midway,sloped,above] {$h$} (30:40);
+        \draw[->] (10,0) arc (0:30:10);
+        \draw (15:12) node {$\theta$};
+      \end{tikzpicture}
+      \caption{Triangle for problem~\ref{prob:triangle}}
+      \label{fig:triangle}
+    \end{figure}
+    % FIXME : spruce up the diagram, maybe add some colour, sequence of 3 pics?
+    % FIXME : also solution 2, where we solve for $x=20\csc\theta$.
+  \item The relative error is $dh/h\approx \mp 1.21/40=0.0302$, so the 
+    percentage error is about $\mp 3\%$.
+  \end{enumerate}
+\end{enumerate}
+\end{document}
+
+

@@ -1,0 +1,348 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{pgfmath}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{tikz}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{\commonPSTitleZeroThreeTwo\ Solutions}
+\author{\commonAuthor}
+\date{\commonDateZeroThreeTwo}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item %3
+  \begin{enumerate}
+  \item %3a
+    The function is a polynomial so it is continuous and differentiable
+    everywhere, in particular on the given interval; furthermore we have
+    \begin{align*}
+      f(0)&=(0)^3-(0)^2-6(0)+2=2\\
+      f(3)&=3^3-3^2-6(3)+2=27-9-18+2=2
+    \end{align*}
+    so $f(0)=f(3)$, and $f$ satisfies all the hypotheses of Rolle's Theorem.
+    So we know there is a number $c$ in the interval $(0,3)$ at which
+    $f'(c)=0$.  We can find $c$ explicitly in this case by solving
+    $f'(x)=3x^2-2x-6=0$ or 
+    \begin{equation*}
+      x = \frac{2\pm \sqrt{(-2)^2-4(3)(-6)}}{2(3)}
+      = \frac{2\pm \sqrt{76}}{6}
+      \approx 1.7863, -1.1196
+    \end{equation*}
+    Only the positive root above is in the interval $[0,3]$, so $c\approx
+    1.7863$ is the only number satisfying the conclusion of Rolle's Theorem.
+  \item %3b
+    By our theorems on the continuity and differentiability of trig
+    functions, $f(x)$ is continuous and differentiable everywhere, so it
+    certainly is in the given closed interval.  Furthermore,
+    \begin{align*}
+      \cos(2(\pi/8))  
+      &= \cos(\pi/4)=\frac{\sqrt{2}}{2}
+      \\
+      \cos(2(7\pi/8)) 
+      &= \cos(7\pi/4) = \cos(2\pi-(\pi/4))=\cos(\pi/4)=\frac{\sqrt{2}}{2}
+    \end{align*}
+    so $f(\pi/8)=f(7\pi/8)$.  Therefore $f$ satisfies the hypotheses of 
+    Rolle's Theorem.  
+
+    Rolle's Theorem guarantees the existence of a number $c\in[\pi/8,7\pi/8]$
+    such that $f'(c)=0$.  In this special case we can find $c$ exactly.  
+    Taking the derivative we have
+    \begin{equation*}
+      f'(x)=-2\sin 2x \implies -2\sin 2c = 0 \implies \sin 2c = 0
+    \end{equation*}
+    The roots of the sine function are at $k\pi$, $k=0,\pm 1, \pm 2, \ldots$.
+    That means that $c$ is among the set of numbers
+    $k\pi/2$, $k=0,\pm 1, \pm 2, \ldots$.  We need to figure out which of those
+    values of $c$ is in the interval $[\pi/8,7\pi/8]$.  Note that if $k\le 0$,
+    then $k\pi/2\le 0<\pi/8$, i.e. $k\pi/2$ is outside (to the left of) the
+    given interval.  Furthermore if $k>2$ then $k\pi/2>\pi>7\pi/8$ so $k\pi/2$
+    is again outside (to the right of) the given interval.  Therefore $k$ must
+    be $1$, and in fact $c=\pi/2$ is inside the interval and satisfies 
+    $f'(c)=0$.
+  \end{enumerate}
+\item %4
+  \begin{enumerate}
+  \item\label{prob:MVT1} %4a
+    The function $f(x)=x^3-x^2-6x+2$ is a polynomial so is continuous and
+    differentiable everywhere, and the interval $[0,3]$ is a closed interval,
+    so the situation satisfies the hypotheses of the MVT.  The slope of the
+    secant line connecting the points $(0,f(0))$ and $(3,f(3))$ is
+    \begin{equation*}
+      m = \frac{f(3)-f(0)}{3-0} = \frac{27-9-18+2-2}{3}=0
+    \end{equation*}
+    So to satisfy the conclusion of the MVT, we must find a number $c$ such
+    that $f'(c)=0$.  The derivative is
+    \begin{equation*}
+      f'(x)=3x^2-2x-6
+    \end{equation*}
+    so $f'(c)=0$ means
+    \begin{equation*}
+      3c^2-2c-6=0 \implies c=\frac{2\pm \sqrt{4-4(3)(-6)}}{2(3)}
+      = \frac{1\pm \sqrt{19}}{3} \approx \mbox{$1.7863$ or $-1.1196$}
+    \end{equation*}
+    The value $c=-1.1196$ lies outside the interval $[0,3]$ so we throw it away.
+    Therefore there is only one number $c$ satisfying the conclusion of the
+    MVT, namely $c=(1+\sqrt{19})/3\approx 1.7863$.  
+    See Figure~\ref{fig:MVT1}.  Note that in 
+    Figure~\ref{fig:MVT1}(a), I have graphed the tangent line at $(c,f(c))$ 
+    so you can see that it is parallel to the secant line.
+    I have graphed the tangent line to show 
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{0.5in}}c}
+      \begin{tikzpicture}
+        \draw[very thin,lightgray] (-1,-7) grid (4,3);
+        \draw[thin,->] (-1,0)--(4,0) node[right]{$x$};
+        \draw[thin,->] (0,-7)--(0,3) node[above]{$y$};
+        \draw[domain=0:3,color=red] plot (\x,{(\x)^3-(\x)^2-6*\x+2});
+        \draw[thick,color=blue] (0,2)--(3,2) node[midway,above]{secant $y=2$};
+        \draw[fill=red] (0,2) circle (2pt) (3,2) circle (2pt) node[right=1pt,color=red]{$y=f(x)$};
+      \end{tikzpicture}
+      &
+      \begin{tikzpicture}
+        \draw[very thin,lightgray] (-1,-7) grid (4,3);
+        \draw[thin,->] (-1,0)--(4,0) node[right]{$x$};
+        \draw[thin] (1.7863,-3pt)--(1.7863,3pt) node[above]{$c$};
+        \draw[thin,->] (0,-7)--(0,3) node[above]{$y$};
+        \draw[domain=0:3,color=red] plot (\x,{(\x)^3-(\x)^2-6*\x+2});
+        \draw[thick,color=blue] (0,2)--(3,2) node[midway,above]{secant $y=2$};
+        \draw[fill=red] (0,2) circle (2pt) (3,2) circle (2pt) node[right=1pt,color=red]{$y=f(x)$};
+        \draw[color=blue] (1,{(1.7863)^3-(1.7863)^2-6*1.7863+2})--(2.5,{(1.7863)^3-(1.7863)^2-6*1.7863+2}) node[midway,below]{tangent};
+      \end{tikzpicture}
+      \\
+      \mbox{(a) Graph with secant line} 
+      & \mbox{(b) Graph with secant and tangent lines}
+      \end{array}$
+      \caption{Graph of $f(x)=x^3-x^2-6x+2$ for problem~\ref{prob:MVT1}}
+      \label{fig:MVT1}
+    \end{figure}
+  \item\label{prob:MVT2} %4b
+    The function $f(x)=x/(x+2)$ is continuous and differentiable
+    everywhere except at $x=-2$
+    which is outside the given interval $[1,4]$, so $f$ is continuous and 
+    differentiable on that interval, so satisfies the conditions of the MVT.
+    The slope of the secant line connecting the endpoints $(1,f(1))$ and
+    $(4,f(4))$ of the graph is
+    \begin{equation*}
+      m = \frac{f(4)-f(1)}{4-1} = \frac{\frac{4}{4+2}-\frac{1}{1+2}}{3}
+      = \frac{\frac{2}{3}-\frac{1}{3}}{3} = \frac{1}{9}
+    \end{equation*}
+    To satisfy the conclusion of Rolle's Theorem we need to find a number 
+    $c\in[1,4]$ such that $f'(c)=1/9$.  Calculating the derivative,
+    \begin{equation*}
+      f'(x) = \frac{(x+2)-x}{(x+2)^2} = \frac{2}{(x+2)^2}
+    \end{equation*}
+    so we have to find $c$ satisfying 
+    \begin{equation*}
+      f'(c)=\frac{1}{9} \implies \frac{2}{(c+2)^2} = \frac{1}{9}
+      \implies (c+2)^2=18 \implies c=-2\pm 3\sqrt{2} \approx \mbox{$2.2426$
+      or $-6.2426$}
+    \end{equation*}
+    Since the negative solution is outside the interval $[1,4]$, we throw it
+    away, and obtain just one value $c\approx 2.2426$ which satisfies the
+    conclusion of the mean value theorem.  See Figure~\ref{fig:MVT2}.
+    \begin{figure}[htbp]
+      \centering
+      $\begin{array}{c@{\hspace{0.5in}}c}
+      \begin{tikzpicture}[yscale=10]
+        \draw[very thin,lightgray,ystep=0.1666] (0,0) grid (4.5,0.75);
+        \draw[thin,->] (0,0)--(4.5,0) node[right]{$x$};
+        \draw[thin,->] (0,0)--(0,0.75) node[above]{$y$};
+        \draw[domain=1:4,color=red] plot (\x,{\x/(\x+2)});
+        \draw[thick,color=blue] (1,0.333)--(4,0.666) node[midway,right]{secant};
+        \node[shape=circle,fill=red,inner sep=1pt,minimum size=4pt] at (1,0.333){};
+        \node[shape=circle,fill=red,inner sep=1pt,minimum size=4pt] at (4,0.666){};
+      \end{tikzpicture}
+      &
+      \begin{tikzpicture}[yscale=10]
+        \draw[very thin,lightgray,ystep=0.1666] (0,0) grid (4.5,0.75);
+        \draw[thin,->] (0,0)--(4.5,0) node[right]{$x$};
+        \draw[thin] (2.2426,0)--(2.2426,0.3pt) node[above]{$c$};
+        \draw[thin,->] (0,0)--(0,0.75) node[above]{$y$};
+        \draw[domain=1:4,color=red] plot (\x,{\x/(\x+2)});
+        \draw[thick,color=blue] (1,0.333)--(4,0.666) node[midway,right]{secant};
+        \node[shape=circle,fill=red,inner sep=1pt,minimum size=4pt] at (1,0.333){};
+        \node[shape=circle,fill=red,inner sep=1pt,minimum size=4pt] at (4,0.666){};
+        \draw[domain=1:3.4,color=blue] plot (\x,{1/9*(\x-2.2426)+(2.2426/4.2426)});
+        \node[left,color=blue] at (2.2426,{2.2426/4.2426}) {tangent};
+      \end{tikzpicture}
+      \\
+      \mbox{(a) Graph with secant line} 
+      & \mbox{(b) Graph with secant and tangent lines}
+      \end{array}$
+      \caption{Graph of $f(x)=x/(x+2)$ for problem~\ref{prob:MVT2}}
+      \label{fig:MVT2}
+    \end{figure}
+  \end{enumerate}
+\item\label{prob:x23} %6
+  Note that your calculator may have trouble with $(-1)^{2/3}$.  We have 
+  \begin{align*}
+    f(-1)&=1-(-1)^{2/3}=1-((-1)^2)^{1/3}=1-(1)^{1/3}=1-1=0 \\
+    f(1)&=1-(1)^{2/3}=1-((1)^2)^{1/3}=1-(1)^{1/3}=1-1=0 
+  \end{align*}
+  so $f(-1)=f(0)$.  Taking the derivative, we have
+  \begin{equation*}
+    f'(x) = \frac{2}{3} x^{-1/3} = \frac{2}{3\sqrt[3]{x}}
+  \end{equation*}
+  Note that
+  \begin{equation*}
+    f'(c)=0 \implies \frac{2}{3\sqrt[3]{c}} = 0
+  \end{equation*}
+  Multiplying through by $3\sqrt[3]{c}$,
+  \begin{equation*}
+    \frac{2}{3\sqrt[3]{c}} = 0 \implies 2 = 0
+  \end{equation*}
+  which is impossible, leading to the conclusion that the equation $f'(c)=0$
+  has no solution.  On the other hand, Rolle's Theorem would suggest that
+  $f(-1)=f(1)$ implies $f'(c)=0$ for some c in $[-1,1]$, so there is an
+  apparent paradox here.
+
+  The solution is that $f(x)$ does not satisfy all the hypotheses of Rolle's
+  theorem.  The function is continuous everywhere, but its derivative
+  $f'(x)=2/(3\sqrt[3]{x})$ does not exist at $x=0$ (because we would end up
+  dividing by $0$).  That single point in $[-1,1]$ where $f'(x)$ does not
+  exist is enough to void the application of Rolle's Theorem.  This
+  \textit{counterexample} shows that the hypothesis that $f'(x)$ is
+  differentiable at every point in the interval $(a,b)$ is required for Rolle's
+  Theorem.  See Figure~\ref{fig:x23}.
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[scale=2]
+      \draw[very thin,lightgray] (-2,-1) grid (2,2);
+      \draw[->] (-2,0)--(2,0) node[right]{$x$};
+      \draw[->] (0,-1)--(0,2) node[above]{$y$};
+      \draw[color=red,smooth,domain=0.001:1,samples=50] plot (\x,{1-(\x)^(2/3)});
+      \draw[color=red,smooth,domain=-1:-0.001,samples=50] plot (\x,{1-(abs(\x))^(2/3)});
+      \node[fill=red,shape=circle,inner sep=1pt,minimum size=3pt] at (-1,0) {};
+      \node[fill=red,shape=circle,inner sep=1pt,minimum size=3pt] at (1,0) {};
+    \end{tikzpicture}
+    \caption{Graph of $f(x)=1-x^{2/3}$ for problem~\ref{prob:x23}}
+    \label{fig:x23}
+  \end{figure}
+  Note that $f(x)$ has a cusp at $x=0$ because the one-sided limits of $f'(x)$
+  are $+\infty$ on the left and $-\infty$ on the right.
+\item\label{prob:x-3-2} %7
+  We have
+  \begin{align*}
+    f(4)      &= (4-3)^{-2} = 1^{-2} = 1 \\
+    f(1)      &= (1-3)^{-2} = (-2)^{-2} = \frac{1}{(-2)^2} = \frac{1}{4} \\
+    f(4)-f(1) &= \frac{3}{4}
+  \end{align*}
+  Calculating the derivative,
+  \begin{equation*}
+    f'(x) = -2(x-3)^{-3} \frac{d}{dx} (x-3) = -2(x-3)^{-3}
+  \end{equation*}
+  So the MVT would seem to predict that there is a number $c\in(1,4)$ such that
+  \begin{equation*}
+    f(4)-f(1) = f'(c)(4-1) 
+    \implies \frac{3}{4} = -2(c-3)^{-3} (3)
+    \implies (c-3)^{-3}=-\frac{1}{8} 
+  \end{equation*}
+  Taking both sides to the power $-1/3$,
+  \begin{equation*}
+    \implies c-3=\left(-\frac{1}{8}\right)^{-1/3}=-2
+    \implies c=3-2=1
+  \end{equation*}
+  However, that number $c=1$ is \textit{not} in the open interval $(1,4)$
+  because an open interval excludes its end points.  This would seem to 
+  violate the MVT, which predicts a number $c$ in the \textit{open} interval
+  $(1,4)$ satisfying $f(4)-f(1)=f'(c)(4-1)$.
+
+  Again, the solution is that the hypotheses of the MVT are not satisfied.
+  In this case, two hypotheses are not satisfied: $f(x)$ is not continuous
+  on the interval $[1,4]$ and $f(x)$ is not differentiable on the interval
+  $(1,4)$.  Let's see why.  We rewrite
+  \begin{equation*}
+    f(x) = (x-3)^{-2} = \frac{1}{(x-3)^2}
+  \end{equation*}
+  and in that fraction form it is clear that $f(3)$ is undefined at $3\in[1,4]$
+  because there is a division by $0$.  Similarly,
+  \begin{equation*}
+    f'(x) = -2(x-3)^{-3} = -\frac{2}{(x-3)^3}
+  \end{equation*}
+  is again undefined at $3\in(1,4)$ because there is division by $0$.  The
+  moral of this story is that it may be better to rewrite expressions 
+  involving negative exponents in terms of positive exponents and fractions
+  if we are checking for continuity or differentiability.  See Figure
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[yscale=0.25]
+      % note that the inverse function of $f$ is $g(y)=3\pm1/\sqrt{y}$
+      % so if we want height to be 4 units we go to 3-1/2, 3+1/2
+      % if we want height to be 9 units we go to 3-1/3, 3+1/3
+      % if we want height to be 16 units we go to 3-1/4, 3+1/4
+      \draw[very thin,lightgray] (0,0) grid (5,16);
+      \draw[->] (0,0)--(5,0) node[right]{$x$};
+      \draw[->] (0,0)--(0,16) node[above]{$y$};
+      \draw[color=red,->,domain=1:2.75] plot (\x,{1/(\x-3)^2});
+      \draw[color=red,<-,domain=3.25:4] plot (\x,{1/(\x-3)^2});
+      \node[fill=red,shape=circle,inner sep=1pt,minimum size=3pt] at (1,0.25) {};
+      \node[fill=red,shape=circle,inner sep=1pt,minimum size=3pt] at (4,1) {};
+    \end{tikzpicture}
+    \caption{Graph of $f(x)=(x-3)^{-2}$ for problem~\ref{prob:x-3-2}}
+    \label{fig:x-3-2}
+  \end{figure}
+\item %9
+  Let $f(x)= 2x-1-\sin x$.  Note that $f(x)$ is continuous everywhere.
+  We first use the Intermediate Value Theorem to show that 
+  $f(x)$ has at least one root.  We need to find numbers $a$ and $b$
+  such that $f(a)<0$ and $f(b)>0$.  There are probably a lot of numbers in
+  each category so we can try to 
+  pick ones that are convenient; picking numbers of
+  the form $k\pi$, $k=0,\pm 1,\pm 2,\ldots$ will 
+  simplify our calculations because
+  $\sin(k\pi)=0$.  We have
+  \begin{align*}
+    f(-\pi) &= 2(-\pi)-1-\sin(-\pi) = -2\pi-1 \approx -7.2832 < 0 \\
+    f(\pi) &= 2\pi-1-\sin(\pi) = 2\pi-1 \approx 5.2832 > 0
+  \end{align*}
+  so by the IVT, $f(x)$ has at least one root (on the interval $(-\pi,\pi)$,
+  in fact).
+
+  To show that $f(x)$ has at most one root, we use the Mean Value Theorem
+  (or Rolle's Theorem)
+  and argue by contradiction.  Note that $f(x)$ is not only continuous, it 
+  is differentiable everywhere as well.  Suppose that there are two 
+  distinct numbers
+  $a$ and $b$ where $f(a)=f(b)$.  Then by the MVT, there is some number $c$ in
+  the interval $(a,b)$ such that $f'(c)=0$.  On the other hand,
+  \begin{equation*}
+    f'(c) = 2 + \cos c \ge 2 - 1 > 0
+  \end{equation*}
+  because $\cos c>-1$ for all $c$.  We have both $f'(c)=0$ and $f'(c)>0$,
+  which is a contradiction, so our supposition that $f$ has two distinct roots
+  $a$ and $b$ must be incorrect.
+
+  We will learn a more straightforward way of solving problems like this when
+  we learn about increasing and decreasing functions.
+\item %10
+  This problem is actually surprisingly straightforward.  Suppose
+  $b<a$; a simple modification to the argument below can handle the
+  case $b>a$.  (What if $b=a$?)  Note that $\sin x$ is continuous and
+  differentiable everywhere, the Mean Value Theorem applies on every
+  interval.  Applying it on the interval $[b,a]$, the MVT says that
+  there is a number $c\in(b,a)$ such that
+  \begin{equation*}
+    f'(c) = \frac{\sin a-\sin b}{a-b}
+  \end{equation*}
+  However, $f'(c)=\cos c$.  Since we know that $-1\le \cos x\le 1$ for any
+  $x$, we know that 
+  \begin{equation*}
+    -1 \le f'(c) \le 1 \implies |f'(c)|\le 1
+    \implies \left|\frac{\sin a - \sin b}{a-b}\right| \le 1
+    \implies \frac{|\sin a - \sin b|}{|a-b|} \le 1
+  \end{equation*}
+  by the rules for working with the absolute value function.  Multiplying
+  the inequality through by the positive number $|a-b|$ gives the required
+  result.
+\end{enumerate}
+\end{document}
+
+

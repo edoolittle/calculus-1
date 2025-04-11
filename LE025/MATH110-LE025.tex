@@ -1,0 +1,250 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroTwoFive}
+\subtitle{\commonSubtitleZeroTwoFive}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroTwoFive}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+
+\section{The Chain Rule}
+
+\subsection{Composition of Functions}
+
+\begin{frame}
+  \frametitle{Review of Composition of Functions}
+  \begin{itemize}[<+->]
+  \item Recall the concept of chaining or composing functions:
+    \begin{align*}
+      x \stackrel{g}{\mapsto} g(x) \stackrel{f}{\mapsto} f(g(x))
+    \end{align*}
+  \item We consider $\ds x\mapsto f(g(x))$ a single function called
+    the composition of $f$ and $g$, sometimes written $f\circ g$.
+  \item We already know a rule for limits of compositions of functions,
+    namely
+    \begin{align*}
+      \lim_{x\to a} f(g(x)) = f(\lim_{x\to a} g(x))
+    \end{align*}
+    provided $f$ is continuous at $\ds\lim_{x\to a} g(x)$.
+  \item We would like to develop a rule for derivatives of compositions
+    of functions.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Identifying a Composition of Functions}
+  \begin{itemize}[<+->]
+  \item Before we get into derivatives, however, it might be a good
+    idea to better understand when we have a composition of 
+    functions.
+  \item Compositions of functions will seldom, if ever, be presented
+    in a form like $f\circ g$ where $f$ and $g$ are immediately
+    obvious.  Instead, we will have to find $f$ and $g$.
+  \item Consider $h(x)=\sin(2x+\pi)$.  We read the expression on the right
+    as
+    \begin{center}
+      the sine of two x plus pi
+    \end{center}
+    The separator between $f$ and $g$ is usually the word `of'.  In this
+    case $f(u)=\sin u$ and $g(x) = 2x+\pi$.
+  \item Another way of thinking of it is that $g(x)=2x+\pi$ is the `inner
+    function', i.e., the function inside brackets.  So $f(u)=\sin u$ is
+    the outer function.  The $u$ is just a placeholder.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Derivation of the Chain Rule}
+
+\begin{frame}
+  \frametitle{Derivation of the Chain Rule}
+  \begin{itemize}[<+->]
+  \item We want to differentiate $f(g(x))$.
+  \item Recall that we can write
+    \begin{align*}
+      f(u+du) &= f(u) + f'(u) du + \cdots \\
+      g(x+dx) &= g(x) + g'(x) dx + \cdots
+    \end{align*}
+    where $\cdots$ represents terms with factors of $du^2$ and $dx^2$.
+  \item Letting $u=g(x)$, $du=g'(x)dx$, we have
+    \begin{align*}
+      f\left(g(x+dx)\right) 
+      \uncover<+->{&= f\left(g(x)+g'(x)dx+\cdots\right) \\}%
+      \uncover<+->{&= f(u+du) }%
+      \uncover<+->{ = f(u) + f'(u) du + \cdots \\}%
+      \uncover<+->{&= f\left(g(x)\right) + f'\left(g(x)\right) g'(x) dx 
+        + \cdots}%
+    \end{align*}
+  \item This suggests that the derivative of $f(g(x))$ is 
+    $f'(g(x)) \cdot g'(x)$.
+  \item The result is proven in the textbook, but you should skip the
+    proof unless you are majoring in math.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Chain Rule in Newton and Leibniz Notation}
+  \begin{itemize}[<+->]
+  \item In summary, the chain rule in Newton notation is 
+    \begin{align*}
+      (f \circ g)'(x) = f'(g(x)) \cdot g'(x)
+    \end{align*}
+  \item The derivative of a composition is the derivative of the outer function
+    evaluated at the inner function, times the derivative of the inner function.
+  \item The chain rule in Leibniz notation is
+    \begin{align*}
+      \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}
+    \end{align*}
+  \item In the Leibniz rule, $y$ and $u$ have changing meanings.
+  \item The way I personally think of the chain rule is
+    \begin{align*}
+      \frac{d}{dx} f(g(x)) = f'(g(x)) \cdot \frac{d}{dx} g(x)
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Application of the Chain Rule}
+
+\begin{frame}
+  \frametitle{Application of the Chain Rule}
+  \begin{itemize}[<+->]
+  \item To apply the chain rule we need to
+    \begin{enumerate}[<+->]
+    \item identify when we have a composition
+    \item identify the inner function $g$ and outer function $f$
+    \item differentiate both $f$ and $g$
+    \item assemble the formula $f'(g(x)) \cdot g'(x)$
+    \end{enumerate}
+  \item Consider the function $h(x)=\sin (5x)$
+  \item We read this as `the sine \emph{of} $5x$'.
+  \item It is a composition with $f(u)=\sin u$, $g(x)=5x$.
+  \item We have $f'(u)=\cos u$, $g'(x)=5$.
+  \item The chain rule tells us the derivative of $h(x)=f(g(x))$ is
+    $h'(x)=f'(g(x))\cdot g'(x) = \cos(5x) \cdot 5$.
+  \item Conventionally, we rearrange expressions like that to the form
+    $h'(x)=5\cos 5x$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Application of the Chain Rule}
+  \begin{itemize}[<+->]
+  \item Consider the function $y=\cos^3 x$.
+  \item That means $y=(\cos x)^3$.  It is a composition of functions.
+  \item The outer function is $f(u)=u^3$.  The inner function is $g(x)=\cos x$.
+  \item Taking derivatives, we have $f'(u)=3u^2$, $g'(x)=-\sin x$.
+  \item Note that we have $f'(g(x))= 3\left(g(x)\right)^2 = 3(\cos x)^2$.
+  \item Substituting into the chain rule, we have
+    \begin{align*}
+      y' = f'(g(x)) \cdot g'(x)
+      = 3(\cos x)^2 \cdot -\sin x
+    \end{align*}
+  \item We can rearrange if we like:
+    \begin{align*}
+      y' = -3 \cos^2 x \sin x
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Special Case: Power-chain rule}
+  \begin{itemize}[<+->]
+  \item A common special case of the chain rule is when the outer function
+    is a power function of the form $u^p$.
+  \item The previous example $y= (\cos x)^3$ was of this form.
+  \item Another example is $h(x) = (3x+2)^{2.5}$, with derivative
+    \begin{align*}
+      h'(x)&=2.5(3x+2)^{1.5} \cdot \frac{d}{dx} (3x+2)
+      = 2.5(3x+2)^{1.5} \cdot 3 \\
+      &= 7.5 (3x+2)^{1.5}
+    \end{align*}
+  \item The special case power-chain rule can be written
+    \begin{align*}
+      \frac{d}{dx} [g(x)]^p = p [g(x)]^{p-1} \cdot \frac{d}{dx} g(x)
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Longer Chains of Functions}
+  \begin{itemize}[<+->]
+  \item Consider the function $y=\sin(\cos(\tan x))$, which is a 
+    chain of three functions.
+  \item First, $\sin$ is the outer function, $\cos(\tan x)$ is the 
+    inner function:
+    \begin{align*}
+      y'&= \frac{d}{dx} \sin(\cos(\tan x)) \\
+      \uncover<+->{&= \sin'(\cos(\tan x)) \cdot \frac{d}{dx} \cos(\tan x) \\}%
+      \uncover<+->{&= \sin'(\cos(\tan x)) \cdot \cos'(\tan x) \cdot
+        \frac{d}{dx} \tan x \\}%
+      \uncover<+->{&= \cos(\cos(\tan x)) \cdot -\sin(\tan x) \cdot
+        \sec^2 x}%
+    \end{align*}
+  \item If you have a function of the form $y=\cos^3 x^2$, you might try
+    re-writing it before applying the chain rule.
+  \item $y = f(\cos (h(x)))$ where $f(u)=u^3$ and $h(x)=x^2$.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Calculate $y'$ where $y=\cos(\tan x)$.
+  \item If $f(t)=\sqrt{4t+1}$, find $f''(2)$.
+  \item Find an equation for the tangent line and normal line
+    to $y=4 \sin^2 x$ at the point $(\pi/6, 1)$ on the curve.
+  \item Differentiate the trig identities
+    \begin{enumerate}
+    \item $\cos 2x =\cos^2 x - \sin^2 x$
+    \item $\sin(x+a) = \sin x \cos a + \cos x \sin a$
+    \end{enumerate}
+    to obtain new trig identities.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~2.5.  After you have finished it,
+  you should try the following additional exercises from Section~2.5:
+  \begin{itemize}
+  \item[2.5] 
+    C-level: 1--6, 7--46, 47--50, 51--54, 55--57, 59--60, 61--64,
+    67--68, 69--72 \\ 
+    B-level: 58, 65--66, 73--74, 75--76, 77--80 \\
+    A-level: 83--90
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

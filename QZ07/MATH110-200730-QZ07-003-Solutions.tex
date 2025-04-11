@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage{mathptmx}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\reversemarginpar
+
+\title{MATH 110-003 200730 Quiz 7 Solutions}
+\author{Edward Doolittle}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item 
+  \textbf{Method 1:}  Finding antiderivatives,
+  $f'(x)=C+8x-6x^2+15x^4$ and $f(x)=D+Cx+4x^2-2x^3+3x^5$.  (Check
+  by differentiating!)  Then we have $f'(0)=C$ on the one hand,
+  and $f'(0)=5$ by the given data, so $C=5$.  Similarly, we have
+  $f(0)=D$ on the one hand, and $f(0)=-1$ by the given data, so
+  $f(x)=-1+5x+4x^2-2x^3+3x^5$.
+  
+  \textbf{Method 2:}  In more complicated problems, it is probably
+  best to try to figure out as much as possible about the constants
+  after each antidifferentiation.  In this case, it doesn't matter,
+  and in some cases it doesn't help, but let's try it this way just
+  for fun.  We have $f'(x)=C+8x-6x^2+15x^4$ as above, but \textit{now}
+  we use the information $f'(0)=5$ to obtain $f'(x)=5+8x-6x^2+15x^4$.
+  Finding the antiderivative of that, $f(x)=D+5x+4x^2-2x^3+3x^5$.
+  Now we use $f(0)=-1$ to obtain $D=-1$, so the final answer is
+  $f(x)=-1+5x+4x^2-2x^3+3x^5$.
+\item 
+  \begin{enumerate}
+  \item (8 marks) Let $\ds f(x)=\frac{1}{x}-9$.  
+    Then $\ds f'(x)=-\frac{1}{x^2}$.
+    The formula for Newton's method is
+    \begin{align*}
+      x_{n+1} &= x_n - \frac{f(x_n)}{f'(x_n)}
+      = x_n - \frac{\ds \frac{1}{x_n}-9}{\ds -\frac{1}{x_n^2}}
+      = x_n + \frac{\ds \frac{x_n^2}{x_n}-9x_n^2}{\ds \frac{x_n^2}{x_n^2}}
+      \\
+      &= x_n + x_n - 9x_n^2 = 2x_n-9x_n^2.
+    \end{align*}
+  \item (2 marks) With $x_1=0.1$ we have
+    \begin{align*}
+      x_2 = 2(0.1) - 9(0.1)^2 = 0.2-0.09 = 0.11.
+    \end{align*}
+  \item (1 mark) The number of digits of accuracy doubles, roughly,
+    with each iteration of Newton's method, 
+    so a reasonable guess is that $x_n$ is
+    $2^{n-1}$ $1$s after the decimal point.  A quick check of the first
+    few iterations should reinforce that guess.  (It is possible to prove
+    that that guess is correct using the expression 
+    \begin{align*}
+      x_n=\frac{\ds 10^{2^{n-1}}-1}{\ds 9\cdot 10^{2^{n-1}}}
+    \end{align*}
+    and mathematical induction, but that is not necessary to get the 
+    bonus mark.)
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}
+
+

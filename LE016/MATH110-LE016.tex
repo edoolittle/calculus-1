@@ -1,0 +1,481 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroOneSix}
+\subtitle{\commonSubtitleZeroOneSix}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroOneSix}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+\section{Calculating Limits Using the Limit Laws}
+
+\subsection{Limit Laws}
+
+\begin{frame}
+  \frametitle{Limit Laws}
+  Suppose that the limits
+  $\ds\lim_{x\to a} f(x)$ and $\ds\lim_{x\to a} g(x)$ exist.  Then
+  \begin{enumerate}
+  \uncover<1->{\item $\ds\lim_{x\to a} [f(x)+g(x)] 
+    = \lim_{x\to a} f(x) + \lim_{x\to a} g(x)$
+  }%
+  \uncover<2->{\item $\ds\lim_{x\to a} [f(x)-g(x)] 
+    = \lim_{x\to a} f(x) - \lim_{x\to a} g(x)$
+  }%
+  \uncover<3->{\item $\ds\lim_{x\to a} [c \cdot f(x)] 
+    = c\cdot \lim_{x\to a} f(x)$
+    where $c$ is a constant
+  }%
+  \uncover<4->{\item $\ds\lim_{x\to a} [f(x)\cdot g(x)] 
+    = \lim_{x\to a} f(x) \cdot
+    \lim_{x\to a} g(x)$
+  }%
+  \uncover<5->{\item $\ds\lim_{x\to a} \frac{f(x)}{g(x)} 
+    = \frac{\ds\lim_{x\to a} f(x)}{\ds\lim_{x\to a} g(x)}$
+    \textbf{under the condition that} $\ds\lim_{x\to a} g(x)\ne 0$.
+  }%
+  \end{enumerate}
+  \uncover<6->{If the condition in the last rule above 
+    is violated, we can't conclude
+    anything about the limit without further work.
+  }%
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Limit Laws in Words}
+  The limit laws can be stated in words in a memorable way.
+  \begin{enumerate}
+  \uncover<1->{\item The limit of a sum is the sum of the limits.}%
+  \uncover<2->{\item The limit of a difference is the difference 
+    of the limits.}%
+  \uncover<3->{\item The limit of a constant 
+    multiple of a function is the constant
+    multiple of the limit.}%
+  \uncover<4->{\item The limit of a product is the product of the limits.}%
+  \uncover<5->{\item The limit of a quotient 
+    is the quotient of the limits, \textbf{under
+    the condition that the limit of the denominator is not $0$}.}%
+  \end{enumerate}
+  \uncover<6->{If the condition in the the 
+    last rule above is violated, the rule does not apply.}%
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example of the Limit Laws}
+  Suppose that we know that $\ds\lim_{x\to 3} f(x) = 5$,
+  $\ds\lim_{x\to 3} g(x) = -2$, and $\ds\lim_{x\to 3} h(x) = 0$.  
+  Then the limit laws tell us that
+  \only<1>{
+  \begin{displaymath}
+    \lim_{x\to 3} [f(x)+g(x)] 
+    \phantom{= \lim_{x\to 3} f(x) + \lim_{x\to 3} g(x)
+    = 5 + -2 =3}
+  \end{displaymath}
+  }%
+  \only<2>{
+  \begin{displaymath}
+    \lim_{x\to 3} [f(x)+g(x)] 
+    = \lim_{x\to 3} f(x) + \lim_{x\to 3} g(x)
+    \phantom{= 5 + -2 =3}
+  \end{displaymath}
+  }%
+  \only<3->{
+  \begin{displaymath}
+    \lim_{x\to 3} [f(x)+g(x)] 
+    = \lim_{x\to 3} f(x) + \lim_{x\to 3} g(x)
+    = 5 + -2 =3
+  \end{displaymath}
+  }%
+  \uncover<4->{
+  and that
+  \only<1-4>{
+  \begin{displaymath}
+    \lim_{x\to 3} \frac{f(x)}{g(x)} 
+    \phantom{= \frac{\ds\lim_{x\to 3} f(x)}{\ds\lim_{x\to 3} g(x)}
+    = \frac{5}{-2} = -\frac{5}{2}}
+  \end{displaymath}
+  }%
+  \only<5>{
+  \begin{displaymath}
+    \lim_{x\to 3} \frac{f(x)}{g(x)} 
+    = \frac{\ds\lim_{x\to 3} f(x)}{\ds\lim_{x\to 3} g(x)}
+    \phantom{= \frac{5}{-2} = -\frac{5}{2}}
+  \end{displaymath}
+  }%
+  \only<6->{
+  \begin{displaymath}
+    \lim_{x\to 3} \frac{f(x)}{g(x)} 
+    = \frac{\ds\lim_{x\to 3} f(x)}{\ds\lim_{x\to 3} g(x)}
+    = \frac{5}{-2} = -\frac{5}{2}
+  \end{displaymath}
+  }%
+  }% uncover
+  \uncover<7->{
+    but not
+    \begin{displaymath}
+      \lim_{x\to 3} \frac{f(x)}{h(x)} 
+      = \frac{\ds\lim_{x\to 3} f(x)}{\ds\lim_{x\to 3} h(x)}
+    \end{displaymath}
+    because $\ds\lim_{x\to 3} h(x) = 0$.  
+  }% uncover
+  \uncover<8->{\textbf{You can't divide by zero!}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A More Complicated Example of the Limit Laws}
+  Again, suppose that we know that $\ds\lim_{x\to 3} f(x) = 5$,
+  $\ds\lim_{x\to 3} g(x) = -2$, and $\ds\lim_{x\to 3} h(x) = 0$.  
+  Suppose we would like to evaluate
+  \begin{displaymath}
+    \lim_{x\to 3} [f(x) - g(x)h(x)]
+  \end{displaymath}
+  \pause
+  We first decide how to evaluate
+  the expression under the limit according to order of operations:
+  \begin{enumerate}
+  \item first we find $g(x)h(x)$.  
+  \item then we find $f(x)-g(x)h(x)$
+  \end{enumerate}
+  \pause
+  Then we evaluate those in order.
+  \begin{enumerate}
+  \item $\ds\lim_{x\to 3} g(x)h(x) 
+    = \lim_{x\to 3} g(x) \cdot \lim_{x\to 3} h(x) = -2\cdot 0 = 0$
+  \item $\ds\lim_{x\to 3} [f(x)-g(x)h(x)]
+    = \lim_{x\to 3} f(x) - \lim_{x\to 3} g(x)h(x)
+    = 5 - 0 = 5$
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bottom Level Rules for Evaluating Limits}
+  Usually, when we're evaluating limits, they will `bottom out'
+  at simple functions.  For example, we have the analysis
+  \only<1>{
+  \begin{displaymath}
+    \lim_{x\to 3} 5x^2
+    \phantom{
+    \stackrel{?}{=} 5 \lim_{x\to 3} x^2
+    \stackrel{?}{=} 5 \lim_{x\to 3} x\cdot x
+    \stackrel{?}{=} 5 \left(\lim_{x\to 3} x\right) \left(\lim_{x\to 3} x\right)
+    =45
+    =45
+    }
+  \end{displaymath}
+  }%
+  \only<2>{
+  \begin{displaymath}
+    \lim_{x\to 3} 5x^2
+    \stackrel{?}{=} 5 \lim_{x\to 3} x^2
+    \phantom{
+    \stackrel{?}{=} 5 \lim_{x\to 3} x\cdot x
+    \stackrel{?}{=} 5 \left(\lim_{x\to 3} x\right) \left(\lim_{x\to 3} x\right)
+    =45
+    =45
+    }
+  \end{displaymath}
+  }%
+  \only<3>{
+  \begin{displaymath}
+    \lim_{x\to 3} 5x^2
+    \stackrel{?}{=} 5 \lim_{x\to 3} x^2
+    \stackrel{?}{=} 5 \lim_{x\to 3} x\cdot x
+    \phantom{
+    \stackrel{?}{=} 5 \left(\lim_{x\to 3} x\right) \left(\lim_{x\to 3} x\right)
+    =45
+    =45
+    }
+  \end{displaymath}
+  }%
+  \only<4-8>{
+  \begin{displaymath}
+    \lim_{x\to 3} 5x^2
+    \stackrel{?}{=} 5 \lim_{x\to 3} x^2
+    \stackrel{?}{=} 5 \lim_{x\to 3} x\cdot x
+    \stackrel{?}{=} 5 \left(\lim_{x\to 3} x\right) \left(\lim_{x\to 3} x\right)
+    \phantom{=45
+    =45
+    }
+  \end{displaymath}
+  }%
+  \only<9>{
+  \begin{displaymath}
+    \lim_{x\to 3} 5x^2
+    \stackrel{?}{=} 5 \lim_{x\to 3} x^2
+    \stackrel{?}{=} 5 \lim_{x\to 3} x\cdot x
+    \stackrel{?}{=} 5 \left(\lim_{x\to 3} x\right) \left(\lim_{x\to 3} x\right)
+    =45
+    \phantom{=45
+    }
+  \end{displaymath}
+  }%
+  \only<10>{
+  \begin{displaymath}
+    \lim_{x\to 3} 5x^2
+    \stackrel{?}{=} 5 \lim_{x\to 3} x^2
+    \stackrel{?}{=} 5 \lim_{x\to 3} x\cdot x
+    = 5 \left(\lim_{x\to 3} x\right) \left(\lim_{x\to 3} x\right)
+    =45
+    \phantom{=45
+    }
+  \end{displaymath}
+  }%
+  \only<11>{
+  \begin{displaymath}
+    \lim_{x\to 3} 5x^2
+    \stackrel{?}{=} 5 \lim_{x\to 3} x^2
+    = 5 \lim_{x\to 3} x\cdot x
+    = 5 \left(\lim_{x\to 3} x\right) \left(\lim_{x\to 3} x\right)
+    =45
+    \phantom{=45
+    }
+  \end{displaymath}
+  }%
+  \only<12>{
+  \begin{displaymath}
+    \lim_{x\to 3} 5x^2
+    = 5 \lim_{x\to 3} x^2
+    = 5 \lim_{x\to 3} x\cdot x
+    = 5 \left(\lim_{x\to 3} x\right) \left(\lim_{x\to 3} x\right)
+    =45
+    \phantom{=45
+    }
+  \end{displaymath}
+  }%
+  \uncover<5->{The $=$ sign is in question because we don't yet know whether
+    the limits exit on the right hand sides of the equalities.
+  }%
+  \uncover<6->{We need a rule for evaluating the right-most limits.}
+  \uncover<7->{The two bottom-most rules for evaluating limits are
+    \begin{displaymath}
+      \lim_{x\to a} x = a \quad \mbox{ and } \quad \lim_{x\to a} c = c.
+    \end{displaymath}
+  }%
+  \uncover<8->{With those rules, we can evaluate the rightmost expression,
+  }%
+  \uncover<10->{then we can run the above sequence backwards
+    and remove the question marks.
+  }%
+\end{frame}
+
+
+\subsection{Consequences of the Limit Laws}
+
+\begin{frame}
+  \frametitle{Consequences of the Limit Laws}
+  The following results are immediate consequences of the limit laws.
+  \begin{itemize}
+  \uncover<1->{\item $\ds\lim_{x\to a} [f(x)]^n 
+    = \left[ \lim_{x\to a} f(x)\right]^n$
+    where $n$ is a positive integer.
+  }%
+  \uncover<2->{\item $\ds\lim_{x\to a} x^n = a^n$.}%
+  \uncover<3->{\item $\ds\lim_{x\to a} \sqrt[n]{x} = \sqrt[n]{a}$ 
+    under the condition that $a>0$}%
+  \uncover<4->{\item $\ds\lim_{x\to a} \sqrt[n]{f(x)}
+    = \sqrt[n]{\ds \lim_{x\to a} f(x)}$
+    under the condition that $\ds\lim_{x\to a} f(x) > 0$
+  }%
+  \uncover<5->{\item If $f$ is a polynomial, then
+    $\ds\lim_{x\to a} f(x) = f(a)$
+  }%
+  \uncover<6->{\item If $f=g/h$ is a rational function (i.e., $g$ and $h$
+    are polynomials), \textbf{and $h(a)\ne 0$}, then 
+    $\ds\lim_{x\to a} f(x) = \frac{g(a)}{h(a)}$.
+  }%
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Limit Theorems}
+
+\begin{frame}
+  \frametitle{Limit Theorems}
+  \begin{enumerate}
+  \uncover<1->{\item \textbf{Single Discrepancy Theorem}: 
+    If $f(x)=g(x)$ when $x\ne a$, then
+    $\ds\lim_{x\to a} f(x) = \lim_{x\to a} g(x)$, provided the limits exist.
+  }%
+  \uncover<2->{\item \textbf{One-sided limits}: 
+    $\ds\lim_{x\to a} f(x) = L$ if and only if
+    $\ds\lim_{x\to a^-} f(x) = L = \lim_{x\to a^+} f(x)$.
+  }%
+  \uncover<3->{\item \textbf{Limits preserve inequalities}:
+    If $f(x)\le g(x)$ for all $x\ne a$, 
+    $\ds\lim_{x\to a} f(x)=L$,
+    and $\ds\lim_{x\to a} g(x) = M$, then $L\le M$.
+  }%
+  \uncover<4->{\item \textbf{Squeeze Theorem}:  
+    If $f(x)\le g(x) \le h(x)$ for all $x\ne a$,
+    and $\ds\lim_{x\to a} f(x) = L = \lim_{x\to a} h(x)$, then
+    $\lim_{x\to a} g(x) = L$.
+  }%
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Evaluation of Limits of Rational Functions}
+  Suppose we want to evaluate a limit of the form
+  \begin{displaymath}
+    \lim_{x\to 1} \frac{x-1}{x^2-1}
+  \end{displaymath}
+  \pause
+  It's tempting to write
+  \begin{displaymath}
+    \frac{x-1}{x^2-1} = \frac{x-1}{(x-1)(x+1)} = \frac{1}{x+1}
+  \end{displaymath}
+  \pause
+  Unfortunately, that equation is not true!
+  \pause
+  It fails for $x=1$, in which case the left hand side is undefined
+  but the right hand side is $1/2$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Application of the Single Discrepancy Theorem}
+  On the other hand, the equality
+  \begin{displaymath}
+    \frac{x-1}{x^2-1} = \frac{1}{x+1}
+  \end{displaymath}
+  is true for all $x\ne 1$, 
+  \pause
+  so in this case we can apply the 
+  Single Discrepancy Theorem to conclude
+  \begin{displaymath}
+    \lim_{x\to 1} \frac{x-1}{x^2-1} = \lim_{x\to 1} \frac{1}{x+1}
+  \end{displaymath}
+  \pause
+  and now we can apply the quotient rule for limits
+  (or the theorem on the evaluation of limits of rational functions)
+  to conclude that 
+  \pause
+  \begin{displaymath}
+    \lim_{x\to 1} \frac{x-1}{x^2-1} = \lim_{x\to 1} \frac{1}{x+1}
+    = \frac{1}{2}
+  \end{displaymath}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Single Discrepancy Theorem}
+  In summary, strictly speaking, we have
+  \begin{displaymath}
+    \frac{x-1}{x^2-1} \ne \frac{1}{x+1}
+  \end{displaymath}
+  \pause
+  however, the limit expression $\ds\lim_{x\to 1}$ provides a context in which
+  we can say $x\ne 1$
+  \pause
+  and so we can conclude
+  \begin{displaymath}
+    \lim_{x\to 1} \frac{x-1}{x^2-1}
+    = \lim_{x\to 1} \frac{1}{x+1}
+  \end{displaymath}
+  \pause
+  This is a common technique for evaluating limits of the form
+  \begin{displaymath}
+    \lim_{x\to a} \frac{g(x)}{h(x)}
+  \end{displaymath}
+  where $h(a)=0$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{A Peculiar Limit}
+  Let's try to evaluate the limit
+  \begin{displaymath}
+    \lim_{x\to 0} x^2\cos(1/x^2)
+  \end{displaymath}
+  \pause
+  It's tempting to try to apply the product limit law:
+  \begin{displaymath}
+    \lim_{x\to 0} x^2 \cos(1/x^2)
+    \stackrel{?}{=} \lim_{x\to 0} x^2 \cdot \lim_{x\to 0} \cos(1/x^2)
+  \end{displaymath}
+  \pause
+  But we can't remove the question mark because
+  \begin{displaymath}
+    \lim_{x\to 0} \cos(1/x^2)
+  \end{displaymath}
+  does not exist!
+\end{frame}
+
+\begin{frame}
+  \frametitle{Application of the Squeeze Theorem}
+  \begin{columns}
+  \column{.6\textwidth}
+  \begin{itemize}
+  \uncover<1->{\item The function $\cos(1/x^2)$ oscillates wildly as $x$
+    approaches $0$.}%
+  \uncover<2->{\item However, the function $x^2\cos(1/x^2)$ appears to
+    have a limit as $x$ approaches $0$.  How can we be sure?}%
+  \uncover<3->{\item We can find the upper and lower \textbf{envelopes}
+    $x^2$ and $-x^2$ for the function and use the Squeeze Theorem.}%
+  \uncover<4->{\item We have $-x^2\le x^2\cos(1/x^2) \le x^2$ (why?)
+    and $\ds\lim_{x\to 0} -x^2 = 0 = \lim_{x\to 0} x^2$. It follows that
+    $\ds\lim_{x\to 0}x^2\cos(1/x^2)=0$.}%
+  \end{itemize}
+  \column{.4\textwidth}
+  \only<1>{\includegraphics[width=4cm]{cos0.eps}}
+  \only<2>{\includegraphics[width=4cm]{cos1.eps}}
+  \only<3->{\includegraphics[width=4cm]{cos2.eps}}
+  \end{columns}
+\end{frame}
+
+
+\subsection{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Evaluate 
+    \begin{displaymath}
+      \lim_{x\to 2} \frac{\ds \frac{1}{x}-\frac{1}{2}}{x-2}
+    \end{displaymath}
+  \item Evaluate 
+    \begin{displaymath}
+      \lim_{s\to 16} \frac{4-\sqrt{s}}{s-16}
+    \end{displaymath}
+  \item Find 
+    \begin{displaymath}
+      \lim_{x\to 0} \; x \sin(1/x)
+    \end{displaymath}
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~1.6.  After you have finished it,
+  you should try the following additional exercises from Section~1.6:
+  \begin{itemize}
+  \item[1.6] C-level: 1, 2, 3--9, 10, 11--26, 50, 52; \\
+    B-level: 27--30, 31--32, 33--34, 35--40, 47--48, 49, 51; \\
+    A-level: 41--46, 53--55, 56--66
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

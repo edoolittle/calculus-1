@@ -1,0 +1,146 @@
+\documentclass[12pt]{article}
+%\documentclass[12pt,legalpaper]{article}
+\usepackage{fullpage}
+\usepackage{amsmath,amssymb}
+\usepackage{mathptmx}
+%\usepackage{fancyheadings}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[aux]{rerunfilecheck}
+
+%\setlength{\textheight}{11.5in}
+
+\reversemarginpar
+
+\newcommand{\myimp}{\Rightarrow}
+\newcommand{\myiff}{\Leftrightarrow}
+\newcommand{\mynot}{\neg}
+\newcommand{\myor}{\vee}
+\newcommand{\myand}{\wedge}
+\newcommand{\ds}{\displaystyle}
+
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}
+
+\pagestyle{fancy}
+\lhead{MATH110--S01--S02 200930                    \\ 
+       Midterm Test 2 \hspace{1.25in} Page\ \thepage\ of \pageref{LastPage} \\ 
+       Time: 50 minutes                             \\
+       \quad}
+%\chead{\quad \\ Page\ \thepage\ of \pageref{LastPage} \\ \quad}
+\chead{}
+\rhead{Name: \underline{\hspace{2in}}        \\ 
+       Student \#: \underline{\hspace{2in}}  \\ 
+       Section: \underline{\hspace{2in}}     \\
+       \quad}
+\cfoot{}
+\addtolength{\headheight}{\baselineskip}
+\addtolength{\headheight}{\baselineskip}
+\addtolength{\headheight}{\baselineskip}
+\addtolength{\headheight}{\baselineskip}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \lhead{}
+  \chead{FIRST NATIONS UNIVERSITY OF CANADA           \\
+    DEPARTMENT OF SCIENCE                    \\
+    MATH110--S01--S02 200930
+  }
+  \rhead{}
+  \cfoot{Page\ \thepage\ of \pageref{LastPage}}
+}
+
+\title{Midterm Test 2}
+\author{Edward Doolittle}
+
+\begin{document}
+\thispagestyle{plain}
+%\maketitle
+
+\begin{center}
+  \quad\\
+  \LARGE{Midterm Test 2}
+\end{center}
+
+\begin{flushleft}
+\quad\\
+Time: 50 minutes                \hfill       Name: \underline{\hspace{2in}}  \\
+Instructors:                    \hfill Student \#: \underline{\hspace{2in}}  \\
+\quad Dr. Edward Doolittle      \hfill    Section: \underline{\hspace{2in}}  \\
+\end{flushleft}
+
+
+\noindent
+You have 50 minutes to do each of the following questions.
+The test is worth a total of 50 marks.
+Please\marginpar{\small(marks)} justify your conclusions and
+show all your work.
+A non-programmable calculator of approved type is permitted.  No other aids
+are permitted.
+Use the backs of the pages for rough work.
+
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 1 %%%
+\item Find\marginpar{\small(6)}
+  the derivative of the function $f(x)=3x^2-x+1$ from first principles.
+\vfill
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 2 %%%
+\item Find the following derivatives.  Do not simpify!
+  \begin{enumerate}
+  \item $\ds y'$\marginpar{\small(5)}
+    where 
+    $\ds y = \tan^3 (2x)$
+\vfill
+  \item $\ds\frac{dy}{dx}$\marginpar{\small (6)}
+    where
+    $\ds y\cos x = x\sin y$
+\vfill
+  \item The \emph{second derivative} $\ds g''$\marginpar{\small(6)}
+    where 
+    $\ds g(t)=\frac{t+1}{t-1}$
+\vfill
+  \end{enumerate}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 3 %%%
+\item Find\marginpar{\small(6)}
+  the differential $dy$ of $\ds y=\sqrt{x^2-x}$
+\vfill
+\item Find\marginpar{\small(6)} 
+  the second derivative $d^2y/dx^2$ for the implicitly defined function 
+  $\ds x^3+y^3=1$.
+\vfill
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 4 %%%
+\item Two\marginpar{\small(5)} 
+  cars start moving from the same point.  One travels 
+  north at $80$ km/h and the other travels west at $60$ km/h.
+  At what rate is the distance between the cars increasing two hours later?
+\vfill
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 5 %%%
+\item When\marginpar{\small(5)} 
+  blood flows along a blood vessel, the flux $F$ (the volume of blood per
+  unit time that flows past a given point) is proportional to the fourth
+  power of the radius of the blood vessel:
+  \begin{equation*}
+    F = k R^4
+  \end{equation*}
+  for some constant $k$.  Find the differential $dF$ and 
+  use it to show that the \textbf{relative}
+  change in $F$, namely $dF/F$,
+  is about four times the relative change in $R$, namely $dR/R$.  How would
+  a 5\% increase in the radius affect the flow of blood?
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% begin page 6 %%%
+\item Find\marginpar{\small(5)} 
+  $\ds \lim_{\theta\to 0} \frac{\sin\theta}{\theta+\tan\theta}$.  
+\vfill
+\end{enumerate}
+
+\end{document}
+

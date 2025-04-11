@@ -1,0 +1,424 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+\setbeamercolor{postit}{fg=black,bg=yellow}
+
+\title{\commonTitleZeroTwoOne}
+\subtitle{\commonSubtitleZeroTwoOne}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroTwoOne}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+\section{Derivatives and Rates of Change}
+
+\subsection{Tangents}
+
+\begin{frame}
+  \frametitle{Tangents}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}
+  \uncover<1->{
+  \item The problem that we were originally considering was that
+    of constructing tangents through a point $P(a,f(a))$ on the graph of $f$.
+  }%
+  \uncover<2->{
+  \item We did that by finding secant 
+    lines through $P$ and $Q(x,f(x))$ and letting
+    $x$ approach $a$.
+  }%
+  \uncover<7->{
+  \item We found the slope of the tangent line as a limit.  
+    The tangent line could
+    then be described in point-slope form $y-y_0=m(x-x_0)$.
+  }%
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{\includegraphics[width=\textwidth]{graph0.eps}}%
+  \only<2>{\includegraphics[width=\textwidth]{gr0.eps}}%
+  \only<3>{\includegraphics[width=\textwidth]{gr1.eps}}%
+  \only<4>{\includegraphics[width=\textwidth]{gr2.eps}}%
+  \only<5>{\includegraphics[width=\textwidth]{gr3.eps}}%
+  \only<6>{\includegraphics[width=\textwidth]{gr4.eps}}%
+  \only<7>{\includegraphics[width=\textwidth]{graph0.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Definition of the Tangent Line}
+  With the limit technology we developed in the previous chapter,
+  we are now ready to give a formal definition of the
+  tangent to a graph at a point.
+  \pause
+
+  \begin{beamercolorbox}{postit}
+
+    \textbf{Definition:} The \textbf{tangent line} to the curve
+    $y=f(x)$ at the point $P(a,f(a))$ is the line through $P$
+    with the slope 
+    \begin{displaymath}
+      m = \lim_{x\to a} \frac{f(x)-f(a)}{x-a}
+    \end{displaymath}
+    provided that the limit exists.
+
+  \end{beamercolorbox}
+  \pause
+
+  If the above limit does not exist, the tangent line doesn't exist
+  (the case where the limit is infinite is an exception that we'll
+  study later).
+\end{frame}
+
+\begin{frame}
+  \frametitle{Alternative Expressions for the Tangent}
+  \begin{itemize}
+  \item In words, we can say
+  \begin{beamercolorbox}{postit}
+    The tangent line at $P(a,f(a))$ is the line through $P$ with slope
+    equal to the limit of the slopes of the secant lines through
+    $P(a,f(a))$ and $Q(x,f(x))$ as $x$ approaches $a$.
+  \end{beamercolorbox}
+  \pause
+  \item Note that an equation of the tangent line in point-slope form
+    is 
+    \begin{displaymath}
+      y-f(a) = m(x-a)
+    \end{displaymath}
+    where $\ds m = \lim_{x\to a} \frac{f(x)-f(a)}{x-a}$.
+  \pause
+  \item An alternate expression for the slope of the tangent line may be
+    found by changing variables.  Let $h=x-a$.  Then we can write
+  \pause
+    \begin{displaymath}
+      m = \lim_{h\to 0} \frac{f(a+h)-f(a)}{h}
+    \end{displaymath}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Solution to the Tangent Problem}
+  \begin{itemize}
+  \item We find tangent lines at $a$ by finding a point on the line and the 
+    slope of the line.
+  \pause
+  \item The point on the line is easy: finding $P(a,f(a))$ just requires
+    that we evaluate $f$ at $a$.
+  \pause
+  \item The slope $m$ is harder: it is calculated as a limit
+    \begin{displaymath}
+      m=\lim_{h\to 0} \frac{f(a+h)-f(a)}{h}
+    \end{displaymath}
+  \pause
+  \item However, using the limit laws from the previous chapter, we will
+    be able to calculate all such limits.
+  \pause
+  \item In summary, we have built up a system for completely solving the
+    tangent problem!
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Velocities}
+
+\begin{frame}
+  \frametitle{Comparison of Tangent and Velocity Problems}
+  \uncover<1->{
+  \begin{center}
+    \begin{tabular}{|l|l|l|}
+      \hline
+      \textbf{concept}   & \textbf{tangent problem} & \textbf{velocity problem}
+      \uncover<2->{
+      \\ \hline\hline
+      independent variable & $x$      & $t$ 
+      }%
+      \uncover<3->{
+      \\ \hline
+      dependent variable   & $f(x)$   & $s(t)$
+      }%
+      \uncover<4->{
+      \\ \hline
+      run                 & $\Delta x =x-a=h$   & $\Delta t = t-a=h$
+      }%
+      \uncover<5->{
+      \\ \hline
+      rise            & $\Delta f = f(x)-f(a)$   & $\Delta s =s(t)-s(a)$
+      }%
+      \uncover<5->{
+      \\
+                      & $=f(a+h)-f(a)$   & $=s(a+h)-s(a)$
+      }%
+      \uncover<6->{
+      \\ \hline
+      quotient   
+        & $\ds \frac{\Delta f}{\Delta x} =\frac{f(a+h)-f(a)}{h}
+        \vphantom{\frac{\int_0^1}{\int_0^1}}$ 
+	% something tall to improve array spacing
+        & $\ds \frac{\Delta s}{\Delta t} = \frac{s(a+h)-s(a)}{h}$
+      \\
+                      & slope of secant & average velocity
+      }%
+      \uncover<7->{
+      \\ \hline
+      limit as $h\to 0$ & $\ds\lim_{h\to 0} \frac{f(a+h)-f(a)}{h}
+        \vphantom{\frac{\int_0^1}{\int_0^1}}$ 
+        & $\ds\lim_{h\to0}\frac{s(a+h)-s(a)}{h}$
+      \\
+                      & slope of tangent & instantaneous velocity
+      }%
+      \\
+      \hline
+    \end{tabular}
+  \end{center}
+  }% uncover
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Formal Definition of Instantaneous Velocity}
+  The above discussion leads to another new definition.
+  \pause
+
+  \begin{beamercolorbox}{postit}
+
+    \textbf{Definition:} The \textbf{instantaneous velocity} of a particle
+    with position given by $s(t)$ at time $t=a$ is
+    \begin{displaymath}
+      v(a) = \lim_{h\to 0} \frac{s(a+h)-s(a)}{h}
+    \end{displaymath}
+    provided that the limit exists.
+
+  \end{beamercolorbox}
+  \pause
+
+  The instantaneous velocity is the limit of the average velocities as
+  the length of the 
+  time interval $\Delta t=h=t-a$ on which the average velocities are taken
+  approaches $0$.
+\end{frame}
+
+
+\subsection{Derivatives}
+
+\begin{frame}
+  \frametitle{Derivatives}
+  \begin{itemize}
+  \item We have seen a certain type of expression occurring in two different
+    kinds of problems, the tangent problem and the velocity problem.
+  \pause
+  \item The same kind of expression occurs in other problems involving
+    rates of change (rates of chemical reactions, marginal cost in economics,
+    etc.).
+  \pause
+  \item Since it is so common, we give it a name:
+  \pause
+
+  \begin{beamercolorbox}{postit}
+
+    \textbf{Definition:} The \textbf{derivative of a function $f$ at a
+    number $a$} is denoted by $f'(a)$ and given by the formula
+    \begin{displaymath}
+      f'(a) = \lim_{h\to 0} \frac{f(a+h)-f(a)}{h}
+    \end{displaymath}
+    if this limit exists.
+
+  \end{beamercolorbox}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Expressions for the Derivative and Tangent Problem}
+  \begin{itemize}
+  \item Alternatively, we can write
+    \begin{displaymath}
+      f'(a) = \lim_{x\to a} \frac{f(x)-f(a)}{x-a}
+    \end{displaymath}
+    if this limit exists.
+  \pause
+    However, I prefer the expression involving $h$ for reasons we will see
+    in section 3.2.
+  \pause
+  \item Our new concept gives us an easy way of expressing the
+    solution to the tangent problem:
+
+    \begin{beamercolorbox}{postit}
+
+      The tangent line to $y=f(x)$ at the point $P(a,f(a))$ is the line
+      through $P$ with slope $f'(a)$.
+
+    \end{beamercolorbox} 
+    \pause
+
+  \item We can write the equation of the tangent line in a single expression:
+    \begin{displaymath}
+      y-f(a) = f'(a) (x-a)
+    \end{displaymath}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Expressions for the Velocity Problem}
+  \begin{itemize}
+  \item We also have an alternate way to express the solution of the
+    velocity problem
+  \pause
+  \item We often write $\Delta t$ for $h$.  In that notation, the average
+    velocity of a particle at time $a$ over a time interval of length
+    $\Delta t$ is $\Delta s/\Delta t$, and we have
+
+  \begin{beamercolorbox}{postit}
+
+    The instantaneous velocity of a particle at time $a$ is
+    \begin{displaymath}
+      v(a) = \lim_{\Delta t\to 0} \frac{\Delta s}{\Delta t} = s'(a)
+    \end{displaymath}
+
+  \end{beamercolorbox}
+
+  \pause
+  \item We also have the concept of average \textbf{speed} and
+    \textbf{instantaneous speed} which are given by the absolute values
+    of the velocities: $|\Delta s/\Delta t|$ and $|s'(a)|$ respectively.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Rates of Change}
+  \begin{itemize}
+  \item In general, for any process represented by a function $y=f(x)$,
+    we can talk about the average rate of change and the instantaneous
+    rate of change,
+    \begin{displaymath}
+      \frac{\Delta y}{\Delta x} \quad\mbox{and}\quad 
+      \lim_{\Delta x\to 0} \frac{\Delta y}{\Delta x}
+    \end{displaymath}
+    respectively.
+  \pause
+  \item Remember that both those concepts depend on our base number
+    $a$, although $a$ doesn't appear in the above formulas.
+  \pause
+  \item The concept of instantaneous rate of change is more useful
+    than average rate of change; the former just depends on $a$ while the
+    latter depends on $a$ and $\Delta x$.
+  \end{itemize}
+\end{frame}
+
+\subsection{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Let $f(x) = x^3 + 5x +4$.  Find $f'(2)$ from first principles
+    (that is, from the definition of the derivative).
+  \item Let $\ds g(x) = \frac{4-x}{3+x}$.  Find the equation of the 
+    tangent line to the curve $y=g(x)$ at the point $P(1,g(1))$ on the curve.
+  \item If a ball is thrown upward starting at the ground
+    with a velocity of $40$ ft/s, its 
+    height (in feet) after $t$ seconds is (approximately) given by
+    $s(t)=40t-16t^2$.
+    \begin{enumerate}
+    \item Find its (instantaneous) velocity after 1 second.
+    \item Find its velocity at $a$ seconds.
+    \item When will the ball hit the ground?
+    \item What will its velocity be at that time?
+    \end{enumerate}
+  \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solution to Example 3}
+  \begin{enumerate}
+  \item[1] Try this on your own; the answer is similar to that of the previous
+    two questions.  The answer will follow from part 2 with
+    $a=1$, so this part is actually redundant.
+  \item[2] This is an example of calculating a derivative
+    from first principles.  We need to calculate the limit
+    \begin{displaymath}
+    v'(a) = \lim_{h\to 0} \frac{s(a+h)-s(a)}{h}.
+    \end{displaymath}
+    It is best to split the calculation into parts.
+    \begin{align*}
+      s(a) &= 40a-16a^2 \\
+      s(a+h) &= 40(a+h)-16(a+h)^2 = 40a + 40 h -16(a^2+2ah+h^2) \\
+             &= 40a + 40h -16a^2 -32ah - 16h^2
+    \end{align*}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solution to Example 3, continued}
+  \begin{enumerate}
+  \item[2] Subtracting the previous two gives
+    \begin{align*}
+      s(a+h)-s(a) &= 40a+40h-16a^2-32ah-16h^2-(40a-16a^2) \\
+                  &= 40a+40h-16a^2-32ah-16h^2-40a+16a^2 \\
+		  &= 40h-32ah-16h^2
+    \end{align*}
+    Note that all the terms without an $h$ have cancelled from the
+    above expression, which is a useful check.  Now we can take the limit:
+    \begin{align*}
+      s'(a) &= \lim_{h\to 0} \frac{s(a+h)-s(a)}{h}
+      = \lim_{h\to 0} \frac{40h-32ah-16h^2}{h} \\
+      &= \lim_{h\to 0} (40-32a-16h)
+      = 40-32a
+    \end{align*}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solution to Example 3, continued}
+  \begin{enumerate}
+  \item[2] In summary, the instantaneous velocity at $a$ seconds is
+    $40-32a$ ft/s.  The answer to question 1 is $s'(1)=40-32(1)=8$ ft/s.
+  \item[3] The ball is at ground level when $s=0$, so we must have
+    $0=s(t)=40t-16t^2$.  Solving for $t$ we get $t=0$ (rejected in this case;
+    why?) and $40-16t=0$ which implies $t=2.5$.
+  \item[4] The instantaneous velocity at $2.5$ seconds is
+    $s'(2.5)=40-32(2.5)=-40$ ft/s, which agrees with what we would expect
+    from conservation of energy or some other physical reasoning: it hits
+    the ground with the same speed with which it left the ground, but in
+    the opposite direction.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~2.1.  After you have finished it,
+  you should try the following additional exercises from Section~2.1:
+  \begin{itemize}
+  \item[2.1] 
+    C-level: 1--4, 5--8, 9--10, 15--16, 17--18, 20--23, 27--30, 31--36, 37--42,
+    43--44, 47--50; \\
+    B-level: 11--12, 13--14, 19, 24--26, 45--46, 51--52, 53--56, 57--58, 61; \\
+    A-level: 59--60
+  \end{itemize}
+  % EJD: verify this
+  You should skip example 7 of this section, and don't do example 6 
+  until you understand everything else.
+\end{frame}
+
+
+\end{document}
+
