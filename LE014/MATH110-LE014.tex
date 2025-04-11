@@ -1,0 +1,447 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroOneFour}
+\subtitle{\commonSubtitleZeroOneFour}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroOneFour}
+
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+\section{The Tangent and Velocity Problems}
+
+\subsection{The Tangent Problem}
+
+\begin{frame}
+  \frametitle{The Big Idea of Differential Calculus}
+  \begin{itemize}[<+->]
+  \item The big idea of differential calculus is very simple:
+  \item We will try to study curves and other complicated, varying
+    phenomena by approximating them by the simplest shapes we know:
+  \item Lines.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Describing Lines}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  %\item We use a Cartesian coordinate system for everything we do in
+  %  calculus.
+  %\item Here is a line drawn in the plane.  We want to be able to
+  %  describe it.
+  \item One way we can try to describe a line is by finding a point
+    through which it passes.
+  \item However, many different lines go through any given point, so
+    the point is not a complete description of the line.
+  \item We could describe a line completely by giving two points on
+    the line:
+    $\displaystyle \frac{y-y_0}{x-x_0} = \frac{y_1-y_0}{x_1-x_0}$
+  \item But it is often better to describe a line in terms of a point
+    on it and the slope of the line: $y-y_0 = m(x-x_0)$ where the
+    slope $m = \frac{\mbox{rise}}{\mbox{run}}$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  %\only<1>{\includegraphics[height=3cm]{line1.eps}}%
+  %\only<2>{\includegraphics[height=3cm]{line2.eps}}%
+  \only<1>{\includegraphics[height=3cm]{line3.eps}}%
+  \only<2>{\includegraphics[height=3cm]{line3a.eps}}%
+  \only<3>{\includegraphics[height=3cm]{line4.eps}}%
+  \only<4>{\includegraphics[height=3cm]{line5.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Tangent Problem}
+  \begin{columns}
+    \column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item Many phenomena in nature are actually best represented by
+      curves.
+    \item The basic idea of differential calculus is to use a line to
+      approximate a given curve in the ``neighborhood'' of a given
+      point.
+    \item That point we will call the ``base point'' for the time
+      being.
+    \item The best linear approximation is called the \emph{tangent}
+      to the curve at the base point.
+    \end{itemize}
+    \column{0.35\textwidth}
+    \only<1>{\includegraphics{para1.eps}}%
+    \only<2>{\includegraphics{para2.eps}}%
+    \only<3>{\includegraphics{para3.eps}}%
+    \only<4>{\includegraphics{para4.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Is Linear Approximation Possible?}
+  You may wonder whether linear approximation is always possible.
+  
+  The answer is `sometimes': only when zooming in on the base point
+  makes the curve look more and more straight.
+  \newline
+
+  \begin{columns}
+    \column{0.6\textwidth}
+    \only<1>{A familiar function, base point $(0,0)$}%
+    \only<2>{Zooming in by a factor of 2.}%
+    \only<3>{Zooming in by another factor of 2.}%
+    \only<4>{Zooming in by another factor of 2.  The curve is almost
+      indistinguishable from a straight line at this scale.  We can say
+      that $\sin(\theta)\approx\theta$ for small $\theta$ (when the
+      angle $\theta$ is measured in radians).}%
+    \column{0.4\textwidth}
+    \only<1>{\includegraphics[height=3cm]{zoom1.eps}}%
+    \only<2>{\includegraphics[height=3cm]{zoom2.eps}}%
+    \only<3>{\includegraphics[height=3cm]{zoom3.eps}}%
+    \only<4>{\includegraphics[height=3cm]{zoom4.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Is Linear Approximation Possible?}
+
+  \begin{itemize}
+  \item Linear approximation is possible for a wide range of curves.
+  \item Curves which can be linearly approximated are called
+    \textbf{differentiable} for a reason we will explore shortly.
+  \item Most of the curves we encounter in modern science are
+    differentiable.
+  \item There are many interesting functions which are not
+    differentiable, however, such as fractals.
+  \item Calculus doesn't apply to non-differentiable functions.  You
+    likely won't study non-differentiable functions in detail unless
+    you go to graduate school.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Finding the Tangent Line}
+  \begin{columns}
+  \column{0.6\textwidth}
+    \begin{itemize}
+      \only<1->{\item Over the centuries, many techniques have been
+        tried to find the tangent line to a curve at a point.}%
+      \only<2->{\item The best general purpose solution to the problem
+        is, paradoxically, to look at curves which are not tangents:
+        secants.}%
+      \only<3->{\item As the second point on the secant approaches the
+        base point ...}%
+      \only<7>{\item the secant approaches the tangent.}%
+    \end{itemize}
+  \column{0.4\textwidth}
+    \only<1>{\includegraphics[height=5cm]{sec0.eps}}%
+    \only<2>{\includegraphics[height=5cm]{sec1.eps}}%
+    \only<3>{\includegraphics[height=5cm]{sec2.eps}}%
+    \only<4>{\includegraphics[height=5cm]{sec3.eps}}%
+    \only<5>{\includegraphics[height=5cm]{sec4.eps}}%
+    \only<6>{\includegraphics[height=5cm]{sec5.eps}}%
+    \only<7>{\includegraphics[height=5cm]{sec6.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Finding the Slope of the Tangent Line}
+  \begin{columns}
+    \column{0.6\textwidth}
+    \begin{itemize}
+      \only<1->{\item This gives us a way of finding an equation of
+        the tangent line.}%
+      \only<2->{\item We know the base point of the tangent line (it
+        is given), so all we need to do is find the slope of the
+        tangent.}%
+      \only<3->{\item The slope of the tangent is the `limit' of the
+        slopes of the secant as the second point slides into the base
+        point.}%
+      \only<4>{\item Slope $m = 0.5$}%
+      \only<5>{\item Slope $m = 0.75$}%
+      \only<6>{\item Slope $m = 1.25$}%
+      \only<7>{\item Slope $m = 1.5$}%
+      \only<8>{\item Slope $m = 1.75$}%
+      \only<9>{\item Slope $m = 1.9$, and so on.}%
+    \end{itemize}
+  \column{0.4\textwidth}
+    \only<1>{\includegraphics[height=5cm]{sec0.eps}}%
+    \only<2>{\includegraphics[height=5cm]{sec0.eps}}%
+    \only<3>{\includegraphics[height=5cm]{sec1.eps}}%
+    \only<4>{\includegraphics[height=5cm]{sec2.eps}}%
+    \only<5>{\includegraphics[height=5cm]{sec3.eps}}%
+    \only<6>{\includegraphics[height=5cm]{sec4.eps}}%
+    \only<7>{\includegraphics[height=5cm]{sec5.eps}}%
+    \only<8>{\includegraphics[height=5cm]{sec6.eps}}%
+    \only<9>{\includegraphics[height=5cm]{sec7.eps}}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Slope of the Tangent as a Limit}
+  \begin{itemize}
+  \item We can make a table giving the slope of the secant line
+    as a function of the $x$-value of the second point on the secant:
+    \begin{quote}
+      \begin{tabular}{|l|l||l|l|}
+        \hline
+        $x$     & $m$     & $x$     & $m$     \\
+	\hline
+	$0$     & $1$     & $2$     & $3$     \\
+        $0.5$   & $1.5$   & $1.5$   & $2.5$   \\
+        $0.9$   & $1.9$   & $1.1$   & $2.1$   \\
+	$0.99$  & $1.99$  & $1.01$  & $2.01$  \\
+	$0.999$ & $1.999$ & $1.001$ & $2.001$ \\
+	\hline
+      \end{tabular}
+    \end{quote}
+    Note: I have considered secants both above and below the tangent in 
+    the table.
+    \pause
+  \item The above gives us strong reason to suspect that the slope of
+    the tangent line is $2$.%
+    \pause
+  \item How can we be sure?  We must learn more about limits.  That
+    will be in section 1.5.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Estimating Tangents from Tabular Data}
+  \begin{itemize}
+  \item Sometimes functions are not given to us by formulas, but by a
+    series of data points.
+  \item See Example 2 of section 1.4 in the textbook.
+  \item We will not be covering Example 2 in detail in this course.
+    If you're interested, take a course in numerical analysis.
+  \end{itemize}
+\end{frame}
+
+\subsection{The Velocity Problem}
+
+\begin{frame}
+  \frametitle{The Velocity Problem}
+  \begin{columns}
+  \column{0.7\textwidth}
+  \begin{itemize}
+    \only<1->{\item When the $x$ axis represents time, and the $y$
+      axis represents position on a line, there is a simple
+      interpretation of the geometric analysis of the previous
+      section.}%
+    \only<2->{\item In that case, the rise of a secant segment
+      corresponds to the distance travelled.}%
+    \only<3->{\item The run of a secant segment corresponds to the
+      time taken.}%
+    \only<4->{\item Therefore the slope of a secant segment
+      corresponds to the distance divided by the time, or the
+      \textbf{average velocity}.}%
+    \only<5->{\item The slope of the tangent line is the
+      \textbf{instantaneous velocity}.}%
+  \end{itemize}
+  \column{0.3\textwidth}
+  \begin{overlayarea}{0.29\textwidth}{3.5cm}
+  \only<1>{\includegraphics[height=3cm]{vel1.eps}}%
+  \only<2>{\includegraphics[height=3cm]{vel2.eps}}%
+  \only<3>{\includegraphics[height=3cm]{vel3.eps}}%
+  \only<4>{\includegraphics[height=3cm]{vel3.eps}}%
+  \only<5>{\includegraphics[height=3cm]{vel4.eps}}%
+  \end{overlayarea}
+  \end{columns}
+\end{frame}
+
+\subsection{Examples and Exercises}
+
+\begin{frame}
+  \frametitle{Examples}
+  \begin{enumerate}
+  \item Suppose a ball is dropped from the upper observation deck of the 
+    CN Tower, 450 m above the ground.  
+    \begin{enumerate}
+    \item Find the average velocity of the
+      ball for an interval beginning at $t=3$ seconds and lasting 
+      (i) 0.5 seconds, (ii) 0.1 second, (iii) 0.05 seconds, (iv) 0.01
+      second.  (Use Galileo's law: the distance travelled by a falling
+      ball in $t$ seconds is $s(t) = 4.9t^2$ metres, neglecting air
+      resistance.)
+    \item Estimate the instantaneous velocity when $t=3$.
+    \end{enumerate}
+  \item Estimate $\sqrt{99}$.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solution to Example 1(a)(i)}
+  \begin{itemize}
+  \item[(a)(i)] The interval begins at $t=3$ and ends $0.5$ seconds
+    later at $t=3.5$.  The position of the ball at $t=3$ is
+    $s(3)=4.9(3)^2 = 44.1$ metres below the observation deck.  The
+    position of the ball at $t=3.5$ is $s(3.5)=4.9(3.5)^2=60.0$ metres
+    below the observation deck, approximately.
+
+    The distance travelled (the rise on the position vs. time graph)
+    is $s(3.5)-s(3)=60.0-44.1=15.9$ metres.  The time taken (the run
+    on the position vs. time graph) is $3.5-3=0.5$.  The average
+    velocity (the slope on the position vs. time graph) is rise/run
+    $= 15.9/0.5=31.8$ meters per second.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Answers to Examples 1(a)(ii,iii,iv)}
+  Similar calculations give us the following:
+  \begin{itemize}
+  \item[(a)(ii)] The average velocity on the interval $t\in [3,3.1]$ is
+    \begin{displaymath}
+      \frac{s(3.1)-s(3)}{3.1-3}=\frac{47.1-44.1}{0.1} = 30\mbox{m/s}
+    \end{displaymath}
+  \item[(a)(iii)] The average velocity on the interval $t\in [3,3.05]$ is
+    \begin{displaymath}
+      \frac{s(3.05)-s(3)}{3.05-3}=\frac{45.58-44.1}{0.05} = 29.64\mbox{m/s}
+    \end{displaymath}
+  \item[(a)(iv)] The average velocity on the interval $t\in [3,3.01]$ is
+    \begin{displaymath}
+      \frac{s(3.01)-s(3)}{3.01-3}=\frac{44.39-44.1}{0.01} = 29.45\mbox{m/s}
+    \end{displaymath}
+  \end{itemize}
+  (Note that I had to use more digits of accuracy as the time measurement
+  became smaller and more accurate.)
+\end{frame}
+
+\begin{frame}
+  \frametitle{Answers to Example 1(b)}
+  \begin{itemize}
+  \item[(b)] From the above data, it seems that the slopes of the
+    secant lines (i.e., the average velocities) are declining below
+    29.45.  A reasonable guess would be 29.4.  However we don't have
+    enough data to be really sure.  We really need to look at time
+    intervals before $t=3$, such as the interval $t\in(2.9,3)$, to get
+    a good bound on the instantaneous velocity.
+  
+    However, we will soon learn an easier way of calculating the
+    instantaneous velocity, from which it will follow that the
+    instantaneous velocity is exactly 29.4 m/s.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solution to Example 2}
+  \begin{itemize}
+  \item This question is difficult, 
+    but shows us that we can already do something
+    interesting with what we've learned.
+  \item The big idea is that we are going to try to approximate the
+    function $y=f(x)=\sqrt{x}$ by a tangent line
+    $y=t(x)=m(x-x_0)+y_0$.  We can then easily approximate
+    $\sqrt{99} = f(99)$ by $t(99)$.
+  \item To describe the tangent line, we need to find a base point and
+    a slope.  The base point is easy: we choose a nearby $x$ value for
+    which we know the square root.  Let's choose $x_0=100$, $y_0=10$.
+  \item For greater accuracy, we could choose a base point closer to
+    $x=99$ if we wanted.  Think about how hou would pick a base point
+    closer to $x=99$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solution to Example 2: points on curve}
+  \begin{itemize}
+  \item All that remains is to find the slope of the tangent line.
+  \item The only way we know how to do that now is by finding a set of
+    points on the curve sliding in to the base point, finding the
+    slopes of the secants, and guessing the slope of the tangent.
+  \item It isn't immediately clear how to find a point on the curve.
+    However, if we're being clever, we might come up with the idea of
+    picking $y$ values instead of picking $x$ values.  For example, if
+    we pick $y=10.1$, we get $x=y^2=10.1^2=102$.  That gives us the
+    point $(102.01,10.1)$ on the curve.
+  \item Picking $y=10.05$, $10.01$, and $10.005$ gives us the points
+    $(101.0025,10.05)$ $(100.2001,10.01)$, and $(100.100025)$
+    respectively.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solution to Example 2: slopes of secants}
+  We can now find the slopes of the secant lines.  Recall that the
+  base point is $(100,10)$.
+  \begin{quote}
+    \begin{tabular}{|l|l|l|l|l|}
+      \hline
+      $x_1$        & $y_1$    & $y_1-y_0$   & $x_1-x_0$   & $m$       \\
+      \hline
+      $102.01$     & $10.1$   & $0.1$       & $2.01$      & $0.04975$ \\
+      $101.0025$   & $10.05$  & $0.05$      & $1.0025$    & $0.04988$ \\
+      $100.2001$   & $10.01$  & $0.01$      & $0.2001$    & $0.04998$ \\
+      $100.100025$ & $10.005$ & $0.005$     & $0.100025$  & $0.04999$ \\
+      \hline
+    \end{tabular}
+  \end{quote}
+  From the table, we see that the slopes of the secant lines seem to
+  be converging to $0.05$; that would be a reasonable guess for the slope
+  of the tangent line.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solution to Example 2: tangent line and answer}
+  We can now fill in the blanks and write down the equation of
+  the tangent line.  We have $x_0=100$, $y_0=10$, and $m=0.05$
+  giving
+  \begin{displaymath}
+    y=t(x)=m(x-x_0)+y_0 = 0.05(x-100)+10.
+  \end{displaymath}
+  Using the tangent line to approximate $\sqrt{99}$, we have
+  \begin{displaymath}
+    \sqrt{99} \approx t(99) = 0.05(99-100)+10 = 9.95.
+  \end{displaymath}
+  My calculator says that $\sqrt{99}=9.9499$ to four digits of accuracy,
+  so we have an excellent approximation.
+
+  \textbf{Note:} there is an easier way to do this.  Also, we don't
+  yet have error bounds on our approximation.  We'll learn more about
+  those later.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercises}
+  Now you should work on Problem Set~1.4.  After you have finished it,
+  you should try the following additional exercises from Section~1.4:
+  \begin{itemize}
+  \item[1.4] C-level: 1--2, 3--4, 5--6, 7--8; \\
+    B-level: 9
+  \end{itemize}
+  You should skip Example~2 of Section~1.4.
+\end{frame}
+  
+
+
+\end{document}
+
+
