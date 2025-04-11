@@ -1,0 +1,656 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+\usepackage{tikz}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroZeroOne}
+\subtitle{\commonSubtitleZeroZeroOne}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroZeroOne}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Review of Algebra}
+
+\subsection{Arithmetic Operations}
+
+% EJD: nice illustration of commutativity of addition lengths 2+3
+% EJD: illustrate how commuting is "moving"
+\begin{frame}
+  \frametitle{Commutativity of Addition}
+  \begin{itemize}[<+->]
+  \item If I add two numbers, say 2 and 3, the answer does not depend
+    on the order in which I add the numbers.
+  \item $2+3=5$, but also $3+2=5$.
+  \item In other words we can write $2+3=3+2$.
+  \item The above result doesn't depend on the numbers 2 and 3.  For example,
+    I also have $4+7=7+4$, and so on.
+  \item We say that the operation of addition is \textit{commutative}.
+  \end{itemize}
+\end{frame}
+
+% EJD: illustrate by sliding lengths a+b
+\begin{frame}
+  \frametitle{Commutative Law for Addition}
+  \begin{itemize}[<+->]
+  \item We can express that more general result using \textit{algebraic}
+    notation: $a+b=b+a$ for any numbers $a$ and $b$.
+  \item For example choosing $a=2$ and $b=3$ gives us the result $2+3=3+2$,
+    and choosing $a=4$ and $b=7$ gives us the result $4+7=7+4$.
+  \item The notation $a+b=b+a$ is very powerful; it stands for an infinite
+    number of different particular results.
+  \item We call that expression the \textit{commutative law for addition}.
+  \end{itemize}
+\end{frame}
+
+% EJD: illustrate by rotating rectangle 3x5
+\begin{frame}
+  \frametitle{Commutativity of Multiplication}
+  \begin{itemize}[<+->]
+  \item If I multiply two numbers, say 3 and 5, the answer does not depend
+    on the order in which I multiply the numbers.
+  \item We have $3\times 5=15$, but we also have $5\times 3=15$
+  \item In other words, we can write $5\times 3 = 3\times 5$.
+  \item The above result does not depend on the particular numbers $3$
+    and $5$.  For example, we have $2\times 6=6\times 2$, and so on,
+    for any two numbers I choose.
+  \item We say that the operation of multiplication is also commutative.
+  \end{itemize}
+\end{frame}
+
+% EJD: illustrate by rotating a rectangle sides axb
+\begin{frame}
+  \frametitle{Commutative Law for Multiplication}
+  \begin{itemize}[<+->]
+  \item We can express that more general result using \textit{algebraic}
+    notation: $a\times b=b\times a$ for any numbers $a$ and $b$.
+  \item As a short form, we usually drop the $\times$ if we can do so without
+    confusion, so we usually write $ab=ba$.
+  \item For example choosing $a=3$ and $b=5$ gives us the result $3\times 5
+    =5\times 3$,
+    and choosing $a=2$ and $b=6$ gives us the result $2\times 6=6\times 2$.
+  \item The notation $ab=ba$ is very powerful; it stands for an infinite
+    number of different particular results.
+  \item We call that expression the \textit{commutative law for
+    multiplication}.
+  \end{itemize}
+\end{frame}
+
+% EJD put law in coloured box to emphasize
+\begin{frame}
+  \frametitle{The Commutative Laws}
+  \begin{itemize}[<+->]
+  \item In summary, we have the commutative law of addition:
+    \begin{equation*}
+      a+b=b+a
+    \end{equation*}
+    for any numbers $a$ and $b$
+  \item And the commutative law of multiplication
+    \begin{equation*}
+      ab=ba
+    \end{equation*}
+  \item We obviously don't have to use the letters $a$ and $b$.  So we
+    could write the \textit{commutative laws} as
+    \begin{equation*}
+      x+y=y+x
+    \end{equation*}
+    and
+    \begin{equation*}
+      xy=yx
+    \end{equation*}
+  \item That is our first result in algebra.
+  \end{itemize}
+\end{frame}
+
+% EJD: diagram of adding three lengths in a row
+% EJD: diagram of rotating box
+\begin{frame}
+  \frametitle{Associative Laws}
+  \begin{itemize}[<+->]
+  \item Similarly, the order in which we add three numbers does not
+    matter.
+  \item For example, $(3+6)+5=3+(6+5)$.
+  \item In general, we write $(x+y)+z=x+(y+z)$.
+  \item Furthermore, the order in which we multiply three numbers does
+    not matter.
+  \item For example, $(2\times 5)\times 3 = 2\times (5\times 3)$.
+  \item In general, we write $(x\times y)\times z= x\times(y\times
+    z)$, or in short form $(xy)z = x(yz)$.
+  \end{itemize}
+\end{frame}
+
+% EJD: diagram of putting rectangles with sides axb and axc together
+\begin{frame}
+  \frametitle{Distributive Laws}
+  \begin{itemize}[<+->]
+  \item The previous laws applied to just one operation, addition or
+    multiplication. 
+  \item We also have a law which involves both operations
+    simultaneously, the distributive law.
+  \item Adding first and then multiplying is the same as multiplying
+    first and then adding.
+  \item More precisely, in symbols, we write \(x(y+z) = (xy) + (xz)\).
+  \item Order of operations (BEDMAS) says that multiplication is done
+    before addition so we can drop the brackets on the right hand side
+    (RHS).
+  \item The \textit{distributive law} is usually written
+    \(x(y+z) = xy+xz\).
+  \end{itemize}
+\end{frame}
+
+% EJD: picture to show how expanding is the distributive law three times
+\begin{frame}
+  \frametitle{Expanding}
+  \begin{itemize}[<+->]
+  \item The distributive law is the key to an important process in
+    algebra known as \textit{expanding}.
+  \item Consider the expression $3(t+2)$.
+  \item Expanding means applying the distributive law to remove the
+    brackets: $3(t+2) = 3\times t + 3\times 2 = 3t+6$.
+  \item Now consider $(s+3)(t+2)$.
+  \item Apply the distributive law: $(s+3)(t+2)=(s+3)t+(s+3)2$.
+  \item Apply it again: $(s+3)t + (s+3)2 = st+3t+(s+3)2$.
+  \item And again: $st+3t+(s+3)2=st+3t+2s+6$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Simplifying}
+  \begin{itemize}[<+->]
+  \item We can apply any of the laws we know to simplify expressions.
+  \item Consider $4-3x+6$.
+  \item We can write $4-3x+6 = 4 + (-3\times x) + 6$.
+  \item Applying the commutative law of addition, we have
+    $4+(-3\times x) + 6 = 4 + 6 + (-3\times x)$.
+  \item We can add the $4$ and $6$ to get $10$: $4+6+(-3\times
+    x)=10+(-3\times x)$.
+  \item By Order of Operations we can drop the brackets: $10+(-3\times
+    x) = 10-3x$.
+  \item In summary, $4-3x+6=10-3x$.
+  \end{itemize}
+\end{frame}
+
+% Nice picture for multiplying fractions
+\begin{frame}
+  \frametitle{Multiplying Fractions}
+  \begin{itemize}[<+->]
+  \item We also need to remember rules for dealing with fractions.
+  \item The simplest operation we can perform on fractions is
+    multiplying them.
+  \item The rule for multiplying fractions is
+    \begin{equation*}
+      \frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd}
+    \end{equation*}
+  \item We just \textit{multiply the numerators and multiply the
+    denominators} to get the answer.
+  \end{itemize}
+\end{frame}
+
+% EJD: diagram illustrating division of fractions
+\begin{frame}
+  \frametitle{Dividing Fractions}
+  \begin{itemize}[<+->]
+  \item The next simplest operation for fractions is division.
+  \item To divide fractions we \textit{invert and multiply}:
+    \begin{equation*}
+      \frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c}
+      = \frac{ad}{bc}
+    \end{equation*}
+  \item Sometimes we see the same procedure in slightly different
+    notation:
+    \begin{equation*}
+      \frac{a/b}{c/d} = \frac{a}{b} \times \frac{d}{c} = \frac{ad}{bc}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Negating Fractions}
+  \begin{itemize}[<+->]
+  \item Negating a fraction is the same thing as multiplying it by
+    \begin{equation*}
+      -1 = \frac{-1}{1} = \frac{1}{-1}
+    \end{equation*}
+  \item So all three of the following are negatives of $2/3$:
+    \begin{equation*}
+      -\frac{2}{3} = \frac{-2}{3} = \frac{2}{-3}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Equivalent Fractions}
+  \begin{itemize}[<+->]
+  \item There are many different ways of representing the number 1 as
+    a fraction:
+    \begin{equation*}
+      1 = \frac{1}{1} = \frac{2}{2} = \frac{7}{7} = \frac{-3}{-3} = \cdots
+    \end{equation*}
+  \item Multiplying any fraction by any of those representations of 1
+    gives an equivalent fraction:
+    \begin{equation*}
+      \frac{2}{3} = \frac{4}{6} = \frac{14}{21} = \frac{-6}{-9} =
+      \cdots
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Adding Fractions I}
+  \begin{itemize}[<+->]
+  \item The rule for adding fractions is surprisingly more complicated
+    than the rule for multiplying fractions.
+  \item To add fractions, we must find a common denominator.
+  \item We do that by finding appropriate equivalent fractions.
+  \item For example, to add $2/3$ and $4/7$, we find fractions
+    equivalent to $2/3$, and fractions equivalent to $4/7$, looking
+    for a common denominator.
+    \begin{equation*}
+      \frac{2}{3} = \frac{4}{6} = \cdots = \frac{14}{21} = \cdots
+    \end{equation*}
+    \begin{equation*}
+      \frac{4}{7} = \frac{8}{14} = \frac{12}{21} = \cdots
+    \end{equation*}
+  \item We found a common denominator, $21$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Adding Fractions II}
+  \begin{itemize}[<+->]
+  \item Now we can add the two fractions:
+    \begin{equation*}
+      \frac{2}{3} + \frac{4}{7}
+      = \frac{14}{21} + \frac{12}{21} 
+      = \frac{26}{21}
+    \end{equation*}
+  \item Note that, with addition, we just add the numerators and we
+    leave the denominators alone.
+  \item Note that we can always find a common denominator:
+    \begin{equation*}
+      \frac{a}{b} + \frac{c}{d} 
+      = \frac{ad}{bd} + \frac{bc}{bd}
+      = \frac{ad+bc}{bd}
+    \end{equation*}
+  \item That is a general formula for adding fractions.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Subtracting Fractions}
+  \begin{itemize}[<+->]
+  \item We follow a similar procedure to subtract fractions.
+  \item We find a common denominator and then subtract only the
+    numerators: 
+    \begin{equation*}
+      \frac{a}{b} - \frac{c}{d} = \frac{ad}{bd} - \frac{bc}{bd} =
+      \frac{ad-bc}{bd} 
+    \end{equation*}
+  \item It's better to remember the procedure for adding and
+    subtracting fractions, rather than the formula.
+  \end{itemize}
+\end{frame}
+
+\subsection{Factoring and Quadratics}
+
+% EJD: show like a chemical equation, maybe
+\begin{frame}
+  \frametitle{Expanding and Factoring}
+  \begin{itemize}[<+->]
+  \item The opposite of \textit{expanding} is \textit{factoring}.
+  \item If I start with an expression like $2x(x+3)$ I can expand it
+    to get \only<3->{$2x^2+6x$}
+  \item<4-> On the other hand, if I start with $2x^2+6x$ I can factor
+    it to get $2x(x+3)$.
+  \item Sometimes expanding is appropriate, and sometimes factoring is
+    appropriate.
+  \item It's hard to give a rule to tell you which is better in a
+    given situation.  You need to use your judgment.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Factoring Quadratics}
+  \begin{itemize}[<+->]
+  \item Many of the examples used in our course will require factoring
+    quadratics.  
+  \item A quadratic is a polynomial with highest degree term of degree
+    2, for example $x^2+5x+6$ or $x^2-9$ or $-3x^2+6x-3$.
+  \item Often you can guess how to factor a quadratic of the form
+    $x^2+ax+b$.
+  \item You need to find two numbers that add to give $a$ and multiply
+    to give $b$.
+  \item For the example $x^2+5x+6$, you would eventually guess $2$ and
+    $3$: their sum is $5$ and their product is $6$.
+  \item So we guess $x^2+5x+6=(x+2)(x+3)$.  
+  \item Check by expanding the RHS.
+  \end{itemize}
+\end{frame}
+
+% EJD: picture of difference of squares
+\begin{frame}
+  \frametitle{Difference of Squares}
+  \begin{itemize}[<+->]
+  \item One common case of quadratic polynomial is a difference of
+    squares.
+  \item For example, $x^2$ is a square and $9=3^2$ is a square, and
+    their difference is $x^2-9$.
+  \item A difference of squares can always be factored by taking the
+    sum and difference of the square roots of the squares.
+  \item For example, $x^2-9 = (x+3)(x-3)$.
+  \item Again, check by expanding the RHS.
+  \end{itemize}
+\end{frame}
+
+% EJD: animate cancellation
+\begin{frame}
+  \frametitle{Difference of Cubes}
+  \begin{itemize}[<+->]
+  \item There is also a similar pattern for factoring a difference of
+    cubes.
+  \item A difference of cubes is a polynomial of the form $x^3-a^3$,
+    for example, $x^3-8=x^3-2^3$.
+  \item The pattern is $x^3-a^3=(x-a)(x^2+ax+a^2)$.
+  \item We can check by expanding the RHS: 
+    \begin{equation*}
+      (x-a)(x^2+ax+a^2) = x^3 + ax^2 + a^2x -ax^2 -a^2x - a^3 = x^3 - a^3
+    \end{equation*}
+  \item For example, $x^3-8=(x-2)(x^2+2x+4)$.  (Check!)
+  \end{itemize}
+\end{frame}
+
+% EJD: animate step by step
+\begin{frame}
+  \frametitle{Sum of Cubes}
+  \begin{itemize}[<+->]
+  \item We can't factor a sum of squares like $x^2+9$
+  \item However, we can factor a sum of cubes using a trick.
+  \item The trick is based on this observation: $b^3=-(-b^3)=-(-b)^3$
+  \item So a sum of cubes can be written as a difference of cubes:
+    \begin{equation*}
+      x^3+b^3 = x^3-(-b)^3 = x^3-a^3
+    \end{equation*}
+    where $a = -b$.
+  \item Using our difference of cubes formula, we have
+    $x^3-a^3=(x-a)(x^2+ax+a^2)$
+  \item Putting back $-b$ for $a$ we have
+    $x^3+b^3=(x+b)(x^2-bx+b^2)$.  Check!
+  \end{itemize}
+\end{frame}
+
+% EJD: emphasize minus sign
+\begin{frame}
+  \frametitle{The Factor Theorem}
+  \begin{itemize}[<+->]
+  \item There is a connection between the roots of a polynomial and
+    its factors.
+  \item Note that $2$ is a root of the polynomial $x^2-5x+6$, i.e.,
+    when we substitute $2$ for $x$, the result is $0$.
+  \item $2^2-5(2)+6=4-10+6=0$
+  \item That means that $x-2$ should be a factor of $x^2-5x+6$.
+  \item Indeed it is: check $x^2-5x+6=(x-2)(x-3)$
+  \end{itemize}
+\end{frame}
+
+% EJD: polynomial - base b analogy; long division
+\begin{frame}
+  \frametitle{Polynomial Division I}
+  \begin{itemize}[<+->]
+  \item If we know one factor of a number, we can find the other
+    factor by division.
+  \item For example, we know that 2 is a factor of 26, we can find the
+    other factor by dividing: $26/2=13$.
+  \item We write $26=2\times 13$
+  \item We can do the same with polynomials.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Polynomial Division II}
+  \begin{itemize}[<+->]
+  \item I recommend you divide polynomials as follows.  First Write
+    down the form of the factorization: $x^2-5x+6=(x-2)(x+a)$
+  \item Expand and gather the RHS:
+    $(x-2)(x+a)=x^2-2x+ax-2a=x^2+(a-2)x+(-2a)$
+  \item Compare: $x^2-5x+6=x^2+(a-2)x+(-2a)$ means $a-2=-5$ means
+    $a=-3$, so the other factor should be $x+(-3)=x-3$
+  \item Check that $x^2-5x+6=(x-2)(x-3)$
+  \end{itemize}
+\end{frame}
+
+% EJD: better argument: x^2+6x = x^2+6x+9-9
+% EJD: graphical illustration
+\begin{frame}
+  \frametitle{Completing the Square I}
+  \begin{itemize}[<+->]
+  \item An important technique for dealing with quadratic polynomials
+    is \textit{completing the square}.
+  \item Consider the polynomial $x^2+6x+5$.
+  \item We want to find a square that looks as much like that
+    polynomial as possible.
+  \item We square $(x+a)$ to obtain $(x+a)^2=x^2+2ax+a^2$.
+  \item The first term is correct.  For the second term to be correct
+    we need $2a=6$, $a=6/2=3$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Completing the Square II}
+  \begin{itemize}[<+->]
+  \item So we have $x^2+6x+5=(x+3)^2+\mbox{other junk}$
+  \item We figure out what the other junk is by expanding and
+    simplifying: $x^2+6x+5=x^2+6x+9+\mbox{other junk}$ so
+    $-4=\mbox{other junk}$
+  \item Altogether we have $x^2+6x+5=(x+3)^2-4$
+  \item Now that the quadratic is in that form, we can do other useful
+    things with it, e.g., factoring it as a difference of squares.
+  \item See the supplement for the procedure to follow when the
+    coefficient of $x^2$ is not $1$, e.g., for $2x^2+8x+6$.
+  \end{itemize}
+\end{frame}
+
+% EJD: highlight quadratic formula
+\begin{frame}
+  \frametitle{The Quadratic Formula}
+  \begin{itemize}[<+->]
+  \item Complete the square for the general quadratic $ax^2+bx+c$
+  \item We obtain 
+    \begin{equation*}
+      ax^2+bx+c 
+      = a\left(x +\frac{b}{2a}\right)^2 -
+      \left(\frac{b^2}{4a}-c\right)
+    \end{equation*}
+  \item Now if we factor by diffence of squares we get the roots of a
+    general quadratic:
+    \begin{equation*}
+      x = \frac{-b\pm \sqrt{b^2-4ac}}{2a}
+    \end{equation*}
+  \item That is the quadratic formula, and it can save you a lot of
+    work if you memorize it.
+  \end{itemize}
+\end{frame}
+
+% EJD: diagrams of parabolas ... also show relationship between graph
+% and roots above
+\begin{frame}
+  \frametitle{The Discriminant}
+  \begin{itemize}[<+->]
+  \item Note that in the quadratic formula, we are asked to take the
+    square root of the expresson $b^2-4ac$.
+  \item If that expression is negative, we can't take the square root,
+    so the quadratic polynomial $ax^2+bx+c$ has no roots in that case.
+  \item If that expression is zero, the quadratic equation has two
+    identical roots.
+  \item If that expression is positive, the quadratic equation has to
+    different roots.
+  \item Because the expression $b^2-4ac$ helps us discriminate between
+    those three cases, it is called the discriminant of the quadratic
+    equation. 
+  \end{itemize}
+\end{frame}
+
+\subsection{Exponents and the Binomial Theorem}
+
+% EJD: Better layout
+\begin{frame}
+  \frametitle{Powers of a Variable}
+  \begin{itemize}[<+->]
+  \item We have already seen a short form for $xx$, namely $x^2$.
+    Similarly a short form for $xxx$ is $x^3$, and so on.
+  \item Following that pattern, $x^1$ should be $x$.
+  \item But what is $x^0$?  Let's run the pattern in reverse to find
+    out.
+  \item To go from $x^3$ to $x^2$, we divide by $x$.
+  \item To go from $x^2$ to $x^1$, we divide by $x$.
+  \item To go from $x^1$ to $x^0$, we should divide by $x$.  
+  \item $x/x=1$ so $x^0$ is $1$.
+  \item Similarly, $x^{-1}$ is $1/x$, $x^{-2}$ is $(1/x)/x = 1/x^2$,
+    and so on.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Binomial Theorem}
+  \begin{itemize}[<+->]
+  \item Sometimes we have do deal with powers of more complicated
+    expressions.
+  \item For example, $(x+y)^2=x^2+2xy+y^2$.
+  \item Multiplying both sides again by $x+y$, and expanding and
+    gathering the RHS,
+    \begin{equation*}
+      (x+y)^3 = (x^2+2xy+y^2)(x+y) = \cdots = x^3+3x^2y+3xy^2+y^3
+    \end{equation*}
+  \item Doing that again give
+    \begin{equation*}
+      (x+y)^4 = x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + y^4
+    \end{equation*}
+  \item There is a pattern to these results called the
+    \textit{binomial theorem}.  See the textbook supplement for details.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Laws of Exponents}
+  \begin{itemize}[<+->]
+  \item Consider $x^2 \times x^3$.  
+  \item That is the product of two $x$'s times the product of three
+    $x$'s.
+  \item The result should be $x^5$.  But note $2+3=5$.
+  \item In general, we have $x^m \times x^n=x^{m+n}$.
+  \item Similarly $x^m/x^n=x^{m-n}$.
+  \item Also $(x^m)^n$ is $n$ collections of $m$ $x$'s, so we have
+    $(x^m)^n = x^{mn}$.
+  \item Another common situation is like $(xy)^2=xyxy=xxyy=x^2y^2$.
+  \item In general, $(xy)^m = x^my^m$.
+  \item If you think about it, you'll see that those results hold for
+    negative values of $m$ and/or $n$ as well.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fractional Powers}
+  \begin{itemize}[<+->]
+  \item We know what $x^n$ means for $n=0,1,2,\ldots$ and
+    $n=-1,-2,-3,\ldots$.
+  \item Now we would like to figure out what $x^n$ means for
+    fractional values of $n$, for example $n=1/2$.
+  \item We do that by crossing our fingers and hoping that the laws of
+    exponents will apply to fractional exponents.
+  \item If that's the case then $(x^{1/2})^2$ should be
+    $x^{(1/2)\times 2} = x^1$.
+  \item In other words, $x^{1/2}$ should be $\sqrt{x}$.
+  \item It turns out that everything works out fine if we say
+    $x^{1/2}=\sqrt{x}$, $x^{1/3}=\sqrt[3]{x}$, and so on.
+  \end{itemize}
+\end{frame}
+
+% EJD: exhortation in red
+\begin{frame}
+  \frametitle{Radicals}
+  \begin{itemize}[<+->]
+  \item It is better to write $x^{1/2}$ instead of $\sqrt{x}$, but the
+    latter expression is very common so we should learn how to deal
+    with it.
+  \item For example, by the laws of exponents, we have
+    \begin{equation*}
+      \sqrt{xy} = (xy)^{1/2} = x^{1/2} y^{1/2} = \sqrt{x} \sqrt{y}
+    \end{equation*}
+  \item NOTE: you \textit{cannot} write
+    \begin{equation*}
+      \sqrt{x+y} = \sqrt{x} + \sqrt{y}
+    \end{equation*}
+  \item That is wrong, wrong, wrong!  Try $x=9$ and $y=16$.
+  \item (You could handle $\sqrt{x+y}$ using an extended version of the
+    binomial theorem, but that is beyond our powers at the moment.)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Rationalizing}
+  \begin{itemize}[<+->]
+  \item There is a useful trick with radicals we should know.  Note
+    that the difference of squares factorization gives
+    \begin{equation*}
+      (\sqrt{x}+\sqrt{y})(\sqrt{x}-\sqrt{y}) = x-y
+    \end{equation*}
+  \item Suppose we want to simplify the numerator in an expression
+    like
+    \begin{equation*}
+      \frac{\sqrt{x}+\sqrt{y}}{4}
+    \end{equation*}
+  \item We can do that (at the expense of making the denominator more
+    complicated) by multiplying by a specially chosen representation
+    of $1$ based on the \textit{conjugate radical} $\sqrt{x}-\sqrt{y}$.
+  \item We have
+    \begin{equation*}
+      \frac{\sqrt{x}+\sqrt{y}}{4} 
+      = \frac{\sqrt{x}+\sqrt{y}}{4} \times
+      \frac{\sqrt{x}-\sqrt{y}}{\sqrt{x}-\sqrt{y}} 
+      = \frac{x-y}{4(\sqrt{x}-\sqrt{y})}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+%% \section{Examples and Exercises}
+
+%% \begin{frame}
+%%   \frametitle{Examples}
+%% \end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Exercises}
+%%   The following exercises from the Review of Algebra handout will help you
+%%   understand the material.
+%%   \begin{itemize}
+%%   \item C-level: 
+%%   \item B-level: 
+%%   \item A-level: 
+%%   \end{itemize}
+%% \end{frame}
+
+
+\end{document}
+

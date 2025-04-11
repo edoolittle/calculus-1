@@ -1,0 +1,241 @@
+\documentclass{article}
+\usepackage{mathptmx}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{Some Important Formulas for Midterm Test 1}
+\author{\commonAuthor}
+\date{\commonDateMTOne}
+
+\begin{document}
+\maketitle
+
+\begin{itemize}
+\item[1.5]
+  \begin{itemize}
+  \item \textbf{The definition of a limit.} We write
+    \begin{displaymath}
+      \lim_{x\to a} f(x) = L
+    \end{displaymath}
+    and say
+    \begin{center}
+      the limit as $x$ approaches $a$ of $f(x)$ is $L$
+    \end{center}
+    if we can make the values of $f(x)$ as close to $L$ as we like
+    by taking $x$ to be sufficiently close to (but not equal to) $a$.
+  \item \textbf{The definition of a one-sided limit.} We write
+    \begin{displaymath}
+      \lim_{x\to a^-} f(x) = L
+    \end{displaymath}
+    and say
+    \begin{center}
+      the left-hand limit as $x$ approaches $a$ of $f(x)$ is $L$
+    \end{center}
+    if we can make the values of $f(x)$ as close to $L$ as we like by
+    taking $x$ to be sufficiently close to (but less than) $a$.
+
+    There is a similar definition for the right-hand limit
+    $\ds\lim_{x\to a^+} f(x)=L$.  (What is the definition?)
+  \item \textbf{The connection between one-sided and two-sided limits.}
+    We have
+    \begin{displaymath}
+      \lim_{x\to a} f(x) = L
+    \end{displaymath}
+    if and only if
+    \begin{displaymath}
+      \lim_{x\to a^-} f(x) = L \mbox{ and } \lim_{x\to a^+} f(x) = L.
+    \end{displaymath}
+  \item \textbf{The definition of an infinite limit.}
+    Let $f$ be a function defined on both sides of $a$, except possibly at
+    $a$ itself.  Then we write
+    \begin{displaymath}
+      \lim_{x\to a} f(x) = \infty
+    \end{displaymath}
+    and say
+    \begin{center}
+      the limit as $x$ approaches $a$ of $f(x)$ is infinity
+    \end{center}
+    or
+    \begin{center}
+      $f(x)$ increases without bound as $x$ approaches $a$
+    \end{center}
+    if $f(x)$ can be made as large as we like by taking $x$ sufficiently close
+    to \textbf{(but not equal to)} $a$.
+
+    There are similar definitions for $\ds\lim_{x\to a} f(x)=-\infty$
+    and the corresponding one-sided limits.
+  \item \textbf{The definition of a vertical asymptote.}
+    The line $x=a$ is called a \textbf{vertical asymptote} of the curve
+    $y=f(x)$ if at least one of the following statements is true:
+    \begin{displaymath}
+      \lim_{x\to a} f(x) = \infty
+      \quad
+      \lim_{x\to a^-} f(x) = \infty
+      \quad
+      \lim_{x\to a^+} f(x) = \infty
+    \end{displaymath}
+    \begin{displaymath}
+      \lim_{x\to a} f(x) = -\infty
+      \quad
+      \lim_{x\to a^-} f(x) = -\infty
+      \quad
+      \lim_{x\to a^+} f(x) = -\infty
+    \end{displaymath}
+    In other words, if any of the limits as $x$ approaches $a$ from the left
+    or the right is $\pm\infty$, we say that $y=f(x)$ has a vertical asymptote.
+  \end{itemize}
+\item[1.6]
+  \begin{itemize}
+  \item \textbf{The limit laws.} Suppose
+    $\ds\lim_{x\to a} f(x)$ and $\ds\lim_{x\to a} g(x)$ exist.  Then
+    \begin{enumerate}
+    \item $\ds\lim_{x\to a} [f(x)+g(x)] 
+      = \lim_{x\to a} f(x) + \lim_{x\to a} g(x)$
+    \item $\ds\lim_{x\to a} [f(x)-g(x)] 
+      = \lim_{x\to a} f(x) - \lim_{x\to a} g(x)$
+    \item $\ds\lim_{x\to a} [c \cdot f(x)] = c\cdot \lim_{x\to a} f(x)$
+      where $c$ is a constant
+    \item $\ds\lim_{x\to a} [f(x)\cdot g(x)] = \lim_{x\to a} f(x) \cdot
+      \lim_{x\to a} g(x)$
+    \item $\ds\lim_{x\to a} \frac{f(x)}{g(x)}
+      = \frac{\ds\lim_{x\to a} f(x)}{\ds\lim_{x\to a} g(x)}$
+      \textbf{under the condition that} $\ds\lim_{x\to a} g(x)\ne 0$.
+    \end{enumerate}
+    If the condition in the last rule above is violated, we can't conclude
+    anything about the limit without further work.
+  \item \textbf{Bottom-level limit laws.} We use the above limit laws in
+    conjunction with these basic limit laws to build up rules for limits
+    of complex functions.
+    \begin{enumerate}
+    \item $\ds\lim_{x\to a} x = a$
+    \item $\ds\lim_{x\to a} c = c$
+    \end{enumerate}
+  \item \textbf{Limits of root functions.}
+    \begin{itemize}
+    \item $\ds\lim_{x\to a} [f(x)]^n
+      = \left[ \lim_{x\to a} f(x)\right]^n$
+      where $n$ is a positive integer.
+    \item $\ds\lim_{x\to a} x^n = a^n$.
+    \item $\ds\lim_{x\to a} \sqrt[n]{x} = \sqrt[n]{a}$
+      under the condition that $a>0$
+    \item $\ds\lim_{x\to a} \sqrt[n]{f(x)}
+      = \sqrt[n]{\ds \lim_{x\to a} f(x)}$
+      under the condition that $\ds\lim_{x\to a} f(x) > 0$
+    \end{itemize}
+    When $n$ is odd we can remove the condition $a>0$.
+  \item {Limits of common functions.}
+    \begin{enumerate}
+    \item If $f$ is a polynomial, then $\ds\lim_{x\to a} f(x) = f(a)$
+    \item If $f=g/h$ is a rational function (i.e., $g$ and $h$
+      are polynomials), \textbf{and $h(a)\ne 0$}, then
+      $\ds\lim_{x\to a} f(x) = \frac{g(a)}{h(a)}$.
+    \end{enumerate}
+  \item \textbf{Single discrepancy theorem.}
+    If $f(x)=g(x)$ when $x\ne a$, then
+    $\ds\lim_{x\to a} f(x) = \lim_{x\to a} g(x)$, provided the limits exist.
+  \item \textbf{One-sided limits.}
+    $\ds\lim_{x\to a} f(x) = L$ if and only if
+    $\ds\lim_{x\to a^-} f(x) = L = \lim_{x\to a^+} f(x)$.
+  \item \textbf{Limits preserve inequalities}:
+    If $f(x)\le g(x)$ for all $x\ne a$,
+    $\ds\lim_{x\to a} f(x)=L$,
+    and $\ds\lim_{x\to a} g(x) = M$, then $L\le M$.
+  \item \textbf{Squeeze theorem.} If $f(x)\le g(x) \le h(x)$ for all $x\ne a$,
+    and $\ds\lim_{x\to a} f(x) = L = \lim_{x\to a} h(x)$, 
+    then $\ds\lim_{x\to a} g(x) = L$.
+  \end{itemize}
+\item[1.8]
+  \begin{itemize}
+  \item \textbf{Definition of continuity.} We say a function $f$ is
+    \textbf{continuous at $a$} if the following statement is true:
+    \begin{displaymath}
+      \lim_{x\to a} f(x) = f(a)
+    \end{displaymath}
+  \item \textbf{Meaning of continuity.} The definition really says three things:
+    \begin{enumerate}
+    \item $\lim_{x\to a} f(x)$ exists.
+    \item $f(a)$ exists.
+    \item The above two values are equal.
+    \end{enumerate}
+  \item \textbf{Types of discontinuities.}
+    \begin{itemize}
+    \item \textbf{Removable discontinuities:} the limit
+      $\ds\lim_{x\to a}$ exists but is not equal to $f(a)$.
+    \item \textbf{Jump discontinuities}: the one-sided limits
+      exist but are not equal.
+    \item \textbf{Infinite discontinuities:}
+      either or both of the one-sided limits are infinite.
+    \item All other cases: where either of the one-sided limits
+      doesn't exist (i.e., the function oscillates rapidly near $a$).
+    \end{itemize} 
+  \item \textbf{Definition of continuity from the right.} 
+    We say a function $f$ is
+    \textbf{continuous from the right at $a$}
+    if the following statement is true:
+    \begin{displaymath}
+      \lim_{x\to a^+} f(x) = f(a)
+    \end{displaymath}
+  \item \textbf{Definition of continuity from the left.} 
+    We say a function $f$ is
+    \textbf{continuous from the left
+    at $a$} if the following statement is true:
+    \begin{displaymath}
+      \lim_{x\to a^-} f(x) = f(a)
+    \end{displaymath}
+  \item \textbf{Definition of continuity on an interval.} 
+    A function is called \textbf{continuous
+    on an interval} if it is continuous at each point $a$
+    in the interval.
+  \item \textbf{Continuity on intervals with endpoints.}
+    If the interval has an endpoint or endpoints, we understand
+    \textit{continuous} at the endpoint to mean \textit{continuous from the
+    right} or \textit{continuous from the left} as appropriate.
+  \item \textbf{Algebraic combinations of continuous functions.}
+    The limit laws for combining functions give rules for combining
+    continuous functions.
+    Suppose $f$ and $g$ are continuous at $a$.
+    \begin{enumerate}
+    \item The sum $f+g$ is continuous at $a$.
+    \item The difference $f-g$ is continuous at $a$.
+    \item The constant multiple $cf$ is continuous at $a$.
+    \item The product $fg$ is continuous at $a$.
+    \item The quotient $f/g$ is continuous at $a$ \textbf{under
+      the condition that $g(a)\ne 0$.}
+    \end{enumerate}
+    In summary, any algebraic combination of continuous functions
+    is continuous, provided we don't divide by zero.
+  \item \textbf{Continuity of common functions.}  
+    Polynomials, rational functions, root functions, and trig functions are 
+    continuous on their domains.
+  \item \textbf{Composition of functions.}
+    The function $f\circ g$ defined by $(f\circ g)(x) = f(g(x))$ is called
+    the composition of $f$ and $g$.  Its domain is a subset of the domain
+    of $g$.
+  \item \textbf{Limits of compositions.}
+    If $f$ is continuous at $b$ and
+    $\ds \lim_{x\to a} g(x) = b$, then
+    \begin{displaymath}
+      \lim_{x\to a} f(g(x)) = f(\lim_{x\to a} g(x))
+    \end{displaymath}
+  \item \textbf{Continuity at a point $a$ of compositions.}
+    If $g$ is continuous at $a$ and if $f$ is continuous
+    at $g(a)$, then the function
+    $(f\circ g)(x) = f(g(x))$ is continuous at $a$.
+  \item \textbf{Continuity on a domain of compositions.}
+    If $g$ and $f$ are continuous on their domains,
+    then the composition $(f\circ g)(x)=f(g(x))$ is continuous on its domain.
+  \item \textbf{The intermediate value theorem.}
+    Suppose that $f$ is continuous on the closed
+    interval $[a,b]$ and let $N$ be any number satisfying $f(a)\le N\le f(b)$.
+    Then there exists a number $c$ in the interval $(a,b)$ such that $f(c)=N$.
+  \end{itemize}
+\end{itemize}
+
+
+
+\end{document}

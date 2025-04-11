@@ -1,0 +1,288 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathptmx}
+\usepackage{fullpage}
+\usepackage[aux]{rerunfilecheck}
+
+\newcommand{\ds}{\displaystyle}
+
+\input{../common.tex}
+
+\title{Important Formulas for Midterm Test 2}
+\author{\commonAuthor}
+\date{\commonDateMTTwo}
+
+\begin{document}
+\maketitle
+
+\begin{itemize}
+\item[2.1]
+  \begin{itemize}
+  \item \textbf{The definition of the derivative.}
+    The \textbf{derivative of a function $f$ at a
+    number $a$} is denoted by $f'(a)$ and is given by the formula
+    \begin{displaymath}
+      f'(a) = \lim_{h\to 0} \frac{f(a+h)-f(a)}{h}
+    \end{displaymath}
+    if this limit exists.
+  \item \textbf{The definition of a tangent line.}
+    The \textbf{tangent line} to the curve
+    $y=f(x)$ at the point $P(a,f(a))$ is 
+    defined to be the line through $P$
+    with the slope $f'(a)$ provided that the derivative exists.
+  \item \textbf{The definition of a tangent line in words.}
+    The tangent line to $y=f(x)$ at $P(a,f(a))$ 
+    is the line through $P$ with slope
+    equal to the derivative of $f$ at $a$.
+  \item \textbf{The formula for the tangent line.} $\ds y-f(a) = f'(a) (x-a)$
+  \item \textbf{The definition of (instantaneous) velocity.}
+    The \textbf{instantaneous velocity} of a particle
+    with position given by $s(t)$ at time $t=a$ is denoted by $v(a)$
+    and is defined to be $s'(a)$.
+  \item \textbf{The definition of instantaneous velocity in words.}
+    The instantaneous velocity of a particle with position function $s(t)$
+    at time $t=a$ is defined to be the derivative of $s$ at $a$.
+  \item \textbf{Process for finding a derivative `from first principles'.}
+    \begin{enumerate}
+    \item Recall the definition of derivative:
+      \begin{displaymath}
+        f'(a) = \lim_{h\to 0} \frac{f(a+h)-f(a)}{h}
+      \end{displaymath}
+    \item Calculate $f(a)$, reducing the answer as much as possible.  (If
+      $a$ is an actual number, like $2$ or $10$ or whatever, then it should
+      be possible to write $f(a)$ as a single number.)
+    \item Calculate $f(a+h)$, reducing the answer as much as possible
+      using the binomial theorem and/or other algebraic techniques with
+      fractions, etc.  Remember to insert the subexpression $(a+h)$ in
+      brackets until you have processed the resulting expressions with the
+      correct rules of algebra.  
+      \textbf{Note: you cannot simplify expressions with
+      square roots by replacing something like $\sqrt{c+d}$ with $\sqrt{c}
+      + \sqrt{d}$.  That is 100\% wrong.}
+      (If $a$ is an actual number, you should be able to write $f(a+h)$ as
+      a function of $h$ alone.)  
+    \item Calculate the difference $f(a+h)-f(a)$.  I advise you to put
+      brackets around $f(a)$ until you have processed the 
+      negative sign correctly
+      using the distributive law, i.e., you should really write something like
+      $f(a+h)-\left(f(a)\right)$.  Generally speaking, you should be able to
+      reduce $f(a+h)-f(a)$ to an expression from which $h$ can factor, although
+      that isn't always the case, particularly with square roots.
+    \item Calculate the limit $\ds\lim_{h\to 0} \frac{f(a+h)-f(a)}{h}$.
+      Since the expression $\ds \frac{f(a+h)-f(a)}{h}$ is undefined at $h=0$,
+      we can never evaluate the limit the easy way (using continuity).  Instead,
+      we will have to rearrange the numerator until a factor of $h$ appears
+      which will then cancel the $h$ in the denominator.
+    \item What we have at the end of this process should be the derivative
+      $f'(a)$.  If $a$ is a number, $f'(a)$ should be a number.  If $a$ is
+      not a definite number, but is a variable, 
+      then $f'(a)$ should be a function
+      of $a$ and $a$ alone, i.e., there should be no $h$s left.
+    \end{enumerate}
+  \end{itemize}
+\item[2.2]
+  \begin{itemize}
+  \item \textbf{How a function can fail to be differentiable.} A function
+    can fail to be differentiable at some number $x$ in the following ways:
+    \begin{enumerate}
+    \item The function is not continuous at $x$.  Then the limit
+      \begin{displaymath}
+        \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
+      \end{displaymath}
+      is guaranteed not to exist because the limit
+      \begin{displaymath}
+        \lim_{h\to 0} \frac{f(x+h)-f(x)}{h} \cdot h
+      \end{displaymath}
+      doesn't exist.
+    \item The one-sided limits
+      \begin{displaymath}
+        \lim_{h\to 0^-} \frac{f(x+h)-f(x)}{h}
+	\quad\mbox{and}\quad
+	\lim_{h\to 0^+} \frac{f(x+h)-f(x)}{h}
+      \end{displaymath}
+      exist but differ.  We then say $f$ has an \textbf{angle point} at $x$.
+    \item Either or both of the one-sided limits
+      \begin{displaymath}
+        \lim_{h\to 0^-} \frac{f(x+h)-f(x)}{h}
+	\quad\mbox{and}\quad
+	\lim_{h\to 0^+} \frac{f(x+h)-f(x)}{h}
+      \end{displaymath}
+      are infinite.  We then say that $f$ has a \textbf{cusp} at $x$
+      (if the one-sided limits are $+\infty$ and $-\infty$, or
+      $-\infty$ and $+\infty$), or that $f$ has a \textbf{vertical tangent}
+      at $x$ (if the one-sided limits are $-\infty$ and $-\infty$, or
+      $+\infty$ and $+\infty$).  It is also possible to have a vertical
+      tangent on one side and a non-vertical tangent on the other, leading
+      to a kind of angle point.
+    \item Either or both of the one-sided limits don't exist because 
+      the secant lines oscillate wildly in a neighborhood of $x$.  
+      The function $x\sin(1/x)$ near $x=0$ is an example.
+    \end{enumerate}
+  \item \textbf{Second derivatives.}  The second derivative of a function $f$
+    is defined to be the derivative of the derivative, i.e., $(f')'$
+    and is denoted by $f''$.
+  \item \textbf{Third and higher derivatives.}  The third derivative of a
+    function $f$ is the derivative of the second derivative, i.e., $(f'')'$,
+    and is denoted by $f'''$.  For higher derivatives we use notation like
+    $f^{(4)}$ or $f^{(n)}$ (for fourth derivatives and $n$th derivatives,
+    respectively).
+  \end{itemize}
+\item[2.3]
+  \begin{itemize}
+  \item \textbf{The derivative of a constant.} $\ds \frac{d}{dx} c = 0$
+  \item \textbf{The derivative of the identity function.}
+    $\ds \frac{d}{dx} x = 1$.
+  \item \textbf{The sum rule for derivatives.}  The derivative
+    of a sum is the sum of the derivatives: $(f+g)'=f'+g'$.
+  \item \textbf{The difference rule for derivatives.}  The derivative of
+    a difference is a the difference of the derivatives: $(f-g)'=f'-g'$.
+  \item \textbf{The constant multiple rule for derivatives.}  The
+    derivative of a constant multiple of a function is the constant multiple
+    of the derivative: $(cf)' = cf'$.
+  \item \textbf{The product rule for derivatives.}  $fg$ all prime is
+    $f$ prime $g$ plus $f$ $g$ prime: $(fg)' = f'g+fg'$.
+  \item \textbf{The quotient rule for derivatives.}  Bottom times derivative 
+    of top minus top times derivative of bottom, over bottom squared:
+    $\ds \left(\frac{f}{g}\right)' = \frac{gf'-fg'}{g^2}$.
+  \item \textbf{The power rule for derivatives.}  $\ds \frac{d}{dx} x^p
+    = p x^{p-1}$ for any real number $p$.
+  \item \textbf{Slopes of perpendicular lines.}  Two lines are perpendicular
+    if the product of their slopes is $-1$: $m_1m_2=-1$ or 
+    $\ds m_2=-\frac{1}{m_1}$, i.e., $m_2$ is the negative reciprocal of
+    $m_1$.
+  \item \textbf{Equation of the normal line at a number $a$.}  The normal
+    line to a curve $y=f(x)$ at a point $x=a$ is given by 
+    $\ds y-f(a) = -\frac{1}{f'(a)} (x-a)$ provided $f'(a)$ exists and
+    is not zero.  If $f'(a)$ is zero, the normal line is the vertical line
+    $x=a$.
+  \end{itemize}
+\item[2.4]
+  \begin{itemize}
+  \item \textbf{Basic trig limits: continuity.}  The $\sin$ and $\cos$
+    functions are continuous at $0$, which is the same thing as saying
+    \begin{displaymath}
+      \lim_{h\to 0} \sin h = 0
+      \quad\mbox{and}\quad
+      \lim_{h\to 0} \cos h = 1
+    \end{displaymath}
+  \item \textbf{Basic trig limits: differentiability.}  $\sin'(0)=1$ which
+    is the same thing as saying
+    \begin{displaymath}
+      \lim_{h\to 0} \frac{\sin h}{h} =1 
+    \end{displaymath}
+    Note that $h$ must be interpreted in radians for the above result to
+    hold.
+  \item \textbf{Trig definitions.}  The following definitions for trig
+    functions should be reviewed.
+    \begin{align*}
+      \tan x &= \frac{\sin x}{\cos x} \\
+      \sec x &= \frac{1}{\cos x} \\
+      \cot x &= \frac{\cos x}{\sin x} = \frac{1}{\tan x} \\
+      \csc x &= \frac{1}{\sin x} = \frac{1}{\sec x}
+    \end{align*}
+  \item \textbf{Trig identities.}  The following formulas for trig functions
+    should be reviewed.
+    \begin{align*}
+      \sin^2 x + \cos^2 x = 1 \\
+      \sin(x+h) = \sin x \cos h + \cos x \sin h
+    \end{align*}
+  \item \textbf{Derived trig limits: fractions involving $\sin$.}  We can
+    find some limits involving $\sin$ by the following technique:
+    \begin{displaymath}
+      \lim_{h\to 0} \frac{\sin 5h}{h}
+      = \lim_{h\to 0} \frac{\sin 5h}{5h} \cdot 5
+      = \lim_{h\to 0} \frac{\sin 5h}{5h} \cdot \lim_{h\to 0} 5
+      = 1 \cdot 5 = 5
+    \end{displaymath}
+  \item \textbf{Derived trig limits: fractions involving $\cos$.}  We find
+    the following limit by multiplying and dividing by a conjugate expression:
+    % EJD : fix this
+    \begin{displaymath}
+      \lim_{h\to 0} \frac{\cos h - 1}{h}
+      = \lim_{h\to 0} \frac{\cos h - 1}{h} \cdot \frac{\cos h + 1}{\cos h + 1}
+      = \lim_{h\to 0} \frac{\cos^2 h - 1}{h(\cos h+1)}
+      = \lim_{h\to 0} \frac{-\sin^2 h}{h(\cos h+1)}
+      = \lim_{h\to 0} \frac{\sin h}{h} \cdot \frac{-\sin h}{\cos h+1}
+      = \cdots
+    \end{displaymath}
+  \item \textbf{Basic trig derivatives.}  These derivatives of trig functions
+    are consequences of the definition of derivative, trig identities, and
+    the basic trig limits:
+    \begin{align*}
+      \frac{d}{dx} \sin x &= \cos x \\
+      \frac{d}{dx} \sin x &= -\cos x
+    \end{align*}
+  \item \textbf{Derived trig derivatives.}  These derivatives of trig functions
+    are consequences of the definitions of trig functions, the 
+    basic trig derivatives, and the differentiation formulas of section 3.3:
+    \begin{align*}
+      \frac{d}{dx} \tan x &= \sec^2 x \\
+      \frac{d}{dx} \sec x &= \sec x \tan x \\
+      \frac{d}{dx} \cot x &= -\csc^2 x \\
+      \frac{d}{dx} \csc x &= -\csc x \cot x
+    \end{align*}
+  \item \textbf{Higher trig derivatives.}  The 
+    higher derivatives of $\sin$ and $\cos$
+    repeat in a cyle of $4$: we have
+    \begin{align*}
+      \sin' x &= \cos x \\
+      \sin'' x  &= \cos' x = -\sin x \\
+      \sin^{(3)} x  &= -\sin' x = -\cos x\\
+      \sin^{(4)} x  &= -\cos' x = \sin x \\
+      \sin^{(5)} x & = \sin' x = \cos x
+    \end{align*}
+    and so on, and
+    \begin{align*}
+      \cos' x &= -\sin x \\
+      \cos'' x &=  -\sin' x = -\cos x \\
+      \cos^{(3)} x &= -\cos' x = \sin x \\
+      \cos^{(4)} x &= \sin' x = \cos x \\
+      \cos^{(5)} x &= \cos'x = -\sin x
+    \end{align*}
+    In particular, the $4k$th derivative of $\sin$ is $\sin$ and the $4k$th
+    derivative of $\cos$ is $\cos$, for any positive integer $k$.
+  \end{itemize} % 2.4
+\item[2.5]
+  \begin{itemize}
+  \item \textbf{Chain rule, Newton form.} Recall $f\circ g$ is the
+    composition of $f$ and $g$, defined by $(f\circ g)(x) = f(g(x))$.
+    \begin{displaymath}
+      (f\circ g)'(x) = f'(g(x)) \cdot g'(x)
+    \end{displaymath}
+  \item \textbf{Chain rule, Leibniz form.} For the function $y(u(x))$ we have
+    \begin{displaymath}
+      \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}
+    \end{displaymath}
+  \item \textbf{Chain rule, hybrid form.}
+    \begin{displaymath}
+      \frac{d}{dx} f(g(x)) = f'(g(x)) \cdot \frac{d}{dx} g(x)
+    \end{displaymath}
+  \item \textbf{Chain rule for the composition of three functions.}
+    \begin{displaymath}
+      \frac{d}{dx} f(g(h(x)))
+      = f'(g(h(x))) \cdot \frac{d}{dx} g(h(x))
+      = f'(g(h(x))) \cdot g'(h(x)) \cdot \frac{d}{dx} h(x)
+    \end{displaymath}
+  \end{itemize} % 2.5
+\item[2.6] % Implicit differentiation
+  % EJD 
+  Technique for finding implicit derivatives
+  Technique for finding second derivatives
+\item[2.7] % Natural and social sciences
+  % EJD 
+  velocity
+  acceleration
+  increasing
+  decreasing
+  stationary
+  linear density
+  rate of a reaction
+  marginal cost
+\item[2.8] % Related rates
+  % EJD 
+  Process for solving related rates problems
+\end{itemize}
+
+
+
+\end{document}

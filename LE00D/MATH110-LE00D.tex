@@ -1,0 +1,1063 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+\usepackage{tikz}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroZeroD}
+\subtitle{\commonSubtitleZeroZeroD}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroZeroD}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Trigonometry}
+
+% EJD: highlight final answers in formulas!
+
+\subsection{Angles}
+
+\begin{frame}
+  \frametitle{Radian Measure}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item The system of degrees we often use to measure angles is based
+    on an arbitrary choice of $360^{\circ}$ for a whole circle.
+  \item It is better to use a more natural measure for angles,
+    \textit{radians}. 
+  \item One radian is the angle subtended by a length of one radius
+    marked out around the circle.
+  \item The circumference of a circle is $2\pi r$, so a full circle is
+    $2\pi$ radians.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1-2>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (6);
+    \end{tikzpicture}
+  }
+  \only<3>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (6);
+      \draw (0,0) -- node[midway,below]{$r$} (6.4,0);
+      \draw (0,0) -- (57.30:6.4);
+      \draw[red,thick,->] (6.3,0) arc (0:57.30:6.3);
+      \draw[red] node[label={225:$r$}] (A) at (27.65:6) {};
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (6);
+      \draw (0,0) -- node[midway,below]{$r$} (6.4,0);
+      \draw[red,thick,->] (6.3,0) arc (0:360:6.3);
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Common Conversions}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item A full circle is $360^{\circ}$ which is $2\pi$ radians.
+  \item Half a circle is $180^{\circ}$ which is $\pi$ radians.
+  \item A quarter circle is $90^{\circ}$ which is $\pi/2$ radians.
+  \item An eighth of a circle is $45^{\circ}$ which is $\pi/4$
+    radians.
+  \item A sixth of a circle is $60^{\circ}$ which is $2\pi/6=\pi/3$
+    radians.
+  \item A twelfth of a circle is $30^{\circ}$ which is $2\pi/12=\pi/6$
+    radians. 
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (6);
+      \draw (0,0) -- node[midway,below]{$r$} (6.4,0);
+      \draw[red,thick,->] (6.3,0) arc (0:360:6.3);
+    \end{tikzpicture}
+  }
+  \only<2>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (6);
+      \draw (0,0) -- node[midway,below]{$r$} (6.4,0);
+      \draw (0,0) -- (180:6.4);
+      \draw[red,thick,->] (6.3,0) arc (0:180:6.3);
+    \end{tikzpicture}
+  }
+  \only<3>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (6);
+      \draw (0,0) -- node[midway,below]{$r$} (6.4,0);
+      \draw (0,0) -- (90:6.4);
+      \draw[red,thick,->] (6.3,0) arc (0:90:6.3);
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (6);
+      \draw (0,0) -- node[midway,below]{$r$} (6.4,0);
+      \draw (0,0) -- (45:6.4);
+      \draw[red,thick,->] (6.3,0) arc (0:45:6.3);
+    \end{tikzpicture}
+  }
+  \only<5>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (6);
+      \draw (0,0) -- node[midway,below]{$r$} (6.4,0);
+      \draw (0,0) -- (60:6.4);
+      \draw[red,thick,->] (6.3,0) arc (0:60:6.3);
+    \end{tikzpicture}
+  }
+  \only<6>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (6);
+      \draw (0,0) -- node[midway,below]{$r$} (6.4,0);
+      \draw (0,0) -- (30:6.4);
+      \draw[red,thick,->] (6.3,0) arc (0:30:6.3);
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: diagrams of circular arc
+\begin{frame}
+  \frametitle{Length of a Circular Arc}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Similar proportional reasoning applies to the length of a
+    circular arc.
+  \item The arc length of a whole circle is $2\pi r$, the angle in
+    radians times the radius.
+  \item The arc length of half a circle is $\pi r$, the angle in
+    radians times the radius.
+  \item The arc length of a quarter circle is $(\pi/2)r$, the angle in
+    radians times the radius.
+  \item In general, the arc length of any arc is the angle subtended
+    by the arc in radians times the radius.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1-2>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (6);
+      \draw (0,0) -- node[midway,below]{$r$} (6.4,0);
+      \draw[red,thick,->] (6.3,0) arc (0:360:6.3);
+    \end{tikzpicture}
+  }
+  \only<3>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (6);
+      \draw (0,0) -- node[midway,below]{$r$} (6.4,0);
+      \draw (0,0) -- (180:6.4);
+      \draw[red,thick,->] (6.3,0) arc (0:180:6.3);
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (6);
+      \draw (0,0) -- node[midway,below]{$r$} (6.4,0);
+      \draw (0,0) -- (90:6.4);
+      \draw[red,thick,->] (6.3,0) arc (0:90:6.3);
+    \end{tikzpicture}
+  }
+  \only<5>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (6);
+      \draw (0,0) -- node[midway,below]{$r$} (6.4,0);
+      \draw (0,0) -- (45:6.4);
+      \draw node[label={$\theta$}] at (-22.5:1.75) {};
+      \draw[red,thick,->] (6.3,0) arc (0:45:6.3) ;
+      \draw[red] node[label={$\theta r$}] (A) at (15:6.7) {};
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{The Meaning of the Radian}
+%%   \begin{columns}
+%%   \column{0.65\textwidth}
+%%   \begin{itemize}[<+->]
+%%   \item 1
+%%   \item 2
+%%   \end{itemize}
+%%   \column{0.35\textwidth}
+%%   \end{columns}
+%% \end{frame}
+
+% EJD: blow-up of unit circle
+\begin{frame}
+  \frametitle{Angles in Standard Position}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item We often work with a particular circle, the unit circle on the
+    Cartesian plane.
+  \item In that context, we measure angles from the $x$-axis
+    counter-clockwise. 
+  \item Angles from $0$ to $\pi/2$ radians are said to be in the first
+    quadrant. 
+  \item Angles from $\pi/2$ to $\pi$ radians are said to be in the
+    second quadrant.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (5);
+      \draw[->] (-6,0) -- (0,0) -- node[midway,below]{$1$} (5,0) -- (6,0) node[above]{$x$};
+      \draw[->] (0,-6) -- (0,6) node[left]{$y$};
+    \end{tikzpicture}
+  }
+  \only<2-3>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (5);
+      \draw[->] (-6,0) -- (0,0) -- node[midway,below]{$1$} (5,0) -- (6,0) node[above]{$x$};
+      \draw[->] (0,-6) -- (0,6) node[left]{$y$};
+      \draw (0,0) -- (60:6.3);
+      \draw[red,->] (1.5,0) arc (0:60:1.5);
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (5);
+      \draw[->] (-6,0) -- (0,0) -- node[midway,below]{$1$} (5,0) -- (6,0) node[above]{$x$};
+      \draw[->] (0,-6) -- (0,6) node[left]{$y$};
+      \draw (0,0) -- (150:6.3);
+      \draw[red,->] (1.5,0) arc (0:150:1.5);
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+
+\subsection{The Trigonometric Functions}
+
+% EJD: might be best to use unit circles for everything,
+% so don't use 1,1,\sqrt[2} triangle but 1/\sqrt{2}, 1/\sqrt{2}, 1 triangle
+
+\begin{frame}
+  \frametitle{Right Triangles}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item<1-> The easiest way to explore angles is to use right triangles.
+  \item<2-> We orient the base of the triangle horizontally, with the
+    right angle (usually) on the right.
+  \item<3-> The longest side is called the \textit{hypoteneuse}.  The
+    other sides are called \textit{legs}.
+  \item<4-> We focus on the non-right angle on the base, we call that
+    \textit{the angle}.
+  \item<5-> The leg between the angle and the right angle is called
+    \textit{adjacent}.
+  \item<6-> The other leg is called \textit{opposite}.
+  \end{itemize}
+  \column{0.35\textwidth}
+  % EJD: maybe put clipping path around to stop bouncing?
+  \only<1>{ %
+    \centering
+    \begin{tikzpicture}
+      \draw (0,0) -- node[below,transparent]{$A$} (3,0) -- %
+      node[right,transparent]{$O$} (3,6) -- %
+      node[above left,transparent]{$H$} (0,0);
+    \end{tikzpicture}
+  }
+  \only<2>{ %
+    \centering
+    \begin{tikzpicture}
+      \draw (0,0) -- node[below,transparent]{$A$} (3,0) -- %
+      node[right,transparent]{$O$} (3,6) -- %
+      node[above left,transparent]{$H$} (0,0);
+      \draw (3,0) -- (3,0.3) -- (2.7,0.3) -- (2.7,0) -- cycle;
+    \end{tikzpicture}
+  }
+  \only<3>{ %
+    \centering
+    \begin{tikzpicture}
+      \draw (0,0) -- node[below,transparent]{$A$} (3,0) -- %
+      node[right,transparent]{$O$} (3,6) -- node[above left]{$H$} (0,0);
+      \draw (3,0) -- (3,0.3) -- (2.7,0.3) -- (2.7,0) -- cycle;
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \centering
+    \begin{tikzpicture}
+      \draw (0,0) -- node[below,transparent]{$A$} (3,0) -- %
+      node[right,transparent]{$O$} (3,6) -- node[above left]{$H$} (0,0);
+      \draw (3,0) -- (3,0.3) -- (2.7,0.3) -- (2.7,0) -- cycle;
+      \draw[->] (0.6,0) arc (0:63.4:0.6) node[midway,above right]{$\theta$};
+    \end{tikzpicture}
+  }
+  \only<5>{ %
+    \centering
+    \begin{tikzpicture}
+      \draw (0,0) -- node[below]{$A$} (3,0) -- %
+      node[right,transparent]{$O$} (3,6) -- node[above left]{$H$} (0,0);
+    \draw (3,0) -- (3,0.3) -- (2.7,0.3) -- (2.7,0) -- cycle;
+    \draw[->] (0.6,0) arc (0:63.4:0.6) node[midway,above right]{$\theta$};
+    \end{tikzpicture}
+  }
+  \only<6>{ %
+    \centering
+    \begin{tikzpicture}
+      \draw (0,0) -- node[below]{$A$} (3,0) -- %
+      node[right]{$O$} (3,6) -- node[above left]{$H$} (0,0);
+    \draw (3,0) -- (3,0.3) -- (2.7,0.3) -- (2.7,0) -- cycle;
+    \draw[->] (0.6,0) arc (0:63.4:0.6) node[midway,above right]{$\theta$};
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: similar triangles diagram
+% EJD: show how ``tangent'' comes about ... also versine, etc.
+% EJD: colours for numerator and denominator in ratios
+\begin{frame}
+  \frametitle{The Six Trigonometric Ratios}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item By similar triangles, the ratio between any two sides of a
+    right triangle depends only on the angle, not the size of the triangle.
+  \item Each of the ratios has a name.
+  \item Sine ($\sin$) of the angle is O/H
+  \item Cosine ($\cos$) is A/H
+  \item Tangent ($\tan$) is O/A
+  \item SOHCAHTOA
+  \item secant ($\sec$) is H/A
+  \item cosecant ($\csc$) is H/O
+  \item cotangent ($\cot$) is A/O
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1->{ %
+    \centering
+    \begin{tikzpicture}
+      \draw (0,0) -- node[below]{$A$} (3,0) -- %
+      node[right]{$O$} (3,6) -- node[above left]{$H$} (0,0);
+    \draw (3,0) -- (3,0.3) -- (2.7,0.3) -- (2.7,0) -- cycle;
+    \draw[->] (0.6,0) arc (0:63.4:0.6) node[midway,above right]{$\theta$};
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: diagram
+\begin{frame}
+  \frametitle{Trigonometry in Cartesian Coordinates}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item To deal with angles outside of the range $[0,\pi/2]$ we will
+    find it convenient to fit our right triangle inside the unit circle.
+  \item If an angle is greater than $\pi/2$ but less than $\pi$, the
+    adjacent side is negative but the opposite side is still positive.
+  \item In general, we have the translation adjacent $\to x$, opposite
+    $\to y$, hypoteneuse $\to 1$.
+  \item It follows that in quadrant I, all ratios are positive; in
+    quadrant II, sine is positive but cosine and tangent are negative,
+    etc.
+  \item All Students Take Calculus
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (5);
+      \draw[->] (-6,0) -- (0,0) -- node[midway,below]{$1$} (5,0) -- (6,0) node[above]{$x$};
+      \draw[->] (0,-6) -- (0,6) node[left]{$y$};
+      \draw (0,0) -- (60:6.3);
+      \draw[blue,thick] (0,0) -- (60:5) -- (60:5 |- 0,0) -- cycle;
+      \draw[red,->] (1.5,0) arc (0:60:1.5);
+    \end{tikzpicture}
+  }
+  \only<2-3>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (5);
+      \draw[->] (-6,0) -- (0,0) -- node[midway,below]{$1$} (5,0) -- (6,0) node[above]{$x$};
+      \draw[->] (0,-6) -- (0,6) node[left]{$y$};
+      \draw (0,0) -- (150:6.3);
+      \draw[blue,thick] (0,0) -- (150:5) -- (150:5 |- 0,0) -- cycle;
+      \draw[red,->] (1.5,0) arc (0:150:1.5);
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (5);
+      \draw[->] (-6,0) -- (0,0) -- node[midway,below]{$1$} (5,0) -- (6,0) node[above]{$x$};
+      \draw[->] (0,-6) -- (0,6) node[left]{$y$};
+      \draw (0,0) -- (150:6.3);
+      \draw[blue,thick] (0,0) -- (150:5) -- node[midway,left]{$y$} (150:5 |- 0,0) -- node[midway,below]{$x$} (0,0);
+      \draw[red,->] (1.5,0) arc (0:150:1.5);
+    \end{tikzpicture}
+  }
+  \only<5->{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw[->] (-6,0) -- (6,0) node[above]{$x$};
+      \draw[->] (0,-6) -- (0,6) node[left]{$y$};
+      \draw node (A) at (3,3) {A};
+      \draw node (S) at (-3,3) {S};
+      \draw node (T) at (-3,-3) {T};
+      \draw node (C) at (3,-3) {C};
+    \end{tikzpicture}
+    % EJD: show actual inequalities
+  }
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exact Values for $\theta=\pi/4$}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item With a little geometry, we can work out the exact
+    trigonometric ratios for $\pi/4$ radians.
+  \item Inscribe a square in a circle.
+  \item There are 8 identical right triangles, so the angle is
+    $2\pi/8=\pi/4$ radians.
+  \item By the little squares, the legs are equal.  Assume they have
+    side length $1$ unit.
+  \item By the Pythagorean Theorem, the hypoteneuse is
+    $\sqrt{1^2+1^2}=\sqrt{2}$ units.
+  \item Therefore $\sin \pi/4 = 1/\sqrt{2}$, $\cos \pi/4 =
+    1/\sqrt{2}$, $\tan \pi/4 = 1/1 = 1$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<2>{ %
+    \begin{tikzpicture}[scale=1.4]
+      \draw (0,0) circle ({sqrt(2)}) ;
+      \draw (-1,-1)--(1,1);
+      \draw (1,-1)--(-1,1);
+      \draw ({-sqrt(2)},0)--({sqrt(2)},0);
+      \draw (0,{-sqrt(2)})--(0,{sqrt(2)});
+      \draw (1,1)--(-1,1)--(-1,-1)--(1,-1)--cycle;
+    \end{tikzpicture}
+  }
+  \only<3>{ %
+    \begin{tikzpicture}[scale=1.4]
+      \draw (0,0) circle ({sqrt(2)}) ;
+      \draw (-1,-1)--(1,1);
+      \draw (1,-1)--(-1,1);
+      \draw ({-sqrt(2)},0)--({sqrt(2)},0);
+      \draw (0,{-sqrt(2)})--(0,{sqrt(2)});
+      \draw (1,1)--(-1,1)--(-1,-1)--(1,-1)--cycle;
+      \draw[blue,thick] (0,0) -- (1,0) -- (1,1) -- (0,0);
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \begin{tikzpicture}[scale=1.4]
+      \draw (0,0) circle ({sqrt(2)}) ;
+      \draw (-1,-1)--(1,1);
+      \draw (1,-1)--(-1,1);
+      \draw ({-sqrt(2)},0)--({sqrt(2)},0);
+      \draw (0,{-sqrt(2)})--(0,{sqrt(2)});
+      \draw (1,1)--(-1,1)--(-1,-1)--(1,-1)--cycle;
+      \draw[blue,thick] (0,0) -- node[below]{$1$} (1,0)-- node[right]{$1$} (1,1)-- (0,0);
+    \end{tikzpicture}
+  }
+  \only<5->{ %
+    \begin{tikzpicture}[scale=1.4]
+      \draw (0,0) circle ({sqrt(2)}) ;
+      \draw (-1,-1)--(1,1);
+      \draw (1,-1)--(-1,1);
+      \draw ({-sqrt(2)},0)--({sqrt(2)},0);
+      \draw (0,{-sqrt(2)})--(0,{sqrt(2)});
+      \draw (1,1)--(-1,1)--(-1,-1)--(1,-1)--cycle;
+      \draw[blue,thick] (0,0)-- node[below]{$1$} (1,0)-- node[right]{$1$} (1,1)-- node[above left]{$\sqrt{2}$} (0,0);
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: draw hexagon like square above
+\begin{frame}
+  \frametitle{Exact Values for $\theta=\pi/3$}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Using an equilateral triangle, we can get the ratios for $\pi/3$.
+  \item Take an equilateral triangle of side $2$.
+  \item All angles are $60^{\circ}=\pi/3$ rad.
+  \item Drop a perpendicular from the top vertex.
+  \item In the resulting right triangle, the hypoteneuse is $2$ and
+    the base is $1$.  By the Pythagorean theorem the other side is
+    $\sqrt{2^2-1^2}=\sqrt{3}$.
+  \item It follows that $\sin \pi/3 = \sqrt{3}/2$, $\cos \pi/3 = 1/2$,
+    $\tan \pi/3=\sqrt{3}/1 = \sqrt{3}$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{ %
+    \begin{tikzpicture}[scale=0.5]
+      \draw (0,0) -- (6,0) -- (60:6) -- cycle;
+      %\draw[red,->] (1.5,0) arc (0:60:1.5);
+    \end{tikzpicture}
+  }
+  \only<2>{ %
+    \begin{tikzpicture}[scale=0.5]
+      \draw (0,0) -- node[midway,below]{$2$} (6,0) -- node[midway,above right]{$2$} (60:6) -- node[midway,above left]{$2$} (0,0);
+      %\draw[red,->] (1.5,0) arc (0:60:1.5);
+    \end{tikzpicture}
+  }
+  \only<3>{ %
+    \begin{tikzpicture}[scale=0.5]
+      \draw (0,0) -- node[midway,below]{$2$} (6,0) -- node[midway,above right]{$2$} (60:6) -- node[midway,above left]{$2$} (0,0);
+      \draw[red,->] (1.5,0) arc (0:60:1.5);
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \begin{tikzpicture}[scale=0.5]
+      \draw (0,0) -- node[midway,below]{$1$} (3,0) -- node[midway,below]{$1$} (6,0) -- node[midway,above right]{$2$} (60:6) -- node[midway,above left]{$2$} (0,0);
+      \draw[red,->] (1.5,0) arc (0:60:1.5);
+      \draw (60:6) -- (60:6 |- 0,0);
+    \end{tikzpicture}
+  }
+  \only<5->{ %
+    \begin{tikzpicture}[scale=0.5]
+      \draw (0,0) -- node[midway,below]{$1$} (3,0) -- node[midway,below]{$1$} (6,0) -- node[midway,above right]{$2$} (60:6) -- node[midway,above left]{$2$} (0,0);
+      \draw[red,->] (1.5,0) arc (0:60:1.5);
+      \draw[thick] (0,0) -- (60:6) -- node[midway,below right]{$\sqrt{3}$} (60:6 |- 0,0);
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: consider dividing the circle into 24, writing ratios in terms
+% of \pi/12
+% EJD: draw hexagon like square above
+\begin{frame}
+  \frametitle{Exact Values for $\theta=\pi/6$}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item The triangle we used is called the $1$, $2$, $\sqrt{3}$ triangle.
+  \item Flipping that triangle over, we can find the ratios for
+    $30^{\circ}=\pi/6$.
+  \item Now the opposite side is $1$, the adjacent side is
+    $\sqrt{3}$, and the hypoteneuse is $2$.
+  \item The ratios are $\sin \pi/6 = 1/2$, $\cos \pi/6 = \sqrt{3}/2$,
+    $\tan \pi/6 = (1/2)/(\sqrt{3}{2}) = 1/\sqrt{3}$.
+  \item For all three ``special triangles'' we can also find the other
+    three ratios.
+  \item For example, $\sec \pi/6 = H/A = 2/\sqrt{3}$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{ %
+    \begin{tikzpicture}[scale=0.5]
+      \draw (0,0) -- node[midway,below]{$1$} (3,0) -- node[midway,below]{$1$} (6,0) -- node[midway,above right]{$2$} (60:6) -- node[midway,above left]{$2$} (0,0);
+      \draw[red,->] (1.5,0) arc (0:60:1.5);
+      \draw[thick] (0,0) -- (60:6) -- node[midway,below right]{$\sqrt{3}$} (60:6 |- 0,0);
+    \end{tikzpicture}
+  }
+  \only<2->{ %
+    \begin{tikzpicture}[scale=0.5]
+      \draw (0,0) -- node[midway,below]{$1$} (3,0) -- node[midway,below]{$1$} (6,0) -- node[midway,above right]{$2$} (60:6) -- node[midway,above left]{$2$} (0,0);
+      %\draw[red,->] (1.5,0) arc (0:60:1.5);
+      \draw[red,->]  (60:6) ++(0,-1.5) arc (270:240:1.5); 
+      \draw[thick] (0,0) -- (60:6) -- node[midway,below right]{$\sqrt{3}$} (60:6 |- 0,0);
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: table
+% EJD: do we want to use the word ``function'' here?
+\begin{frame}
+  \frametitle{Table of Exact Values}
+  \centering
+  \begin{tabular}{|l||c|c|c|c|c|c|c|}
+    \hline
+    angle  & $\frac{0\pi}{12}$ &
+    $\frac{1\pi}{12}$    & $\frac{2\pi}{12}$    & $\frac{3\pi}{12}$    & 
+    $\frac{4\pi}{12}$    & $\frac{5\pi}{12}$    & $\frac{6\pi}{12}$    \\
+    \hline
+    aka    & $0$               &
+    $\frac{\pi}{12}$     & $\frac{\pi}{6}$      & $\frac{\pi}{4}$      &
+    $\frac{\pi}{3}$      & $\frac{5\pi}{6}$     & $\frac{\pi}{2}$      \\
+    \hline
+    deg    & $0^{\circ}$         &
+    $15^{\circ}$           & $30^{\circ}$           & $45^{\circ}$          &
+    $60^{\circ}$           & $75^{\circ}$           & $90^{\circ}$          \\
+    \hline\hline
+    $\sin$ & $0$               &
+                         & $\frac{1}{2}$        & $\frac{1}{\sqrt{2}}$ &
+    $\frac{\sqrt{3}}{2}$ &                      & $1$                  \\
+    \hline
+    $\cos$ & $1$               &
+                         & $\frac{\sqrt{3}}{2}$ & $\frac{1}{\sqrt{2}}$ &
+    $\frac{1}{2}$        &                      & $0$                  \\
+    \hline
+    $\tan$ & $0$               &
+                         & $\frac{1}{\sqrt{3}}$ & $1$                  &
+    $\sqrt{3}$           &                      & $\infty$             \\
+    \hline\hline
+    $\csc$ & $\infty$          &
+                         & $2$                  & $\sqrt{2}$           &
+    $\frac{2}{\sqrt{3}}$ &                      & $1$                  \\
+    \hline
+    $\sec$ & $1$               &
+                         & $\frac{2}{\sqrt{3}}$ & $\sqrt{2}$           &
+    $2$                  &                      & $\infty$             \\
+    \hline
+    $\cot$ & $\infty$          &
+                         & $\sqrt{3}$           & $1$                  &
+    $\frac{1}{\sqrt{3}}$ &                      & $0$                  \\
+    \hline
+  \end{tabular}
+  \\
+  \begin{itemize}
+  \item Note the entries for $\csc$, $\sec$, and $\cot$ are reciprocals of the corresponding entries for $\sin$, $\cos$, $\tan$, respectively.
+  \item We will fill in the missing entries when we learn about trig identities.
+  \end{itemize}
+\end{frame}
+
+% EJD: show we can loop right around, >2\pi.  What about negative angles?
+
+% EJD: diagrams.
+\begin{frame}
+  \frametitle{Extending Exact Values to Other Quadrants}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Consider the angle $3\pi/4$ radians.  It lies in quadrant II.
+  \item One of our special triangles appears here, but with a
+    different orientation.
+  \item In this case, the opposite side is $1$, but the adjacent side
+    is $-1$.  The hypoteneuse is still $\sqrt{2}$.
+  \item It follows that $\sin 3\pi/4 = 1/\sqrt{2}$, $\cos 3\pi/4 =
+    -1/\sqrt{2}$, $\tan 3\pi/4 = 1/-1 = -1$.
+  \item We can obtain similar results for all the other special
+    triangles in the other quadrants.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1->{ %
+    \begin{tikzpicture}[scale=0.29]
+      \draw (0,0) circle (5);
+      \draw[->] (-6,0) -- (0,0) -- node[midway,below]{$\sqrt{2}$} (5,0) -- (6,0) node[above]{$x$};
+      \draw[->] (0,-6) -- (0,6) node[left]{$y$};
+      \draw (0,0) -- (135:6.3);
+      \draw[blue,thick] (0,0) -- (135:5) -- node[midway,left]{$y$} (135:5 |- 0,0) -- node[midway,below]{$x$} (0,0);
+      \draw[red,->] (1.5,0) arc (0:135:1.5);
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: graph
+\begin{frame}
+  \frametitle{Graph of Sine}
+\end{frame}
+
+% EJD: graph
+\begin{frame}
+  \frametitle{Graph of Cosine}
+\end{frame}
+
+% EJD: graph
+\begin{frame}
+  \frametitle{Graph of Tangent}
+\end{frame}
+
+% EJD: graph
+\begin{frame}
+  \frametitle{Graph of Secant}
+\end{frame}
+
+% EJD: graph
+\begin{frame}
+  \frametitle{Graph of Cosecant}
+\end{frame}
+
+% EJD: graph 
+\begin{frame}
+  \frametitle{Graph of Cotangent}
+\end{frame}
+
+
+\subsection{Trigonometric Identities}
+
+% EJD: motivate identities by trying to find ratios for \pi/12?
+
+% EJD: no diagram?
+\begin{frame}
+  \frametitle{Identities vs. Equations}
+  %\begin{columns}
+  %\column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Some equations are true only for some values of the unknown.
+  \item For example, $x^2+x-2=0$ is true only for $x=-2$ and $x=1$.
+  \item Other equations are true for all values of the unknown.
+  \item For example, $x^2-1=(x+1)(x-1)$.
+  \item We call such equations \textit{identities}.
+  \item Identities give us a way to do algebra with the trig functions.
+  \end{itemize}
+  %\column{0.35\textwidth}
+  %\end{columns}
+\end{frame}
+
+% EJD: is this the right word? co-function?
+\begin{frame}
+  \frametitle{Relationships among the Ratios}
+  % EJD: diagrams??
+  %\begin{columns}
+  %\column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Our first set of identities link the various ratios.
+  \item We have 
+    \begin{equation*}
+      \sec \theta 
+      = \frac{H}{A} = \frac{1}{A/H} = \frac{1}{\cos \theta}
+    \end{equation*}
+  \item Similarly 
+    \begin{equation*}
+      \csc \theta = \frac{H}{O} = \frac{1}{O/H} = \frac{1}{\sin
+        \theta}
+    \end{equation*}
+  \item Similarly
+    \begin{equation*}
+      \cot\theta = \frac{A}{O} = \frac{1}{O/A} = \frac{1}{\tan \theta} 
+    \end{equation*}
+  \item Finally note 
+    \begin{equation*}
+      \frac{\sin\theta}{\cos\theta} = \frac{O/H}{A/H} = \frac{O}{A} 
+      = \tan\theta
+    \end{equation*}
+  \item Since they hold for any angle $\theta$, they are identities.
+  \end{itemize}
+  %\column{0.35\textwidth}
+  %\end{columns}
+\end{frame}
+
+% EJD: diagrams
+\begin{frame}
+  \frametitle{The Pythagorean Identity}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Consider our typical right triangle.
+  \item Rescale by dividing through by $H$.  That does not change the
+    values of the ratios.
+  \item Note that by the Pythagorean Theorem, $(O/H)^2 + (A/H)^2 = (H/H)^2$
+  \item Writing in terms of trig functions, $(\sin\theta)^2 +
+    (\cos\theta)^2 =1$
+  \item A common shorthand is to write $\sin^2 \theta + \cos^2\theta =1$
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{ % EJD: why doesn't cycle work with edge labels?
+    \begin{tikzpicture}
+      \draw (0,0)-- node[below,midway]{$A$} (3.5,0)-- node[right,midway]{$O$} 
+      (60:7)-- node[above left,midway]{$H$} (0,0) ;
+    \end{tikzpicture}
+  }
+  \only<2->{ % EJD: stop figure from twitching
+    \begin{tikzpicture}
+      \draw[very nearly transparent] (0,0)-- (3.5,0)--  (60:7)-- (0,0) ;
+      \draw (0,0)-- node[below,midway]{$A/H$} (3.5/2,0)-- 
+      node[right,midway]{$O/H$} 
+      (60:3.5)-- node[above left,midway]{$H/H$} (0,0) ;
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: diagrams
+\begin{frame}
+  \frametitle{Pythagorean Identity for $\tan$ and $\sec$}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Consider our typical right triangle.
+  \item Rescale by dividing through by $A$ this time.
+  \item By the Pythagorean Theorem we have $(O/A)^2 + (A/A)^2 =
+    (H/A)^2$
+  \item In terms of trig functions, $\tan^2\theta + 1 = \sec^2\theta$
+  \item Similarly, rescaling by dividing through by $O$ we have
+    $(O/O)^2+(A/O)^2=(H/O)^2$
+  \item In terms of trig functions,
+    $1+\cot^2\theta = \csc^2\theta$
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{ % EJD: why doesn't cycle work with edge labels?
+    \begin{tikzpicture}
+      \draw (0,0)-- node[below,midway]{$A$} (3.5,0)-- node[right,midway]{$O$} 
+      (60:7)-- node[above left,midway]{$H$} (0,0) ;
+    \end{tikzpicture}
+  }
+  \only<2-4>{ % EJD: stop figure from twitching
+    \begin{tikzpicture}
+      \draw[very nearly transparent] (0,0)-- (3.5,0)--  (60:7)-- (0,0) ;
+      \draw (0,0)-- node[below,midway]{$A/A$} (3.5/1.5,0)-- 
+      node[right,midway]{$O/A$} 
+      (60:3.5*2/1.5)-- node[above left,midway]{$H/A$} (0,0) ;
+    \end{tikzpicture}
+  }
+  \only<5->{ % EJD: stop figure from twitching
+    \begin{tikzpicture}
+      \draw[very nearly transparent] (0,0)-- (3.5,0)--  (60:7)-- (0,0) ;
+      \draw (0,0)-- node[below,midway]{$A/O$} (3.5/2,0)-- 
+      node[right,midway]{$O/O$} 
+      (60:3.5*2/2)-- node[above left,midway]{$H/O$} (0,0) ;
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: show negative angle diagram
+\begin{frame}
+  \frametitle{Even and Odd Identities}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Note that for a negative angle $-\theta$, 
+    $O\to -O$, $A\to A$, and $H\to H$. 
+  \item It follows that $\sin (-\theta) = -O/H = -(O/H) = -\sin\theta$
+  \item Similarly, $\tan(-\theta)=-\tan\theta$ but
+    $\cos(-\theta)=\cos\theta$
+  \item We call $\sin$ and $\tan$ odd functions because of the analogy
+    with odd powers: $(-x)^3 = -x^3$, $(-x)^5=-x^5$, \ldots
+  \item We call $\cos$ an even function because of the analogy with
+    even powers: $(-x)^2=x^2$, $(-x)^4=x^4$, \ldots
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1->{% 
+    \begin{tikzpicture}[scale=0.9]
+      \clip (-0.5,-4)--(4,-4)--(4,4)--(-0.5,4)--cycle;
+      \draw[->] (-3.5,0)--(3.5,0) node[above]{$x$};
+      \draw[->] (0,-3.5)--(0,3.5) node[left]{$y$};
+      \draw (0,0) circle (3);
+      \draw (0,0)-- node[above left]{$H$} (50:3);
+      \draw (0,0)-- node[below left]{$H$} (-50:3);
+      \draw (0,0)-- node[below]{$A$} (50:3 |- 0,0);
+      \draw (-50:3)-- node[right]{$-O$} (50:3 |- 0,0) -- 
+      node[right]{$O$} (50:3);
+      \draw[blue,->] (1.2,0) arc (0:50:1.2) ;
+      \draw node[label={[blue]25:$\theta$}] (L1) at (25:1.2) {};
+      \draw[blue,->] (1.4,0) arc (0:-50:1.4);
+      % EJD: move label slightly to left
+      \draw node[label={[blue]270:$-\theta$}] (L2) at (-25:1.4) {};
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: diagram of angle, angle plus 2pi
+\begin{frame}
+  \frametitle{Periodic Identities}
+  \begin{columns}
+  \column{0.68\textwidth}
+  \begin{itemize}[<+->]
+  \item If we go to an angle $\theta$, then go further all the way
+    around the circle, we get the same final result.
+  \item That means that all the trig functions should not change under
+    those circumstances.
+  \item So we get the identities 
+    \begin{equation*}
+      \sin(\theta+2\pi)=\sin\theta \quad
+      \cos(\theta+2\pi)=\cos\theta 
+    \end{equation*}
+    \begin{equation*}
+      \tan(\theta+2\pi)=\tan\theta \quad
+      \cot(\theta+2\pi)=\cot\theta
+    \end{equation*}
+    \begin{equation*}
+      \sec(\theta+2\pi)=\sec\theta \quad
+      \csc(\theta+2\pi)=\csc\theta 
+    \end{equation*}
+  \end{itemize}
+  \column{0.32\textwidth}
+  % EJD: note additional slight shrinkage!! from 35% to 32%
+  \end{columns}
+\end{frame}
+
+% EJD: diagram would be nice
+\begin{frame}
+  \frametitle{Addition Formulas for $\sin$ and $\cos$}
+  %\begin{columns}
+  %\column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Through some geometry that I'm not going to explain, we can
+    figure out what happens when we add angles.
+  \item From now on, I'm going to use $x$ and $y$ to represent two
+    angles, not the adjacent and opposites sides of a triangle in a
+    unit circle.
+  \item For the sum of angles in the sine function, we have
+    \begin{equation*}
+      \sin(x+y) = \sin x \cos y + \cos x \sin y
+    \end{equation*}
+  \item For the sum of angles in the cosine function, we have
+    \begin{equation*}
+      \cos(x+y) = \cos x \cos y - \sin x \sin y
+    \end{equation*}
+  \end{itemize}
+  %\column{0.35\textwidth}
+  %\end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Subtraction Formulas for $\sin$ and $\cos$}
+  %\begin{columns}
+  %\column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Replacing $y$ with $-y$ in the addition formulas, we obtain
+    the subtraction formulas.
+  \item Recall the addition formula for $\sin$ is
+    \begin{equation*}
+      \sin(x+y) = \sin x \cos y + \cos x \sin y
+    \end{equation*}
+  \item Replacing $y$ with $-y$:
+    \begin{equation*}
+      \sin(x+(-y))=\sin x \cos(-y) + \cos x\sin(-y)
+    \end{equation*}
+  \item Using odd/even properties,
+    \begin{equation*}
+      \sin(x-y) = \sin x \cos y - \cos x \sin y
+    \end{equation*}
+  \item Similarly,
+    \begin{equation*}
+      \cos(x-y) = \cos x \cos y + \sin x \sin y
+    \end{equation*}
+  \end{itemize}
+  %\column{0.35\textwidth}
+  %\end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Addition and Subtraction for $\tan$}
+  %\begin{columns}
+  %\column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Now we can develop addition and subtraction formulas for $\tan$
+  \item We have
+    \begin{equation*}
+      \tan(x+y)=\frac{\sin(x+y)}{\cos(x+y)}
+      = \frac{\sin x\cos y+\cos x\sin y}{\cos x\cos y-\sin x\sin y}
+    \end{equation*}
+    % EJD: there's room for another step
+  \item Dividing through by $\cos x\cos y$,
+    \begin{equation*}
+      \tan(x+y) = \frac{\tan x + \tan y}{1-\tan x \tan y}
+    \end{equation*}
+  \item Substituting $-y$ for $y$,
+    \begin{equation*}
+      \tan(x-y) = \frac{\tan x - \tan y}{1+\tan x \tan y}
+    \end{equation*}
+  \end{itemize}
+  %\column{0.35\textwidth}
+  %\end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Double Angle Formulas}
+  %\begin{columns}
+  %\column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Recall the angle addition formulas.
+    \begin{align*}
+      \sin(x+y) &= \sin x \cos y + \cos x \sin y \\
+      \cos(x+y) &= \cos x \cos y - \sin x \sin y
+    \end{align*}
+  \item In those formulas, replace $y$ with $x$.
+    \begin{align*}
+      \sin(x+x) &= \sin x \cos x + \cos x \sin x \\
+      \cos(x+x) &= \cos x \cos x - \sin x \sin x
+    \end{align*}
+  \item Doing a little algebra,
+    \begin{align*}
+      \sin 2x = 2\sin x \cos x \qquad
+      \cos 2x = \cos^2 x - \sin^2 x
+    \end{align*}
+  \item Using $\sin^2 x + \cos^2x =1$ we also have
+    \begin{equation*}
+      \cos 2x = 1-2\sin^2x = 2\cos^2 x -1
+    \end{equation*}
+  \end{itemize}
+  %\column{0.35\textwidth}
+  %\end{columns}
+\end{frame}
+
+% EJD: save real estate by not replacing x with x/2
+\begin{frame}
+  \frametitle{Half Angle Formulas}
+  %\begin{columns}
+  %\column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Recall the double angle identities
+    \begin{equation*}
+      \cos 2x = 1 -2\sin^2 x \qquad \cos 2x = 2\cos^2 x -1
+    \end{equation*}
+  \item Replacing $x$ with $x/2$ we have
+    \begin{equation*}
+      \cos 2\frac{x}{2} = 1-2\sin^2 \frac{x}{2} \qquad
+      \cos 2\frac{x}{2} = 2\cos^2 \frac{x}{2} - 1
+    \end{equation*}
+  \item Doing a little algebra we have
+    \begin{equation*}
+      \sin^2 \frac{x}{2} = \frac{1-\cos x}{2}
+      \qquad
+      \cos^2 \frac{x}{2} = \frac{1+\cos x}{2}
+    \end{equation*}
+  \item Taking square roots we have
+    \begin{equation*}
+      \left| \sin \frac{x}{2} \right| = \sqrt{\frac{1-\cos x}{2}}
+      \qquad
+      \left| \cos \frac{x}{2} \right| = \sqrt{\frac{1+\cos x}{2}}
+    \end{equation*}
+  \end{itemize}
+  %\column{0.35\textwidth}
+  %\end{columns}
+\end{frame}
+
+% EJD: spacing in formulas
+\begin{frame}
+  \frametitle{Product Formulas}
+  %\begin{columns}
+  %\column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Recall the angle addition and subtraction identities
+    \begin{align*}
+      \sin(x+y) &= \sin x \cos y - \cos x \sin y \\
+      \sin(x-y) &= \sin x \cos y + \cos x \sin y
+    \end{align*}
+  \item Adding the two identities we get
+    \begin{equation*}
+      \sin (x+y) + \sin(x-y) = 2\sin x \cos y
+    \end{equation*}
+  \item After a slight rearrangement,
+    \begin{equation*}
+      % EJD: shrink 1/2
+      \mbox{$\sin x \cos y = \frac{1}{2} \left( \sin(x+y) + \sin(x-y) \right)$}
+    \end{equation*}
+  \item By similar means
+    \begin{align*}
+      &\mbox{$\cos x \cos y = \frac{1}{2} \left( \cos(x+y)+ \cos(x-y) \right)$}
+      \\
+      &\mbox{$\sin x \sin y = \frac{1}{2} \left( \cos(x-y)-\cos(x+y) \right)$}
+    \end{align*}
+  \end{itemize}
+  %\column{0.35\textwidth}
+  %\end{columns}
+\end{frame}
+
+\end{document}
+

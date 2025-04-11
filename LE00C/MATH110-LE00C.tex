@@ -1,0 +1,1213 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+\usepackage{tikz}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroZeroC}
+\subtitle{\commonSubtitleZeroZeroC}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroZeroC}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Graphs of Second-Degree Equations}
+
+\subsection{Circles}
+
+\begin{frame}
+  \frametitle{Circles centered at the Origin}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item A \textit{circle centered at the origin of radius $r$} is the
+    set of all points at distance $r$ from the origin.
+  \item A circle centered at the origin of radius $r$ has a familiar
+    shape.
+  \item One equation for such a circle is
+    \begin{equation*}
+      \sqrt{(x-0)^2+(y-0)^2} = r
+    \end{equation*}
+  \item Usually we simplify and square both sides.
+    \begin{equation*}
+      x^2+y^2=r^2
+    \end{equation*}
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1->{ % EJD: use variables in place of -6 and 6?
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-6) grid (6,6) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-6)--(0,6) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[color=red] (0,0) circle (4) ;
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: use numbers in example?
+\begin{frame}
+  \frametitle{Circles about Any Given Center}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Similarly, the circle centered at $(a,b)$ of radius $r$ 
+    is the set of all points at distance $r$ from $(a,b)$.
+  \item Such a circle has equation
+    \begin{equation*}
+      \sqrt{(x-a)^2+(y-b)^2} = r
+    \end{equation*}
+  \item Simplifying,
+    \begin{equation*}
+      (x-a)^2+(y-b)^2 = r^2
+    \end{equation*}
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1->{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-6) grid (6,6) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-6)--(0,6) node[left]{$y$} ;
+      %\node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      %(O) at (0,0) {} ;
+      \draw[red] (-2,1) circle (3) ;
+      \node[fill=red,inner sep=1pt,shape=circle,label={[red]270:$(a,b)$}] %
+      (A) at (-2,1) {} ;
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: move these two/several slides to ``shifting conics''?
+\begin{frame}
+  \frametitle{Expanding an Equation of a Circle}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Consider a circle centered at $(-2,1)$ of radius $3$.
+    \begin{equation*}
+      (x+2)^2 + (y-1)^2 = 3^2
+    \end{equation*}
+  \item We can expand to obtain
+    \begin{equation*}
+      x^2 +4x + 4 + y^2 -2y + 1 = 9
+    \end{equation*}
+  \item Moving constants, another way to write the equation of that
+    circle is 
+    \begin{equation*}
+      x^2 + y^2 +4x-2y= 4
+    \end{equation*}
+  \end{itemize}
+  \column{0.35\textwidth}
+  % EJD: picture of the circle for decoration
+  \only<1->{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-6) grid (6,6) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-6)--(0,6) node[left]{$y$} ;
+      %\node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      %(O) at (0,0) {} ;
+      \draw[red] (-2,1) circle (3) ;
+      \node[fill=red,inner sep=1pt,shape=circle,label={[red]270:$(a,b)$}] %
+      (A) at (-2,1) {} ;
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Completing the Square}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item<1-> On the other hand, sometimes we are given a circle in expanded
+    form and must determine its center and radius.
+  \item<2-> For example: $x^2+y^2-4x+2y=11$
+  \item<3-> Put the $x$'s together: $x^2-4x+y^2+2y=11$
+  \item<4-> Complete the square
+    \begin{align*}
+      x^2-4x+4 + y^2 +2y + 1 &= 11 + 4 + 1 \\
+      (x-2)^2 + (y+1)^2 &= 16 = 4^2
+    \end{align*}
+  \item<5-> The circle has center $(2,-1)$ and radius $4$
+  \end{itemize}
+  \column{0.35\textwidth}
+  % EJD: picture of the circle for decoration
+  \only<1-4>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-6) grid (6,6) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-6)--(0,6) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      %\node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      %(O) at (0,0) {} ;
+      %\draw[red] (2,-1) circle (4) ;
+      %\node[fill=red,inner sep=1pt,shape=circle,label={[red]270:$(2,-1)$}] %
+      %(A) at (2,-1) {} ;
+    \end{tikzpicture}
+  }
+  \only<5>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-6) grid (6,6) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-6)--(0,6) node[left]{$y$} ;
+      %\node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      %(O) at (0,0) {} ;
+      \draw[red] (2,-1) circle (4) ;
+      \node[fill=red,inner sep=1pt,shape=circle] %
+      (A) at (2,-1) {} ;
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+
+\subsection{Parabolas}
+
+% EJD: change height of graph from -6 .. 6 to -10..10 throughout!!
+\begin{frame}
+  \frametitle{Plotting Points}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Another type of quadratic we may encounter is like:
+    $2x^2-y=0$
+  \item This time we can solve for $y$:
+    \begin{equation*}
+      2x^2 = y
+    \end{equation*}
+  \item So we can pick values for $x$ and get a corresponding value
+    for $y$.
+    % EJD: table or maybe \only<?>
+  \item When $x=0$, $y=0$; when $x=1$, $y=2$; etc.
+  \item Connect the dots smoothly to get the curve.
+  \end{itemize}
+  \column{0.35\textwidth}
+  % EJD: picture with plotted points
+  \only<1-3>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      %\node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      %(O) at (0,0) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (P1) at (0,0) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (P2) at (1,2) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (P3) at (-1,2) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (P4) at (2,8) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (P5) at (-2,8) {} ;
+    \end{tikzpicture}
+  }
+  \only<5->{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (P1) at (0,0) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (P2) at (1,2) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (P3) at (-1,2) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (P4) at (2,8) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (P5) at (-2,8) {} ;
+      \draw[red] (0,0) parabola ({sqrt(5)},10) ;
+      \draw[red] (0,0) parabola ({-sqrt(5)},10) ;
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Opening Upward/Downward}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item<1-> We can accelerate the process of graphing a parabola
+    $y=ax^2$ if we note three things:
+  \item<2-> Whether it opens upward ($a>0$) \only<3->{or downward
+    ($a<0$)}
+  \item<4-> Its vertex is always $(0,0)$
+  \item<6-> It is symmetric about the $y$-axis
+  \item<9-> With those observations we can get the general shape of the
+    parabola.
+  \item<10-> With one more point, we can get the exact shape of the
+    parabola.
+    % EJD: parabolas?  At least one graph
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<2>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) parabola ({-sqrt(5)},10) ;
+      \draw[red] (0,0) parabola ({sqrt(5)},10) ;
+    \end{tikzpicture}
+  }
+  \only<3>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) parabola ({-sqrt(10)},-10) ;
+      \draw[red] (0,0) parabola ({sqrt(10)},-10) ;
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) parabola ({-sqrt(10)},-10) ;
+      \draw[red] (0,0) parabola ({sqrt(10)},-10) ;
+    \end{tikzpicture}
+  }
+  \only<5>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) parabola ({-sqrt(10)},-10) ;
+      \draw[red] (0,0) parabola ({sqrt(10)},-10) ;
+      \node[fill=red,inner sep=1pt,shape=circle] (V) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<6>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) parabola ({-sqrt(10)},-10) ;
+      \draw[red] (0,0) parabola ({sqrt(10)},-10) ;
+      \node[fill=red,inner sep=1pt,shape=circle] (V) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<7>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red,nearly transparent] (0,0) parabola ({-sqrt(10)},-10) ;
+      \draw[red] (0,0) parabola ({sqrt(10)},-10) ;
+      \node[fill=red,inner sep=1pt,shape=circle] (V) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<8>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) parabola ({-sqrt(10)},-10) ;
+      \draw[red,nearly transparent] (0,0) parabola ({sqrt(10)},-10) ;
+      \node[fill=red,inner sep=1pt,shape=circle] (V) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<9>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) parabola ({-sqrt(10)},-10) ;
+      \draw[red] (0,0) parabola ({sqrt(10)},-10) ;
+      \node[fill=red,inner sep=1pt,shape=circle] (V) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<10>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) parabola (-5,-10) ;
+      \draw[red] (0,0) parabola (5,-10) ;
+      \node[fill=red,inner sep=1pt,shape=circle] (V) at (0,0) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (P) at (4,-6.4) {} ;
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Symmetry Properties}
+%%   \begin{columns}
+%%   \column{0.65\textwidth}
+%%   \begin{itemize}[<-+>]
+%%   \item X
+%%   \end{itemize}
+%%   \column{0.35\textwidth}
+%%   \end{columns}
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Opening Left/Right}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item<1-> Similarly, we can graph any parabola of the form $x=ay^2$
+  \item<2-> We can accelerate the process if we note three things:
+  \item<3-> Whether it opens to the right ($a>0$) \only<4->{or to the left
+    ($a<0$)}
+  \item<5-> Its vertex is always $(0,0)$
+  \item<7-> It is symmetric about the $x$-axis
+  \item<10-> With those observations we can get the general shape of the
+    parabola.
+  \item<11-> With one more point, we can get the exact shape of the
+    parabola.
+    % EJD: parabolas?  At least one graph
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1-2>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<3>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red,rotate=-90] (0,0) parabola (8,6) ;
+      \draw[red,rotate=-90] (0,0) parabola (-8,6) ;
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red,rotate=-90] (0,0) parabola (5,-6) ;
+      \draw[red,rotate=-90] (0,0) parabola (-5,-6) ;
+    \end{tikzpicture}
+  }
+  \only<5>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red,rotate=-90] (0,0) parabola (5,-6) ;
+      \draw[red,rotate=-90] (0,0) parabola (-5,-6) ;
+    \end{tikzpicture}
+  }
+  \only<6>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red,rotate=-90] (0,0) parabola (5,-6) ;
+      \draw[red,rotate=-90] (0,0) parabola (-5,-6) ;
+      \node[fill=red,inner sep=1pt,shape=circle] (V) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<7>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red,rotate=-90] (0,0) parabola (5,-6) ;
+      \draw[red,rotate=-90] (0,0) parabola (-5,-6) ;
+      \node[fill=red,inner sep=1pt,shape=circle] (V) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<8>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red,nearly transparent,rotate=-90] (0,0) parabola (5,-6) ;
+      \draw[red,rotate=-90] (0,0) parabola (-5,-6) ;
+      \node[fill=red,inner sep=1pt,shape=circle] (V) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<9>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red,rotate=-90] (0,0) parabola (5,-6) ;
+      \draw[red,nearly transparent,rotate=-90] (0,0) parabola (-5,-6) ;
+      \node[fill=red,inner sep=1pt,shape=circle] (V) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<10>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red,rotate=-90] (0,0) parabola (5,-6) ;
+      \draw[red,rotate=-90] (0,0) parabola (-5,-6) ;
+      \node[fill=red,inner sep=1pt,shape=circle] (V) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<11>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red,rotate=-90] (0,0) parabola (-8,-6) ;
+      \draw[red,rotate=-90] (0,0) parabola (8,-6) ;
+      \node[fill=red,inner sep=1pt,shape=circle] (V) at (0,0) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (P) at (-1.5,4) {} ;
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Intersection between Line and Parabola}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item We will need to graph lines and parabolas on the same graph.
+  \item When we do that we should find their intersection points.
+  \item Suppose our line is $y=2-x$ and our parabola is $y=x^2$
+  \item Eliminate $y$: $2-x=x^2$
+  \item Solve: $x^2+x-2=0$ implies $(x+2)(x-1)=0$ so $x=-2$ or $x=1$
+  \item Use $y=2-x$ to figure out the corresponding $y$-values: $y=4$
+    or $y=1$
+  \item The intersections are $(-2,4)$ and $(1,1)$
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1-2>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<3-6>{ % Maybe add lines to show determination of x-val, just
+              % show line not parabola to show det. of y-val
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (-6,8)--(6,-4) ;
+      \draw[red] (0,0) parabola ({sqrt(10)},10) ;
+      \draw[red] (0,0) parabola ({-sqrt(10)},10) ;
+    \end{tikzpicture}
+  }
+  \only<7->{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (-6,8)--(6,-4) ;
+      \draw[red] (0,0) parabola ({sqrt(10)},10) ;
+      \draw[red] (0,0) parabola ({-sqrt(10)},10) ;
+      \node[fill=red,inner sep=1pt,shape=circle,label={[red]86:$(-2,4)$}] %
+      (A) at (-2,4) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle,label={[red]0:$(1,1)$}] %
+      (B) at (1,1) {} ;
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+
+\subsection{Ellipses and Hyperbolas}
+
+\begin{frame}
+  \frametitle{Ellipses Centered at $(0,0)$}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item<1-> An ellipse is a ``flattened circle''.
+  \item<2-> Start with a unit circle centered at $(0,0)$:
+    \begin{equation*}
+      x^2 + y^2 = 1
+    \end{equation*}
+  \item<3-> Scale the $x$ and $y$ variables separately:
+    \begin{equation*}
+      \left(\frac{x}{a}\right)^2 + \left(\frac{y}{b}\right)^2 = 1
+    \end{equation*}
+  \item<6-> The equation is usually written 
+    \begin{equation*}
+      \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+    \end{equation*}
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<2-3>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) ellipse (1 and 1) ;
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) ellipse (4.75 and 1) ;
+    \end{tikzpicture}
+  }
+  \only<5->{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) ellipse (4.75 and 7.25) ;
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Intercepts of an Ellipse}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item<1-> Recall the equation of an ellipse in standard position
+    (centered at the origin):
+    \begin{equation*}
+      \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+    \end{equation*}
+  \item<2-> If $x=0$, we get $y^2=b^2 \implies y=\pm b$
+  \item<3-> So the $y$-intercepts are $(0,-b)$ and $(0,b)$
+  \item<4-> Similarly the $x$-intercepts are $(-a,0)$ and $(a,0)$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  % EJD: graphs
+  \only<1-2>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) ellipse (4.75 and 7.25) ;
+    \end{tikzpicture}
+  }
+  \only<3>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) ellipse (4.75 and 7.25) ;
+      \node[fill=red,inner sep=1pt,shape=circle,label={[red]270:$(0,-b)$}] %
+      (I1) at (0,-7.25) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle,label={[red]90:$(0,b)$}] %
+      (I2) at (0,7.25) {} ;
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) ellipse (4.75 and 7.25) ;
+      \node[fill=red,inner sep=1pt,shape=circle,label={[red]270:$(0,-b)$}] %
+      (I1) at (0,-7.25) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle,label={[red]90:$(0,b)$}] %
+      (I2) at (0,7.25) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle,label={[red]45:$(-a,0)$}] %
+      (I3) at (-4.75,0) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle,label={[red]135:$(a,0)$}] %
+      (I4) at (4.75,0) {} ;
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: $9x^2+16y^2=144$}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item<1-> Consider the ellipse given by
+    \begin{equation*}
+      9x^2 + 16y^2 = 144
+    \end{equation*}
+  \item<2-> Dividing through by $144$ we have
+    \begin{equation*}
+      \frac{x^2}{16} + \frac{y^2}{9} = 1
+    \end{equation*}
+  \item<3-> By the method previous slide, the intercepts are $(0,-3)$,
+    $(0,3)$, $(-4,0)$, $(4,0)$
+  \item<4-> We can now draw a rough graph of the ellipse.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1-2>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,label=225:$O$] (O) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<3>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,label=225:$O$] (O) at (0,0) {} ;
+      %\draw[red] (0,0) ellipse (4 and 3) ;
+      \node[fill=red,inner sep=1pt] (I1) at (-4,0) {} ;
+      \node[fill=red,inner sep=1pt] (I2) at (4,0) {} ;
+      \node[fill=red,inner sep=1pt] (I3) at (0,-3) {} ;
+      \node[fill=red,inner sep=1pt] (I4) at (0,3) {} ;
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,label=225:$O$] (O) at (0,0) {} ;
+      \draw[red] (0,0) ellipse (4 and 3) ;
+      \node[fill=red,inner sep=1pt] (I1) at (-4,0) {} ;
+      \node[fill=red,inner sep=1pt] (I2) at (4,0) {} ;
+      \node[fill=red,inner sep=1pt] (I3) at (0,-3) {} ;
+      \node[fill=red,inner sep=1pt] (I4) at (0,3) {} ;
+    \end{tikzpicture}
+  } % EJD: show cancellation in fractions
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hyperbola in Standard Position}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item The equation of a hyperbola is obtained from an ellipse by
+    changing $+$ to $-$:
+    \begin{equation*}
+      \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1
+    \end{equation*}
+  \item A hyperbola looks very different from an ellipse.
+  \item We get a different hyperbola if we put the $-$ in front of $x$
+    and $+$ in front of $y$:
+    \begin{equation*}
+      -\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+    \end{equation*}
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<2>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[color=red,domain=1:6] plot[id=hyp1] function{1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6] plot[id=hyp2] function{-1*sqrt((x/1)**2-1)};
+      % EJD: these two plots are buggy, go through (0,0)
+      %\draw[color=red,domain=-6:-1] plot[id=hyp3] 
+      %function{1*sqrt((x/1)**2-1)};
+      %\draw[color=red,domain=-6:-1] plot[id=hyp4] 
+      %function{-1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6,rotate=180] plot[id=hyp3] 
+      function{1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6,rotate=180] plot[id=hyp4] 
+      function{-1*sqrt((x/1)**2-1)};
+    \end{tikzpicture}
+  }
+  \only<3>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red,domain=-6:6] plot[id=hyp5] 
+      function{-1*sqrt((x/1)**2+1)};
+      \draw[red,domain=-6:6] plot[id=hyp6] 
+      function{1*sqrt((x/1)**2+1)};
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Intercepts of a Hyperbola}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Unlike an ellipse in standard position, a hyperbola in
+    standard position only has two intercepts.
+  \item If we set $x=0$ we get $-y^2/b^2 = 1$ which is impossible
+    since the LHS is negative and the RHS is positive.
+  \item If we set $y=0$ we get $x^2/a^2=1$ which has two solutions,
+    $x=-a$ and $x=a$.
+  \item The hyperbola in standard position has two intercepts,
+    $(-a,0)$ and $(a,0)$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  % EJD: graphs
+  \only<1-3>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      % EJD: can I re-use plots?  Would that be a good idea?
+      \draw[color=red,domain=1:6] plot[id=hyp11] function{1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6] plot[id=hyp12] function{-1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6,rotate=180] plot[id=hyp13] 
+      function{1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6,rotate=180] plot[id=hyp14] 
+      function{-1*sqrt((x/1)**2-1)};
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[color=red,domain=1:6] plot[id=hyp21] function{1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6] plot[id=hyp22] function{-1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6,rotate=180] plot[id=hyp23] 
+      function{1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6,rotate=180] plot[id=hyp24] 
+      function{-1*sqrt((x/1)**2-1)};
+      \node[fill=red,inner sep=1pt,shape=circle,label={[red]180:$(-a,0)$}] %
+      (I1) at (-1,0) {};
+      \node[fill=red,inner sep=1pt,shape=circle,label={[red]0:$(a,0)$}] %
+      (I2) at (1,0) {};
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: branches? Asymptotes and Branches of a Hyperbola
+\begin{frame}
+  \frametitle{Asymptotes of a Hyperbola}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Unlike an ellipse or a circle or a parabola, a hyperbola has
+    two branches.
+    % EJD: graphs of branches
+  \item<1-> To graph a hyperbola, it helps to first draw its asymptotes.
+  \item<2-> To find the asymptotes, we change the $1$ on the RHS of the
+    equation to a $0$ and factor:
+    \begin{equation*}
+      \frac{x^2}{a^2} - \frac{y^2}{b^2} = 0
+      \implies 
+      \left(\frac{x}{a}+\frac{y}{b}\right)
+      \left(\frac{x}{a}-\frac{y}{b}\right) = 0
+    \end{equation*}
+  \item<3-> That gives us two lines, $x/a + y/b = 0$ and $x/a-y/b = 0$.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1-2>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[color=red,domain=1:6] plot[id=hyp31] function{1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6] plot[id=hyp32] function{-1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6,rotate=180] plot[id=hyp33] 
+      function{1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6,rotate=180] plot[id=hyp34] 
+      function{-1*sqrt((x/1)**2-1)};
+    \end{tikzpicture}
+  }
+  \only<3>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[color=red,domain=1:6] plot[id=hyp41] function{1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6] plot[id=hyp42] function{-1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6,rotate=180] plot[id=hyp43] 
+      function{1*sqrt((x/1)**2-1)};
+      \draw[color=red,domain=1:6,rotate=180] plot[id=hyp44] 
+      function{-1*sqrt((x/1)**2-1)};
+      \draw[blue] (-6,-6)--(6,6);
+      \draw[blue] (-6,6)--(6,-6);
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: $4x^2-9y^2=36$} %EJD: change numbers
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item<1-> For example, graph $4x^2-9y^2=36$
+  \item<2-> Write in standard form by dividing through by $36$:
+    \begin{equation*}
+      \frac{x^2}{9} - \frac{y^2}{4} = 1
+    \end{equation*}
+  \item<3-> The intercepts are $(-3,0)$ and $(3,0)$
+  \item<4-> One asymptote is $x/3+y/2=0$ or $y=-(2/3)x$
+  \item<5-> The other asymptote is $y=(2/3)x$
+  \item<6-> Now graph it in the ``frame'' provided by the
+    asymptotes.  
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1-2>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<3>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (I1) at (-3,0) {};
+      \node[fill=red,inner sep=1pt,shape=circle] (I2) at (3,0) {};
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (I1) at (-3,0) {};
+      \node[fill=red,inner sep=1pt,shape=circle] (I2) at (3,0) {};
+      \draw[blue] (-6,4)--(6,-4);
+    \end{tikzpicture}
+  }
+  \only<5>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (I1) at (-3,0) {};
+      \node[fill=red,inner sep=1pt,shape=circle] (I2) at (3,0) {};
+      \draw[blue] (-6,4)--(6,-4);
+      \draw[blue] (-6,-4)--(6,4);
+    \end{tikzpicture}
+  }
+  \only<6->{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \node[fill=red,inner sep=1pt,shape=circle] (I1) at (-3,0) {};
+      \node[fill=red,inner sep=1pt,shape=circle] (I2) at (3,0) {};
+      \draw[blue] (-6,4)--(6,-4);
+      \draw[blue] (-6,-4)--(6,4);
+      \draw[color=red,domain=3:6] plot[id=hyp51] function{2*sqrt((x/3)**2-1)};
+      \draw[color=red,domain=3:6] plot[id=hyp52] function{-2*sqrt((x/3)**2-1)};
+      \draw[color=red,domain=3:6,rotate=180] plot[id=hyp53] 
+      function{2*sqrt((x/3)**2-1)};
+      \draw[color=red,domain=3:6,rotate=180] plot[id=hyp54] 
+      function{-2*sqrt((x/3)**2-1)};
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+
+\subsection{Shifting Conics}
+
+\begin{frame}
+  \frametitle{Shifing Parabolas}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item We start with a parabola in standard position: $y=2x^2$
+  \item To shift the vertex two units to the right and one unit up, we
+    \textit{subtract} $2$ from $x$ and $1$ from $y$ in the equation:
+    $(y-1) = 2(x-2)^2$
+  \item We can simplify the previous equation:
+    $y-1 = 2(x^2-4x+4) \implies y = 2x^2-8x+9$
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) parabola ({sqrt(5)},10);
+      \draw[red] (0,0) parabola ({-sqrt(5)},10);
+    \end{tikzpicture}
+  }
+  \only<2->{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \clip (-6,-10)--(6,-10)--(6,10)--(-6,10)--cycle;
+      \draw[red,shift={(2,1)}] (0,0) parabola ({sqrt(5)},10);
+      \draw[red,shift={(2,1)}] (0,0) parabola ({-sqrt(5)},10);
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+% EJD: what about shifting down, to the left?
+\begin{frame}
+  \frametitle{Completing the Square}
+  \begin{columns}
+  \column{0.65\textwidth}
+  \begin{itemize}[<+->]
+  \item Conversely, given an equation like $y=2x^2-8x+9$ we can
+    reverse those steps to put it in standard form.
+  \item Completing the square: $y=2(x^2-4x) + 9 \implies
+    y=2(x^2-4x+4-4)+9
+    \implies y=2(x^2-4x+4) - 8 + 9$
+  \item Finally, we have
+    \begin{equation*}
+      y - 1 = 2(x-2)^2
+    \end{equation*}
+  \item To graph it, we start with $y=2x^2$ 
+  \item Then shift it $1$ unit up and $2$ units to the right.
+  \end{itemize}
+  \column{0.35\textwidth}
+  \only<1-3>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+    \end{tikzpicture}
+  }
+  \only<4>{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red] (0,0) parabola ({sqrt(5)},10);
+      \draw[red] (0,0) parabola ({-sqrt(5)},10);
+      %\clip (-6,-10)--(6,-10)--(6,10)--(-6,10)--cycle;
+      %\draw[red,shift={(2,1)}] (0,0) parabola ({sqrt(5)},10);
+      %\draw[red,shift={(2,1)}] (0,0) parabola ({-sqrt(5)},10);
+    \end{tikzpicture}
+  }
+  \only<5->{ %
+    \centering
+    \begin{tikzpicture}[scale=0.29]
+      \draw[very thin, lightgray] (-6,-10) grid (6,10) ;
+      \draw[thin,->] (-6,0)--(6,0) node[above]{$x$} ;
+      \draw[thin,->] (0,-10)--(0,10) node[left]{$y$} ;
+      \node[fill=black,inner sep=1pt,shape=circle,label=225:$O$] %
+      (O) at (0,0) {} ;
+      \draw[red,nearly transparent] (0,0) parabola ({sqrt(5)},10);
+      \draw[red,nearly transparent] (0,0) parabola ({-sqrt(5)},10);
+      \clip (-6,-10)--(6,-10)--(6,10)--(-6,10)--cycle;
+      \draw[red,shift={(2,1)}] (0,0) parabola ({sqrt(5)},10);
+      \draw[red,shift={(2,1)}] (0,0) parabola ({-sqrt(5)},10);
+    \end{tikzpicture}
+  }
+  \end{columns}
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Example: $x^2-y^2-4x+3=0$}
+%%   \begin{columns}
+%%   \column{0.65\textwidth}
+%%   \begin{itemize}[<+->]
+%%   \item X
+%%   \end{itemize}
+%%   \column{0.35\textwidth}
+%%   \end{columns}
+%% \end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Example: $16x^2+9y^2-36y=108$}
+%%   \begin{columns}
+%%   \column{0.65\textwidth}
+%%   \begin{itemize}[<+->]
+%%   \item X
+%%   \end{itemize}
+%%   \column{0.35\textwidth}
+%%   \end{columns}
+%% \end{frame}
+
+\end{document}
+

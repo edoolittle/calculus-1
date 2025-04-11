@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Review of Algebra}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Arithmetic Operations}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Factoring and Quadratics}{76}{0}{1}
+\beamer@subsectionintoc {1}{3}{Exponents and the Binomial Theorem}{135}{0}{1}

@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Graphs of Second-Degree Equations}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Circles}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Parabolas}{19}{0}{1}
+\beamer@subsectionintoc {1}{3}{Ellipses and Hyperbolas}{52}{0}{1}
+\beamer@subsectionintoc {1}{4}{Shifting Conics}{82}{0}{1}

@@ -1,0 +1,772 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass[serif,ignorenonframetext]{beamer}
+
+\input{../common.tex}
+
+\usepackage{mathptmx}
+\usepackage{multirow}
+\usepackage{tikz}
+
+\newcommand{\ds}{\displaystyle}
+
+\mode<article>{}
+\mode<presentation>{\usetheme{\commonTheme}\usecolortheme{\commonColorTheme}}
+
+\title{\commonTitleZeroZeroB}
+\subtitle{\commonSubtitleZeroZeroB}
+\author{\commonAuthor}
+\institute{\commonInstitute}
+\date{\commonDateZeroZeroB}
+
+\begin{document}
+
+%\section*{Outline}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Coordinate Geometry and Lines}
+
+\subsection{The Cartesian Coordinate System}
+
+% EJD: graphics bounce around
+\begin{frame}
+  \frametitle{Cartesian Coordinates}
+  \begin{columns}
+    \column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item<1-> The big idea of Cartesian coordinates is using a pair of
+      numbers to locate points on the plane.
+    \item<2-> We start with two perpendicular lines called ``axes'',
+      through an ``origin'' $O$.
+    \item<3-> Given a point on the plane ...
+    \item<4-> we measure the distance to the vertical axis ...
+    \item<5-> and to the horizontal axis ...
+    \item<6-> which become the $(x,y)$ coordinates of the point.
+    \end{itemize}
+    \column{0.35\textwidth}
+    \only<1>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid
+        %(1.75,1.75); 
+        \draw[->,transparent] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ; 
+        \draw[->,transparent] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black,transparent] (0,0) circle (0.05)
+          node[below left] {$O$} ; 
+        \draw[color=red,fill=red,transparent] (0.75,1.25) circle (0.05) node[right] {$P$} ;
+        \draw[<->,very thin,color=red,transparent] (0,1.25) -- (0.75,1.25);
+        \draw[<->,very thin,color=red,transparent] (0.75,0) -- (0.75,1.25);
+      \end{tikzpicture}%
+    }
+    \only<2>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+          node[below left] {$O$} ; 
+        \draw[color=red,fill=red,transparent] (0.75,1.25) circle (0.05) node[right] {$P$} ;
+        \draw[<->,very thin,color=red,transparent] (0,1.25) -- (0.75,1.25);
+        \draw[<->,very thin,color=red,transparent] (0.75,0) -- (0.75,1.25);
+      \end{tikzpicture}%
+    }
+    \only<3>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+          node[below left] {$O$} ; 
+        \draw[color=red,fill=red] (0.75,1.25) circle (0.05) node[right] {$P$} ;
+        \draw[<->,very thin,color=red,transparent] (0,1.25) -- (0.75,1.25);
+        \draw[<->,very thin,color=red,transparent] (0.75,0) -- (0.75,1.25);
+      \end{tikzpicture}%
+    }
+    \only<4>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+          node[below left] {$O$} ; 
+        \draw[color=red,fill=red] (0.75,1.25) circle (0.05) node[right] {$P$} ;
+        \draw[<->,very thin,color=red] (0,1.25) -- (0.75,1.25);
+        \draw[<->,very thin,color=red,transparent] (0.75,0) -- (0.75,1.25);
+      \end{tikzpicture}%
+    }
+    \only<5>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+          node[below left] {$O$} ; 
+        \draw[color=red,fill=red] (0.75,1.25) circle (0.05) node[right] {$P$} ;
+        \draw[<->,very thin,color=red] (0,1.25) -- (0.75,1.25)
+          node[above,midway]{$x$} ;
+        \draw[<->,very thin,color=red] (0.75,0) -- (0.75,1.25)
+          node[right,midway]{$y$} ;
+      \end{tikzpicture}%
+    }
+    \only<6>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+          node[below left] {$O$} ; 
+        \draw[color=red,fill=red] (0.75,1.25) circle (0.05) 
+          node[right] {$P(x,y)$} ;
+        \draw[<->,very thin,color=red] (0,1.25) -- (0.75,1.25)
+          node[above,midway]{$x$} ;
+        \draw[<->,very thin,color=red] (0.75,0) -- (0.75,1.25)
+        node[right,midway]{$y$} ;
+      \end{tikzpicture}%
+    }
+  \end{columns}
+\end{frame}
+
+% EJD: diagrams bounce around
+% EJD: get labels on diagrams of quadrants!!
+\begin{frame}
+  \frametitle{Regions in the Cartesian Plane}
+  \begin{columns}
+    \column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item<1-> Each of the following four regions is called a
+      \textit{half plane}: \only<2>{$x>0$}\only<3>{$x<0$}\only<4>{$y>0$}\only<5->{$y<0$} 
+    \item<6-> Note that each half plane has a description in terms of
+      inequalities. 
+      % EJD: any space at all between the ``onlys'' seems to be cumulative
+    \item<7-> Each of the following four ``quarter planes'' is called a
+      \textit{quadrant}: \only<8>{quadrant I: $x>0,y>0$}\only<9>{quadrant II: $x<0,y>0$}\only<10>{quadrant III: $x<0,y<0$}\only<11->{quadrant IV: $x>0,y<0$} 
+    \item<12-> Note that each quadrant has a name (I, II, III, IV)
+      and a description in terms of inequalities.
+    \item<13-> Other regions in the plane can be described by more
+      complicated inequalities.
+    \end{itemize}
+    \column{0.35\textwidth}
+    \only<1>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        %\draw[fill=yellow,transparent]
+        %(0,-1.75)--(0,1.75)--(1.75,1.75)--(1.75,-1.75)--cycle ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+        node[below left] {$O$} ; 
+      \end{tikzpicture}%
+    }
+    \only<2>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[fill=yellow,nearly transparent]
+        (0,-1.75)--(0,1.75)--(1.75,1.75)--(1.75,-1.75)--cycle ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+        node[below left] {$O$} ; 
+      \end{tikzpicture}%
+    }
+    \only<3>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[fill=yellow,nearly transparent]
+        (0,-1.75)--(0,1.75)--(-1.75,1.75)--(-1.75,-1.75)--cycle ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+        node[below left] {$O$} ; 
+      \end{tikzpicture}%
+    }
+    \only<4>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[fill=yellow,nearly transparent]
+        (-1.75,0)--(1.75,0)--(1.75,1.75)--(-1.75,1.75)--cycle ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+        node[below left] {$O$} ; 
+      \end{tikzpicture}%
+    }
+    \only<5-6>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[fill=yellow,nearly transparent]
+        (-1.75,0)--(1.75,0)--(1.75,-1.75)--(-1.75,-1.75)--cycle ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+        node[below left] {$O$} ; 
+      \end{tikzpicture}%
+    }
+    \only<7>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        %\draw[fill=yellow,nearly transparent]
+        %(0,0)--(0,1.75)--(1.75,1.75)--(1.75,0)--cycle ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+        node[below left] {$O$} ; 
+      \end{tikzpicture}%
+    }
+    \only<8>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[fill=yellow,nearly transparent]
+        (0,0)--(0,1.75)--(1.75,1.75)--(1.75,0)--cycle ;
+        %\draw (-1.75/2,-1.75/2) node {$II$} ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+        node[below left] {$O$} ; 
+      \end{tikzpicture}%
+    }
+    \only<9>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[fill=yellow,nearly transparent]
+        (0,0)--(0,1.75)--(-1.75,1.75)--(-1.75,0)--cycle ;
+        %\draw (-1.75/2,-1.75/2) node {$II$} ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+        node[below left] {$O$} ; 
+      \end{tikzpicture}%
+    }
+    \only<10>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[fill=yellow,nearly transparent]
+        (0,0)--(-1.75,0)--(-1.75,-1.75)--(-1.75,0)--cycle ;
+        % EJD: grr (-0.825,-0.825) node {III} ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+        node[below left] {$O$} ; 
+      \end{tikzpicture}%
+    }
+    \only<11->{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[fill=yellow,nearly transparent]
+        (0,0)--(0,-1.75)--(1.75,-1.75)--(1.75,0)--cycle ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+        node[below left] {$O$} ; 
+      \end{tikzpicture}%
+    }
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Distance in the Cartesian Plane}
+  \begin{columns}
+    \column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item<1-> Consider two points $P(x_1,y_1)$ and $Q(x_2,y_2)$ 
+      in the Cartesian plane.
+    \item<2-> We would like to find the distance between them.
+    \item<3-> We add a ``construction point'' beside $P$ and below
+      $Q$.
+    \item<4-> We can easily find the distances from the $P$ to the
+      construction point and from $Q$ to the construction point.
+    \item<5-> We then use the Pythagorean Theorem to find the distance
+      between $P$ and $Q$.
+    \item<6-> The distance is $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$
+    \end{itemize}
+    \column{0.35\textwidth}
+    \only<1-2>{%
+      \begin{tikzpicture}
+        %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+        \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+        \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+        \draw[color=black,fill=black] (0,0) circle (0.05)
+        node[below left] {$O$} ; 
+        \draw[color=red,fill=red] (-1.25,-1.25) circle (0.05)
+        node[above right] {$P(x_1,y_1)$} ;
+        \draw[color=red,fill=red] (1.25,1.00) circle (0.05) node[above left] {$Q(x_2,y_2)$} ;
+      \end{tikzpicture}%
+    }
+    \only<3>{%
+       \begin{tikzpicture}
+    %%     %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[color=red,fill=red] (-1.25,-1.25) circle (0.05)
+         node[above right] {$P(x_1,y_1)$} ;
+         \draw[color=red,fill=red] (1.25,1.00) circle (0.05) node[above left] {$Q(x_2,y_2)$} ;
+         \draw[color=red,fill=red] (1.25,-1.25) circle (0.05) ;
+       \end{tikzpicture}%
+    }
+    \only<4>{%
+       \begin{tikzpicture}
+    %%     %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[color=red,fill=red] (-1.25,-1.25) circle (0.05) node[above right] {$P(x_1,y_1)$} ;
+         \draw[color=red,fill=red] (1.25,1.00) circle (0.05) node[above left] {$Q(x_2,y_2)$} ;
+         \draw[color=red,fill=red] (1.25,-1.25) circle (0.05) ;
+         \draw[color=red] (-1.25,-1.25)--(1.25,-1.25) node[midway,below] {$x_2-x_1$} ;
+         \draw[color=red] (1.25,1.00)--(1.25,-1.25) node[midway,left] {$y_2-y_1$} ;
+       \end{tikzpicture}%
+    }
+    \only<5->{%
+       \begin{tikzpicture}
+    %%     %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[color=red,fill=red] (-1.25,-1.25) circle (0.05) node[above right] {$P(x_1,y_1)$} ;
+         \draw[color=red,fill=red] (1.25,1.00) circle (0.05) node[above left] {$Q(x_2,y_2)$} ;
+         \draw[color=red,fill=red] (1.25,-1.25) circle (0.05) ;
+         \draw[color=red] (-1.25,-1.25)--(1.25,-1.25) node[midway,below] {$x_2-x_1$} ;
+         \draw[color=red] (1.25,1.00)--(1.25,-1.25) node[midway,left] {$y_2-y_1$} ;
+         \draw[color=red] (-1.25,-1.25)--(1.25,1.00) ;
+       \end{tikzpicture}%
+    }
+  \end{columns}
+\end{frame}
+
+
+\subsection{Lines}
+
+% EJD: graph of the meaning of the slopes?
+% EJD: slope as rise/run?
+\begin{frame}
+  \frametitle{The Slope of a Line}
+  \begin{columns}
+    \column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item Take any line on the plane.
+    \item Pick two points on the line, $P(x_1,y_1)$ and $Q(x_2,y_2)$.
+    \item As before, we find the construction point $R(x_2,y_1)$.
+    \item Find the distance from $P$ to $R$, namely $x_2-x_1$
+      and from $Q$ to $R$, namely $y_2-y_1$
+    \item This time, we calculate their ratio:
+      $\ds m = \frac{y_2-y_1}{x_2-x_1}$
+    \item By similar triangles, that quantity depends only on the
+      line.
+    \item We call $m$ the \textit{slope} of the line.
+    \end{itemize}
+    \column{0.35\textwidth}
+    \only<1>{
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         %\draw[color=red,fill=red] (-1.25,-1.25) circle (0.05) node[above right] {$P(x_1,y_1)$} ;
+         %\draw[color=red,fill=red] (1.25,1.00) circle (0.05) node[above left] {$Q(x_2,y_2)$} ;
+         %\draw[color=red,fill=red] (1.25,-1.25) circle (0.05) ;
+         %\draw[color=red] (-1.25,-1.25)--(1.25,-1.25) node[midway,below] {$x_2-x_1$} ;
+         %\draw[color=red] (1.25,1.00)--(1.25,-1.25) node[midway,left] {$y_2-y_1$} ;
+         \draw[color=red] (-1.25,-1.25)--(1.25,1.00) ;
+       \end{tikzpicture}%
+    }
+    \only<2>{
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[color=red,fill=red] (-1.25,-1.25) circle (0.05) node[above right] {$P(x_1,y_1)$} ;
+         \draw[color=red,fill=red] (1.25,1.00) circle (0.05) node[above left] {$Q(x_2,y_2)$} ;
+         %\draw[color=red,fill=red] (1.25,-1.25) circle (0.05) ;
+         %\draw[color=red] (-1.25,-1.25)--(1.25,-1.25) node[midway,below] {$x_2-x_1$} ;
+         %\draw[color=red] (1.25,1.00)--(1.25,-1.25) node[midway,left] {$y_2-y_1$} ;
+         \draw[color=red] (-1.25,-1.25)--(1.25,1.00) ;
+       \end{tikzpicture}%
+    }
+    \only<3>{
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[color=red,fill=red] (-1.25,-1.25) circle (0.05) node[above right] {$P(x_1,y_1)$} ;
+         \draw[color=red,fill=red] (1.25,1.00) circle (0.05) node[above left] {$Q(x_2,y_2)$} ;
+         \draw[color=red,fill=red] (1.25,-1.25) circle (0.05) ;
+         %\draw[color=red] (-1.25,-1.25)--(1.25,-1.25) node[midway,below] {$x_2-x_1$} ;
+         %\draw[color=red] (1.25,1.00)--(1.25,-1.25) node[midway,left] {$y_2-y_1$} ;
+         \draw[color=red] (-1.25,-1.25)--(1.25,1.00) ;
+       \end{tikzpicture}%
+    }
+    \only<4>{
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[color=red,fill=red] (-1.25,-1.25) circle (0.05) node[above right] {$P(x_1,y_1)$} ;
+         \draw[color=red,fill=red] (1.25,1.00) circle (0.05) node[above left] {$Q(x_2,y_2)$} ;
+         \draw[color=red,fill=red] (1.25,-1.25) circle (0.05) ;
+         \draw[color=red] (-1.25,-1.25)--(1.25,-1.25) node[midway,below] {$x_2-x_1$} ;
+         \draw[color=red] (1.25,1.00)--(1.25,-1.25) node[midway,left] {$y_2-y_1$} ;
+         \draw[color=red] (-1.25,-1.25)--(1.25,1.00) ;
+       \end{tikzpicture}%
+    }
+    \only<5->{
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[color=red,fill=red] (-1.25,-1.25) circle (0.05) node[above right] {$P(x_1,y_1)$} ;
+         \draw[color=red,fill=red] (1.25,1.00) circle (0.05) node[above left] {$Q(x_2,y_2)$} ;
+         \draw[color=red,fill=red] (1.25,-1.25) circle (0.05) ;
+         \draw[color=red] (-1.25,-1.25)--(1.25,-1.25) node[midway,below] {$x_2-x_1$} ;
+         \draw[color=red] (1.25,1.00)--(1.25,-1.25) node[midway,left] {$y_2-y_1$} ;
+         \draw[color=red] (-1.25,-1.25)--(1.25,1.00) ;
+       \end{tikzpicture}%
+    }
+  \end{columns}
+  % EJD: tidy up those diagrams ... use variables for P and Q
+  % and stop it from jiggling!!
+\end{frame}
+
+% EJD: diagrams?
+\begin{frame}
+  \frametitle{Point-Slope Equation of a Line}
+  \begin{columns}
+    \column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item Given a point $P$ and a point $Q$ on a line, we can figure
+      out its slope $m$.
+    \item On the other hand, given a point $P$ and the slope $m$, can
+      we figure out \textit{all} the points $Q(x,y)$ that lie on the line?
+    \item Yes, we just solve:
+      \begin{equation*}
+        m = \frac{y-y_1}{x-x_1} \implies y-y_1 = m(x-x_1)
+      \end{equation*}
+    \item That is the \textit{point-slope} form of the equation of a line.
+    \end{itemize}
+    \column{0.35\textwidth}
+  \end{columns}
+\end{frame}
+
+% EJD: diagrms?
+\begin{frame}
+  \frametitle{Slope-Intercept Equation of a Line}
+  \begin{columns}
+    \column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item A special case of the point-slope form of the equation of a
+      line occurs when $P$ is a point on the $y$-axis.
+    \item Such a point $P$ is called the \textit{$y$-intercept} of the
+      line.
+    \item In that case, $P(x_1,y_1)$ has the form $P(0,b)$.
+    \item The equation of the line becomes
+      \begin{equation*}
+        y-b = m(x-0) \implies y=mx+b
+      \end{equation*}
+    \item We call that the \textit{slope-intercept} form of the
+      equation of a line.
+    \end{itemize}
+    \column{0.35\textwidth}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Horizontal and Vertical Lines}
+  \begin{columns}
+    \column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item The previous discussion holds for horizontal lines.
+    \item In the case of a horizontal line, the slope is $m=0$.
+    \item So the equation of a horizontal line is $y-y_1=0$
+      (point-slope form) or $y=b$ (slope-intercept form).
+    \item On the other hand, the slope of a vertical line is undefined
+      (division by $0$).
+    \item However, by analogy with the previous case, we can write an
+      equation for a vertical line: $x=a$
+    \end{itemize}
+    \column{0.35\textwidth}
+    \only<1-3>{ % horizontal line
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[red] (-1.75,0.75)--(1.75,0.75);
+      \end{tikzpicture}
+    }
+    \only<4-5>{ % vertical line
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[red] (0.75,-1.75)--(0.75,1.75);
+      \end{tikzpicture}
+    }
+  \end{columns}
+\end{frame}
+
+% EJD: diagrams?
+\begin{frame}
+  \frametitle{The General Equation of a Line}
+  %\begin{columns}
+    %\column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item Sometimes we want an equation for a line that works for all
+      lines, even vertical.
+    \item The \textit{general equation of a line} $Ax+By+C=0$ works.
+    \item We must have $A\ne 0$ or $B\ne 0$.  What happens if both $A=B=0$?
+    \item Given point-slope form we can solve for general form:
+      \begin{equation*}
+        y-y_1 = m(x-x_1) \implies -mx + 1y + (mx_1-y_1) = 0
+      \end{equation*}
+    \item Given general form, with $B\ne 0$, we can solve for
+      slope-intercept form:
+      \begin{equation*}
+        % EJD: highlight m and b
+        Ax + By + C=0 \implies y = -\frac{A}{B} x - \frac{C}{B}
+      \end{equation*}
+    \item Given general form, with $B=0$, we can solve for
+      vertical form:
+      \begin{equation*}
+        Ax + 0y + C = 0 \implies x = -\frac{C}{A}
+      \end{equation*}
+    \end{itemize}
+    %\column{0.35\textwidth}
+  %\end{columns}
+\end{frame}
+
+% EJD: diagrams
+% EJD: highlight numbers that go into forming points
+\begin{frame}
+  \frametitle{Graphing Lines}
+  \begin{columns}
+    \column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item To graph a line, 1) solve for $y$ then 2)
+      substitute two different numbers for $x$ to get two points on
+      the line.
+    \item For example, consider $3x-2y=2$
+    \item We solve for $y$: $y=(3/2)x-1$
+    \item Choosing $x=0$ we get $y=(1/2)(0) - 1 = -1$ so
+      $(0,-1)$ is a point on the line.
+    \item Choosing $x=1$ we get $y=(3/2)(1) - 1 = 1/2$ so $(1,1/2)$ is
+      a point on the line.
+    \item Graph those points then draw a line through them.
+    \end{itemize}
+    \column{0.35\textwidth}
+    \only<1-3>{ %
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+      \end{tikzpicture}
+    }
+    \only<4>{ %
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[fill=red] (0,-1) circle (0.05);
+      \end{tikzpicture}
+    }
+    \only<5>{ %
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[fill=red] (0,-1) circle (0.05);
+         \draw[fill=red] (1,0.5) circle (0.05);
+      \end{tikzpicture}
+    }
+    \only<6>{ %
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[fill=red] (0,-1) circle (0.05);
+         \draw[fill=red] (1,1/2) circle (0.05);
+         \draw[color=red] (-0.5,-1.75)--(1.75,1.625);
+      \end{tikzpicture}
+    }
+  \end{columns}
+\end{frame}
+
+% EJD: two examples, one with $\ge$ and one with $>$
+\begin{frame}
+  \frametitle{Graphing Linear Inequalities}
+  \begin{columns}
+    \column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item We follow a similar pattern to graph a linear inequality.
+    \item Consider $3x-2y>2$
+    \item Solve for $y$: $y<(3/2)x-1$
+    \item Note the change in direction of the inequality!
+    \item The $<$ means the line itself is not included in the graph,
+      so we draw a dashed line.
+    \item The $<$ also means we take all points below the line.
+    \end{itemize}
+    \column{0.35\textwidth}
+    \only<1-4>{ %
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         %\draw[fill=red] (0,-1) circle (0.05);
+         %\draw[fill=red] (1,1/2) circle (0.05);
+         %\draw[color=red] (-0.5,-1.75)--(1.75,1.625);
+      \end{tikzpicture}
+    }
+    \only<5>{ %
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         %\draw[fill=red] (0,-1) circle (0.05);
+         %\draw[fill=red] (1,1/2) circle (0.05);
+         \draw[color=red,dashed] (-0.5,-1.75)--(1.75,1.625);
+      \end{tikzpicture}
+    }
+    \only<6>{ %
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         %\draw[fill=red] (0,-1) circle (0.05);
+         %\draw[fill=red] (1,1/2) circle (0.05);
+         \draw[color=red] (-0.5,-1.75)--(1.75,1.625);
+         \draw[fill=red,very nearly transparent] (-0.5,-1.75) -- (1.75,-1.75) %
+         -- (1.75,1.625) -- cycle;
+      \end{tikzpicture}
+    }
+  \end{columns}
+\end{frame}
+
+
+\subsection{Relationships Between Lines}
+
+% EJD: diagrams
+\begin{frame}
+  \frametitle{Parallel and Perpendicular Lines}
+  \begin{columns}
+    \column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item Sometimes we need to deal with two lines
+      \begin{equation*}
+        \mbox{$y = m_1 x + b_1$ \quad and \quad $y = m_2 x + b_2$}
+      \end{equation*}
+    \item We would like to detect relationships between them.
+    \item They are parallel iff slopes are the same:
+      \begin{equation*}
+        \mbox{parallel} \Leftrightarrow m_1=m_2
+      \end{equation*}
+    \item They are perpendicular iff slopes are negative reciprocal:
+      \begin{equation*}
+        \mbox{perpendicular} \Leftrightarrow m_1 = -1/m_2
+      \end{equation*}
+    \end{itemize}
+    \column{0.35\textwidth}
+    \only<3>{ %
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[color=red] (-1.75,-1.00)--(1.75,0.5);
+         \draw[color=red] (-1.75,-0.25)--(1.75,1.25);
+      \end{tikzpicture}
+    }
+    \only<4>{ %
+      \begin{tikzpicture}
+         %\draw[very thin,gray,step=0.5] (-1.75,-1.75) grid (1.75,1.75) ;
+         \draw[->] (-1.75,0) -- (1.75,0) ; % node[above]{$x$} ;
+         \draw[->] (0,-1.75) -- (0,1.75) ; % node[right]{$y$} ;
+         \draw[color=black,fill=black] (0,0) circle (0.05)
+         node[below left] {$O$} ; 
+         \draw[color=red] (-1.75,-1)--(1.75,0.5);
+         \draw[color=red] (0.25,-1.75)--(-1.25,1.75);
+      \end{tikzpicture}
+    }
+  \end{columns}
+\end{frame}
+
+% EJD: diagrams
+\begin{frame}
+  \frametitle{Parallel Lines}
+  \begin{columns}
+    \column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item Suppose I want to find a line through $(5,3)$
+      that is parallel to $x-2y=2$
+    \item The given line in slope-intercept form is $y=(1/2)x-1$
+      so its slope is $1/2$
+    \item The unknown line is parallel to the given line, so the slope
+      of the unknown line is also $1/2$
+      % EJD: emphasize *also*
+    \item By point-slope form the equation of the unknown line is
+      $y-3=(1/2)(x-5)$
+      % EJD: show again where 3, 5, and 1/2 came from
+    \end{itemize}
+    \column{0.35\textwidth}
+  \end{columns}
+\end{frame}
+
+% EJD: diagrams
+\begin{frame}
+  \frametitle{Perpendicular Lines}
+  \begin{columns}
+    \column{0.65\textwidth}
+    \begin{itemize}[<+->]
+    \item On the other hand suppose I want to find a line through $(5,3)$
+      that is perpendicular to $x-2y=2$
+    \item The given line in slope-intercept form is $y=(1/2)x-1$
+      so its slope is $1/2$
+    \item The unknown line is \textit{perpendicular} to the given
+      line, so the slope of the unknown line is $-1/(1/2)=-2$.
+      % EJD: emphasize *also*
+    \item By point-slope form an equation of the unknown line is
+      $y-3=-2(x-5)$
+      % EJD: show again where 3, 5, and -2 came from
+    \end{itemize}
+    \column{0.35\textwidth}
+  \end{columns}
+\end{frame}
+
+
+\end{document}
+
